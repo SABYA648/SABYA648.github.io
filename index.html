@@ -3,258 +3,358 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CV - Sabyasachi Mishra</title>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <title>Sabyasachi Mishra | AI Product Leader</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* CSS Reset */
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #6c757d;
+      --accent-color: #17a2b8;
+      --bg-color: #f0f8ff;
+      --card-bg: #ffffff;
+      --btn-gradient: linear-gradient(135deg, #007BFF, #17a2b8);
+    }
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui;
     }
-    /* Base Styles */
+    
     body {
-      font-family: 'Calibri', sans-serif;
-      font-size: 11pt;
-      line-height: 1.5;
+      background: var(--bg-color);
       color: #333;
-      background: #f0f8ff; /* Light blue background */
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      position: relative;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    h1, h2, h3, h4, h5, h6 {
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Floating Action Buttons */
+    .action-buttons {
+      position: fixed;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 100;
+    }
+    
+    .action-btn {
+      padding: 15px 25px;
+      background: var(--btn-gradient);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .action-btn:hover {
+      transform: translateX(10px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    .live-badge {
+      background: #FF6B6B;
+      padding: 3px 8px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      margin-left: 10px;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Header Section */
+    .header {
+      text-align: center;
+      padding: 60px 0;
+      margin-bottom: 40px;
+    }
+    
+    .name {
+      font-size: 2.8em;
+      color: var(--primary-color);
       margin-bottom: 10px;
     }
-    a {
-      color: #0077b5;
-      text-decoration: none;
+    
+    .contact-info {
+      font-size: 1em;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
     }
-    a:hover {
-      text-decoration: underline;
+    
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
     }
-    /* Header and Section Styles */
-    .resume-header {
-      text-align: center;
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card h2 {
+      color: var(--primary-color);
       margin-bottom: 20px;
-      border-bottom: 2px solid #666;
       padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-color);
     }
-    .resume-header h1 {
-      font-size: 2.5em;
-      letter-spacing: 1px;
+    
+    .experience-item, .education-item {
+      margin-bottom: 25px;
+    }
+    
+    .experience-item h3, .education-item h3 {
+      color: var(--primary-color);
       margin-bottom: 5px;
     }
-    .contact-info {
+    
+    .date {
+      color: var(--secondary-color);
       font-size: 0.9em;
-      color: #555;
-    }
-    .section {
-      margin-bottom: 20px;
-    }
-    .section-header {
-      border-bottom: 2px solid #666;
       margin-bottom: 10px;
-      padding-bottom: 5px;
-      font-size: 1.3em;
-      font-weight: bold;
-      color: #000;
     }
-    p {
-      margin-bottom: 1em;
-    }
+    
     ul {
       margin: 10px 0;
       padding-left: 20px;
     }
+    
     li {
       margin-bottom: 5px;
     }
-    .job-title {
-      font-weight: bold;
-      font-size: 1.1em;
-      color: #000;
-    }
-    .company {
-      font-size: 1em;
-      color: #555;
-      margin-bottom: 5px;
-    }
-    .period {
-      font-style: italic;
-      color: #777;
-      font-size: 0.95em;
-      margin-bottom: 10px;
-    }
-    .achievement-list {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    /* Social Icons - Fixed Bottom Right */
-    .social-icons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-    .social-icons a {
+    
+    .skill-tag {
       display: inline-block;
-      width: 50px;
-      height: 50px;
-      background-color: #fff;
-      border-radius: 50%;
+      background: var(--accent-color);
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9em;
+      color: white;
+    }
+    
+    .button-group {
       text-align: center;
-      line-height: 50px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+    }
+    
+    .project-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      background: var(--btn-gradient);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
       transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
-    .social-icons a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    
+    .project-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.3);
     }
-    .social-icons a i {
-      font-size: 24px;
-      color: #333;
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .action-buttons {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 20px;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+      }
+      
+      .action-btn {
+        padding: 12px 20px;
+        font-size: 0.9em;
+      }
+      
+      .container {
+        padding: 15px;
+      }
+      
+      .header {
+        padding: 40px 0;
+      }
+      
+      .name {
+        font-size: 2em;
+      }
+      
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Resume Header -->
-  <header class="resume-header">
-    <h1>Sabyasachi Mishra</h1>
-    <div class="contact-info">
-      Tel: 7779884260 | Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a> | 
-      <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank">LinkedIn</a> | 
-      <a href="https://github.com/SABYA648" target="_blank">Github</a>
+  <!-- Floating Action Buttons -->
+  <div class="action-buttons">
+    <button class="action-btn" onclick="window.open('resume.pdf')">
+      <i class="fas fa-download"></i> Download CV
+      <span class="live-badge">PDF</span>
+    </button>
+    <button class="action-btn" onclick="window.open('#projects')">
+      <i class="fas fa-code"></i> Projects
+      <span class="live-badge">LIVE</span>
+    </button>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="name">Sabyasachi Mishra</h1>
+      <div class="contact-info">
+        Tel: 7779884260 | Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a> | 
+        <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/SABYA648" target="_blank">Github</a>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <div class="card">
+      <h2>Professional Summary</h2>
+      <p>
+        Results-driven Product &amp; Business Development Professional with expertise in AI, blockchain, digital transformation, and IT strategy. Proven ability to bridge business &amp; technology, leveraging machine learning, deep learning, and financial modelling to drive data-driven decision-making. Skilled in product lifecycle management, business growth strategy, and IT consulting, with hands-on experience in product development, predictive analytics, and blockchain-based solutions. Adept at leading cross-functional teams, optimizing market strategies, and delivering scalable tech solutions. A dynamic problem-solver, passionate about building and scaling digital products that enhance efficiency and business impact.
+      </p>
     </div>
-  </header>
 
-  <!-- Professional Summary -->
-  <section class="section professional-summary">
-    <div class="section-header">Professional Summary</div>
-    <p>
-      Results-driven Product & Business Development Professional with expertise in AI, blockchain, digital transformation, and IT strategy. Proven ability to bridge business & technology, leveraging machine learning, deep learning, and financial modelling to drive data-driven decision-making. Skilled in product lifecycle management, business growth strategy, and IT consulting, with hands-on experience in product development, predictive analytics, and blockchain-based solutions. Adept at leading cross-functional teams, optimizing market strategies, and delivering scalable tech solutions. A dynamic problem-solver, passionate about building and scaling digital products that enhance efficiency and business impact.
-    </p>
-  </section>
-
-  <!-- Educational Qualifications -->
-  <section class="section education">
-    <div class="section-header">Educational Qualifications</div>
-    <ul>
-      <li><strong>MBA</strong> – IIM Indore, 2023</li>
-      <li><strong>B.Tech, ECE</strong> – BIT MESRA, Ranchi, 2020</li>
-    </ul>
-  </section>
-
-  <!-- Professional Experience -->
-  <section class="section professional-experience">
-    <div class="section-header">Professional Experience (38 months)</div>
-    
-    <div class="job">
-      <div class="job-title">Assistant Manager (Project Finance)</div>
-      <div class="company">Power Finance Corporation Ltd.</div>
-      <div class="period">Jun ’23 – Present</div>
-      <ul class="achievement-list">
-        <li>Structured & managed ₹15,000+ Cr in infrastructure financing, ensuring project viability & risk-adjusted returns.</li>
-        <li>Conducted credit risk assessment & developed debt restructuring strategies, reducing potential financial losses by 20%.</li>
-        <li>Led due diligence & structured 6+ RTLs, facilitating negotiations & accelerating financial closure.</li>
-        <li>Developed a MIS framework tracking 15+ indicators for ₹5,000 Cr+ renewable energy projects, enabling proactive risk monitoring.</li>
-        <li>Collaborated with MoP/CEA to implement 10+ SOPs under LPS policy, reducing overdue payments by 60%.</li>
+    <!-- Educational Qualifications -->
+    <div class="card">
+      <h2>Educational Qualifications</h2>
+      <ul>
+        <li><strong>MBA</strong> – IIM Indore, 2023</li>
+        <li><strong>B.Tech, ECE</strong> – BIT MESRA, Ranchi, 2020</li>
       </ul>
     </div>
-    
-    <div class="job">
-      <div class="job-title">Co-Founder</div>
-      <div class="company">Brahmagupta Edu Pvt. Ltd.</div>
-      <div class="period">Jan ’21 – Aug ‘21</div>
-      <ul class="achievement-list">
-        <li>Developed & launched a Machine Learning powered learning platform, reducing content delivery costs by 30%.</li>
-        <li>Spearheaded the development of an AI-driven adaptive testing platform, used by 400+ CAT aspirants.</li>
-        <li>Built an EdTech startup from scratch, driving 50% revenue growth & expanding customer base through multi-channel marketing.</li>
-        <li>Led a team of 11 (8 affiliates, 3 managers), overseeing daily operations & ensuring smooth execution.</li>
-        <li>Built predictive analytics dashboards using Python (Colab) on Google Ads data, optimizing ad spend & boosting conversions by 60%.</li>
+
+    <!-- Professional Experience -->
+    <div class="card">
+      <h2>Professional Experience (38 months)</h2>
+      
+      <div class="experience-item">
+        <h3>Assistant Manager (Project Finance)</h3>
+        <div class="company">Power Finance Corporation Ltd.</div>
+        <div class="date">Jun ’23 – Present</div>
+        <ul>
+          <li>Structured &amp; managed ₹15,000+ Cr in infrastructure financing, ensuring project viability &amp; risk-adjusted returns.</li>
+          <li>Conducted credit risk assessment &amp; developed debt restructuring strategies, reducing potential financial losses by 20%.</li>
+          <li>Led due diligence &amp; structured 6+ RTLs, facilitating negotiations &amp; accelerating financial closure.</li>
+          <li>Developed a MIS framework tracking 15+ indicators for ₹5,000 Cr+ renewable energy projects, enabling proactive risk monitoring.</li>
+          <li>Collaborated with MoP/CEA to implement 10+ SOPs under LPS policy, reducing overdue payments by 60%.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Co-Founder</h3>
+        <div class="company">Brahmagupta Edu Pvt. Ltd.</div>
+        <div class="date">Jan ’21 – Aug ‘21</div>
+        <ul>
+          <li>Developed &amp; launched a Machine Learning powered learning platform, reducing content delivery costs by 30%.</li>
+          <li>Spearheaded the development of an AI-driven adaptive testing platform, used by 400+ CAT aspirants.</li>
+          <li>Built an EdTech startup from scratch, driving 50% revenue growth &amp; expanding customer base through multi-channel marketing.</li>
+          <li>Led a team of 11 (8 affiliates, 3 managers), overseeing daily operations &amp; ensuring smooth execution.</li>
+          <li>Built predictive analytics dashboards using Python (Colab) on Google Ads data, optimizing ad spend &amp; boosting conversions by 60%.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Associate – IT Operations</h3>
+        <div class="company">Pigeon Education Pvt. Ltd.</div>
+        <div class="date">Jan ‘20 – Dec ‘20</div>
+        <ul>
+          <li>Built an AI-driven live class system, enhancing performance tracking &amp; real-time student engagement up to 80%.</li>
+          <li>Developed AI models for automated student assessment, reducing manual intervention by 40%.</li>
+          <li>Designed a data-driven system to track student performance, enabling real-time feedback and personalized learning.</li>
+          <li>Led cross-functional collaboration with educators &amp; engineers to refine ML algorithms &amp; optimize user experience.</li>
+          <li>Assisted in business development &amp; investor pitches, contributing to early-stage fundraising success.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Internships -->
+    <div class="card">
+      <h2>Internships</h2>
+      
+      <div class="experience-item">
+        <h3>Product Analyst - Digital Strategy &amp; Market Intelligence</h3>
+        <div class="company">GSK Pharmaceuticals, Mumbai</div>
+        <div class="date">Apr ’22 – Jun ’22</div>
+        <ul>
+          <li>Automated competitor analysis workflows, reducing manual data processing time by 30%.</li>
+          <li>Applied NLP &amp; sentiment analysis to assess brand perception &amp; patient feedback, improving targeting strategies.</li>
+          <li>Developed a BI data-driven market intelligence framework to analyse Levothyroxine market trends &amp; competitor strategies.</li>
+          <li>Collaborated with cross-functional teams (Marketing, Sales, Data Science) to integrate data-driven insights into business strategy.</li>
+          <li>Used Python and Power BI to build CNN-based predictive dashboards, optimizing campaign performance &amp; market insights.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Software Development Intern (Product Development)</h3>
+        <div class="company">Amdocs India LLP, Pune</div>
+        <div class="date">May ’19 – Aug ’19</div>
+        <ul>
+          <li>Developed a job recommendation system using machine learning, improving match accuracy by 45%.</li>
+          <li>Designed a blockchain-based gig economy model, ensuring secure transactions &amp; decentralized freelancer verification.</li>
+          <li>Implemented NLP algorithms to enhance resume parsing &amp; increase employer-freelancer matchmaking efficiency.</li>
+          <li>Integrated smart contracts for automated payments &amp; trust-based engagements in freelance marketplaces.</li>
+          <li>Built a MVP combining AI recommendations &amp; blockchain security, boosting user engagement &amp; job placement efficiency.</li>
+          <li>Collaborated with product &amp; engineering teams to refine Machine Learning algorithms &amp; optimize system performance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Academic & Co-Curricular Achievements -->
+    <div class="card">
+      <h2>Academic &amp; Co-Curricular Achievements</h2>
+      <ul>
+        <li>Professional Scrum Product Owner™ II (PSPO II) - Scrum.org &amp; Certified ScrumMaster® (CSM®) - Scrum Alliance, 2024</li>
+        <li>National Finalist - Tekion Product Management Case Competition &amp; WITDA Case Challenge (PPO opportunities earned), 2023</li>
+        <li>Achieved the NTSE Certificate of Merit. Awarded 99.90 percentile in CAT 2020 &amp; 99.88 percentile in XAT 2021, 2021</li>
       </ul>
     </div>
-    
-    <div class="job">
-      <div class="job-title">Associate – IT Operations</div>
-      <div class="company">Pigeon Education Pvt. Ltd.</div>
-      <div class="period">Jan ‘20 – Dec ‘20</div>
-      <ul class="achievement-list">
-        <li>Built an AI-driven live class system, enhancing performance tracking & real-time student engagement up to 80%.</li>
-        <li>Developed AI models for automated student assessment, reducing manual intervention by 40%.</li>
-        <li>Designed a data-driven system to track student performance, enabling real-time feedback and personalized learning.</li>
-        <li>Led cross-functional collaboration with educators & engineers to refine ML algorithms & optimize user experience.</li>
-        <li>Assisted in business development & investor pitches, contributing to early-stage fundraising success.</li>
-      </ul>
-    </div>
-  </section>
 
-  <!-- Internships -->
-  <section class="section internships">
-    <div class="section-header">Internships</div>
-    
-    <div class="job">
-      <div class="job-title">Product Analyst - Digital Strategy & Market Intelligence</div>
-      <div class="company">GSK Pharmaceuticals, Mumbai</div>
-      <div class="period">Apr ’22 – Jun ’22</div>
-      <ul class="achievement-list">
-        <li>Automated competitor analysis workflows, reducing manual data processing time by 30%.</li>
-        <li>Applied NLP & sentiment analysis to assess brand perception & patient feedback, improving targeting strategies.</li>
-        <li>Developed a BI data-driven market intelligence framework to analyse Levothyroxine market trends & competitor strategies.</li>
-        <li>Collaborated with cross-functional teams (Marketing, Sales, Data Science) to integrate data-driven insights into business strategy.</li>
-        <li>Used Python and Power BI to build CNN-based predictive dashboards, optimizing campaign performance & market insights.</li>
-      </ul>
+    <!-- Projects & Research Papers -->
+    <div class="card" id="projects">
+      <h2>Projects &amp; Research Papers</h2>
+      <div class="experience-item">
+        <h3>Traffic Management System (Live on GitHub)</h3>
+        <p>Implemented deep learning models (LSTMs) for traffic forecasting, reducing peak congestion by 20% in test simulations.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Crop Yield Prediction System (Live on GitHub)</h3>
+        <p>Trained AI models (CNN &amp; RNN) on multispectral satellite data, achieving high precision (up to 85%) in predicting crop health.</p>
+      </div>
+      <div class="button-group">
+        <a href="https://github.com/sabya648/traffic-management" class="project-btn" target="_blank">Live Traffic Management</a>
+        <a href="https://github.com/sabya648/crop-yield" class="project-btn" target="_blank">Live Crop Yield Prediction</a>
+      </div>
     </div>
-    
-    <div class="job">
-      <div class="job-title">Software Development Intern (Product Development)</div>
-      <div class="company">Amdocs India LLP, Pune</div>
-      <div class="period">May ’19 – Aug ’19</div>
-      <ul class="achievement-list">
-        <li>Developed a job recommendation system using machine learning, improving match accuracy by 45%.</li>
-        <li>Designed a blockchain-based gig economy model, ensuring secure transactions & decentralized freelancer verification.</li>
-        <li>Implemented NLP algorithms to enhance resume parsing & increase employer-freelancer matchmaking efficiency.</li>
-        <li>Integrated smart contracts for automated payments & trust-based engagements in freelance marketplaces.</li>
-        <li>Built a MVP combining AI recommendations & blockchain security, boosting user engagement & job placement efficiency.</li>
-        <li>Collaborated with product & engineering teams to refine Machine Learning algorithms & optimize system performance.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Academic & Co-Curricular Achievements -->
-  <section class="section achievements">
-    <div class="section-header">Academic & Co-Curricular Achievements</div>
-    <ul>
-      <li>Professional Scrum Product Owner™ II (PSPO II) - Scrum.org & Certified ScrumMaster® (CSM®) - Scrum Alliance, 2024</li>
-      <li>National Finalist - Tekion Product Management Case Competition & WITDA Case Challenge (PPO opportunities earned), 2023</li>
-      <li>Achieved the NTSE Certificate of Merit. Awarded 99.90 percentile in CAT 2020 & 99.88 percentile in XAT 2021, 2021</li>
-    </ul>
-  </section>
-
-  <!-- Projects & Research Papers -->
-  <section class="section projects">
-    <div class="section-header">Projects & Research Papers</div>
-    <div class="project">
-      <strong>Traffic Management System (Live on GitHub)</strong>
-      <p>Implemented deep learning models (LSTMs) for traffic forecasting, reducing peak congestion by 20% in test simulations.</p>
-    </div>
-    <div class="project">
-      <strong>Crop Yield Prediction System (Live on GitHub)</strong>
-      <p>Trained AI models (CNN & RNN) on multispectral satellite data, achieving high precision (up to 85%) in predicting crop health.</p>
-    </div>
-  </section>
-
-  <!-- Social Icons -->
-  <div class="social-icons">
-    <a href="https://wa.me/7779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:sabyaschimishra648@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
   </div>
 </body>
 </html>
