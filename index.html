@@ -35,7 +35,7 @@
       padding: 20px;
     }
     
-    /* Floating Action Buttons */
+    /* Floating Action Buttons (left side) */
     .action-buttons {
       position: fixed;
       left: 30px;
@@ -81,11 +81,44 @@
       100% { transform: scale(1); }
     }
     
+    /* Floating Social Icons (bottom right) */
+    .social-icons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .social-icons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    }
+    
+    .social-icons a i {
+      font-size: 20px;
+      color: var(--primary-color);
+    }
+    
     /* Header Section */
     .header {
       text-align: center;
       padding: 60px 0;
-      margin-bottom: 40px;
+      margin-bottom: 20px; /* Reduced from 40px to 20px */
     }
     
     .name {
@@ -97,7 +130,7 @@
     .contact-info {
       font-size: 1em;
       color: var(--secondary-color);
-      margin-bottom: 10px;
+      margin-bottom: 5px; /* Reduced from 10px to 5px */
     }
     
     /* Content Cards */
@@ -213,7 +246,7 @@
   </style>
 </head>
 <body>
-  <!-- Floating Action Buttons -->
+  <!-- Floating Action Buttons (left side) -->
   <div class="action-buttons">
     <button class="action-btn" onclick="window.open('resume.pdf')">
       <i class="fas fa-download"></i> Download CV
@@ -225,6 +258,7 @@
     </button>
   </div>
 
+  <!-- Main Container -->
   <div class="container">
     <!-- Header -->
     <header class="header">
@@ -355,6 +389,13 @@
         <a href="https://github.com/sabya648/crop-yield" class="project-btn" target="_blank">Live Crop Yield Prediction</a>
       </div>
     </div>
+  </div>
+  
+  <!-- Floating Social Icons (bottom right) -->
+  <div class="social-icons">
+    <a href="https://wa.me/7779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:sabyaschimishra648@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
   </div>
 </body>
 </html>
