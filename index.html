@@ -1,325 +1,419 @@
-import streamlit as st
-import requests
-from datetime import datetime
-
-# Set page config (must be the very first Streamlit command)
-st.set_page_config(
-    page_title="Ultimate AI Parameter Tuner",
-    page_icon=":rocket:",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-GA_TRACKING_ID = "G-YBR866PTCR"  # Replace with your actual Google Analytics ID
-
-GA_JS = f"""
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_TRACKING_ID}"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '{GA_TRACKING_ID}', {{'cookie_domain': 'auto'}});
+
+  gtag('config', 'G-YBR866PTCR');
 </script>
-"""
-
-# Inject JavaScript for Google Analytics
-st.markdown(GA_JS, unsafe_allow_html=True)
-
-# Backend connection details
-BACKEND_URL = "https://llm-tuner-backend.onrender.com/api/generate"
-BACKEND_DOCS_URL = "https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md"  # Replace with actual docs URL
-
-def generate_response_backend(prompt, settings):
-    payload = {
-        "input": prompt,
-        "settings": {
-            "temperature": settings.get("Temperature", 0.7),
-            "top_p": settings.get("Top P", 0.9),
-            "max_tokens": settings.get("Max Tokens", 50),
-            "frequency_penalty": settings.get("Frequency Penalty", 0.5),
-            "presence_penalty": settings.get("Presence Penalty", 0.6),
-            "repetition_penalty": settings.get("Repetition Penalty", 1.2),
-            "beam_width": settings.get("Beam Width", 5),
-            "temperature_decay": settings.get("Temperature Decay", 0.95),
-            "top_k": settings.get("Top K", 40),
-            "stop_sequence": settings.get("Stop Sequence", "."),
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabyasachi Mishra | AI Product Leader</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #6c757d;
+      --accent-color: #17a2b8;
+      --bg-color: #f0f8ff;
+      --card-bg: #ffffff;
+      --btn-gradient: linear-gradient(135deg, #007BFF, #17a2b8);
     }
-    try:
-        response = requests.post(BACKEND_URL, json=payload)
-        if response.status_code == 200:
-            return response.json().get("response", "No response")
-        return f"Backend Error: {response.json().get('error', 'Unknown error')}"
-    except Exception as e:
-        return f"Connection Error: {str(e)}"
-
-# Extended preset options with 8 choices.
-extended_preset_options = {
-    "Custom": {},
-    "Trusted Information": {
-         "Temperature": 0.3,
-         "Top P": 0.95,
-         "Max Tokens": 100,
-         "Repetition Penalty": 1.1,
-         "Frequency Penalty": 0.3,
-         "Presence Penalty": 0.2,
-         "Beam Width": 3,
-         "Temperature Decay": 0.98,
-         "Top K": 20,
-         "Stop Sequence": "."
-    },
-    "Creative Storytelling": {
-         "Temperature": 0.9,
-         "Top P": 0.8,
-         "Max Tokens": 150,
-         "Repetition Penalty": 1.0,
-         "Frequency Penalty": 0.5,
-         "Presence Penalty": 0.7,
-         "Beam Width": 5,
-         "Temperature Decay": 0.90,
-         "Top K": 50,
-         "Stop Sequence": "\n"
-    },
-    "Technical Explanation": {
-         "Temperature": 0.5,
-         "Top P": 0.9,
-         "Max Tokens": 120,
-         "Repetition Penalty": 1.2,
-         "Frequency Penalty": 0.4,
-         "Presence Penalty": 0.3,
-         "Beam Width": 4,
-         "Temperature Decay": 0.96,
-         "Top K": 30,
-         "Stop Sequence": "."
-    },
-    "Casual Conversation": {
-         "Temperature": 0.7,
-         "Top P": 0.85,
-         "Max Tokens": 80,
-         "Repetition Penalty": 1.0,
-         "Frequency Penalty": 0.2,
-         "Presence Penalty": 0.4,
-         "Beam Width": 2,
-         "Temperature Decay": 0.97,
-         "Top K": 25,
-         "Stop Sequence": "."
-    },
-    "Balanced": {
-         "Temperature": 0.7,
-         "Top P": 0.9,
-         "Max Tokens": 100,
-         "Repetition Penalty": 1.1,
-         "Frequency Penalty": 0.3,
-         "Presence Penalty": 0.4,
-         "Beam Width": 3,
-         "Temperature Decay": 0.95,
-         "Top K": 30,
-         "Stop Sequence": "."
-    },
-    "Innovative": {
-         "Temperature": 0.85,
-         "Top P": 0.8,
-         "Max Tokens": 120,
-         "Repetition Penalty": 1.0,
-         "Frequency Penalty": 0.4,
-         "Presence Penalty": 0.6,
-         "Beam Width": 4,
-         "Temperature Decay": 0.93,
-         "Top K": 40,
-         "Stop Sequence": "\n"
-    },
-    "Conservative": {
-         "Temperature": 0.4,
-         "Top P": 0.95,
-         "Max Tokens": 80,
-         "Repetition Penalty": 1.2,
-         "Frequency Penalty": 0.2,
-         "Presence Penalty": 0.3,
-         "Beam Width": 2,
-         "Temperature Decay": 0.97,
-         "Top K": 20,
-         "Stop Sequence": "."
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui;
     }
-}
-
-# Custom CSS for enhanced styling and mobile text justification.
-st.markdown("""
-    <style>
-    .main {
-        background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-        background-attachment: fixed;
+    
+    body {
+      background: var(--bg-color);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    .stButton>button {
-        background: linear-gradient(45deg, #4CAF50 0%, #45a049 100%);
-        color: white;
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        transition: all 0.3s;
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    .stButton>button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    
+    /* Floating Action Buttons (left side) */
+    .action-buttons {
+      position: fixed;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 100;
     }
-    .param-card {
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        margin-bottom: 1.5rem;
+    
+    .action-btn {
+      padding: 15px 25px;
+      background: var(--btn-gradient);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .cv-floating {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999;
-        animation: float 3s ease-in-out infinite;
+    
+    .action-btn:hover {
+      transform: translateX(10px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
+    
+    .live-badge {
+      background: #FF6B6B;
+      padding: 3px 8px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      margin-left: 10px;
+      animation: pulse 1.5s infinite;
     }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Floating Social Icons (bottom right) */
+    .social-icons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .social-icons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    }
+    
+    .social-icons a i {
+      font-size: 20px;
+      color: var(--primary-color);
+    }
+    
+    /* Header Section */
+    .header {
+      text-align: center;
+      padding: 60px 0;
+      margin-bottom: 20px; /* Reduced from 40px to 20px */
+    }
+    
+    .name {
+      font-size: 2.8em;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    
+    .contact-info {
+      font-size: 1em;
+      color: var(--secondary-color);
+      margin-bottom: 5px; /* Reduced from 10px to 5px */
+    }
+    
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-color);
+    }
+    
+    .experience-item, .education-item {
+      margin-bottom: 25px;
+    }
+    
+    .experience-item h3, .education-item h3 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+    
+    .date {
+      color: var(--secondary-color);
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+    
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    
+    li {
+      margin-bottom: 5px;
+    }
+    
+    .skill-tag {
+      display: inline-block;
+      background: var(--accent-color);
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9em;
+      color: white;
+    }
+    
+    .button-group {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .project-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      background: var(--btn-gradient);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    
+    .project-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    }
+    
+    /* Responsive Design */
     @media (max-width: 768px) {
-        p {
-            text-align: justify;
-        }
+      .action-buttons {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 20px;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+      }
+      
+      .action-btn {
+        padding: 12px 20px;
+        font-size: 0.9em;
+      }
+      
+      .container {
+        padding: 15px;
+      }
+      
+      .header {
+        padding: 40px 0;
+      }
+      
+      .name {
+        font-size: 2em;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      /* Justify paragraph text on mobile devices */
+      p {
+        text-align: justify;
+      }
     }
-    </style>
-    <a class="cv-floating" href="https://sabyasachimishra.dev" target="_blank">
-        <img src="https://img.icons8.com/3d-fluency/100/resume.png" width="80">
-    </a>
-""", unsafe_allow_html=True)
+  </style>
+</head>
+<body>
+  <!-- Floating Action Buttons (left side) -->
+  <div class="action-buttons">
+    <button class="action-btn" onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
+      <i class="fas fa-download"></i> Download CV
+      <span class="live-badge">PDF</span>
+    </button>
+    <button class="action-btn" onclick="window.open('#projects')">
+      <i class="fas fa-code"></i> Projects
+      <span class="live-badge">LIVE</span>
+    </button>
+  </div>
 
-# Sidebar with additional controls.
-with st.sidebar:
-    st.header("Advanced Controls")
-    st.markdown(f"""
-        ### Backend Connection
-        **Endpoint:** `{BACKEND_URL}`  
-        [View API Documentation]({BACKEND_DOCS_URL})
-    """)
-    
-    if st.button("Clear History"):
-        st.session_state.history = []
-    
-    st.markdown("---")
-    st.markdown("""
-    ### My Profile
-    [![Portfolio](https://img.shields.io/badge/View-My%20Portfolio-%230077B5?style=for-the-badge)](https://sabyasachimishra.dev)
-    [![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-%230077B5?style=for-the-badge)](https://www.linkedin.com/in/sabyasachimishra007/)
-    """)
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="name">Sabyasachi Mishra</h1>
+      <div class="contact-info">
+        Tel: 7779884260 | Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a> | 
+        <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/SABYA648" target="_blank">Github</a>
+      </div>
+    </header>
 
-# Main Interface.
-st.title("🚀 Ultimate AI Parameter Tuner")
-st.markdown("""
-    *Harness the full power of AI customization with advanced parameter control. 
-    Experiment with 10+ tuning parameters and see real-time results.*
-""")
+    <!-- Professional Summary -->
+    <div class="card">
+      <h2>Professional Summary</h2>
+      <p>
+        Results-driven Product &amp; Business Development Professional with expertise in AI, blockchain, digital transformation, and IT strategy. Proven ability to bridge business &amp; technology, leveraging machine learning, deep learning, and financial modelling to drive data-driven decision-making. Skilled in product lifecycle management, business growth strategy, and IT consulting, with hands-on experience in product development, predictive analytics, and blockchain-based solutions. Adept at leading cross-functional teams, optimizing market strategies, and delivering scalable tech solutions. A dynamic problem-solver, passionate about building and scaling digital products that enhance efficiency and business impact.
+      </p>
+    </div>
 
-# Session state for response history.
-if 'history' not in st.session_state:
-    st.session_state.history = []
+    <!-- Educational Qualifications -->
+    <div class="card">
+      <h2>Educational Qualifications</h2>
+      <ul>
+        <li><strong>MBA</strong> – IIM Indore, 2023</li>
+        <li><strong>B.Tech, ECE</strong> – BIT MESRA, Ranchi, 2020</li>
+      </ul>
+    </div>
 
-# Enhanced Preset Selector.
-preset_choice = st.selectbox(
-    "🚩 Select Configuration Preset",
-    list(extended_preset_options.keys()),
-    help="Choose from professionally curated presets or use custom settings"
-)
+    <!-- Professional Experience -->
+    <div class="card">
+      <h2>Professional Experience (36 months)</h2>
+      
+      <div class="experience-item">
+        <h3>Assistant Manager (Project Finance)</h3>
+        <div class="company">Power Finance Corporation Ltd.</div>
+        <div class="date">Jun ’23 – Present</div>
+        <ul>
+          <li>Structured &amp; managed ₹15,000+ Cr in infrastructure financing, ensuring project viability &amp; risk-adjusted returns.</li>
+          <li>Conducted credit risk assessment &amp; developed debt restructuring strategies, reducing potential financial losses by 20%.</li>
+          <li>Led due diligence &amp; structured 6+ RTLs, facilitating negotiations &amp; accelerating financial closure.</li>
+          <li>Developed a MIS framework tracking 15+ indicators for ₹5,000 Cr+ renewable energy projects, enabling proactive risk monitoring.</li>
+          <li>Collaborated with MoP/CEA to implement 10+ SOPs under LPS policy, reducing overdue payments by 60%.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Co-Founder</h3>
+        <div class="company">Brahmagupta Edu Pvt. Ltd.</div>
+        <div class="date">Jan ’21 – Aug ‘21</div>
+        <ul>
+          <li>Developed &amp; launched a Machine Learning powered learning platform, reducing content delivery costs by 30%.</li>
+          <li>Spearheaded the development of an AI-driven adaptive testing platform, used by 400+ CAT aspirants.</li>
+          <li>Built an EdTech startup from scratch, driving 50% revenue growth &amp; expanding customer base through multi-channel marketing.</li>
+          <li>Led a team of 11 (8 affiliates, 3 managers), overseeing daily operations &amp; ensuring smooth execution.</li>
+          <li>Built predictive analytics dashboards using Python (Colab) on Google Ads data, optimizing ad spend &amp; boosting conversions by 60%.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Associate – IT Operations</h3>
+        <div class="company">Pigeon Education Pvt. Ltd.</div>
+        <div class="date">Jan ‘20 – Dec ‘20</div>
+        <ul>
+          <li>Built an AI-driven live class system, enhancing performance tracking &amp; real-time student engagement up to 80%.</li>
+          <li>Developed AI models for automated student assessment, reducing manual intervention by 40%.</li>
+          <li>Designed a data-driven system to track student performance, enabling real-time feedback and personalized learning.</li>
+          <li>Led cross-functional collaboration with educators &amp; engineers to refine ML algorithms &amp; optimize user experience.</li>
+          <li>Assisted in business development &amp; investor pitches, contributing to early-stage fundraising success.</li>
+        </ul>
+      </div>
+    </div>
 
-# Determine default parameter values based on extended preset selection.
-preset_defaults = extended_preset_options.get(preset_choice, {})
+    <!-- Internships -->
+    <div class="card">
+      <h2>Internships</h2>
+      
+      <div class="experience-item">
+        <h3>Product Analyst - Digital Strategy &amp; Market Intelligence</h3>
+        <div class="company">GSK Pharmaceuticals, Mumbai</div>
+        <div class="date">Apr ’22 – Jun ’22</div>
+        <ul>
+          <li>Automated competitor analysis workflows, reducing manual data processing time by 30%.</li>
+          <li>Applied NLP &amp; sentiment analysis to assess brand perception &amp; patient feedback, improving targeting strategies.</li>
+          <li>Developed a BI data-driven market intelligence framework to analyse Levothyroxine market trends &amp; competitor strategies.</li>
+          <li>Collaborated with cross-functional teams (Marketing, Sales, Data Science) to integrate data-driven insights into business strategy.</li>
+          <li>Used Python and Power BI to build CNN-based predictive dashboards, optimizing campaign performance &amp; market insights.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Software Development Intern (Product Development)</h3>
+        <div class="company">Amdocs India LLP, Pune</div>
+        <div class="date">May ’19 – Aug ’19</div>
+        <ul>
+          <li>Developed a job recommendation system using machine learning, improving match accuracy by 45%.</li>
+          <li>Designed a blockchain-based gig economy model, ensuring secure transactions &amp; decentralized freelancer verification.</li>
+          <li>Implemented NLP algorithms to enhance resume parsing &amp; increase employer-freelancer matchmaking efficiency.</li>
+          <li>Integrated smart contracts for automated payments &amp; trust-based engagements in freelance marketplaces.</li>
+          <li>Built a MVP combining AI recommendations &amp; blockchain security, boosting user engagement &amp; job placement efficiency.</li>
+          <li>Collaborated with product &amp; engineering teams to refine Machine Learning algorithms &amp; optimize system performance.</li>
+        </ul>
+      </div>
+    </div>
 
-# Parameter Grid with Tabs.
-tab1, tab2, tab3 = st.tabs(["Core Parameters", "Advanced Controls", "Response Shaping"])
+    <!-- Academic & Co-Curricular Achievements -->
+    <div class="card">
+      <h2>Academic &amp; Co-Curricular Achievements</h2>
+      <ul>
+        <li>Professional Scrum Product Owner™ II (PSPO II) - Scrum.org &amp; Certified ScrumMaster® (CSM®) - Scrum Alliance, 2024</li>
+        <li>National Finalist - Tekion Product Management Case Competition &amp; WITDA Case Challenge (PPO opportunities earned), 2023</li>
+        <li>Achieved the NTSE Certificate of Merit. Awarded 99.90 percentile in CAT 2020 &amp; 99.88 percentile in XAT 2021, 2021</li>
+      </ul>
+    </div>
 
-with tab1:
-    col1, col2 = st.columns(2)
-    with col1:
-        params = {}
-        params["Temperature"] = st.slider("🌡️ Temperature", 0.0, 2.0, 
-            preset_defaults.get("Temperature", 0.7), 0.1)
-        params["Max Tokens"] = st.number_input("🔢 Max Tokens", 1, 2048, 
-            preset_defaults.get("Max Tokens", 50))
-    with col2:
-        params["Top P"] = st.slider("🎯 Top P", 0.0, 1.0, 
-            preset_defaults.get("Top P", 0.9), 0.01)
-        params["Top K"] = st.number_input("🎯 Top K", 1, 100, 
-            preset_defaults.get("Top K", 40))
-
-with tab2:
-    col1, col2 = st.columns(2)
-    with col1:
-        params["Beam Width"] = st.number_input("📶 Beam Width", 1, 10, 
-            preset_defaults.get("Beam Width", 5))
-        params["Temperature Decay"] = st.slider("📉 Temp Decay", 0.5, 1.0, 
-            preset_defaults.get("Temperature Decay", 0.95), 0.01)
-    with col2:
-        params["Stop Sequence"] = st.text_input("⛔ Stop Sequence", 
-            preset_defaults.get("Stop Sequence", "."))
-        params["Repetition Penalty"] = st.slider("🔁 Repetition Penalty", 1.0, 2.0, 
-            preset_defaults.get("Repetition Penalty", 1.2), 0.1)
-
-with tab3:
-    col1, col2 = st.columns(2)
-    with col1:
-        params["Frequency Penalty"] = st.slider("📉 Frequency Penalty", 0.0, 1.0, 
-            preset_defaults.get("Frequency Penalty", 0.5), 0.1)
-    with col2:
-        params["Presence Penalty"] = st.slider("🎭 Presence Penalty", 0.0, 1.0, 
-            preset_defaults.get("Presence Penalty", 0.6), 0.1)
-
-# Enhanced Prompt Input.
-prompt = st.text_area(
-    "📝 Enter your prompt:", 
-    "Explain quantum computing in simple terms...",
-    height=150,
-    help="Enter your custom instructions for the AI model"
-)
-
-# Generation Controls.
-col1, col2, col3 = st.columns([2,1,2])
-with col2:
-    generate_btn = st.button("✨ Generate Response", use_container_width=True)
-
-if generate_btn:
-    if not prompt.strip():
-        st.error("Please enter a valid prompt before generating")
-    else:
-        with st.spinner("🧠 Crafting response..."):
-            start_time = datetime.now()
-            response = generate_response_backend(prompt, params)
-            duration = (datetime.now() - start_time).total_seconds()
-            
-            st.session_state.history.append({
-                "prompt": prompt,
-                "response": response,
-                "params": params.copy(),
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "response_time": f"{duration:.2f}s"
-            })
-            
-            st.success(f"✅ Response generated in {duration:.2f} seconds")
-            st.markdown("### Generated Response")
-            st.markdown(f"```\n{response}\n```")
-
-# Response History.
-if st.session_state.history:
-    st.markdown("## 📜 Response History")
-    for idx, entry in enumerate(reversed(st.session_state.history)):
-        with st.expander(f"Response #{len(st.session_state.history)-idx} - {entry['timestamp']}"):
-            col1, col2 = st.columns([3,1])
-            with col1:
-                st.markdown(f"**Prompt:** {entry['prompt']}")
-                st.markdown(f"**Response:**\n{entry['response']}")
-            with col2:
-                st.metric("Response Time", entry['response_time'])
-                if st.button("↻ Reuse", key=f"reuse_{idx}"):
-                    params.update(entry['params'])
-                if st.button("⬇️ Download", key=f"dl_{idx}"):
-                    st.download_button(
-                        label="Download Response",
-                        data=entry['response'],
-                        file_name=f"ai_response_{idx}.txt",
-                        mime="text/plain"
-                    )
+    <!-- Projects & Research Papers -->
+    <div class="card" id="projects">
+      <h2>Projects &amp; Research Papers</h2>
+      <div class="experience-item">
+        <h3>🔹 LLM Prompt Tuning Interface</h3>
+        <p>✅ Designed and deployed an interactive LLM tuning platform using Streamlit &amp; OpenAI API, allowing real-time text generation adjustments via dynamic sliders.</p>
+        <p>✅ Bridged AI and user experience by productizing LLM tuning, eliminating the need for manual parameter tweaking and enhancing accessibility for non-technical users.</p>
+        <div class="button-group">
+          <a href="https://llm-tuner.sabyasachimishra.com/" class="project-btn" target="_blank">View Demo</a>
+        </div>
+      </div>
+      <div class="experience-item">
+        <h3>🔹 Reddit Trend Analysis using Graph Neural Networks (GNNs)</h3>
+        <p>✅ Built a real-time Reddit trend analysis tool integrating Graph Neural Networks (PyTorch Geometric) &amp; NLP, enabling sentiment tracking and discussion propagation insights.</p>
+        <p>✅ Developed a product-focused analytics dashboard, allowing users to explore topic virality, sentiment evolution, and influencer impact through an intuitive interface.</p>
+        <div class="button-group">
+          <a href="https://reddit-setiment-analysis-backend.onrender.com" class="project-btn" target="_blank">View Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Floating Social Icons (bottom right) -->
+  <div class="social-icons">
+    <a href="https://wa.me/7779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:sabyaschimishra648@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</body>
+</html>
