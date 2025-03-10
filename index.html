@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YBR866PTCR');
   </script>
   <meta charset="UTF-8">
@@ -36,6 +35,7 @@
       color: #333;
       line-height: 1.6;
       overflow-x: hidden;
+      padding-bottom: 80px; /* extra space for mobile footer buttons */
     }
     
     .container {
@@ -44,7 +44,12 @@
       padding: 20px;
     }
     
-    /* Floating Action Buttons (left side) */
+    /* Sticky Footer Action Buttons (for mobile) */
+    .mobile-action-buttons {
+      display: none;
+    }
+    
+    /* Floating Action Buttons (desktop view) */
     .action-buttons {
       position: fixed;
       left: 30px;
@@ -127,7 +132,7 @@
     .header {
       text-align: center;
       padding: 60px 0;
-      margin-bottom: 20px; /* Reduced from 40px to 20px */
+      margin-bottom: 20px;
     }
     
     .name {
@@ -139,7 +144,7 @@
     .contact-info {
       font-size: 1em;
       color: var(--secondary-color);
-      margin-bottom: 5px; /* Reduced from 10px to 5px */
+      margin-bottom: 5px;
     }
     
     /* Content Cards */
@@ -221,23 +226,44 @@
     
     /* Responsive Design */
     @media (max-width: 768px) {
+      /* Hide desktop floating buttons */
       .action-buttons {
-        left: 10px;
-        right: 10px;
-        top: auto;
-        bottom: 20px;
-        flex-direction: row;
-        justify-content: center;
-        transform: none;
+        display: none;
       }
       
-      .action-btn {
+      /* Mobile sticky footer buttons */
+      .mobile-action-buttons {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        justify-content: center;
+        gap: 20px;
+        z-index: 100;
+      }
+      
+      .mobile-action-buttons button {
         padding: 12px 20px;
+        background: var(--btn-gradient);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
         font-size: 0.9em;
       }
       
-      .container {
-        padding: 15px;
+      .mobile-action-buttons button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       }
       
       .header {
@@ -252,7 +278,6 @@
         padding: 20px;
       }
       
-      /* Justify paragraph text on mobile devices */
       p {
         text-align: justify;
       }
@@ -260,7 +285,7 @@
   </style>
 </head>
 <body>
-  <!-- Floating Action Buttons (left side) -->
+  <!-- Floating Action Buttons (desktop view) -->
   <div class="action-buttons">
     <button class="action-btn" onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
       <i class="fas fa-download"></i> Download CV
@@ -271,7 +296,17 @@
       <span class="live-badge">LIVE</span>
     </button>
   </div>
-
+  
+  <!-- Mobile Sticky Footer Action Buttons -->
+  <div class="mobile-action-buttons">
+    <button onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
+      <i class="fas fa-download"></i> CV
+    </button>
+    <button onclick="window.open('#projects')">
+      <i class="fas fa-code"></i> Projects
+    </button>
+  </div>
+  
   <!-- Main Container -->
   <div class="container">
     <!-- Header -->
