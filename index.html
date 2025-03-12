@@ -11,6 +11,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
   <title>Sabyasachi Mishra | AI Product Leader</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -226,12 +227,18 @@
     
     /* Responsive Design */
     @media (max-width: 768px) {
+      /* Optimize container for mobile */
+      .container {
+        width: 95%;
+        padding: 10px;
+      }
+      
       /* Hide desktop floating buttons */
       .action-buttons {
         display: none;
       }
       
-      /* Mobile sticky footer buttons */
+      /* Mobile Sticky Footer Action Buttons (unchanged) */
       .mobile-action-buttons {
         display: flex;
         position: fixed;
@@ -276,6 +283,7 @@
       
       .card {
         padding: 20px;
+        margin-bottom: 20px;
       }
       
       p {
@@ -295,25 +303,22 @@
       <i class="fas fa-code"></i> Projects
       <span class="live-badge">LIVE</span>
     </button>
-    <button class="action-btn" onclick="window.open('#case-studies')">
+    <button class="action-btn" onclick="window.open('https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO?usp=sharing')">
       <i class="fas fa-briefcase"></i> Case Studies
       <span class="live-badge">LIVE</span>
     </button>
   </div>
   
   <!-- Mobile Sticky Footer Action Buttons -->
-  <div class="action-buttons">
-    <button class="action-btn" onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
-      <i class="fas fa-download"></i> Download CV
-      <span class="live-badge">PDF</span>
+  <div class="mobile-action-buttons">
+    <button onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
+      <i class="fas fa-download"></i> CV
     </button>
-    <button class="action-btn" onclick="window.open('#projects')">
+    <button onclick="window.open('#projects')">
       <i class="fas fa-code"></i> Projects
-      <span class="live-badge">LIVE</span>
     </button>
-    <button class="action-btn" onclick="window.open('https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO?usp=sharing')">
+    <button onclick="window.open('https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO?usp=sharing')">
       <i class="fas fa-briefcase"></i> Case Studies
-      <span class="live-badge">LIVE</span>
     </button>
   </div>
   
