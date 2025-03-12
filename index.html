@@ -14,6 +14,10 @@
   <meta name="format-detection" content="telephone=no">
   <title>Sabyasachi Mishra | AI Product Leader</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Font for improved typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary-color: #007BFF;
@@ -22,13 +26,14 @@
       --bg-color: #f0f8ff;
       --card-bg: #ffffff;
       --btn-gradient: linear-gradient(135deg, #007BFF, #17a2b8);
+      --box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', system-ui;
+      font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
     }
     
     body {
@@ -69,8 +74,8 @@
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      box-shadow: var(--box-shadow);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -105,6 +110,7 @@
       flex-direction: column;
       gap: 10px;
       z-index: 1000;
+      transition: bottom 0.3s ease;
     }
     
     .social-icons a {
@@ -115,7 +121,7 @@
       border-radius: 50%;
       text-align: center;
       line-height: 40px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      box-shadow: var(--box-shadow);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     
@@ -155,11 +161,12 @@
       padding: 30px;
       margin-bottom: 30px;
       box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
     
     .card h2 {
@@ -217,7 +224,7 @@
       text-decoration: none;
       border-radius: 5px;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      box-shadow: var(--box-shadow);
     }
     
     .project-btn:hover {
@@ -227,18 +234,15 @@
     
     /* Responsive Design */
     @media (max-width: 768px) {
-      /* Optimize container for mobile */
       .container {
         width: 95%;
         padding: 10px;
       }
       
-      /* Hide desktop floating buttons */
       .action-buttons {
         display: none;
       }
       
-      /* Mobile Sticky Footer Action Buttons (unchanged) */
       .mobile-action-buttons {
         display: flex;
         position: fixed;
@@ -260,8 +264,8 @@
         border: none;
         border-radius: 30px;
         cursor: pointer;
-        transition: all 0.3s;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        box-shadow: var(--box-shadow);
         display: flex;
         align-items: center;
         gap: 10px;
@@ -288,6 +292,11 @@
       
       p {
         text-align: justify;
+      }
+      
+      /* Shift social icons upward on mobile */
+      .social-icons {
+        bottom: 80px;
       }
     }
   </style>
