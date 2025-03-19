@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabyasachi Mishra | Product Manager</title>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts for typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      background: #000; /* fallback color */
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    /* Navigation Bar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      padding: 10px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ff9800;
+    }
+    /* Sections */
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
+    #about {
+      padding-top: 120px;
+      text-align: center;
+    }
+    #about h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    #about p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    /* Experience Section */
+    #experience {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .experience-card {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #444;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .experience-card:hover {
+      transform: scale(1.02);
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .experience-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    .experience-card p {
+      margin-bottom: 10px;
+    }
+    /* Projects Section */
+    #projects ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    #projects ul li {
+      margin: 15px 0;
+    }
+    #projects ul li a {
+      color: #ff9800;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    #projects ul li a:hover {
+      color: #fff;
+    }
+    /* Contact Section */
+    #contact {
+      text-align: center;
+    }
+    #contact a {
+      color: #ff9800;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    #contact a:hover {
+      color: #fff;
+    }
+    /* Floating Action Buttons */
+    .fab-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .fab {
+      background: #ff9800;
+      color: #000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .fab:hover {
+      background: #ffa733;
+      transform: scale(1.1);
+    }
+    /* Canvas Background */
+    #spaceAnimation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #000;
+    }
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+      header {
+        padding: 10px;
+      }
+      #about h1 {
+        font-size: 2.5rem;
+      }
+      section {
+        padding: 80px 15px;
+      }
+      .experience-card {
+        margin: 15px;
+        padding: 15px;
+      }
+      .fab {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Space-themed animated background -->
+  <canvas id="spaceAnimation"></canvas>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <h1>Sabyasachi Mishra</h1>
+    <p>
+      Product Manager with expertise in AI-driven analytics, digital transformation, and SaaS products. Experienced in launching and scaling AI platforms, optimizing workflows, and leveraging predictive analytics to enhance business decisions. Skilled in LLM tuning, prompt engineering, and AI agent development. Proven track record of improving operational efficiency (30%+) and decision accuracy (85%) through innovative, data-driven product solutions.
+    </p>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="fade-in">
+    <h2 style="text-align:center; margin-bottom: 40px;">Professional Experience</h2>
+    <div class="experience-card">
+      <h3>Power Finance Corporation Ltd.</h3>
+      <p><strong>Role:</strong> Assistant Manager (Project Finance)</p>
+      <p><strong>Duration:</strong> Jun ’23 – Present</p>
+      <p>
+        Developed data-driven risk models for ₹15,000+ Cr infrastructure financing, improving strategic decision-making. Automated credit risk assessment, reducing potential financial losses by 20%. Managed due diligence and structured financing for renewable projects (₹5,000+ Cr), enhancing financial closure efficiency. Built a real-time MIS framework to track risk and performance metrics, improving project monitoring.
+      </p>
+    </div>
+    <div class="experience-card">
+      <h3>Brahmagupta Edu Pvt. Ltd.</h3>
+      <p><strong>Role:</strong> Co-Founder</p>
+      <p><strong>Duration:</strong> Jan ’21 – Aug ‘21</p>
+      <p>
+        Launched an AI-powered adaptive learning platform, reducing content delivery costs by 30% for 400+ CAT aspirants. Created AI-driven personalized assessments, boosting student engagement and test completion rates by 30%. Led an 11-member team, achieving 50% revenue growth and operational scalability. Developed predictive analytics dashboards for Google Ads, increasing conversions by 60%.
+      </p>
+    </div>
+    <div class="experience-card">
+      <h3>Pigeon Education Pvt. Ltd.</h3>
+      <p><strong>Role:</strong> Associate – IT Operations</p>
+      <p><strong>Duration:</strong> Jan ’20 – Dec ‘20</p>
+      <p>
+        Developed an AI-based live class platform, increasing student engagement by 80%. Created ML models for automated assessments, reducing manual grading workload by 40%. Collaborated with cross-functional teams to refine algorithms and enhance learning experiences. Contributed to business development and early-stage investor fundraising.
+      </p>
+    </div>
+    <div class="experience-card">
+      <h3>Internships</h3>
+      <p>
+        <strong>GSK Pharmaceuticals, Mumbai:</strong> Product Analyst - Digital Strategy &amp; Market Intelligence (Apr ’22 – Jun ’22) – Automated competitor analysis workflows, applied NLP &amp; sentiment analysis, and developed a BI-driven market intelligence system.
+      </p>
+      <p>
+        <strong>Amdocs India LLP, Pune:</strong> Software Development Intern (May ’19 – Aug ’19) – Built an ML-driven job recommendation platform, designed blockchain-based gig economy solutions, implemented NLP-based resume parsing, and integrated smart contracts.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="fade-in">
+    <h2 style="text-align:center; margin-bottom: 40px;">Projects &amp; Research</h2>
+    <ul>
+      <li><a href="https://github.com/your-llm-tuning-project" target="_blank">LLM Prompt Tuning Interface (LIVE)</a></li>
+      <li><a href="https://github.com/your-feature-fit" target="_blank">FeatureFit: AI-Powered Feature Prioritization Tool (LIVE)</a></li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a></p>
+    <p>Phone: <a href="tel:7779884260">7779884260</a></p>
+    <p>Website: <a href="http://www.sabyasachimishra.dev" target="_blank">www.sabyasachimishra.dev</a></p>
+  </section>
+
+  <!-- Floating Action Buttons -->
+  <div class="fab-container">
+    <a class="fab" href="https://wa.me/917779884260" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a class="fab" href="https://www.linkedin.com/in/sabyasachimishra" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a class="fab" href="mailto:sabyaschimishra648@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a class="fab" href="cv.pdf" title="Download CV"><i class="fas fa-download"></i></a>
+    <a class="fab" href="#projects" title="Case Studies"><i class="fas fa-briefcase"></i></a>
+  </div>
+
+  <!-- JavaScript for Animations and Interactions -->
+  <script>
+    // Space-themed background animation using canvas
+    const canvas = document.getElementById('spaceAnimation');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const starCount = 200;
+    let width, height;
+
+    function initCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      stars = [];
+      for(let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'white';
+      stars.forEach(star => {
+        star.x += star.vx;
+        star.y += star.vy;
+        // Wrap around edges
+        if (star.x < 0) star.x = width;
+        if (star.x > width) star.x = 0;
+        if (star.y < 0) star.y = height;
+        if (star.y > height) star.y = 0;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateStars);
+    }
+
+    initCanvas();
+    animateStars();
+
+    // Adjust canvas on window resize
+    window.addEventListener('resize', initCanvas);
+
+    // Fade-in scroll animations
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Background interactivity on mouse movement
+    window.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      stars.forEach(star => {
+        star.x += (mouseX - width / 2) * 0.00005;
+        star.y += (mouseY - height / 2) * 0.00005;
+      });
+    });
+  </script>
+</body>
+</html>

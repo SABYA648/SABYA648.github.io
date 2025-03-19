@@ -1,489 +1,824 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YBR866PTCR');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="format-detection" content="telephone=no">
-  <title>Sabyasachi Mishra | AI Product Leader</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Font for improved typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Sabyasachi Mishra | Product Manager</title>
+  <meta name="description" content="Sabyasachi Mishra | Product Manager – Product Thinking | AI & Data-Driven Strategy | Digital Innovation.">
+  <meta property="og:title" content="Sabyasachi Mishra | Product Manager">
+  <meta property="og:description" content="A sleek, dashboard-style portfolio showcasing projects, blogs, education, skills, work experience, internships, and achievements.">
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
   <style>
-    :root {
-      --primary-color: #007BFF;
-      --secondary-color: #6c757d;
-      --accent-color: #17a2b8;
-      --bg-color: #f0f8ff;
-      --card-bg: #ffffff;
-      --btn-gradient: linear-gradient(135deg, #007BFF, #17a2b8);
-      --box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
+    /* Global Styles & Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+    /* Light/Dark Mode Variables */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #000;
+        --text-color: #fff;
+        --accent: #FF9500;
+        --card-bg: #111;
+        --border-color: #333;
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-color: #f4f4f4;
+        --text-color: #333;
+        --accent: #FF9500;
+        --card-bg: #fff;
+        --border-color: #ddd;
+      }
     }
     
     body {
-      background: var(--bg-color);
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
+      position: relative;
       overflow-x: hidden;
-      padding-bottom: 80px; /* extra space for mobile footer buttons */
+      min-height: 100vh;
+      background-image: 
+         linear-gradient(135deg, var(--bg-color), #000),
+         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="none" stroke="%23cccccc" stroke-width="0.5"><path d="M0 0L200 200M200 0L0 200"/></svg>');
+      background-size: cover, 200px 200px;
     }
     
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+    a { text-decoration: none; color: var(--accent); }
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
     
-    /* Sticky Footer Action Buttons (for mobile) */
-    .mobile-action-buttons {
-      display: none;
-    }
-    
-    /* Floating Action Buttons (desktop view) */
-    .action-buttons {
+    /* Header */
+    header {
       position: fixed;
-      left: 30px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.95);
+      border-bottom: 1px solid var(--accent);
+      padding: 12px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    header h1 { font-size: 2.4rem; color: var(--accent); }
+    header .ctas a {
+      margin-left: 15px;
+      padding: 8px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      font-size: 1.2rem;
+      background: linear-gradient(145deg, var(--accent), #003366);
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    header .ctas a:hover {
+      transform: translateY(-2px);
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    }
+    
+    /* Floating Buttons Bar for Desktop & Mobile (Bottom Left) */
+    #floating-buttons {
+      position: fixed;
+      /* Using calc() and env() for safe-area inset on mobile */
+      bottom: calc(10px + env(safe-area-inset-bottom, 10px));
+      left: 10px;
+      z-index: 1000;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      z-index: 100;
-    }
-    
-    .action-btn {
-      padding: 15px 25px;
-      background: var(--btn-gradient);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: var(--box-shadow);
-      display: flex;
-      align-items: center;
       gap: 10px;
+      margin: 10px; /* slight margin to prevent screen edge issues */
+    }
+    #floating-buttons a {
+      font-size: 1.6rem;
+      padding: 8px 16px;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      background: linear-gradient(145deg, var(--accent), #003366);
+      color: var(--bg-color);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    #floating-buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
     }
     
-    .action-btn:hover {
-      transform: translateX(10px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-    
-    .live-badge {
-      background: #FF6B6B;
-      padding: 3px 8px;
-      border-radius: 15px;
-      font-size: 0.8em;
-      margin-left: 10px;
-      animation: pulse 1.5s infinite;
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    
-    /* Floating Social Icons (bottom right) */
-    .social-icons {
+    /* Floating 3D Circular Icons (Bottom Right) */
+    #floating-icons {
       position: fixed;
       bottom: 20px;
       right: 20px;
+      z-index: 1000;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-      transition: bottom 0.3s ease;
+      gap: 12px;
     }
-    
-    .social-icons a {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: var(--card-bg);
+    #floating-icons a {
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      box-shadow: var(--box-shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--accent);
+      color: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    #floating-icons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 12px rgba(0,0,0,0.5);
     }
     
-    .social-icons a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px 100px; /* reduced top padding so profile stays near top */
     }
     
-    .social-icons a i {
-      font-size: 20px;
-      color: var(--primary-color);
-    }
-    
-    /* Header Section */
-    .header {
-      text-align: center;
-      padding: 60px 0;
+    /* Profile Section */
+    #profile {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
       margin-bottom: 20px;
+      position: relative;
+    }
+    #profile img {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+    }
+    #profile .info { flex: 1; }
+    #profile .info h2 { font-size: 2rem; margin-bottom: 6px; }
+    #profile .info p {
+      font-size: 1.3rem;
+      line-height: 1.3;
     }
     
-    .name {
-      font-size: 2.8em;
-      color: var(--primary-color);
-      margin-bottom: 10px;
+    /* Professional Summary */
+    #summary {
+      margin: 20px 0;
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 1.4rem;
+      line-height: 1.4;
     }
     
-    .contact-info {
-      font-size: 1em;
-      color: var(--secondary-color);
-      margin-bottom: 5px;
+    /* Education */
+    #education {
+      margin: 20px 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
     }
+    #education h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; }
+    .edu-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 16px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .edu-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(255,149,0,0.5);
+    }
+    .edu-card h3 { font-size: 1.8rem; color: var(--accent); margin-bottom: 8px; }
+    .edu-card p { font-size: 1.2rem; }
     
-    /* Content Cards */
+    /* Dual-Column Carousel for Projects & Blogs */
+    .carousel-wrapper {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .carousel-section {
+      flex: 1;
+      min-width: 300px;
+    }
+    .carousel-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding-bottom: 30px;
+      background: var(--card-bg);
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+      flex-shrink: 0;
+      padding: 12px;
+    }
     .card {
       background: var(--card-bg);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(255,149,0,0.5);
     }
-    
-    .card h2 {
-      color: var(--primary-color);
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--accent-color);
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 8px;
     }
+    .card h3 { font-size: 1.8rem; color: var(--accent); margin-bottom: 8px; text-align: center; }
+    .card p { font-size: 1.2rem; margin-bottom: 8px; text-align: center; }
     
-    .experience-item, .education-item {
-      margin-bottom: 25px;
+    /* 2x2 Project Buttons Grid */
+    .project-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 8px;
+      width: 100%;
     }
-    
-    .experience-item h3, .education-item h3 {
-      color: var(--primary-color);
-      margin-bottom: 5px;
-    }
-    
-    .date {
-      color: var(--secondary-color);
-      font-size: 0.9em;
-      margin-bottom: 10px;
-    }
-    
-    ul {
-      margin: 10px 0;
-      padding-left: 20px;
-    }
-    
-    li {
-      margin-bottom: 5px;
-    }
-    
-    .skill-tag {
-      display: inline-block;
-      background: var(--accent-color);
-      padding: 5px 15px;
-      border-radius: 20px;
-      margin: 5px;
-      font-size: 0.9em;
-      color: white;
-    }
-    
-    .button-group {
+    .project-buttons a {
+      padding: 6px 0;
       text-align: center;
-      margin-top: 20px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: var(--accent);
+      font-size: 1rem;
+      transition: transform 0.3s, background 0.3s;
     }
-    
-    .project-btn {
-      display: inline-block;
-      padding: 12px 25px;
-      margin: 10px;
-      background: var(--btn-gradient);
+    .project-buttons a:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.2);
+    }
+    .project-buttons a.live-demo {
+      background: #FF3B30;
+      border-color: #FF3B30;
       color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: var(--box-shadow);
+    }
+    .project-buttons a.live-demo:hover {
+      background: #e03227;
     }
     
-    .project-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    /* Carousel Navigation */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .carousel-nav button {
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: var(--accent);
+      font-size: 2.4rem;
+      padding: 6px;
+      cursor: pointer;
+      pointer-events: all;
+      transition: background 0.3s;
+    }
+    .carousel-nav button:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    .carousel-dots span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: var(--border-color);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-dots span.active {
+      background: var(--accent);
     }
     
-    /* Responsive Design */
+    /* Skills Section (Oval Badges) */
+    #skills-section {
+      margin: 20px 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+    #skills-section h2 { font-size: 2rem; margin-bottom: 12px; }
+    #skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    #skills .skill {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    #skills .skill:hover {
+      background: rgba(255,149,0,0.1);
+    }
+    
+    /* Work Experience (Expandable Cards, Default Open) */
+    #experience {
+      margin: 30px 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+    #experience h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; }
+    .exp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .exp-card:hover { transform: scale(1.01); }
+    .exp-summary {
+      padding: 12px;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .exp-details {
+      max-height: 300px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 12px;
+    }
+    .learn-more {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-left: 10px;
+      transition: transform 0.3s;
+    }
+    .learn-more:hover { transform: scale(1.2); }
+    
+    /* Internships & Achievements */
+    #internships {
+      margin: 30px 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+    #internships h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; }
+    .internship-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .internship-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(255,149,0,0.5);
+    }
+    .internship-card h3 { font-size: 1.8rem; color: var(--accent); margin-bottom: 8px; }
+    .internship-card p { font-size: 1.2rem; margin-bottom: 4px; }
+    
+    /* Contact */
+    #contact {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 1.6rem;
+    }
+    #contact a.contact-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg-color);
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    #contact a.contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255,149,0,0.5);
+    }
+    
+    /* Footer for Mobile (Removed as floating buttons cover the functionality) */
+    footer {
+      display: none;
+    }
+    
+    /* Ripple Effect */
+    .ripple { position: relative; overflow: hidden; }
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.3);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple { to { transform: scale(4); opacity: 0; } }
+    .ripple:active { transform: scale(0.98); }
+    
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .container {
-        width: 95%;
-        padding: 10px;
+      /* Removed display: none for #floating-buttons so they remain visible */
+      #floating-buttons {
+        bottom: calc(10px + env(safe-area-inset-bottom, 10px));
       }
-      
-      .action-buttons {
-        display: none;
-      }
-      
-      .mobile-action-buttons {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--card-bg);
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-        padding: 10px 0;
-        justify-content: center;
-        gap: 20px;
-        z-index: 100;
-      }
-      
-      .mobile-action-buttons button {
-        padding: 12px 20px;
-        background: var(--btn-gradient);
-        color: white;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: var(--box-shadow);
-        display: flex;
+      .carousel-wrapper { flex-direction: column; }
+      #profile {
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
-        font-size: 0.9em;
       }
-      
-      .mobile-action-buttons button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      }
-      
-      .header {
-        padding: 40px 0;
-      }
-      
-      .name {
-        font-size: 2em;
-      }
-      
-      .card {
-        padding: 20px;
-        margin-bottom: 20px;
-      }
-      
-      p {
-        text-align: justify;
-      }
-      
-      /* Shift social icons upward on mobile */
-      .social-icons {
-        bottom: 80px;
-      }
+      #profile .links { position: static; margin-top: 10px; transform: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Floating Action Buttons (desktop view) -->
-  <div class="action-buttons">
-    <button class="action-btn" onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
-      <i class="fas fa-download"></i> Download CV
-      <span class="live-badge">PDF</span>
-    </button>
-    <button class="action-btn" onclick="window.open('#projects')">
-      <i class="fas fa-code"></i> Projects
-      <span class="live-badge">LIVE</span>
-    </button>
-    <button class="action-btn" onclick="window.open('https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO?usp=sharing')">
-      <i class="fas fa-briefcase"></i> Case Studies
-      <span class="live-badge">LIVE</span>
-    </button>
+  <!-- Background: Starfield Overlay -->
+  <canvas id="starfield"></canvas>
+  
+  <!-- Header -->
+  <header class="fade-in">
+    <h1>Sabyasachi Mishra</h1>
+    <div class="ctas">
+      <a href="mailto:sabyaschimishra648@gmail.com" class="ripple" title="Schedule a Call">Call</a>
+      <a href="assets/cv.pdf" class="ripple" title="Download Resume">Resume</a>
+    </div>
+  </header>
+  
+  <!-- Floating Buttons Bar for Desktop & Mobile (Bottom Left) -->
+  <div id="floating-buttons" class="fade-in">
+    <a href="assets/cv.pdf" class="ripple" title="Download CV">Download CV</a>
+    <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" class="ripple" title="Case Studies">Case Studies</a>
   </div>
   
-  <!-- Mobile Sticky Footer Action Buttons -->
-  <div class="mobile-action-buttons">
-    <button onclick="window.open('assets/SabyasachiMishra_IIMI.pdf')">
-      <i class="fas fa-download"></i> CV
-    </button>
-    <button onclick="window.open('#projects')">
-      <i class="fas fa-code"></i> Projects
-    </button>
-    <button onclick="window.open('https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO?usp=sharing')">
-      <i class="fas fa-briefcase"></i> Case Studies
-    </button>
+  <!-- Floating 3D Circular Icons (Bottom Right) -->
+  <div id="floating-icons" class="fade-in">
+    <a href="mailto:sabyaschimishra648@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/SABYA648" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
   </div>
   
-  <!-- Main Container -->
-  <div class="container">
-    <!-- Header -->
-    <header class="header">
-      <h1 class="name">Sabyasachi Mishra</h1>
-      <div class="contact-info">
-        Tel: 7779884260 | Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a> | 
-        <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank">LinkedIn</a> | 
-        <a href="https://github.com/SABYA648" target="_blank">Github</a>
+  <!-- Main Content -->
+  <main>
+    <!-- Profile Section -->
+    <section id="profile" class="fade-in">
+      <img src="assets/profile.JPG" alt="Profile Photo">
+      <div class="info">
+        <h2>Product Manager</h2>
+        <p>Product Thinking | AI &amp; Data-Driven Strategy | Digital Innovation</p>
       </div>
-    </header>
-
+      <div class="links">
+        <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin" style="font-size:3.6rem;"></i>
+        </a>
+        <a href="https://github.com/SABYA648" target="_blank" title="GitHub">
+          <i class="fab fa-github" style="font-size:3.6rem;"></i>
+        </a>
+      </div>
+    </section>
+    
     <!-- Professional Summary -->
-    <div class="card">
-      <h2>Professional Summary</h2>
+    <section id="summary" class="fade-in">
       <p>
-        Results-driven Product &amp; Business Development Professional with expertise in AI, blockchain, digital transformation, and IT strategy. Proven ability to bridge business &amp; technology, leveraging machine learning, deep learning, and financial modelling to drive data-driven decision-making. Skilled in product lifecycle management, business growth strategy, and IT consulting, with hands-on experience in product development, predictive analytics, and blockchain-based solutions. Adept at leading cross-functional teams, optimizing market strategies, and delivering scalable tech solutions. A dynamic problem-solver, passionate about building and scaling digital products that enhance efficiency and business impact.
+        Product Manager with a passion for transforming ideas into innovative products. Driven by data to craft solutions that empower business growth.
       </p>
-    </div>
-
-    <!-- Educational Qualifications -->
-    <div class="card">
-      <h2>Educational Qualifications</h2>
-      <ul>
-        <li><strong>MBA</strong> – IIM Indore, 2023</li>
-        <li><strong>B.Tech, ECE</strong> – BIT MESRA, Ranchi, 2020</li>
-      </ul>
-    </div>
-
-    <!-- Professional Experience -->
-    <div class="card">
-      <h2>Professional Experience (36 months)</h2>
-      
-      <div class="experience-item">
-        <h3>Assistant Manager (Project Finance)</h3>
-        <div class="company">Power Finance Corporation Ltd.</div>
-        <div class="date">Jun ’23 – Present</div>
-        <ul>
-          <li>Structured &amp; managed ₹15,000+ Cr in infrastructure financing, ensuring project viability &amp; risk-adjusted returns.</li>
-          <li>Conducted credit risk assessment &amp; developed debt restructuring strategies, reducing potential financial losses by 20%.</li>
-          <li>Led due diligence &amp; structured 6+ RTLs, facilitating negotiations &amp; accelerating financial closure.</li>
-          <li>Developed a MIS framework tracking 15+ indicators for ₹5,000 Cr+ renewable energy projects, enabling proactive risk monitoring.</li>
-          <li>Collaborated with MoP/CEA to implement 10+ SOPs under LPS policy, reducing overdue payments by 60%.</li>
-        </ul>
-      </div>
-      
-      <div class="experience-item">
-        <h3>Co-Founder</h3>
-        <div class="company">Brahmagupta Edu Pvt. Ltd.</div>
-        <div class="date">Jan ’21 – Aug ‘21</div>
-        <ul>
-          <li>Developed &amp; launched a Machine Learning powered learning platform, reducing content delivery costs by 30%.</li>
-          <li>Spearheaded the development of an AI-driven adaptive testing platform, used by 400+ CAT aspirants.</li>
-          <li>Built an EdTech startup from scratch, driving 50% revenue growth &amp; expanding customer base through multi-channel marketing.</li>
-          <li>Led a team of 11 (8 affiliates, 3 managers), overseeing daily operations &amp; ensuring smooth execution.</li>
-          <li>Built predictive analytics dashboards using Python (Colab) on Google Ads data, optimizing ad spend &amp; boosting conversions by 60%.</li>
-        </ul>
-      </div>
-      
-      <div class="experience-item">
-        <h3>Associate – IT Operations</h3>
-        <div class="company">Pigeon Education Pvt. Ltd.</div>
-        <div class="date">Jan ‘20 – Dec ‘20</div>
-        <ul>
-          <li>Built an AI-driven live class system, enhancing performance tracking &amp; real-time student engagement up to 80%.</li>
-          <li>Developed AI models for automated student assessment, reducing manual intervention by 40%.</li>
-          <li>Designed a data-driven system to track student performance, enabling real-time feedback and personalized learning.</li>
-          <li>Led cross-functional collaboration with educators &amp; engineers to refine ML algorithms &amp; optimize user experience.</li>
-          <li>Assisted in business development &amp; investor pitches, contributing to early-stage fundraising success.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Internships -->
-    <div class="card">
-      <h2>Internships</h2>
-      
-      <div class="experience-item">
-        <h3>Product Analyst - Digital Strategy &amp; Market Intelligence</h3>
-        <div class="company">GSK Pharmaceuticals, Mumbai</div>
-        <div class="date">Apr ’22 – Jun ’22</div>
-        <ul>
-          <li>Automated competitor analysis workflows, reducing manual data processing time by 30%.</li>
-          <li>Applied NLP &amp; sentiment analysis to assess brand perception &amp; patient feedback, improving targeting strategies.</li>
-          <li>Developed a BI data-driven market intelligence framework to analyse Levothyroxine market trends &amp; competitor strategies.</li>
-          <li>Collaborated with cross-functional teams (Marketing, Sales, Data Science) to integrate data-driven insights into business strategy.</li>
-          <li>Used Python and Power BI to build CNN-based predictive dashboards, optimizing campaign performance &amp; market insights.</li>
-        </ul>
-      </div>
-      
-      <div class="experience-item">
-        <h3>Software Development Intern (Product Development)</h3>
-        <div class="company">Amdocs India LLP, Pune</div>
-        <div class="date">May ’19 – Aug ’19</div>
-        <ul>
-          <li>Developed a job recommendation system using machine learning, improving match accuracy by 45%.</li>
-          <li>Designed a blockchain-based gig economy model, ensuring secure transactions &amp; decentralized freelancer verification.</li>
-          <li>Implemented NLP algorithms to enhance resume parsing &amp; increase employer-freelancer matchmaking efficiency.</li>
-          <li>Integrated smart contracts for automated payments &amp; trust-based engagements in freelance marketplaces.</li>
-          <li>Built a MVP combining AI recommendations &amp; blockchain security, boosting user engagement &amp; job placement efficiency.</li>
-          <li>Collaborated with product &amp; engineering teams to refine Machine Learning algorithms &amp; optimize system performance.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Academic & Co-Curricular Achievements -->
-    <div class="card">
-      <h2>Academic &amp; Co-Curricular Achievements</h2>
-      <ul>
-        <li>Professional Scrum Product Owner™ II (PSPO II) - Scrum.org &amp; Certified ScrumMaster® (CSM®) - Scrum Alliance, 2024</li>
-        <li>National Finalist - Tekion Product Management Case Competition &amp; WITDA Case Challenge (PPO opportunities earned), 2023</li>
-        <li>Achieved the NTSE Certificate of Merit. Awarded 99.90 percentile in CAT 2020 &amp; 99.88 percentile in XAT 2021, 2021</li>
-      </ul>
-    </div>
-
-    <!-- Projects & Research Papers -->
-    <div class="card" id="projects">
-      <h2>Projects &amp; Research Papers</h2>
-      
-      <div class="experience-item">
-        <h3>🔹 LLM Prompt Tuning Interface</h3>
-        <p>✅ Designed and deployed an interactive LLM tuning platform using Streamlit &amp; OpenAI API, allowing real-time text generation adjustments via dynamic sliders.</p>
-        <p>✅ Bridged AI and user experience by productizing LLM tuning, eliminating the need for manual parameter tweaking and enhancing accessibility for non-technical users.</p>
-        <div class="button-group">
-          <a href="https://llm-tuner.sabyasachimishra.dev/" class="project-btn" target="_blank">View Demo</a>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="fade-in">
+      <h2>Education</h2>
+      <div class="edu-container">
+        <div class="edu-card">
+          <h3>IIM Indore</h3>
+          <p>MBA, Marketing (2023)</p>
+        </div>
+        <div class="edu-card">
+          <h3>BIT Mesra</h3>
+          <p>B.Tech, ECE (2020)</p>
         </div>
       </div>
-      
-      <div class="experience-item">
-        <h3>🔹 FeatureFit: AI-Powered Feature Prioritization Tool</h3>
-        <p>✅ Developed and launched an AI-powered feature prioritization tool that leverages the RICE and SWOT frameworks to empower product managers with data-driven insights.</p>
-        <p>✅ Managed the end-to-end product lifecycle, integrating real-time analytics and actionable recommendations to optimize product strategy.</p>
-        <div class="button-group">
-          <a href="https://featurefit.sabyasachimishra.dev/" class="project-btn" target="_blank">View Demo</a>
+    </section>
+    
+    <!-- Dual-Column Carousel: Projects & Blogs -->
+    <div class="carousel-wrapper fade-in">
+      <!-- Projects Carousel -->
+      <section class="carousel-section" id="projects">
+        <h2>Projects</h2>
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carousel-projects">
+            <!-- Slide 1: FeatureFit -->
+            <div class="carousel-item">
+              <div class="card ripple">
+                <img src="assets/project2img.jpg" alt="FeatureFit">
+                <h3>FeatureFit</h3>
+                <p>Optimize product features with AI-powered prioritization.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="https://github.com/SABYA648/FeatureFit" target="_blank">LIVE DEMO</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">View PRD</a>
+                  <a href="https://github.com/SABYA648/FeatureFit" target="_blank">View Source</a>
+                  <a href="assets/proj1.pdf" target="_blank">View Case Study</a>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2: LLM Tuner -->
+            <div class="carousel-item">
+              <div class="card ripple">
+                <img src="assets/project1img.jpg" alt="LLM Tuner">
+                <h3>LLM Tuner</h3>
+                <p>Fine-tune language model responses with interactive prompt tuning.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">LIVE DEMO</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">View PRD</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">View Source</a>
+                  <a href="assets/proj1.pdf" target="_blank">View Case Study</a>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 3: Upcoming Project -->
+            <div class="carousel-item">
+              <div class="card ripple">
+                <img src="assets/project3img.jpg" alt="Upcoming Project">
+                <h3>Upcoming Project</h3>
+                <p>Stay tuned for more.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="#" target="_blank">LIVE DEMO</a>
+                  <a href="#" target="_blank">View PRD</a>
+                  <a href="#" target="_blank">View Source</a>
+                  <a href="#" target="_blank">View Case Study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button onclick="prevSlide('carousel-projects', 'dots-projects')">&#10094;</button>
+            <button onclick="nextSlide('carousel-projects', 'dots-projects')">&#10095;</button>
+          </div>
+          <div class="carousel-dots" id="dots-projects"></div>
         </div>
-      </div>
+      </section>
       
-      <div class="experience-item">
-        <h3>🔹 Reddit Trend Analysis using Graph Neural Networks (GNNs)</h3>
-        <p>✅ Built a real-time Reddit trend analysis tool integrating Graph Neural Networks (PyTorch Geometric) &amp; NLP, enabling sentiment tracking and discussion propagation insights.</p>
-        <p>✅ Developed a product-focused analytics dashboard, allowing users to explore topic virality, sentiment evolution, and influencer impact through an intuitive interface.</p>
-        <div class="button-group">
-          <a href="https://reddit-setiment-analysis-backend.onrender.com" class="project-btn" target="_blank">View Demo</a>
+      <!-- Blogs Carousel -->
+      <section class="carousel-section" id="blogs">
+        <h2>Blogs</h2>
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carousel-blogs">
+            <!-- Slide 1 -->
+            <div class="carousel-item">
+              <div class="card ripple">
+                <img src="assets/blog1img.jpg" alt="Blog Post 1">
+                <h3>Blog Post Title 1</h3>
+                <p>Insights on AI &amp; Product Strategy.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="https://medium.com/@SABYA648/blog1" target="_blank">LIVE DEMO</a>
+                  <a href="https://medium.com/@SABYA648/blog1" target="_blank">View PRD</a>
+                  <a href="https://medium.com/@SABYA648/blog1" target="_blank">View Source</a>
+                  <a href="assets/proj1.pdf" target="_blank">View Case Study</a>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="card ripple">
+                <img src="assets/blog2img.jpg" alt="Blog Post 2">
+                <h3>Blog Post Title 2</h3>
+                <p>Digital Transformation Trends.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="https://medium.com/@SABYA648/blog2" target="_blank">LIVE DEMO</a>
+                  <a href="https://medium.com/@SABYA648/blog2" target="_blank">View PRD</a>
+                  <a href="https://medium.com/@SABYA648/blog2" target="_blank">View Source</a>
+                  <a href="assets/proj1.pdf" target="_blank">View Case Study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button onclick="prevSlide('carousel-blogs', 'dots-blogs')">&#10094;</button>
+            <button onclick="nextSlide('carousel-blogs', 'dots-blogs')">&#10095;</button>
+          </div>
+          <div class="carousel-dots" id="dots-blogs"></div>
         </div>
-      </div>
+      </section>
     </div>
-  </div>
+    
+    <!-- Skills Section -->
+    <section id="skills-section" class="fade-in">
+      <h2>Skills</h2>
+      <div id="skills">
+        <div class="skill">LLM Prompt Tuning</div>
+        <div class="skill">Agile PM</div>
+        <div class="skill">Data-Driven Strategy</div>
+        <div class="skill">Product Roadmapping</div>
+        <div class="skill">UX Research</div>
+        <div class="skill">A/B Testing</div>
+        <div class="skill">Scrum &amp; Kanban</div>
+        <div class="skill">Digital Innovation</div>
+        <div class="skill">Cross-Functional Leadership</div>
+      </div>
+    </section>
+    
+    <!-- Work Experience Section -->
+    <section id="experience" class="fade-in">
+      <h2>Work Experience</h2>
+      <!-- Experience Card 1 -->
+      <div class="exp-card expanded" onclick="toggleExp(this)">
+        <div class="exp-summary">
+          <span>Power Finance Corporation Ltd. – Assistant Manager (Jun '23 – Present)</span>
+          <span class="learn-more">&#x25B2;</span>
+        </div>
+        <div class="exp-details">
+          <p>
+            Developed data-driven risk models for ₹15,000+ Cr financing, automated credit risk assessments (reducing losses by 20%), and built a real-time MIS framework.
+          </p>
+        </div>
+      </div>
+      <!-- Experience Card 2 -->
+      <div class="exp-card expanded" onclick="toggleExp(this)">
+        <div class="exp-summary">
+          <span>Brahmagupta Edu Pvt. Ltd. – Co-Founder (Jan '21 – Aug '21)</span>
+          <span class="learn-more">&#x25B2;</span>
+        </div>
+        <div class="exp-details">
+          <p>
+            Launched an AI-powered adaptive learning platform that reduced content delivery costs by 30% and boosted student engagement by 30%. Led an 11-member team achieving 50% revenue growth, and developed predictive analytics dashboards that increased Google Ads conversions by 60%.
+          </p>
+        </div>
+      </div>
+      <!-- Experience Card 3 -->
+      <div class="exp-card expanded" onclick="toggleExp(this)">
+        <div class="exp-summary">
+          <span>Pigeon Education Pvt. Ltd. – Associate (Jan '20 – Dec '20)</span>
+          <span class="learn-more">&#x25B2;</span>
+        </div>
+        <div class="exp-details">
+          <p>
+            Developed an AI-based live class platform that increased student engagement by 80% and implemented ML models for automated assessments, reducing grading workload by 40%. Collaborated with cross-functional teams to refine algorithms, enhance learning experiences, and support early-stage investor fundraising.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Internships & Achievements Section -->
+    <section id="internships" class="fade-in">
+      <h2>Internships &amp; Achievements</h2>
+      <!-- Internship Card 1 -->
+      <div class="internship-card">
+        <h3>GSK Pharmaceuticals, Mumbai</h3>
+        <p><strong>Product Analyst (Apr '22 – Jun '22)</strong></p>
+        <p>Automated competitor analysis workflows (30% reduction), applied NLP for sentiment analysis, and developed BI-driven market intelligence.</p>
+      </div>
+      <!-- Internship Card 2 -->
+      <div class="internship-card">
+        <h3>Amdocs India LLP, Pune</h3>
+        <p><strong>Software Development Intern (May '19 – Aug '19)</strong></p>
+        <p>Built an ML-driven job recommendation platform (45% improved match accuracy), designed blockchain-based solutions, and implemented NLP-based resume parsing.</p>
+      </div>
+      <!-- Achievements Card -->
+      <div class="internship-card">
+        <h3>Achievements</h3>
+        <p>PSPO II &amp; Certified ScrumMaster®</p>
+        <p>National Finalist – Tekion PM Case Competition &amp; WITDA Case Challenge (2022)</p>
+        <p>NTSE Certificate of Merit; 99.90 percentile in CAT 2020 &amp; 99.88 percentile in XAT 2021</p>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a></p>
+      <a href="mailto:sabyaschimishra648@gmail.com" class="contact-btn ripple">Send Message</a>
+    </section>
+  </main>
   
-  <!-- Floating Social Icons (bottom right) -->
-  <div class="social-icons">
-    <a href="https://wa.me/7779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:sabyaschimishra648@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  </div>
+  <!-- JavaScript -->
+  <script>
+    // Fade-In on Scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => observer.observe(fader));
+    
+    // Ripple Effect for Buttons
+    document.querySelectorAll('.ripple').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const rect = btn.getBoundingClientRect();
+        const circle = document.createElement('span');
+        const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+        const radius = diameter / 2;
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${e.clientX - rect.left - radius}px`;
+        circle.style.top = `${e.clientY - rect.top - radius}px`;
+        circle.classList.add('ripple-effect');
+        btn.appendChild(circle);
+        setTimeout(() => circle.remove(), 600);
+      });
+    });
+    
+    // Carousel Functions & Dots
+    function initCarousel(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      const slides = carousel.children;
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        if(i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => setSlide(carousel, dotsContainer, i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    function setSlide(carousel, dotsContainer, index) {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle('active', i === index);
+      }
+    }
+    
+    function nextSlide(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      let index = parseInt(carousel.style.transform.replace('translateX(-', '').replace('%)', '')) / 100 || 0;
+      index = (index + 1) % carousel.children.length;
+      setSlide(carousel, dotsContainer, index);
+    }
+    
+    function prevSlide(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      let index = parseInt(carousel.style.transform.replace('translateX(-', '').replace('%)', '')) / 100 || 0;
+      index = (index - 1 + carousel.children.length) % carousel.children.length;
+      setSlide(carousel, dotsContainer, index);
+    }
+    
+    // Work Experience Expand/Collapse
+    function toggleExp(card) {
+      card.classList.toggle("expanded");
+      const arrow = card.querySelector(".learn-more");
+      if(card.classList.contains("expanded")){
+        arrow.innerHTML = "&#x25B2;"; // up arrow
+      } else {
+        arrow.innerHTML = "&#x25BC;"; // down arrow
+      }
+    }
+  </script>
 </body>
 </html>
