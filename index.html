@@ -30,10 +30,10 @@
   <style>
     :root {
       --accent: #ff9500;
-      --bg-color: #f4f4f4;
-      --text-color: #333;
-      --card-bg: #fff;
-      --border-color: #ddd;
+      --bg-color: #000;
+      --text-color: #fff;
+      --card-bg: #111;
+      --border-color: #333;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -180,10 +180,40 @@
       font-size: 1.6rem;
       margin-bottom: 5px;
     }
-    .profile-left p {
-      font-size: 1.2rem;
+
+    /* Sticky Note with Pin at top */
+    .sticky-note {
+      position: relative;
+      background: #222;           /* dark note background */
+      color: #fff;
+      padding: 10px;
       margin-bottom: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      transform: rotate(-2deg);
+      transform-origin: top left;
+      width: 220px; /* adjust as desired */
+      min-height: 80px;
     }
+    /* The pinned icon using your specified path "assets/pin1.png" */
+    .sticky-note::before {
+      content: "";
+      width: 32px;
+      height: 32px;
+      background: url('assets/pin1.png') no-repeat center/contain;
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    /* If text is long, you can scroll inside the note: */
+    .sticky-note p {
+      max-height: 80px; 
+      overflow-y: auto;
+      margin: 0;
+    }
+
     .profile-links {
       display: flex;
       gap: 10px;
@@ -193,30 +223,61 @@
       font-size: 1.8rem;
     }
 
-    .profile-right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .profile-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 5px;
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .profile-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(255, 149, 0, 0.3);
-    }
-    .profile-box h4 {
-      font-size: 1.3rem;
-      margin-bottom: 6px;
-      color: var(--accent);
-    }
+    /* 1) Make the right column flexible so boxes can wrap if needed */
+.profile-right {
+  display: flex;
+  flex-wrap: wrap;       /* allows boxes to wrap to next row if needed */
+  gap: 10px;            /* spacing between boxes */
+  justify-content: center; /* or 'flex-start' if you prefer left-aligned */
+}
+
+/* 2) Profile box scales within min & max widths, plus clamp for font size */
+.profile-box {
+  flex: 1 1 200px; /* can shrink to 200px, can grow freely if space allows */
+  max-width: 350px;
+  max-height: 150px; /* but never exceed 350px in width */
+  
+  /* clamp(min, preferred, max):
+     The text size is never smaller than 1rem or bigger than 1.3rem,
+     and around mid-size screens it can scale at 2vw. Adjust to taste! */
+  font-size: clamp(1rem, 2vw, 1.3rem);
+
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.profile-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 149, 0, 0.3);
+}
+.profile-box h4 {
+  margin-bottom: 6px;
+  color: var(--accent);
+  /* If you want separate scaling for headings, do another clamp:
+     font-size: clamp(1.1rem, 3vw, 1.4rem); 
+  */
+}
+
+    @media (max-width: 390px) {
+  #profile {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: column;
+  }
+  .profile-left, .profile-right {
+    width: 100%; 
+  }
+}
+
+@media (min-width: 700px) {
+  .profile-box {
+    font-size: 1.3rem;  /* or any fixed size you prefer */
+  }
+}
 
     /* PROFESSIONAL SUMMARY */
     #summary {
@@ -234,6 +295,8 @@
       align-items: stretch;
     }
     .carousel-section {
+      flex: 1;
+      flex-direction: column;
       margin-bottom: 20px;
     }
     .carousel-section h2 {
@@ -251,6 +314,7 @@
       max-width: 95%;
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
     .carousel-inner {
       display: flex;
@@ -527,14 +591,12 @@
   </style>
 </head>
 <body>
-  <!-- Removed the <canvas id="starfield"> here, so no extra blank space -->
-
   <!-- Header -->
   <header>
     <h1>Sabyasachi Mishra</h1>
     <div class="header-ctas">
       <a href="mailto:sabyaschimishra648@gmail.com" title="Schedule a Call">Contact</a>
-      <a href="assets/cv.pdf" title="Download Resume">CV</a>
+      <a href="assets/cv.pdf" title="Download CV">CV</a>
     </div>
   </header>
 
@@ -555,7 +617,12 @@
       <div class="profile-left">
         <img src="assets/profile.JPG" alt="Profile Photo" />
         <h2>Sabyasachi Mishra</h2>
-        <p>Product Manager – Product Thinking | AI &amp; Data-Driven Strategy | Digital Innovation</p>
+
+        <!-- STICKY NOTE WITH PIN -->
+        <div class="sticky-note">
+          <p>Product Manager – Product Thinking | AI &amp; Data-Driven Strategy | Digital Innovation</p>
+        </div>
+
         <div class="profile-links">
           <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
             <i class="fab fa-linkedin"></i>
