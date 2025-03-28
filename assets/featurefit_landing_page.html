@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sabyasachi Mishra | Product Manager</title>
-  <meta name="description" content="Portfolio: AI-Driven Product Management & Strategy" />
+  <meta name="description" content="A modern, polished product management portfolio." />
 
   <!-- Google Fonts & FontAwesome -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap"
     rel="stylesheet"
   />
   <link
@@ -23,17 +23,18 @@
   />
 
   <style>
-    /* COLOR & FONT VARIABLES (From Code B, "the other one") */
+    /***********************************************
+     * COLORS & FONTS
+     ***********************************************/
     :root {
-      --primary: #2a9d8f;       /* Greenish */
-      --secondary: #264653;     /* Deep green-blue */
-      --accent: #e76f51;        /* Reddish accent */
-      --bg: #f9fafb;            /* Light background */
-      --text: #1f2937;          /* Dark text */
+      --primary: #4285f4;  /* Modern blue */
+      --accent: #ea4335;   /* Bold red */
+      --bg: #ffffff;       /* White background */
+      --bg-alt: #f9f9f9;   /* Subtle alternate background */
+      --text: #333333;     /* Dark text for contrast */
       --shadow: rgba(0, 0, 0, 0.1);
-      --radius: 12px;
+      --radius: 8px;
     }
-
     * {
       margin: 0;
       padding: 0;
@@ -50,120 +51,107 @@
     }
     h1, h2, h3, h4 {
       font-family: 'Montserrat', sans-serif;
-      color: var(--secondary);
+      color: var(--text);
     }
     a {
       text-decoration: none;
       cursor: pointer;
+      color: var(--primary);
     }
 
-    /* Container */
+    /* Container for sections */
     .container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
-      padding: 40px 0;
+      padding: 5px 0;
     }
 
-    /* AOS & basic fade-in keyframes */
+    /* AOS animation base */
     [data-aos] {
       opacity: 0;
       transition-property: transform, opacity;
       transition-duration: 0.4s;
     }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
 
-    /* HEADER (sticky) */
+    /***********************************************
+     * HEADER
+     ***********************************************/
     header {
       position: sticky;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       background: #fff;
       box-shadow: 0 2px 8px var(--shadow);
       z-index: 1000;
       padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
-    header h1 {
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header-brand {
       font-size: 1.8rem;
+      font-family: 'Montserrat', sans-serif;
       color: var(--accent);
+      flex: 1 1 auto;
+      min-width: 180px;
     }
     .header-socials {
       display: flex;
-      gap: 15px;
+      gap: 10px;
+      flex: 1 1 auto;
+      justify-content: flex-end;
+      min-width: 200px;
     }
     .header-socials a {
-      color: var(--accent);
       font-size: 1.2rem;
+      color: var(--accent);
       transition: color 0.3s;
     }
     .header-socials a:hover {
       color: var(--primary);
     }
-    .header-ctas {
-      display: flex;
-      gap: 10px;
-      margin-left: 20px;
-    }
-    .header-ctas a {
-      display: inline-block;
-      border: 2px solid var(--accent);
-      border-radius: var(--radius);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 8px 16px;
-      transition: 0.3s;
-    }
-    /* For the "Contact" or "Book Call" button, let's fill it in. For "Download Resume," let's make it skeleton. */
-    .header-ctas a.book-call {
-      background: var(--accent);
-      color: #fff;
-    }
-    .header-ctas a.book-call:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-    }
-    .header-ctas a.skeleton {
-      background: transparent;
-      color: var(--accent);
-    }
-    .header-ctas a.skeleton:hover {
-      background: var(--accent);
-      color: #fff;
-    }
 
-    /* BOTTOM BAR (Mobile) */
+    /***********************************************
+     * BOTTOM MOBILE NAV (with icon + label)
+     ***********************************************/
     .bottom-bar {
       position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: #f1f1f1;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-alt);
       border-top: 1px solid var(--accent);
-      color: #333;
       display: flex;
       justify-content: space-around;
       align-items: center;
       padding: 8px 0;
       z-index: 999;
+      /* Ensure fade/slide effect on show/hide: */
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
     .bottom-bar a {
-      font-size: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.7rem;
       color: var(--accent);
       transition: transform 0.3s;
     }
+    .bottom-bar a i {
+      font-size: 1.2rem;
+    }
     .bottom-bar a:hover {
-      transform: scale(1.1);
+      transform: scale(1.06);
       color: var(--primary);
+    }
+    .bottom-bar a span {
+      font-size: 0.65rem;
     }
     @media (min-width: 768px) {
       .bottom-bar {
@@ -171,14 +159,16 @@
       }
     }
 
-    /* HERO SECTION */
+    /***********************************************
+     * HERO SECTION
+     ***********************************************/
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 40px;
       justify-content: space-between;
-      padding-top: 40px;
+      padding-top: 20px;
     }
     .hero img {
       width: 160px;
@@ -188,24 +178,27 @@
       box-shadow: 0 4px 10px var(--shadow);
     }
     .hero-text h1 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       margin-bottom: 10px;
+      color: var(--accent);
     }
     .hero-text p {
       margin-bottom: 20px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: var(--text);
+      max-width: 500px;
     }
     .btn-group {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
-    /* Primary CTA: Book Call. Secondary CTA: skeleton for resume. */
+    /* Note: Header CTAs are removed, so these buttons exist only in the hero if needed */
     .btn-group a {
       display: inline-block;
       border-radius: var(--radius);
       font-weight: bold;
-      padding: 12px 24px;
+      padding: 10px 16px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       font-size: 0.9rem;
     }
@@ -232,14 +225,12 @@
       box-shadow: 0 6px 16px var(--shadow);
     }
 
-    /* SKILLS SECTION (toggles from Code B) */
-    .skills-categorized {
-      margin-top: 20px;
-      text-align: center;
-    }
+    /***********************************************
+     * SKILLS SECTION (Toggles)
+     ***********************************************/
     .skills-categorized h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 30px;
     }
     .skills-categories {
       display: flex;
@@ -249,7 +240,7 @@
       justify-content: center;
     }
     .skills-sidebar {
-      flex: 0 0 200px;
+      flex: 0 0 5px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -261,14 +252,12 @@
       color: var(--accent);
       border-radius: var(--radius);
       cursor: pointer;
-      text-align: left;
+      white-space: nowrap;
+      text-align: center;
       font-weight: bold;
       transition: background 0.3s, color 0.3s;
     }
-    .skill-toggle:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+    .skill-toggle:hover,
     .skill-toggle.active {
       background: var(--accent);
       color: #fff;
@@ -283,6 +272,7 @@
     .skill-category {
       display: none;
       width: 100%;
+      text-align: center;
     }
     .skill-category.active {
       display: flex;
@@ -292,64 +282,20 @@
     }
     .skill-pill {
       padding: 8px 16px;
-      border: 1px solid var(--primary);
       border-radius: 20px;
-      background: rgba(42, 157, 143, 0.1);
+      border: 1px solid var(--primary);
+      background: #f1faff;
       font-size: 0.9rem;
       transition: background 0.3s;
     }
     .skill-pill:hover {
-      background: rgba(42, 157, 143, 0.2);
+      background: #e3f2ff;
     }
 
-    /* PROJECTS & BLOGS SIDE-BY-SIDE (desktop), top/bottom (mobile) */
-    .carousel-wrapper {
-      display: block; /* default for mobile */
-      gap: 20px;
-    }
-    @media (min-width: 768px) {
-      .carousel-wrapper {
-        display: flex;        /* side by side on desktop */
-        flex-direction: row;
-        gap: 20px;
-      }
-    }
-    .carousel-section {
-      flex: 1;
-      margin-bottom: 20px;
-    }
-    .carousel-section h2 {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-      color: var(--secondary);
-    }
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px var(--shadow);
-      margin: 0 auto;
-      max-width: 95%;
-      display: flex;
-      flex-direction: column;
-    }
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .carousel-item {
-      min-width: 100%;
-      flex-shrink: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    /***********************************************
+     * UNIFIED CARD STYLE
+     ***********************************************/
     .card {
-      width: 100%;
-      max-width: 300px;
       background: #fff;
       border-radius: var(--radius);
       box-shadow: 0 4px 12px var(--shadow);
@@ -364,18 +310,65 @@
       width: 100%;
       height: 160px;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 8px;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
     }
     .card h3 {
-      font-size: 1.2rem;
-      color: var(--secondary);
-      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 8px;
     }
     .card p {
       font-size: 0.95rem;
       color: var(--text);
       line-height: 1.4;
+    }
+
+    /***********************************************
+     * PROJECTS & BLOGS CAROUSEL
+     ***********************************************/
+    .carousel-wrapper {
+      display: block;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .carousel-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+    .carousel-section {
+      flex: 1;
+      margin-bottom: 40px;
+    }
+    .carousel-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+      color: var(--text);
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px var(--shadow);
+      margin: 0 auto;
+      max-width: 95%;
+      background: #fff;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    /* Use relative height for mobile responsiveness */
+    .carousel-item {
+      min-width: 100%;
+      min-height: 50vh;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .project-buttons {
       display: grid;
@@ -386,17 +379,16 @@
     .project-buttons a {
       font-size: 0.8rem;
       padding: 6px 0;
+      border-radius: var(--radius);
       border: 1px solid var(--accent);
-      border-radius: 8px;
-      background: rgba(231, 111, 81, 0.1);
+      background: #ffe8e6;
       color: var(--accent);
       transition: transform 0.3s, background 0.3s;
       text-align: center;
-      text-decoration: none;
     }
     .project-buttons a:hover {
       transform: translateY(-2px);
-      background: rgba(231, 111, 81, 0.2);
+      background: #ffd4d0;
     }
     .project-buttons a.live-demo {
       background: var(--accent);
@@ -407,7 +399,6 @@
       background: var(--primary);
       border-color: var(--primary);
     }
-
     .carousel-nav {
       position: absolute;
       top: 50%;
@@ -451,7 +442,9 @@
       background: var(--accent);
     }
 
-    /* TOGGLES for "What I Offer," "Work Experience," "Case Studies" */
+    /***********************************************
+     * RADIO CARDS: TOGGLE SECTION (What I Offer / Work Exp / Case Studies)
+     ***********************************************/
     .radio-cards {
       display: flex;
       gap: 20px;
@@ -461,7 +454,7 @@
     }
     .radio-card {
       background: #fff;
-      border: 2px solid var(--accent);
+      border: 2px solid var(--primary);
       padding: 20px;
       border-radius: var(--radius);
       width: 240px;
@@ -473,8 +466,9 @@
       transform: scale(1.03);
     }
     .radio-card.active {
-      background: var(--accent);
+      background: var(--primary);
       color: #fff;
+      border-color: var(--primary);
     }
     .radio-card i {
       font-size: 2rem;
@@ -482,18 +476,54 @@
     }
     .dynamic-content > div {
       display: none;
-      animation: fadeInUp 0.6s forwards;
+      animation: fadeInUp 0.5s forwards;
     }
     .dynamic-content > div.active {
       display: block;
     }
 
-    /* Offer / Experience / Case Studies Layout */
+    /* =========================
+       WHAT I OFFER SECTION – 6 CARDS
+    ***********************************************/
     .offer-cards {
       display: grid;
       gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 20px;
+    }
+    #case-studies .offer-btn {
+      white-space: nowrap; /* Prevent text wrapping */
+      min-width: 120px;    /* Force a consistent minimum width */
+      text-align: center;  /* Center the text */
+    }
+    @media (max-width: 768px) {
+      .radio-cards {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px; /* adjust spacing as needed */
+      }
+    }
+    @media (max-width: 768px) {
+      .radio-card {
+        padding: 6px !important;
+        font-size: 0.65rem !important;
+        width: auto !important; /* allow them to shrink */
+        margin: 0 !important;
+        height: auto !important; /* remove any fixed height */
+      }
+      .radio-card i {
+        font-size: 1.2rem !important;
+        margin-bottom: 4px !important;
+      }
+    }
+    @media (min-width: 768px) {
+      .offer-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .offer-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     .offer-card {
       background: #fff;
@@ -504,7 +534,7 @@
       transition: transform 0.3s;
     }
     .offer-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
     .offer-card i {
       font-size: 2rem;
@@ -513,17 +543,18 @@
     }
     .offer-card h3 {
       margin-bottom: 10px;
-      color: var(--secondary);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: var(--text);
     }
     .offer-card p {
       font-size: 0.95rem;
       margin-bottom: 15px;
       color: var(--text);
+      line-height: 1.4;
     }
     .offer-btn {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 8px 16px;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
@@ -535,7 +566,9 @@
       background: var(--primary);
     }
 
-    /* Timeline for Work Experience */
+    /***********************************************
+     * TIMELINE (Work Experience)
+     ***********************************************/
     .timeline {
       position: relative;
       margin: 40px 0;
@@ -548,7 +581,7 @@
       left: 15px;
       width: 2px;
       height: 100%;
-      background: var(--accent);
+      background: var(--primary);
     }
     .timeline-item {
       position: relative;
@@ -557,7 +590,7 @@
     .timeline-dot {
       position: absolute;
       left: 5px;
-      background: var(--accent);
+      background: var(--primary);
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -569,84 +602,250 @@
       border-radius: var(--radius);
       box-shadow: 0 4px 12px var(--shadow);
     }
+    .timeline-content h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: var(--accent);
+    }
+    .timeline-content p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
 
-    /* CONTACT SECTION */
-    #contact {
-      text-align: center;
-      margin: 30px 0 60px;
-    }
+    /***********************************************
+     * CONTACT FORM (Two-column)
+     ***********************************************/
     #contact h2 {
+      text-align: center;
+      margin-bottom: 30px;
       font-size: 1.6rem;
-      margin-bottom: 8px;
+      color: var(--text);
     }
-    .contact-btn {
-      display: inline-block;
+    .contact-form {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .contact-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-col {
+      flex: 1;
+      min-width: 300px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .contact-form button {
+      padding: 10px 20px;
       background: var(--accent);
       color: #fff;
-      padding: 12px 20px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      transition: transform 0.3s, box-shadow 0.3s;
-      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
     }
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px var(--shadow);
+    .contact-form button:hover {
+      background: var(--primary);
     }
 
-    /* FOOTER */
+    /***********************************************
+     * FOOTER
+     ***********************************************
     footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.85rem;
-      color: #555;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      z-index: 998;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    } */
+
+    /* Hide footer on mobile */
+    @media (max-width: 768px) {
+      footer {
+        display: none !important;
+      }
     }
 
+    /***********************************************
+     * RESPONSIVE TWEAKS
+     ***********************************************/
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 20px;
       }
       .btn-group {
         justify-content: center;
       }
       .carousel-wrapper {
-        display: block; /* stacked for mobile */
+        display: block;
+      }
+      .contact-row {
+        flex-direction: column;
       }
     }
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-wrap: nowrap;
+      }
+      .header-brand, .header-socials {
+        min-width: 0; /* Ensure they can shrink if needed */
+      }
+      .header-socials {
+        flex-shrink: 1;
+      }
+    }
+    @media (max-width: 768px) {
+      .skills-categories {
+        flex-direction: column;
+        align-items: center; /* center the items for a neater look */
+      }
+      .skills-sidebar,
+      .skills-content {
+        width: 100%;
+      }
+      .skills-sidebar {
+        margin-bottom: 20px; /* add some space between the toggles and the content */
+      }
+    }
+    @media (max-width: 767px) {
+      .offer-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-columns: 1fr;
+      }
+      .offer-card {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .offer-card img,
+      .offer-card i,
+      .offer-card h3,
+      .offer-card p {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+  /* For product-management: hide everything after the 10th pill */
+  #product-management span.skill-pill:nth-child(n+9) {
+    display: none;
+  }
+
+  /* For technical-skills: hide everything after the 8th pill */
+  #technical-skills span.skill-pill:nth-child(n+10) {
+    display: none;
+  }
+
+  /* For tools-platforms: hide everything after the 12th pill */
+  #tools-platforms span.skill-pill:nth-child(n+13) {
+    display: none;
+  }
+}
+#experience li, #experience p {
+  text-align: justify;
+}
+
+/***********************************************
+ * SCROLL TO TOP BUTTON
+ ***********************************************/
+ 
+.scroll-to-top {
+  position: fixed;
+  bottom: 70px; /* Above mobile bottom bar */
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(100, 100, 100, 0.7); /* Translucent grey */
+  backdrop-filter: blur(2px); /* Frosted glass effect */
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  z-index: 998; /* Below bottom bar (999) */
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+  background: rgba(80, 80, 80, 0.9);
+  transform: scale(1.05);
+}
+
+.scroll-to-top.show {
+  display: flex;
+}
+
+/* Adjust for desktop to be closer to corner */
+@media (min-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+  }
+}
   </style>
 </head>
+
+
 <body>
   <!-- HEADER -->
   <header>
-    <!--h1>Sbyasachi Mishra</h1>-->
-    <div style="display:flex; align-items:center;">
-      <!-- Socials -->
+    <div class="header-inner">
+      <div class="header-brand">Sabyasachi</div>
       <div class="header-socials">
-        <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/SABYA648" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:sabyasachimishra648@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://medium.com/@sabyasachimishra648"><i class="fab fa-medium"></i></a>
-      </div>
-      <!-- CTAs -->
-      <div class="header-ctas">
-        <!-- Book Call: primary (filled) -->
-        <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="book-call">Book Call</a>
-        <!-- Download Resume: skeleton -->
-        <a href="assets/cv.pdf" target="_blank" class="skeleton">Download Resume</a>
+        <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://medium.com/@sabyasachimishra648" aria-label="Medium"><i class="fab fa-medium"></i></a>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Bottom Bar (if desired) -->
+  <!-- MOBILE BOTTOM BAR -->
   <div class="bottom-bar">
-    <a href="assets/cv.pdf" title="Download CV"><i class="fas fa-file-download"></i></a>
-    <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies"><i class="fas fa-folder-open"></i></a>
-    <a href="mailto:sabyaschimishra648@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/SABYA648" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="assets/cv.pdf" title="Download CV">
+      <i class="fas fa-file-download"></i>
+      <span>CV</span>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies">
+      <i class="fas fa-folder-open"></i>
+      <span>Cases</span>
+    </a>
+    <a href="mailto:sabyasachimishra648@gmail.com" title="Email">
+      <i class="fas fa-envelope"></i>
+      <span>Email</span>
+    </a>
+    <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+      <span>LinkedIn</span>
+    </a>
+    <a href="https://github.com/SABYA648" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+      <span>GitHub</span>
+    </a>
   </div>
 
   <!-- HERO -->
@@ -654,8 +853,11 @@
     <img src="assets/profile.JPG" alt="Profile Photo" />
     <div class="hero-text">
       <h1>Sabyasachi Mishra</h1>
-      <p>Product Manager – AI-Driven Innovation &amp; Strategy</p>
+      <p>
+        Product Manager specializing in AI-driven solutions—bridging data insights with user-centric innovation.
+      </p>
       <div class="btn-group">
+        <!-- Optional hero CTAs; header no longer includes them -->
         <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="book-call">Book Call</a>
         <a href="assets/cv.pdf" target="_blank" class="resume-skeleton">Download Resume</a>
       </div>
@@ -673,39 +875,62 @@
       </div>
       <div class="skills-content">
         <div id="product-management" class="skill-category active">
+          <span class="skill-pill">Product Strategy & Vision</span>
+          <span class="skill-pill">Product Discovery & Validation</span>
           <span class="skill-pill">Roadmapping</span>
-          <span class="skill-pill">Feature Prioritization (RICE, ICE)</span>
-          <span class="skill-pill">Agile &amp; Scrum</span>
-          <span class="skill-pill">A/B Testing</span>
-          <span class="skill-pill">Lean Product Strategy</span>
+          <span class="skill-pill">Feature Prioritization</span>
+          <span class="skill-pill">Agile & Scrum</span>
+          <span class="skill-pill">Stakeholder Management</span>
+          <span class="skill-pill">Data-Driven Decision Making</span>
+          <span class="skill-pill">Competitive Analysis & Market Research</span>
           <span class="skill-pill">Customer Discovery</span>
-          <span class="skill-pill">PSPO-II Certified</span>
-          <span class="skill-pill">MVP Development</span>
+          <span class="skill-pill">Customer Journey Mapping</span>
+          <span class="skill-pill">User Experience (UX) Design Principles</span>
+          <span class="skill-pill">OKRs & KPI Tracking</span>
+          <span class="skill-pill">Go-To-Market (GTM) Strategy</span>
+          <span class="skill-pill">Pricing & Monetization Strategies</span>
+          <span class="skill-pill">Cross-functional Team Leadership</span>
+          <span class="skill-pill">Wireframing & Prototyping</span>
+          <span class="skill-pill">MVP Execution</span>
+          <span class="skill-pill">A/B Testing</span>
+          <span class="skill-pill">Lean Strategy</span>
         </div>
         <div id="technical-skills" class="skill-category">
+          <span class="skill-pill">Generative AI & LLM Implementation</span>
+          <span class="skill-pill">Machine Learning & AI Fundamentals</span>
           <span class="skill-pill">Python</span>
-          <span class="skill-pill">SQL</span>
-          <span class="skill-pill">OpenAI API</span>
+          <span class="skill-pill">SQL & Database Management</span>
+          <span class="skill-pill">API Design & Integration</span>
+          <span class="skill-pill">Prompt Engineering</span>
+          <span class="skill-pill">OpenAI APIs</span>
           <span class="skill-pill">FastAPI</span>
-          <span class="skill-pill">PyTorch Geometric</span>
           <span class="skill-pill">NLP / LLM Tuning</span>
+          <span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span>
+          <span class="skill-pill">Data Visualization</span>
           <span class="skill-pill">React</span>
-          <span class="skill-pill">JAVA</span>
+          <span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span>
+          <span class="skill-pill">Technical Documentation (PRD/BRD)</span>
+          <span class="skill-pill">Agile SDLC</span>
         </div>
         <div id="tools-platforms" class="skill-category">
           <span class="skill-pill">JIRA</span>
-          <span class="skill-pill">Git &amp; GitHub</span>
+          <span class="skill-pill">Git & GitHub</span>
+          <span class="skill-pill">Amplitude / Mixpanel</span>
+          <span class="skill-pill">Maze / Hotjar</span>
+          <span class="skill-pill">Figma / Adobe XD</span>
+          <span class="skill-pill">Miro / FigJam</span>
+          <span class="skill-pill">Confluence / Notion</span>
           <span class="skill-pill">Tableau</span>
           <span class="skill-pill">Power BI</span>
-          <span class="skill-pill">Notion</span>
           <span class="skill-pill">Postman</span>
-          <span class="skill-pill">Google Analytics</span>
+          <span class="skill-pill">Slack / Teams</span>
+          <span class="skill-pill">GA4</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS & BLOGS Carousels side by side on desktop -->
+  <!-- PROJECTS & BLOGS CAROUSELS -->
   <section class="container carousel-wrapper" data-aos="fade-up">
     <!-- Projects -->
     <div class="carousel-section">
@@ -717,12 +942,12 @@
             <div class="card">
               <img src="assets/project2img.JPG" alt="FeatureFit" />
               <h3>FeatureFit</h3>
-              <p>Optimize product features with AI prioritization.</p>
+              <p>AI-based feature prioritization that reduced planning time by 30%.</p>
               <div class="project-buttons">
-                <a class="live-demo" href="https://github.com/SABYA648/FeatureFit" target="_blank">LIVE DEMO</a>
-                <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
-                <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
-                <a href="assets/proj2.pdf" target="_blank">Case Study</a>
+                <a class="live-demo" href="#" target="_blank">LIVE DEMO</a>
+                <a href="#" target="_blank">PRD</a>
+                <a href="#" target="_blank">Source</a>
+                <a href="#" target="_blank">Case Study</a>
               </div>
             </div>
           </div>
@@ -731,19 +956,19 @@
             <div class="card">
               <img src="assets/project1img.JPG" alt="LLM Tuner" />
               <h3>LLM Tuner</h3>
-              <p>Fine-tune language model responses with interactive prompt tuning.</p>
+              <p>Interactive prompt tuning that cut iteration time by 50%.</p>
               <div class="project-buttons">
-                <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">LIVE DEMO</a>
-                <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
-                <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
-                <a href="assets/proj1.pdf" target="_blank">Case Study</a>
+                <a class="live-demo" href="#" target="_blank">LIVE DEMO</a>
+                <a href="#" target="_blank">PRD</a>
+                <a href="#" target="_blank">Source</a>
+                <a href="#" target="_blank">Case Study</a>
               </div>
             </div>
           </div>
         </div>
         <div class="carousel-nav">
-          <button onclick="prevSlide('carousel-projects','dots-projects')">&#10094;</button>
-          <button onclick="nextSlide('carousel-projects','dots-projects')">&#10095;</button>
+          <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Projects">&#10094;</button>
+          <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Projects">&#10095;</button>
         </div>
         <div class="carousel-dots" id="dots-projects"></div>
       </div>
@@ -757,36 +982,36 @@
           <!-- Slide 1 -->
           <div class="carousel-item">
             <div class="card">
-              <img src="assets/Blog1img.JPG" alt="Blog 1"/>
+              <img src="assets/Blog1img.JPG" alt="Blog 1" />
               <h3>LLM-EO: Future of SEO</h3>
-              <p>Explores how LLM optimization is reshaping search & SEO strategies.</p>
+              <p>Exploring how language model optimization transforms search.</p>
               <div class="project-buttons" style="grid-template-columns:1fr;">
-                <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601" target="_blank">Read</a>
+                <a class="live-demo" href="#" target="_blank">Read</a>
               </div>
             </div>
           </div>
           <!-- Slide 2 -->
           <div class="carousel-item">
             <div class="card">
-              <img src="assets/Blog2img.png" alt="Blog 2"/>
+              <img src="assets/Blog2img.png" alt="Blog 2" />
               <h3>LLM-EO Explained</h3>
-              <p>Deep dive into an AI-first approach to search, discoverability & content strategy.</p>
+              <p>A deep dive into LLM-based ranking and digital strategy.</p>
               <div class="project-buttons" style="grid-template-columns:1fr;">
-                <a class="live-demo" href="https://medium.com/@SABYA648/blog2" target="_blank">Read</a>
+                <a class="live-demo" href="#" target="_blank">Read</a>
               </div>
             </div>
           </div>
         </div>
         <div class="carousel-nav">
-          <button onclick="prevSlide('carousel-blogs','dots-blogs')">&#10094;</button>
-          <button onclick="nextSlide('carousel-blogs','dots-blogs')">&#10095;</button>
+          <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blogs">&#10094;</button>
+          <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blogs">&#10095;</button>
         </div>
         <div class="carousel-dots" id="dots-blogs"></div>
       </div>
     </div>
   </section>
 
-  <!-- RADIO CARDS: WHAT I OFFER / WORK EXPERIENCE / CASE STUDIES -->
+  <!-- RADIO CARDS: TOGGLE SECTION -->
   <section class="container" data-aos="fade-up">
     <div class="radio-cards" data-target="sections">
       <div class="radio-card active" data-id="offer">
@@ -803,71 +1028,179 @@
       </div>
     </div>
     <div class="dynamic-content" data-target="sections">
-      <!-- Offer -->
+      <!-- WHAT I OFFER (6 Cards) -->
       <div id="offer" class="active">
         <h2 style="text-align:center;">What I Offer</h2>
         <div class="offer-cards">
           <div class="offer-card">
             <i class="fas fa-cogs"></i>
-            <h3>AI-First Product Thinking</h3>
-            <p>Leverage AI to drive innovative product strategies with iterative experimentation.</p>
-            <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="offer-btn">Book a Call</a>
-          </div>
-          <div class="offer-card">
-            <i class="fas fa-chart-line"></i>
-            <h3>Data-Driven Decisions</h3>
-            <p>Integrate analytics for precise decisions. Passion for building data pipelines & deep insights.</p>
+            <h3>AI-Driven Strategy</h3>
+            <p>Leverage advanced AI to inform product strategy and execution.</p>
             <a href="#" class="offer-btn">Learn More</a>
           </div>
           <div class="offer-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Data Insights</h3>
+            <p>Transform raw data into actionable insights that drive decisions.</p>
+            <a href="#" class="offer-btn">View Details</a>
+          </div>
+          <div class="offer-card">
             <i class="fas fa-rocket"></i>
-            <h3>Lean MVP Execution</h3>
-            <p>Rapid prototyping & agile iteration for efficient, impactful product launches.</p>
-            <a href="#" class="offer-btn">See How</a>
+            <h3>Rapid Prototyping</h3>
+            <p>Quickly validate ideas with agile MVP development and user testing.</p>
+            <a href="#" class="offer-btn">See Process</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-users"></i>
+            <h3>User-Centric Design</h3>
+            <p>Empathize with users and design products that solve real problems.</p>
+            <a href="#" class="offer-btn">Discover More</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Innovative Roadmapping</h3>
+            <p>Create clear, ambitious roadmaps that inspire teams and stakeholders.</p>
+            <a href="#" class="offer-btn">Explore Roadmaps</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Continuous Learning</h3>
+            <p>Stay ahead of trends through ongoing research and skill development.</p>
+            <a href="#" class="offer-btn">See My Approach</a>
           </div>
         </div>
       </div>
-      <!-- Experience -->
+      <!-- WORK EXPERIENCE -->
       <div id="experience">
+        <!-- Work Experience Heading -->
         <h2 style="text-align:center;">Work Experience</h2>
         <div class="timeline">
+      
+          <!-- Assistant Manager -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Assistant Manager, Power Finance Corp.</h3>
-              <p>Built analytics dashboards for ₹15,000+ Cr infra projects, saving 12+ hours monthly with automation.</p>
+              <h3>
+                <strong>Assistant Manager</strong>, <em>Power Finance Corp.</em> (Jun '23 – Present)
+              </h3>
+              <ul>
+                <li>Built financial analytics dashboards for ₹15,000+ Cr infrastructure portfolios,<b>enhancing risk visibility and achieving 12+ hours monthly savings </b>in manual processes.</li>
+                <li>Deployed NLP-driven automated credit scoring models, improving <b>early risk detection and reducing defaults by 20%, positively impacting profitability.</b></li>
+                <li>Orchestrated <b>cross-functional collaboration among Engineering, Data Science, and Finance teams, enabling executive-level strategic decision-making </b>through actionable insights.</li>
+              </ul>
             </div>
           </div>
+      
+          <!-- Co-Founder -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Co-Founder | Brahmagupta Edu Pvt. Ltd.</h3>
-              <p>Launched AI-based learning platform, reducing content cost by 30% & boosting engagement by 30%.</p>
+              <h3>
+                <strong>Co-Founder & Product Lead</strong>, <em>Brahmagupta Edu</em> (Jan '21 – Aug '21)
+              </h3>
+              <ul>
+                <li>Conceptualized and launched an AI-driven adaptive learning platform, <b>achieving a 40% boost in user engagement and a 30% reduction in content delivery costs.</b></li>
+                <li>Directed an 11-member agile team through <b>ideation, product-market-fit validation, MVP development, and successful scaling, driving 50% YoY revenue growth.</b></li>
+                <li>Integrated <b>predictive analytics</b> into <b>digital marketing strategies, enhancing customer acquisition by 60%</b> through precise audience targeting.</li>
+              </ul>
             </div>
           </div>
+      
+          <!-- Associate -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Associate – Product & Tech, Pigeon Education</h3>
-              <p>Developed AI-powered live class platform, increasing session engagement by 80% & cutting grading time by 40%.</p>
+              <h3>
+                <strong>Product Associate</strong>, <em>Pigeon Education</em> (Jan '20 – Dec '20)
+              </h3>
+              <ul>
+                <li>Led product development of an <b>innovative AI-powered live education platform, increasing student participation metrics by over 80%.</b></li>
+                <li>Implemented <b>machine learning algorithms to automate grading and assessments, reducing operational overhead by 40%.</b></li>
+                <li>Partnered closely with engineering and design teams to <b>refine UX/UI iteratively, resulting in successful early-stage investor interest and funding.</b></li>
+              </ul>
             </div>
           </div>
+      
+        </div>
+      
+        <!-- Internships & Achievements Heading -->
+        <h2 style="text-align:center;">Internships & Achievements</h2>
+        <div class="timeline">
+      
+          <!-- GSK Internship -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>
+                <strong>Product Marketing Intern</strong>, <em>GSK Pharmaceuticals, Mumbai</em> (Apr '22 – Jun '22)
+              </h3>
+              <ul>
+                <li>Automated <b>competitor market intelligence with NLP-driven sentiment analysis and BI tools</b>, cutting research time by 30% and enhancing strategic responsiveness.</li>
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Amdocs Internship -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>
+                <strong>Software Development Intern</strong>, <em>Amdocs India LLP, Pune</em> (May '19 – Aug '19)
+              </h3>
+              <ul>
+                <li>Developed a <b>machine learning-based recruitment platform improving candidate-job matching accuracy by 45%</b>, and <b>implemented blockchain and NLP-based resume parsing solutions.</b></li>
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Achievements -->
+<div class="timeline-item">
+  <div class="timeline-content">
+    <h3><strong>Achievements & Certifications</strong></h3>
+    <ul>
+      <li><b>NTSE Scholar</b> – Awarded to top 0.5% students nationwide</li>
+      <li><b>PSPO II & Certified ScrumMaster® (Scrum.org)</b></li>
+      <li>National Finalist – Tekion PM Case Competition & WITDA Case Challenge (2022)</li>
+    </ul>
+  </div>
+</div>
+      
         </div>
       </div>
-      <!-- Case Studies -->
+      
+      <!-- CASE STUDIES (6 Cards) -->
       <div id="case-studies">
         <h2 style="text-align:center;">Case Studies</h2>
         <div class="offer-cards">
           <div class="offer-card">
             <i class="fas fa-file-alt"></i>
             <h3>Fintech AI Scoring</h3>
-            <p>Automated credit assessment for massive infra deals, cutting evaluation time & improving accuracy.</p>
+            <p>Automated credit assessments for large-scale infra deals.</p>
             <a href="#" class="offer-btn">View Study</a>
           </div>
           <div class="offer-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Predictive Learning App</h3>
-            <p>AI-driven adaptive learning, boosting user engagement & retention while reducing overheads.</p>
+            <i class="fas fa-chart-pie"></i>
+            <h3>Predictive Analytics</h3>
+            <p>Implemented AI models to forecast market trends accurately.</p>
+            <a href="#" class="offer-btn">View Study</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-network-wired"></i>
+            <h3>Network Optimization</h3>
+            <p>Optimized data flows to reduce latency and improve performance.</p>
+            <a href="#" class="offer-btn">View Study</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-robot"></i>
+            <h3>Robotic Process Automation</h3>
+            <p>Streamlined repetitive tasks through AI-powered automation.</p>
+            <a href="#" class="offer-btn">View Study</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Mobile Innovation</h3>
+            <p>Developed user-friendly mobile interfaces for enhanced UX.</p>
+            <a href="#" class="offer-btn">View Study</a>
+          </div>
+          <div class="offer-card">
+            <i class="fas fa-cloud"></i>
+            <h3>Cloud Integration</h3>
+            <p>Migrated critical workflows to the cloud for scalability.</p>
             <a href="#" class="offer-btn">View Study</a>
           </div>
         </div>
@@ -875,23 +1208,51 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" data-aos="fade-up">
+  <!-- CONTACT FORM -->
+  <section class="container" id="contact" data-aos="fade-up">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a></p>
-    <a href="mailto:sabyaschimishra648@gmail.com" class="contact-btn">Send Message</a>
+    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+      <div class="contact-row">
+        <div class="contact-col">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" name="contact" placeholder="Your Contact No" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+        </div>
+        <div class="contact-col">
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Subject" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Enter your message" required style="width:100%; height:150px;"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:10px;">
+        <button type="submit">Send</button>
+      </div>
+    </form>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER 
   <footer data-aos="fade-up">
     &copy; 2025 Sabyasachi Mishra. All rights reserved.
-  </footer>
+  </footer> -->
+  <!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
   <!-- AOS Animation Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({
-      duration: 800,
+      duration: 700,
       easing: 'ease-in-out',
       once: true
     });
@@ -899,7 +1260,6 @@
 
   <!-- Skills Toggle Script -->
   <script>
-    // Toggle skill categories
     document.querySelectorAll('.skill-toggle').forEach(button => {
       button.addEventListener('click', () => {
         document.querySelectorAll('.skill-toggle').forEach(btn => btn.classList.remove('active'));
@@ -925,37 +1285,41 @@
         dotsContainer.appendChild(dot);
       }
     }
+
     function setSlide(carousel, dotsContainer, index) {
       carousel.style.transform = `translateX(-${index * 100}%)`;
       [...dotsContainer.children].forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
       });
     }
+
     function nextSlide(carouselId, dotsId) {
       const carousel = document.getElementById(carouselId);
       const dotsContainer = document.getElementById(dotsId);
       const total = carousel.children.length;
-      let index = Math.abs(parseInt(carousel.style.transform.replace('translateX(-','')) / 100) || 0;
+      let index = Math.abs(parseInt(carousel.style.transform.replace('translateX(-','')) / 100) || 0);
       index = (index + 1) % total;
       setSlide(carousel, dotsContainer, index);
     }
+
     function prevSlide(carouselId, dotsId) {
       const carousel = document.getElementById(carouselId);
       const dotsContainer = document.getElementById(dotsId);
       const total = carousel.children.length;
-      let index = Math.abs(parseInt(carousel.style.transform.replace('translateX(-','')) / 100) || 0;
+      let index = Math.abs(parseInt(carousel.style.transform.replace('translateX(-','')) / 100) || 0);
       index = (index - 1 + total) % total;
       setSlide(carousel, dotsContainer, index);
     }
+
     window.addEventListener('load', () => {
       initCarousel('carousel-projects', 'dots-projects');
       initCarousel('carousel-blogs', 'dots-blogs');
     });
   </script>
 
-  <!-- Unified Radio Toggle Script -->
+  <!-- Unified Radio Toggle Script + Bottom Bar Scroll Hide -->
   <script>
-    // For "What I Offer," "Work Experience," "Case Studies"
+    // Radio toggle code
     const radioCards = document.querySelectorAll('.radio-cards[data-target="sections"] .radio-card');
     const radioContent = document.querySelector('.dynamic-content[data-target="sections"]');
     radioCards.forEach(card => {
@@ -968,6 +1332,46 @@
         if (targetDiv) targetDiv.classList.add('active');
       });
     });
+
+    // Auto-hide bottom bar on scroll down, show on scroll up
+    let lastScroll = window.pageYOffset;
+    const bottomBar = document.querySelector('.bottom-bar');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      // Prevent very small jitter
+      if (Math.abs(currentScroll - lastScroll) < 5) return;
+
+      if (currentScroll < lastScroll) {
+        // Scrolling down - hide bottom nav
+        bottomBar.style.transform = 'translateY(100%)';
+        bottomBar.style.opacity = '0';
+      } else {
+        // Scrolling up - show bottom nav
+        bottomBar.style.transform = 'translateY(0)';
+        bottomBar.style.opacity = '1';
+      }
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
   </script>
+  <script>// Scroll to top button
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) { // Show button after scrolling 300px
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+    
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    </script>
+  
 </body>
 </html>
