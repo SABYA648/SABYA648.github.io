@@ -1275,50 +1275,68 @@
   </script>
 
   <!-- Carousel Logic -->
-  <script>
-    function initCarousel(carouselId, dotsId) {
-      const carousel = document.getElementById(carouselId);
-      const dotsContainer = document.getElementById(dotsId);
-      const slides = carousel.children;
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement('span');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => setSlide(carousel, dotsContainer, i));
-        dotsContainer.appendChild(dot);
+<script>
+  // Helper function to get the current slide index based on transform value
+  function getCurrentSlideIndex(carousel) {
+    const transformValue = carousel.style.transform;
+    if (transformValue && transformValue.includes("translateX(")) {
+      // Extract the number inside translateX(-<number>%)
+      const match = transformValue.match(/translateX\(-?(\d+)%\)/);
+      if (match) {
+        // Convert the number to an index (each slide is 100%)
+        return parseInt(match[1]) / 100;
       }
     }
+    return 0; // default index if not set
+  }
 
-    function setSlide(carousel, dotsContainer, index) {
-      carousel.style.transform = `translateX(-${index * 100}%)`;
-      [...dotsContainer.children].forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
+  function initCarousel(carouselId, dotsId) {
+    const carousel = document.getElementById(carouselId);
+    const dotsContainer = document.getElementById(dotsId);
+    const slides = carousel.children;
+    dotsContainer.innerHTML = '';
+    // Initialize the transform if not set
+    if (!carousel.style.transform) {
+      carousel.style.transform = "translateX(0%)";
     }
-
-    function nextSlide(carouselId, dotsId) {
-      const carousel = document.getElementById(carouselId);
-      const dotsContainer = document.getElementById(dotsId);
-      const total = carousel.children.length;
-      let index = Math.abs(parseInt(carousel.style.transform.replace('translateX(-','')) / 100) || 0);
-      index = (index + 1) % total;
-      setSlide(carousel, dotsContainer, index);
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => setSlide(carousel, dotsContainer, i));
+      dotsContainer.appendChild(dot);
     }
+  }
 
-    function prevSlide(carouselId, dotsId) {
-      const carousel = document.getElementById(carouselId);
-      const dotsContainer = document.getElementById(dotsId);
-      const total = carousel.children.length;
-      let index = Math.abs(parseInt(carousel.style.transform.replace('translateX(-','')) / 100) || 0);
-      index = (index - 1 + total) % total;
-      setSlide(carousel, dotsContainer, index);
-    }
-
-    window.addEventListener('load', () => {
-      initCarousel('carousel-projects', 'dots-projects');
-      initCarousel('carousel-blogs', 'dots-blogs');
+  function setSlide(carousel, dotsContainer, index) {
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+    [...dotsContainer.children].forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
     });
-  </script>
+  }
+
+  function nextSlide(carouselId, dotsId) {
+    const carousel = document.getElementById(carouselId);
+    const dotsContainer = document.getElementById(dotsId);
+    const total = carousel.children.length;
+    let index = getCurrentSlideIndex(carousel);
+    index = (index + 1) % total;
+    setSlide(carousel, dotsContainer, index);
+  }
+
+  function prevSlide(carouselId, dotsId) {
+    const carousel = document.getElementById(carouselId);
+    const dotsContainer = document.getElementById(dotsId);
+    const total = carousel.children.length;
+    let index = getCurrentSlideIndex(carousel);
+    index = (index - 1 + total) % total;
+    setSlide(carousel, dotsContainer, index);
+  }
+
+  window.addEventListener('load', () => {
+    initCarousel('carousel-projects', 'dots-projects');
+    initCarousel('carousel-blogs', 'dots-blogs');
+  });
+</script>
 
   <!-- Unified Radio Toggle Script + Bottom Bar Scroll Hide -->
   <script>
