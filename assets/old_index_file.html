@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabyasachi Mishra | Product Manager</title>
+  <meta name="description" content="Sabyasachi Mishra | Product Manager – Product Thinking | AI & Data-Driven Strategy | Digital Innovation." />
+  <meta property="og:title" content="Sabyasachi Mishra | Product Manager" />
+  <meta property="og:description" content="A sleek, dashboard-style portfolio showcasing projects, blogs, education, skills, work experience, internships, and achievements." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YBR866PTCR');
+  </script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --accent: #ff9500;
+      --bg-color: #000;
+      --text-color: #fff;
+      --card-bg: #111;
+      --border-color: #333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #000;
+        --text-color: #fff;
+        --card-bg: #111;
+        --border-color: #333;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Basic Utility Classes */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.6s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--accent);
+      z-index: 999;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      color: var(--accent);
+    }
+    .header-ctas {
+      display: flex;
+      gap: 10px;
+    }
+    .header-ctas a {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      font-size: 1rem;
+      background: linear-gradient(145deg, var(--accent), #003366);
+      color: #fff;
+      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .header-ctas a:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* MOBILE-FRIENDLY BOTTOM BAR */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #222;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 8px 0;
+      z-index: 999;
+    }
+    .bottom-bar a {
+      font-size: 1.4rem;
+      color: #fff;
+      position: relative;
+      padding: 6px;
+      transition: transform 0.3s;
+    }
+    .bottom-bar a:hover {
+      transform: scale(1.1);
+    }
+
+    /* PROFILE SECTION (2-COLUMN LAYOUT) */
+    #profile {
+      margin-top: 60px; /* offset for header */
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+      display: flex;
+      align-items: stretch; 
+      gap: 20px;
+    }
+    .profile-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 10px;
+    }
+    .profile-left img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .profile-left h2 {
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+
+    /* Sticky Note with Pin at top */
+    .sticky-note {
+      position: relative;
+      background: #222;           /* dark note background */
+      color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      transform: rotate(-2deg);
+      transform-origin: top left;
+      width: 220px; /* adjust as desired */
+      min-height: 80px;
+    }
+    /* The pinned icon using your specified path "assets/pin1.png" */
+    .sticky-note::before {
+      content: "";
+      width: 32px;
+      height: 32px;
+      background: url('assets/pin1.png') no-repeat center/contain;
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    /* If text is long, you can scroll inside the note: */
+    .sticky-note p {
+      max-height: 80px; 
+      overflow-y: auto;
+      margin: 0;
+    }
+
+    .profile-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .profile-links a i {
+      font-size: 1.8rem;
+    }
+
+    /* 1) Make the right column flexible so boxes can wrap if needed */
+.profile-right {
+  display: flex;
+  flex-wrap: wrap;       /* allows boxes to wrap to next row if needed */
+  gap: 10px;            /* spacing between boxes */
+  justify-content: center; /* or 'flex-start' if you prefer left-aligned */
+}
+
+/* 2) Profile box scales within min & max widths, plus clamp for font size */
+.profile-box {
+  flex: 1 1 200px; /* can shrink to 200px, can grow freely if space allows */
+  max-width: 350px;
+  max-height: 150px; /* but never exceed 350px in width */
+  
+  /* clamp(min, preferred, max):
+     The text size is never smaller than 1rem or bigger than 1.3rem,
+     and around mid-size screens it can scale at 2vw. Adjust to taste! */
+  font-size: clamp(1rem, 2vw, 1.3rem);
+
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.profile-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 149, 0, 0.3);
+}
+.profile-box h4 {
+  margin-bottom: 6px;
+  color: var(--accent);
+  /* If you want separate scaling for headings, do another clamp:
+     font-size: clamp(1.1rem, 3vw, 1.4rem); 
+  */
+}
+
+    @media (max-width: 390px) {
+  #profile {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: column;
+  }
+  .profile-left, .profile-right {
+    width: 100%; 
+  }
+}
+
+@media (min-width: 700px) {
+  .profile-box {
+    font-size: 1.3rem;  /* or any fixed size you prefer */
+  }
+}
+
+    /* PROFESSIONAL SUMMARY */
+    #summary {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.2rem;
+      padding: 0 10px;
+    }
+
+    /* CAROUSELS (PROJECTS & BLOGS) */
+    .carousel-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .carousel-section {
+      flex: 1;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .carousel-section h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--card-bg);
+      margin: 0 auto;
+      max-width: 95%;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+      flex: 1;
+    }
+    .carousel-item {
+      min-width: 100%;
+      flex-shrink: 0;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      width: 100%;
+      max-width: 300px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(255, 149, 0, 0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .project-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .project-buttons a {
+      font-size: 0.9rem;
+      padding: 6px 0;
+      text-align: center;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: rgba(255, 149, 0, 0.1);
+      color: var(--accent);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .project-buttons a:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 149, 0, 0.2);
+    }
+    .project-buttons a.live-demo {
+      background: #ff3b30;
+      border-color: #ff3b30;
+      color: #fff;
+    }
+    .project-buttons a.live-demo:hover {
+      background: #e03227;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .carousel-nav button {
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: var(--accent);
+      font-size: 1.8rem;
+      padding: 6px 10px;
+      cursor: pointer;
+      pointer-events: all;
+      transition: background 0.3s;
+    }
+    .carousel-nav button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    .carousel-dots span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: var(--border-color);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-dots span.active {
+      background: var(--accent);
+    }
+
+    /* SKILLS */
+    #skills-section {
+      margin: 20px 0;
+      text-align: center;
+    }
+    #skills-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    #skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .skill {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .skill:hover {
+      background: rgba(255, 149, 0, 0.1);
+    }
+
+    /* EXPERIENCE (Expandable Cards) */
+    #experience {
+      margin: 30px 0;
+    }
+    #experience h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .exp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 12px;
+      cursor: pointer;
+    }
+    .exp-card:hover {
+      transform: translateY(-2px);
+    }
+    .exp-summary {
+      padding: 12px;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .exp-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 12px;
+    }
+    .exp-card.expanded .exp-details {
+      max-height: 200px;
+      padding: 12px;
+    }
+    .learn-more {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-left: 10px;
+      transition: transform 0.3s;
+    }
+    .learn-more:hover {
+      transform: scale(1.2);
+    }
+
+    /* INTERNSHIPS & ACHIEVEMENTS */
+    #internships {
+      margin: 30px 0;
+    }
+    #internships h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .internship-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 600px;
+      margin: 0 auto 12px;
+    }
+    .internship-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255, 149, 0, 0.3);
+    }
+    .internship-card h3 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .internship-card p {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    /* CONTACT */
+    #contact {
+      text-align: center;
+      margin: 30px 0 60px; /* offset for bottom bar on mobile */
+      font-size: 1.2rem;
+    }
+    #contact h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .contact-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg-color);
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 10px;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255, 149, 0, 0.3);
+    }
+
+    /* DESKTOP MEDIA QUERY */
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .header-ctas a {
+        font-size: 1.1rem;
+      }
+      /* Hide bottom bar on bigger screens (optional) */
+      .bottom-bar {
+        display: none;
+      }
+      .carousel-wrapper {
+        flex-direction: row;
+        gap: 20px;
+      }
+      .carousel-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Sabyasachi Mishra</h1>
+    <div class="header-ctas">
+      <a href="mailto:sabyaschimishra648@gmail.com" title="Schedule a Call">Contact</a>
+      <a href="assets/cv.pdf" title="Download CV">CV</a>
+    </div>
+  </header>
+
+  <!-- Sticky Bottom Bar for Mobile -->
+  <div class="bottom-bar">
+    <a href="assets/cv.pdf" title="Download CV"><i class="fas fa-file-download"></i></a>
+    <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies"><i class="fas fa-folder-open"></i></a>
+    <a href="mailto:sabyaschimishra648@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/SABYA648" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+
+  <main class="container">
+    <!-- Profile Section (2 Columns) -->
+    <section id="profile" class="fade-in">
+      <!-- Left Column -->
+      <div class="profile-left">
+        <img src="assets/profile.JPG" alt="Profile Photo" />
+        <h2>Sabyasachi Mishra</h2>
+
+        <!-- STICKY NOTE WITH PIN -->
+        <div class="sticky-note">
+          <p>Product Manager – Product Thinking | AI &amp; Data-Driven Strategy | Digital Innovation</p>
+        </div>
+
+        <div class="profile-links">
+          <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/SABYA648" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Right Column -->
+      <div class="profile-right">
+        <!-- Box A = IIM Indore, MBA Marketing -->
+        <div class="profile-box">
+          <h4>IIM Indore</h4>
+          <p>MBA, Marketing (2023)</p>
+        </div>
+        <!-- Box B = BIT Mesra -->
+        <div class="profile-box">
+          <h4>BIT Mesra</h4>
+          <p>B.Tech, ECE (2020)</p>
+        </div>
+        <!-- Box C = CSM & PSPO II Certified w/ icons -->
+        <div class="profile-box">
+          <h4>Certifications</h4>
+          <p>
+            <i class="fas fa-shield-alt"></i> CSM &nbsp; | &nbsp;
+            <i class="fas fa-check-circle"></i> PSPO-II
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section id="summary" class="fade-in">
+      <p>Product Manager with a passion for transforming ideas into innovative products. Driven by data to craft solutions that empower business growth.</p>
+    </section>
+
+    <!-- Projects & Blogs Wrapper -->
+    <div class="carousel-wrapper fade-in">
+      <!-- Projects Carousel -->
+      <section class="carousel-section" id="projects">
+        <h2>Projects</h2>
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carousel-projects">
+            <!-- Slide 1: FeatureFit -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="assets/project2img.JPG" alt="FeatureFit" />
+                <h3>FeatureFit</h3>
+                <p>Optimize product features with AI-powered prioritization.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="https://github.com/SABYA648/FeatureFit" target="_blank">LIVE DEMO</a>
+                  <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">View PRD</a>
+                  <a href="https://github.com/SABYA648/FeatureFit" target="_blank">View Source</a>
+                  <a href="assets/proj2.pdf" target="_blank">Case Study</a>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2: LLM Tuner -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="assets/project1img.JPG" alt="LLM Tuner" />
+                <h3>LLM Tuner</h3>
+                <p>Fine-tune language model responses with interactive prompt tuning.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">LIVE DEMO</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">View PRD</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">View Source</a>
+                  <a href="assets/proj1.pdf" target="_blank">Case Study</a>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 3: Upcoming Project -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="assets/project3img.JPG" alt="Upcoming Project" />
+                <h3>Upcoming Project</h3>
+                <p>Stay tuned for a something new with AI Agents.</p>
+                <div class="project-buttons">
+                  <a class="live-demo" href="#" target="_blank">LIVE DEMO</a>
+                  <a href="#" target="_blank">View PRD</a>
+                  <a href="#" target="_blank">View Source</a>
+                  <a href="#" target="_blank">Case Study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button onclick="prevSlide('carousel-projects','dots-projects')">&#10094;</button>
+            <button onclick="nextSlide('carousel-projects','dots-projects')">&#10095;</button>
+          </div>
+          <div class="carousel-dots" id="dots-projects"></div>
+        </div>
+      </section>
+
+      <!-- Blogs Carousel -->
+      <section class="carousel-section" id="blogs">
+        <h2>Blogs</h2>
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carousel-blogs">
+            <!-- Slide 1 -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="assets/Blog1img.JPG" alt="Blog Post 1" />
+                <h3>Optimizing for Language Models: The Rise of LLM-EO</h3>
+                <p>How LLM Engine Optimization is changing the future of SEO</p>
+                <div class="project-buttons" style="grid-template-columns: 1fr;">
+                  <a
+                    href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601"
+                    target="_blank"
+                    style="background: #ff3b30; color: #fff;"
+                  >
+                    Read
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="assets/Blog2img.png" alt="Blog Post 2" />
+                <h3>LLM-EO Explained: The Future of Search in an AI-First World </h3>
+                <p>A deep dive into LLM Engine Optimization (LLM-EO) — how AI is reshaping search, discoverability, and digital content strategy in a post-SEO world.
+Explore how product teams can adapt to LLM-native search behavior and stay ahead</p>
+                <div class="project-buttons" style="grid-template-columns: 1fr;">
+                  <a class="live-demo" href="https://medium.com/@SABYA648/blog2" target="_blank">Read</a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <img src="assets/Blog1img.JPG" alt="Blog Post 3" />
+                <h3>Blog Post Title 3</h3>
+                <p>Digital Transformation Trends.</p>
+                <div class="project-buttons" style="grid-template-columns: 1fr;">
+                  <a class="live-demo" href="https://medium.com/@SABYA648/blog2" target="_blank">Read</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button onclick="prevSlide('carousel-blogs','dots-blogs')">&#10094;</button>
+            <button onclick="nextSlide('carousel-blogs','dots-blogs')">&#10095;</button>
+          </div>
+          <div class="carousel-dots" id="dots-blogs"></div>
+        </div>
+      </section>
+    </div>
+    
+    
+
+    <!-- Skills Section -->
+    <section id="skills-section" class="fade-in">
+      <h2>Skills</h2>
+      <div id="skills">
+        <div class="skill">LLM Prompt Tuning</div>
+        <div class="skill">Agile PM</div>
+        <div class="skill">Data-Driven Strategy</div>
+        <div class="skill">Product Roadmapping</div>
+        <div class="skill">UX Research</div>
+        <div class="skill">A/B Testing</div>
+        <div class="skill">Scrum &amp; Kanban</div>
+        <div class="skill">Digital Innovation</div>
+        <div class="skill">Cross-Functional Leadership</div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience" class="fade-in">
+      <h2>Work Experience</h2>
+      <!-- Experience Card 1 -->
+      <div class="exp-card expanded" onclick="toggleExp(this)">
+        <div class="exp-summary">
+          <span>Power Finance Corporation Ltd. – Assistant Manager (Jun '23 – Present)</span>
+          <span class="learn-more">&#x25B2;</span>
+        </div>
+        <div class="exp-details">
+          <p>Developed data-driven risk models for ₹15,000+ Cr financing, automated credit risk assessments (reducing losses by 20%), and built a real-time MIS framework.</p>
+        </div>
+      </div>
+      <!-- Experience Card 2 -->
+      <div class="exp-card expanded" onclick="toggleExp(this)">
+        <div class="exp-summary">
+          <span>Brahmagupta Edu Pvt. Ltd. – Co-Founder (Jan '21 – Aug '21)</span>
+          <span class="learn-more">&#x25B2;</span>
+        </div>
+        <div class="exp-details">
+          <p>Launched an AI-powered adaptive learning platform that reduced content delivery costs by 30% and boosted student engagement by 30%. Led an 11-member team achieving 50% revenue growth, and developed predictive analytics dashboards that increased Google Ads conversions by 60%.</p>
+        </div>
+      </div>
+      <!-- Experience Card 3 -->
+      <div class="exp-card expanded" onclick="toggleExp(this)">
+        <div class="exp-summary">
+          <span>Pigeon Education Pvt. Ltd. – Associate (Jan '20 – Dec '20)</span>
+          <span class="learn-more">&#x25B2;</span>
+        </div>
+        <div class="exp-details">
+          <p>Developed an AI-based live class platform that increased student engagement by 80% and implemented ML models for automated assessments, reducing grading workload by 40%. Collaborated with cross-functional teams to refine algorithms, enhance learning experiences, and support early-stage investor fundraising.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internships & Achievements -->
+    <section id="internships" class="fade-in">
+      <h2>Internships &amp; Achievements</h2>
+      <!-- Internship Card 1 -->
+      <div class="internship-card">
+        <h3>GSK Pharmaceuticals, Mumbai</h3>
+        <p><strong>Product Analyst (Apr '22 – Jun '22)</strong></p>
+        <p>Automated competitor analysis workflows (30% reduction), applied NLP for sentiment analysis, and developed BI-driven market intelligence.</p>
+      </div>
+      <!-- Internship Card 2 -->
+      <div class="internship-card">
+        <h3>Amdocs India LLP, Pune</h3>
+        <p><strong>Software Development Intern (May '19 – Aug '19)</strong></p>
+        <p>Built an ML-driven job recommendation platform (45% improved match accuracy), designed blockchain-based solutions, and implemented NLP-based resume parsing.</p>
+      </div>
+      <!-- Achievements Card -->
+      <div class="internship-card">
+        <h3>Achievements</h3>
+        <p>PSPO II &amp; Certified ScrumMaster®</p>
+        <p>National Finalist – Tekion PM Case Competition &amp; WITDA Case Challenge (2022)</p>
+        <p>NTSE Certificate of Merit; 99.90 percentile in CAT 2020 &amp; 99.88 percentile in XAT 2021</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:sabyaschimishra648@gmail.com">sabyaschimishra648@gmail.com</a></p>
+      <a href="mailto:sabyaschimishra648@gmail.com" class="contact-btn">Send Message</a>
+    </section>
+  </main>
+
+  <script>
+    // Expand/Collapse Experience Cards
+    function toggleExp(card) {
+      card.classList.toggle('expanded');
+      const arrow = card.querySelector('.learn-more');
+      if (card.classList.contains('expanded')) {
+        arrow.innerHTML = '&#x25B2;';
+      } else {
+        arrow.innerHTML = '&#x25BC;';
+      }
+    }
+
+    // Carousel Setup
+    function initCarousel(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      const slides = carousel.children;
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => setSlide(carousel, dotsContainer, i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function setSlide(carousel, dotsContainer, index) {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle('active', i === index);
+      }
+    }
+
+    function nextSlide(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      let index = parseInt(carousel.style.transform.replace('translateX(-','').replace('%)','')) / 100 || 0;
+      index = (index + 1) % carousel.children.length;
+      setSlide(carousel, dotsContainer, index);
+    }
+
+    function prevSlide(carouselId, dotsId) {
+      const carousel = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsId);
+      let index = parseInt(carousel.style.transform.replace('translateX(-','').replace('%)','')) / 100 || 0;
+      index = (index - 1 + carousel.children.length) % carousel.children.length;
+      setSlide(carousel, dotsContainer, index);
+    }
+
+    // Initialize Carousels on Load
+    window.addEventListener('load', () => {
+      initCarousel('carousel-projects','dots-projects');
+      initCarousel('carousel-blogs','dots-blogs');
+    });
+  </script>
+</body>
+</html>
