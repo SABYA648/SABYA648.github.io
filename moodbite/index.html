@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodBite - The food app that understands your feelings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YBR866PTCR'); // REPLACE G-YBR866PTCR WITH YOUR ACTUAL GA ID
+    </script>
+
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --bg-color: #1a1a2e; /* Dark blue/purple background */
+            --text-color: #e0e0e0; /* Off-white text */
+            --primary-accent: #9a4efc; /* Vibrant Purple */
+            --secondary-accent: #f857a6; /* Pinkish Red */
+            --card-bg: #2a2a4e; /* Slightly lighter card background */
+            --button-glow: rgba(248, 87, 166, 0.7); /* Glow color matching secondary accent */
+            --font-main: 'Inter', sans-serif;
+            --border-radius: 12px; /* Soft rounded corners */
+            --transition-speed: 0.3s;
+        }
+
+        /* Basic Reset & Mobile-First Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            padding-top: 20px; /* Add some space at the top */
+        }
+
+        /* Container for consistent padding and max-width */
+        .container {
+            max-width: 600px; /* Max width for content */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding on mobile */
+        }
+
+        section {
+            padding: 60px 0; /* Vertical spacing between sections */
+            overflow: hidden; /* Contain animations */
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #fff; /* Brighter white for headings */
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            color: #fff;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            text-decoration: none; /* Remove underline if used with <a> */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Subtle shadow */
+        }
+
+        .btn:hover, .btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 90vh; /* Almost full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative; /* For background and scroll indicator */
+            background: radial-gradient(circle, rgba(42,42,78,1) 0%, var(--bg-color) 70%); /* Smooth radial gradient */
+            padding-bottom: 60px; /* Add padding to prevent overlap with scroll indicator */
+        }
+
+        #hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem; /* Reduced margin */
+            max-width: 80%;
+        }
+
+        /* New Hero CTA Button Style */
+        .hero-cta-button {
+             margin-bottom: 2.5rem; /* Space before mic button */
+        }
+
+        .mic-button {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary-accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem; /* Mic icon size */
+            border: none;
+            cursor: pointer;
+            margin-bottom: 3rem;
+            animation: pulse 2s infinite ease-in-out;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .mic-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mic Button Pulsating Glow Animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 var(--button-glow);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(248, 87, 166, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(248, 87, 166, 0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translate(-50%, 0);
+            }
+            40% {
+                transform: translate(-50%, -10px);
+            }
+            60% {
+                transform: translate(-50%, -5px);
+            }
+        }
+
+
+        /* --- How It Works Section --- */
+        #how-it-works {
+            text-align: center;
+        }
+
+        #how-it-works h2 {
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .step {
+            background-color: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* Style for reveal animation */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .step.active { /* Class added by JS on scroll */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block; /* Make icon take full width */
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            color: var(--primary-accent);
+        }
+
+        /* --- Demo Screenshot Section --- */
+         #demo {
+            text-align: center;
+        }
+
+        #demo h2 {
+             margin-bottom: 3rem;
+             font-size: 2rem;
+        }
+
+        .demo-cards {
+            display: flex;
+            flex-direction: column; /* Stack vertically on mobile */
+            gap: 1.5rem;
+            align-items: center; /* Center cards when stacked */
+        }
+
+        .demo-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden; /* Clip image corners */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 90%; /* Take most of the width */
+            max-width: 300px; /* Limit card width */
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            /* Style for reveal animation */
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease; /* Added box-shadow transition */
+        }
+
+        .demo-card.active { /* Class added by JS on scroll */
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Staggered animation delay applied via JS */
+
+        .demo-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the area nicely */
+        }
+
+        .demo-card:hover {
+            transform: scale(1.05) translateY(-5px); /* Scale up and pop shadow */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- Features Grid Section --- */
+        #features {
+            text-align: center;
+        }
+
+        #features h2 {
+             margin-bottom: 3rem;
+             font-size: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 2rem 1.5rem; /* Row and column gap */
+        }
+
+        .feature-item {
+            text-align: center;
+            /* Add reveal animation */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .feature-item.active {
+             opacity: 1;
+             transform: translateY(0);
+        }
+
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-accent);
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #fff;
+        }
+
+
+        /* --- CTA Section --- */
+        #cta {
+            text-align: center;
+            background-color: var(--card-bg); /* Distinct background for CTA */
+            padding: 60px 20px;
+            border-radius: var(--border-radius); /* Rounded corners for the section itself */
+            margin-left: 15px; /* Add margin to match container padding effect */
+            margin-right: 15px;
+        }
+
+        #cta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #cta p {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+
+        /* --- Footer Section --- */
+        #footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .social-links a {
+            font-size: 1.8rem; /* Larger emoji/icon size */
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 0.8rem;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-accent);
+        }
+
+
+        /* --- Voice Input Results Area --- */
+        #results-area {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.2); /* Subtle background */
+            border-radius: var(--border-radius);
+            text-align: left; /* Align text left within the results */
+            min-height: 100px; /* Ensure it takes some space */
+            /* Initial state for fade-in */
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+         #results-area.visible {
+             opacity: 1;
+         }
+
+        #results-area p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #fff; /* Brighter text for result */
+            white-space: pre-wrap; /* Allow wrapping */
+        }
+
+        /* Styles for dynamically added cards (reuse demo card styles) */
+        #results-area .demo-cards {
+            margin-top: 1rem;
+            /* Make cards visible immediately within the fading container */
+        }
+         #results-area .demo-card {
+            opacity: 1; /* Override reveal opacity */
+            transform: none; /* Override reveal transform */
+            margin-bottom: 1rem; /* Add spacing between dynamically added cards */
+            background-color: var(--card-bg); /* Ensure background color */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow */
+         }
+        #results-area .demo-card img {
+            border-radius: var(--border-radius) var(--border-radius) 0 0; /* Match card radius only top */
+        }
+
+        /* Typewriter Cursor */
+        .typewriter-text::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            margin-left: 3px; /* Space between text and cursor */
+            opacity: 1; /* Make sure cursor is visible */
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+
+        /* --- Media Query for Larger Screens (Optional Enhancements) --- */
+        @media (min-width: 601px) {
+            .container {
+                 padding: 0 40px; /* Slightly more padding on larger screens */
+            }
+
+            #hero h1 {
+                 font-size: 3.5rem;
+            }
+
+            #hero .subtitle {
+                 font-size: 1.4rem;
+                 max-width: 60%;
+            }
+             /* Arrange demo cards horizontally */
+             .demo-cards {
+                flex-direction: row;
+                justify-content: space-around; /* Space them out */
+                align-items: flex-start; /* Align top */
+             }
+             .demo-card {
+                 width: 30%; /* Adjust width for horizontal layout */
+                 max-width: none;
+             }
+
+             /* Adjust features grid for potentially more columns */
+             .features-grid {
+                grid-template-columns: repeat(3, 1fr); /* Example: 3 columns */
+             }
+        }
+         /* Even wider screens */
+         @media (min-width: 900px) {
+             .features-grid {
+                grid-template-columns: repeat(3, 1fr); /* Keep 3 or go to 4 */
+             }
+         }
+
+    </style>
+</head>
+<body>
+
+    <header id="hero">
+        <div class="container">
+            <h1>🍽️ MoodBite</h1>
+            <p class="subtitle">The food app that understands your feelings.</p>
+
+            <a href="https://moodbite.sabyasachimishra.dev/" class="btn hero-cta-button" id="heroCtaButton">✨ Try the Demo Now! ✨</a>
+
+            <button class="mic-button" id="micButton" aria-label="Start voice input">
+                🎤
+            </button>
+
+            <div id="results-area">
+                </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>👇</span>
+        </div>
+    </header>
+
+    <section id="how-it-works" class="reveal">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-container">
+                <div class="step reveal">
+                    <span class="step-icon">🎤</span>
+                    <h3>Speak your cravings</h3>
+                    <p>Just tell MoodBite what you feel like eating, or how you're feeling.</p>
+                </div>
+                <div class="step reveal">
+                    <span class="step-icon">🤖</span>
+                    <h3>MoodBite feels your vibe</h3>
+                    <p>Our AI analyzes your voice and mood to find the perfect match.</p>
+                </div>
+                <div class="step reveal">
+                    <span class="step-icon">🍛</span>
+                    <h3>Discover meals for your mood</h3>
+                    <p>Get personalized recommendations delivered right to the app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="reveal">
+        <div class="container">
+             <h2>See It In Action</h2>
+             <div class="demo-cards">
+                 <div class="demo-card reveal">
+                     <img src="./foodimg1.jpg" alt="Food example 1">
+                 </div>
+                 <div class="demo-card reveal">
+                     <img src="./foodimg2.jpg" alt="Food example 2">
+                 </div>
+                 <div class="demo-card reveal">
+                    <img src="./foodimg3.jpg" alt="Food example 3">
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <section id="features" class="reveal">
+        <div class="container">
+             <h2>Features You'll Love</h2>
+             <div class="features-grid">
+                 <div class="feature-item reveal">
+                    <span class="feature-icon">🎙️</span>
+                    <h3>Voice-First Search</h3>
+                 </div>
+                 <div class="feature-item reveal">
+                    <span class="feature-icon">🧠</span>
+                    <h3>Emotion-Aware Filters</h3>
+                 </div>
+                 <div class="feature-item reveal">
+                    <span class="feature-icon">📲</span>
+                    <h3>Mobile-Ready</h3>
+                 </div>
+                 <div class="feature-item reveal">
+                    <span class="feature-icon">♿</span>
+                    <h3>Accessibility Built-in</h3>
+                 </div>
+                 <div class="feature-item reveal">
+                    <span class="feature-icon">🛒</span>
+                    <h3>Easy Cart & Checkout</h3>
+                 </div>
+                 <div class="feature-item reveal">
+                    <span class="feature-icon">🌐</span>
+                    <h3>Multilingual Support</h3>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <section id="cta" class="reveal">
+        <div class="container">
+            <h2>Ready to taste the future?</h2>
+            <a href="https://moodbite.sabyasachimishra.dev/" class="btn" id="mainCtaButton">Try the Demo</a> <p>Built in 4 days. Ready to scale.</p>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+             <p class="footer-text">Built by Sabyasachi Mishra</p>
+             <div class="social-links">
+                 <a href="https://linkedin.com/in/sabyasachi-mishra" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" id="linkedinLink">🔗 LinkedIn</a>
+                 <a href="https://github.com/iamsabyasachi" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" id="githubLink">🐙 GitHub</a>
+             </div>
+        </div>
+    </footer>
+
+    <script>
+        // Helper function to send GA events if gtag is available
+        function trackEvent(category, label, action = 'click') {
+             if (typeof gtag === 'function') {
+                 gtag('event', action, {
+                     'event_category': category,
+                     'event_label': label
+                 });
+                 console.log(`Tracked Event: Action=${action}, Category=${category}, Label=${label}`); // For debugging
+             } else {
+                console.warn('gtag function not found. Analytics disabled.');
+             }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Elements ---
+            const micButton = document.getElementById('micButton');
+            const resultsArea = document.getElementById('results-area');
+            const heroCtaButton = document.getElementById('heroCtaButton'); // New Hero CTA
+            const mainCtaButton = document.getElementById('mainCtaButton'); // Main CTA in its section
+            const linkedinLink = document.getElementById('linkedinLink');
+            const githubLink = document.getElementById('githubLink');
+
+
+            // --- Typewriter Function ---
+            function typewriter(element, text, speed = 50) {
+                element.innerHTML = ''; // Clear previous text
+                element.classList.add('typewriter-text'); // Add class for cursor styling
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        element.classList.remove('typewriter-text'); // Remove cursor when done
+                    }
+                }
+                type(); // Start typing
+            }
+
+            // --- Simulate Voice Input & Display Results ---
+            micButton.addEventListener('click', () => {
+                // Track Mic Button Click
+                trackEvent('engagement', 'mic_button_click');
+
+                // Use prompt() to simulate voice input
+                const userInput = prompt("What are you craving or how are you feeling?\n(e.g., 'spicy noodles', 'something comforting', 'feeling happy')");
+
+                if (userInput && userInput.trim() !== '') {
+                    // Track successful input
+                    trackEvent('engagement', 'mic_input_submitted', 'submit');
+
+                    // 1. Clear previous results and make area visible with fade
+                    resultsArea.innerHTML = '';
+                    resultsArea.classList.remove('visible');
+                     void resultsArea.offsetWidth; // Force reflow
+                    resultsArea.classList.add('visible');
+
+                    // 2. Create and animate the message
+                    const messageElement = document.createElement('p');
+                    const messageText = `You said: '${userInput}' — Searching for matching food...`;
+                    resultsArea.appendChild(messageElement);
+                    typewriter(messageElement, messageText, 30);
+
+                    // 3. Create and add the food cards (after a slight delay)
+                    setTimeout(() => {
+                        const cardsContainer = document.createElement('div');
+                        cardsContainer.className = 'demo-cards';
+
+                        // *** USE LOCAL IMAGES ***
+                        // Ensure these images (foodimg1.jpg, foodimg2.jpg, foodimg3.jpg)
+                        // exist in the SAME FOLDER as index.html
+                        const localImages = ['foodimg1.jpg', 'foodimg2.jpg', 'foodimg3.jpg'];
+
+                        localImages.forEach((imgName, index) => {
+                            const card = document.createElement('div');
+                            card.className = 'demo-card';
+                            const img = document.createElement('img');
+                            img.src = `./${imgName}`; // Use local image path
+                            img.alt = `Food suggestion ${index + 1} based on '${userInput}'`;
+                            // Add error handling for images
+                            img.onerror = function() {
+                                this.alt = `Error loading image: ${imgName}`;
+                                this.style.display='none'; // Hide broken image icon
+                                const errorText = document.createElement('p');
+                                errorText.textContent = `Couldn't load ${imgName}`;
+                                errorText.style.textAlign = 'center';
+                                errorText.style.padding = '20px';
+                                card.appendChild(errorText); // Show text instead
+                            };
+                            card.appendChild(img);
+                            cardsContainer.appendChild(card);
+                        });
+
+                        resultsArea.appendChild(cardsContainer);
+
+                        // Scroll results into view
+                        resultsArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    }, messageText.length * 30 + 500);
+
+                } else if (userInput !== null) {
+                    // Track empty input attempt
+                    trackEvent('engagement', 'mic_input_empty', 'submit');
+                    alert("Please tell me what you're craving!");
+                } else {
+                    // Track cancel input
+                    trackEvent('engagement', 'mic_input_cancelled', 'cancel');
+                }
+            });
+
+             // --- CTA Buttons & Links Click Tracking ---
+             heroCtaButton.addEventListener('click', (e) => {
+                 trackEvent('engagement', 'hero_cta_button_click');
+                 // Smooth scroll is handled by href="#hero" and CSS scroll-behavior
+             });
+
+             mainCtaButton.addEventListener('click', (e) => {
+                 trackEvent('engagement', 'main_cta_button_click');
+                 // Smooth scroll is handled by href="#hero" and CSS scroll-behavior
+             });
+
+            linkedinLink.addEventListener('click', () => {
+                trackEvent('outbound', 'linkedin_link_click');
+            });
+
+            githubLink.addEventListener('click', () => {
+                trackEvent('outbound', 'github_link_click');
+            });
+
+
+            // --- Scroll Reveal Animations using Intersection Observer ---
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        let delay = 0;
+                        if (entry.target.classList.contains('demo-card')) {
+                            const siblings = Array.from(entry.target.parentNode.children).filter(el => el.classList.contains('demo-card'));
+                            const cardIndex = siblings.indexOf(entry.target);
+                            delay = cardIndex * 150;
+                        } else if (entry.target.classList.contains('step')) {
+                             const siblings = Array.from(entry.target.parentNode.children).filter(el => el.classList.contains('step'));
+                             const stepIndex = siblings.indexOf(entry.target);
+                             delay = stepIndex * 100;
+                        } else if (entry.target.classList.contains('feature-item')) {
+                             const siblings = Array.from(entry.target.parentNode.children).filter(el => el.classList.contains('feature-item'));
+                             const featureIndex = siblings.indexOf(entry.target);
+                             delay = (featureIndex % 2) * 100 + Math.floor(featureIndex / 2) * 50;
+                        }
+
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                        }, delay);
+
+                        // observer.unobserve(entry.target); // Optional: Unobserve after reveal
+                    }
+                    // else { entry.target.classList.remove('active'); } // Optional: Reset on scroll out
+                });
+            }, {
+                threshold: 0.1,
+            });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
