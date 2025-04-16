@@ -1,1427 +1,1522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YBR866PTCR');
+    </script>
 
-  gtag('config', 'G-YBR866PTCR');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sabyasachi Mishra | Product Manager</title>
-  <meta name="description" content="A modern, polished product management portfolio." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabyasachi Mishra | Product Manager</title>
+    <meta name="description" content="Product Manager specializing in AI-driven solutions. Explore projects, skills, and experience." />
 
-  <!-- Google Fonts & FontAwesome -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- AOS Animation CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-  />
+    <style>
+      /***********************************************
+       * THEME & VARIABLES
+       ***********************************************/
+      :root {
+        /* Colors */
+        --primary: #007aff;  /* Updated Primary Blue */
+        --accent: #00a99d;   /* Teal Accent */
+        --bg: #f8f9fa;       /* Light Grey Background */
+        --bg-alt: #ffffff;   /* White for Cards/Header */
+        --text: #343a40;     /* Darker Text */
+        --text-light: #6c757d; /* Lighter Secondary Text */
+        --border-color: #dee2e6;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-  <style>
-    /***********************************************
-     * COLORS & FONTS
-     ***********************************************/
-    :root {
-      --primary: #4285f4;  /* Modern blue */
-      --accent: #ea4335;   /* Bold red */
-      --bg: #ffffff;       /* White background */
-      --bg-alt: #f9f9f9;   /* Subtle alternate background */
-      --text: #333333;     /* Dark text for contrast */
-      --shadow: rgba(0, 0, 0, 0.1);
-      --radius: 8px;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--text);
-    }
-    a {
-      text-decoration: none;
-      cursor: pointer;
-      color: var(--primary);
-    }
+        /* Typography */
+        --font-primary: 'Inter', sans-serif;
+        --font-heading: 'Montserrat', sans-serif; /* Keeping Montserrat for Headings */
 
-    /* Container for sections */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 5px 0;
-    }
+        /* Spacing & Radius */
+        --space-unit: 1rem; /* Approx 16px */
+        --space-xs: calc(var(--space-unit) * 0.25); /* 4px */
+        --space-sm: calc(var(--space-unit) * 0.5);  /* 8px */
+        --space-md: var(--space-unit);             /* 16px */
+        --space-lg: calc(var(--space-unit) * 1.5); /* 24px */
+        --space-xl: calc(var(--space-unit) * 2);   /* 32px */
+        --space-xxl: calc(var(--space-unit) * 3);  /* 48px */
+        --radius: 10px;
+        --radius-sm: 6px;
+        --radius-lg: 12px;
+        --radius-pill: 50px; /* For pills */
 
-    /* AOS animation base */
-    [data-aos] {
-      opacity: 0;
-      transition-property: transform, opacity;
-      transition-duration: 0.4s;
-    }
+        /* Transitions */
+        --transition-fast: 0.2s ease;
+        --transition-med: 0.3s ease;
+        --transition-slow: 0.5s ease;
+      }
 
-    /***********************************************
-     * HEADER
-     ***********************************************/
-    header {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #fff;
-      box-shadow: 0 2px 8px var(--shadow);
-      z-index: 1000;
-      padding: 10px 20px;
-    }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .header-brand {
-      font-size: 1.8rem;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--accent);
-      flex: 1 1 auto;
-      min-width: 180px;
-    }
-    .header-socials {
-      display: flex;
-      gap: 10px;
-      flex: 1 1 auto;
-      justify-content: flex-end;
-      min-width: 200px;
-    }
-    .header-socials a {
-      font-size: 1.2rem;
-      color: var(--accent);
-      transition: color 0.3s;
-    }
-    .header-socials a:hover {
-      color: var(--primary);
-    }
-
-    /***********************************************
-     * BOTTOM MOBILE NAV (with icon + label)
-     ***********************************************/
-    .bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--bg-alt);
-      border-top: 1px solid var(--accent);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 8px 0;
-      z-index: 999;
-      /* Ensure fade/slide effect on show/hide: */
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .bottom-bar a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      font-size: 0.7rem;
-      color: var(--accent);
-      transition: transform 0.3s;
-    }
-    .bottom-bar a i {
-      font-size: 1.2rem;
-    }
-    .bottom-bar a:hover {
-      transform: scale(1.06);
-      color: var(--primary);
-    }
-    .bottom-bar a span {
-      font-size: 0.65rem;
-    }
-    @media (min-width: 768px) {
-      .bottom-bar {
-        display: none;
-      }
-    }
-
-    /***********************************************
-     * HERO SECTION
-     ***********************************************/
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-      justify-content: space-between;
-      padding-top: 20px;
-    }
-    .hero img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 10px var(--shadow);
-    }
-    .hero-text h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-    .hero-text p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      color: var(--text);
-      max-width: 500px;
-    }
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    /* Note: Header CTAs are removed, so these buttons exist only in the hero if needed */
-    .btn-group a {
-      display: inline-block;
-      border-radius: var(--radius);
-      font-weight: bold;
-      padding: 10px 16px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      font-size: 0.9rem;
-    }
-    .btn-group a.book-call {
-      background: var(--accent);
-      color: #fff;
-      border: 2px solid var(--accent);
-    }
-    .btn-group a.book-call:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px var(--shadow);
-    }
-    .btn-group a.resume-skeleton {
-      background: transparent;
-      border: 2px solid var(--accent);
-      color: var(--accent);
-    }
-    .btn-group a.resume-skeleton:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px var(--shadow);
-    }
-
-    /***********************************************
-     * SKILLS SECTION (Toggles)
-     ***********************************************/
-    .skills-categorized h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .skills-categories {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .skills-sidebar {
-      flex: 0 0 5px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .skill-toggle {
-      padding: 10px 15px;
-      border: 2px solid var(--accent);
-      background: #fff;
-      color: var(--accent);
-      border-radius: var(--radius);
-      cursor: pointer;
-      white-space: nowrap;
-      text-align: center;
-      font-weight: bold;
-      transition: background 0.3s, color 0.3s;
-    }
-    .skill-toggle:hover,
-    .skill-toggle.active {
-      background: var(--accent);
-      color: #fff;
-    }
-    .skills-content {
-      flex: 1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .skill-category {
-      display: none;
-      width: 100%;
-      text-align: center;
-    }
-    .skill-category.active {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .skill-pill {
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--primary);
-      background: #f1faff;
-      font-size: 0.9rem;
-      transition: background 0.3s;
-    }
-    .skill-pill:hover {
-      background: #e3f2ff;
-    }
-
-    /***********************************************
-     * UNIFIED CARD STYLE
-     ***********************************************/
-    .card {
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px var(--shadow);
-      padding: 16px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-    }
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-    }
-    .card h3 {
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    /***********************************************
-     * PROJECTS & BLOGS CAROUSEL
-     ***********************************************/
-    .carousel-wrapper {
-      display: block;
-      gap: 20px;
-    }
-    @media (min-width: 768px) {
-      .carousel-wrapper {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-      }
-    }
-    .carousel-section {
-      flex: 1;
-      margin-bottom: 40px;
-    }
-    .carousel-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.6rem;
-      color: var(--text);
-    }
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px var(--shadow);
-      margin: 0 auto;
-      max-width: 95%;
-      background: #fff;
-    }
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    /* Use relative height for mobile responsiveness */
-    .carousel-item {
-      min-width: 100%;
-      min-height: 50vh;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .project-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .project-buttons a {
-      font-size: 0.8rem;
-      padding: 6px 0;
-      border-radius: var(--radius);
-      border: 1px solid var(--accent);
-      background: #ffe8e6;
-      color: var(--accent);
-      transition: transform 0.3s, background 0.3s;
-      text-align: center;
-    }
-    .project-buttons a:hover {
-      transform: translateY(-2px);
-      background: #ffd4d0;
-    }
-    .project-buttons a.live-demo {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-    .project-buttons a.live-demo:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-    }
-    .carousel-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-    .carousel-nav button {
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: #fff;
-      font-size: 1.4rem;
-      padding: 6px 10px;
-      cursor: pointer;
-      pointer-events: all;
-      transition: background 0.3s;
-      border-radius: var(--radius);
-    }
-    .carousel-nav button:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-    .carousel-dots {
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
-    }
-    .carousel-dots span {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      margin: 0 4px;
-      background: #ccc;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .carousel-dots span.active {
-      background: var(--accent);
-    }
-
-    /***********************************************
-     * RADIO CARDS: TOGGLE SECTION (What I Offer / Work Exp / Case Studies)
-     ***********************************************/
-    .radio-cards {
-      display: flex;
-      gap: 20px;
-      margin: 40px 0;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .radio-card {
-      background: #fff;
-      border: 2px solid var(--primary);
-      padding: 20px;
-      border-radius: var(--radius);
-      width: 240px;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .radio-card:hover {
-      transform: scale(1.03);
-    }
-    .radio-card.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-    .radio-card i {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .dynamic-content > div {
-      display: none;
-      animation: fadeInUp 0.5s forwards;
-    }
-    .dynamic-content > div.active {
-      display: block;
-    }
-
-    /* =========================
-       WHAT I OFFER SECTION – 6 CARDS
-    ***********************************************/
-    .offer-cards {
-      display: grid;
-      gap: 20px;
-    }
-    #case-studies .offer-btn {
-      white-space: nowrap; /* Prevent text wrapping */
-      min-width: 120px;    /* Force a consistent minimum width */
-      text-align: center;  /* Center the text */
-    }
-    @media (max-width: 768px) {
-      .radio-cards {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        gap: 5px; /* adjust spacing as needed */
-      }
-    }
-    @media (max-width: 768px) {
-      .radio-card {
-        padding: 6px !important;
-        font-size: 0.65rem !important;
-        width: auto !important; /* allow them to shrink */
-        margin: 0 !important;
-        height: auto !important; /* remove any fixed height */
-      }
-      .radio-card i {
-        font-size: 1.2rem !important;
-        margin-bottom: 4px !important;
-      }
-    }
-    @media (min-width: 768px) {
-      .offer-cards {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    @media (max-width: 767px) {
-      .offer-cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    .offer-card {
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px var(--shadow);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .offer-card:hover {
-      transform: translateY(-3px);
-    }
-    .offer-card i {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-    .offer-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-    .offer-card p {
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-      color: var(--text);
-      line-height: 1.4;
-    }
-    .offer-btn {
-      display: inline-block;
-      padding: 8px 16px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      border-radius: var(--radius);
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .offer-btn:hover {
-      background: var(--primary);
-    }
-
-    /***********************************************
-     * TIMELINE (Work Experience)
-     ***********************************************/
-    .timeline {
-      position: relative;
-      margin: 40px 0;
-      padding-left: 30px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 15px;
-      width: 2px;
-      height: 100%;
-      background: var(--primary);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .timeline-dot {
-      position: absolute;
-      left: 5px;
-      background: var(--primary);
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      top: 0;
-    }
-    .timeline-content {
-      background: #fff;
-      padding: 10px 15px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px var(--shadow);
-    }
-    .timeline-content h3 {
-      font-size: 1rem;
-      margin-bottom: 5px;
-      color: var(--accent);
-    }
-    .timeline-content p {
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    /***********************************************
-     * CONTACT FORM (Two-column)
-     ***********************************************/
-    #contact h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.6rem;
-      color: var(--text);
-    }
-    .contact-form {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .contact-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .contact-col {
-      flex: 1;
-      min-width: 300px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      outline: none;
-      font-family: 'Inter', sans-serif;
-    }
-    .contact-form button {
-      padding: 10px 20px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-    .contact-form button:hover {
-      background: var(--primary);
-    }
-
-    /***********************************************
-     * FOOTER
-     ***********************************************
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #fff;
-      z-index: 998;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    } */
-
-    /* Hide footer on mobile */
-    @media (max-width: 768px) {
-      footer {
-        display: none !important;
-      }
-    }
-
-    /***********************************************
-     * RESPONSIVE TWEAKS
-     ***********************************************/
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .btn-group {
-        justify-content: center;
-      }
-      .carousel-wrapper {
-        display: block;
-      }
-      .contact-row {
-        flex-direction: column;
-      }
-    }
-    @media (max-width: 768px) {
-      .header-inner {
-        flex-wrap: nowrap;
-      }
-      .header-brand, .header-socials {
-        min-width: 0; /* Ensure they can shrink if needed */
-      }
-      .header-socials {
-        flex-shrink: 1;
-      }
-    }
-    @media (max-width: 768px) {
-      .skills-categories {
-        flex-direction: column;
-        align-items: center; /* center the items for a neater look */
-      }
-      .skills-sidebar,
-      .skills-content {
-        width: 100%;
-      }
-      .skills-sidebar {
-        margin-bottom: 20px; /* add some space between the toggles and the content */
-      }
-    }
-    @media (max-width: 767px) {
-      .offer-cards {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-columns: 1fr;
-      }
-      .offer-card {
-        width: 100%;
+      /***********************************************
+       * BASE STYLES
+       ***********************************************/
+      * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
       }
-      .offer-card img,
-      .offer-card i,
-      .offer-card h3,
-      .offer-card p {
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px; /* Base font size */
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        color: var(--text);
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: var(--space-md);
+      }
+       h1 { font-size: clamp(2rem, 5vw, 2.8rem); } /* Responsive H1 */
+       h2 { font-size: clamp(1.5rem, 4vw, 2rem); text-align: center; margin-bottom: var(--space-xl); }
+       h3 { font-size: clamp(1.1rem, 3vw, 1.25rem); font-weight: 600; /* Heavier H3 */ }
+       h4 { font-size: 1rem; font-weight: 600; }
+
+      p {
+        margin-bottom: var(--space-md);
+        color: var(--text-light);
+        max-width: 65ch; /* Limit line length */
+      }
+       p.lead { /* For hero subtitle */
+           font-size: 1.1rem;
+           font-weight: 400;
+           color: var(--text);
+       }
+
+      a {
+        text-decoration: none;
+        color: var(--primary);
+        transition: color var(--transition-med);
+        cursor: pointer;
+      }
+      a:hover {
+        color: var(--accent);
+      }
+
+      ul, ol {
+          list-style-position: inside;
+          padding-left: var(--space-sm); /* Indent lists slightly */
+          margin-bottom: var(--space-md);
+      }
+       li {
+           margin-bottom: var(--space-sm);
+           color: var(--text-light);
+       }
+       li strong {
+           color: var(--text);
+       }
+
+      img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      /* AOS animation base */
+      [data-aos] {
+        opacity: 0;
+        transition-property: transform, opacity;
+      }
+
+      /***********************************************
+       * LAYOUT
+       ***********************************************/
+      .container {
+        width: 90%;
+        max-width: 1140px; /* Slightly narrower max-width */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+
+      section {
+          padding-top: var(--space-xxl);
+          padding-bottom: var(--space-xxl);
+      }
+      /* Optional alternating section background */
+      /* section:nth-of-type(even) {
+          background-color: var(--bg-alt);
+      } */
+
+      /***********************************************
+       * COMPONENTS
+       ***********************************************/
+
+      /* --- Buttons --- */
+      .btn {
+        display: inline-block;
+        padding: var(--space-sm) var(--space-lg); /* 12px 24px */
+        border-radius: var(--radius);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all var(--transition-med);
+        border: 2px solid transparent;
+        line-height: 1.5; /* Ensure consistent height */
+      }
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue */
+        border-color: #0056b3;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-accent {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+      .btn-accent:hover {
+        background-color: #008075; /* Darker teal */
+        border-color: #008075;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-outline-primary {
+        background-color: transparent;
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .btn-outline-primary:hover {
+        background-color: var(--primary);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-outline-accent {
+        background-color: transparent;
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .btn-outline-accent:hover {
+        background-color: var(--accent);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* --- Cards --- */
+      .card {
+        background-color: var(--bg-alt);
+        border-radius: var(--radius-lg); /* Slightly larger radius */
+        box-shadow: var(--shadow-md);
+        padding: var(--space-lg); /* 24px */
+        transition: transform var(--transition-med), box-shadow var(--transition-med);
+        border: 1px solid var(--border-color); /* Subtle border */
+        height: 100%; /* Make cards in grids equal height */
+        display: flex;
+        flex-direction: column;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+      .card-image img {
+        width: 100%;
+        height: 180px; /* Consistent image height */
+        object-fit: cover;
+        border-radius: var(--radius); /* Match card radius or be slightly smaller */
+        margin-bottom: var(--space-md);
+      }
+      .card-content {
+        text-align: center;
+        flex-grow: 1; /* Allow content to fill space */
+      }
+      .card-content h3 {
+        font-size: 1.15rem;
+        margin-bottom: var(--space-sm);
+      }
+      .card-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: var(--space-md);
+        color: var(--text-light);
+      }
+      .card-footer {
+          margin-top: auto; /* Push footer to bottom */
+          padding-top: var(--space-md);
+      }
+
+
+      /* --- Skill Pills --- */
+      .skill-pill {
+        display: inline-block;
+        padding: var(--space-xs) var(--space-md); /* 4px 16px */
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--border-color);
+        background-color: #e9ecef; /* Light grey background */
+        color: var(--text-light);
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin: var(--space-xs);
+        transition: background-color var(--transition-med), color var(--transition-med);
+        animation: fadeIn 0.5s ease forwards; /* Add fade-in */
+        opacity: 0; /* Start hidden for animation */
+      }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+      .skill-pill:hover {
+        background-color: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+
+      /* --- Timeline --- */
+      .timeline {
+        position: relative;
+        margin: var(--space-xl) 0;
+        padding-left: var(--space-xl); /* Space for line and dots */
+      }
+      .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 10px; /* Center the line relative to the dot */
+        width: 2px;
+        height: 100%;
+        background-color: var(--border-color);
+      }
+      .timeline-item {
+        position: relative;
+        margin-bottom: var(--space-xl);
+      }
+      .timeline-item::before { /* Dot */
+        content: '';
+        position: absolute;
+        left: 0px; /* Position dot */
+        top: 5px; /* Align dot vertically */
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary);
+        border: 3px solid var(--bg); /* Make dot appear "on top" */
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline-content {
+        background-color: var(--bg-alt);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+      }
+      .timeline-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-xs);
+        color: var(--text);
+      }
+       .timeline-content h3 em { /* Company/Role styling */
+           font-weight: 400;
+           color: var(--text-light);
+           font-size: 0.9em;
+           font-style: normal;
+           display: block; /* Put on new line */
+       }
+      .timeline-content ul {
+        padding-left: var(--space-md); /* Indent bullet points */
+         margin-bottom: 0;
+      }
+       .timeline-content li {
+           font-size: 0.9rem;
+           color: var(--text-light);
+           text-align: justify; /* Justify bullet points */
+       }
+
+
+      /* --- Carousels --- */
+       .carousel-section {
+           margin-bottom: var(--space-xxl); /* Space between carousels */
+       }
+       .carousel-section h2 {
+           font-size: clamp(1.4rem, 3.5vw, 1.8rem); /* Slightly smaller carousel heading */
+           margin-bottom: var(--space-xl);
+       }
+       .carousel-container {
+         position: relative;
+         overflow: hidden;
+         border-radius: var(--radius-lg);
+         background-color: var(--bg); /* Match body bg */
+         margin: 0 auto;
+         max-width: 100%; /* Allow full width */
+       }
+       .carousel-inner {
+         display: flex;
+         transition: transform var(--transition-slow) ease; /* Slower transition */
+       }
+       .carousel-item {
+         min-width: 100%;
+         padding: var(--space-sm); /* Padding around the card inside */
+         box-sizing: border-box; /* Include padding in width */
+         display: flex; /* Center card if needed */
+         justify-content: center;
+         align-items: stretch; /* Ensure cards stretch */
+       }
+       .carousel-item > .card { /* Style card inside carousel item */
+           box-shadow: var(--shadow-md); /* Reset shadow if needed */
+           transition: transform var(--transition-med); /* Add hover effect to card inside */
+       }
+       .carousel-item > .card:hover {
+           transform: translateY(-3px);
+       }
+       .carousel-nav {
+         position: absolute;
+         top: 50%;
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         transform: translateY(-50%);
+         pointer-events: none;
+         padding: 0 var(--space-sm); /* Space arrows from edge */
+         z-index: 2;
+       }
+       .carousel-nav button {
+         background-color: rgba(52, 58, 64, 0.6); /* Darker semi-transparent */
+         backdrop-filter: blur(3px);
+         border: none;
+         color: #fff;
+         font-size: 1.2rem;
+         width: 36px; /* Fixed size */
+         height: 36px;
+         border-radius: 50%;
+         cursor: pointer;
+         pointer-events: all;
+         transition: background-color var(--transition-med);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+       }
+       .carousel-nav button:hover {
+         background-color: rgba(52, 58, 64, 0.8);
+       }
+       .carousel-dots {
+         position: absolute;
+         bottom: var(--space-md); /* Position dots */
+         left: 50%;
+         transform: translateX(-50%);
+         text-align: center;
+         z-index: 2;
+       }
+       .carousel-dots span {
+         display: inline-block;
+         width: 10px; /* Larger dots */
+         height: 10px;
+         margin: 0 var(--space-xs);
+         background-color: rgba(255, 255, 255, 0.5); /* Light dots on dark buttons */
+         border: 1px solid rgba(0, 0, 0, 0.2);
+         border-radius: 50%;
+         cursor: pointer;
+         transition: background-color var(--transition-med), transform var(--transition-med);
+       }
+       .carousel-dots span.active {
+         background-color: var(--accent);
+         transform: scale(1.2);
+       }
+
+        /* Project/Blog specific Buttons */
+        .project-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive buttons */
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        .project-buttons a {
+            font-size: 0.8rem;
+            padding: var(--space-xs) var(--space-sm); /* 4px 8px */
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--accent);
+            background-color: #e6f6f5; /* Light teal background */
+            color: var(--accent);
+            font-weight: 500;
+            transition: all var(--transition-med);
+            text-align: center;
+            white-space: nowrap;
+        }
+        .project-buttons a:hover {
+            background-color: #cceceb;
+            transform: translateY(-1px);
+            color: var(--accent); /* Keep color on hover */
+        }
+        .project-buttons a.live-demo {
+            background-color: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .project-buttons a.live-demo:hover {
+            background-color: #008075; /* Darker teal */
+            border-color: #008075;
+            color: #fff;
+        }
+
+
+      /* --- Forms --- */
+      .form-group {
+        margin-bottom: var(--space-lg);
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: var(--space-sm) var(--space-md); /* 8px 16px */
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-color);
+        font-size: 1rem;
+        font-family: var(--font-primary);
+        transition: border-color var(--transition-med), box-shadow var(--transition-med);
+        background-color: var(--bg-alt); /* White input background */
+        color: var(--text);
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15); /* Focus ring */
+      }
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .form-button {
+          text-align: left; /* Align button left */
+      }
+
+      /* --- Scroll to Top Button --- */
+      .scroll-to-top {
+        position: fixed;
+        bottom: var(--space-lg); /* Default desktop position */
+        right: var(--space-lg);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(52, 58, 64, 0.7); /* Semi-transparent dark */
+        backdrop-filter: blur(4px);
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        z-index: 998;
+        transition: opacity var(--transition-med), background-color var(--transition-med), transform var(--transition-med);
+        opacity: 0; /* Start hidden */
+      }
+      .scroll-to-top.show {
+        display: flex;
+        opacity: 1;
+      }
+      .scroll-to-top:hover {
+        background: rgba(52, 58, 64, 0.9);
+        transform: scale(1.05);
+      }
+
+      /***********************************************
+       * HEADER & FOOTER / NAV
+       ***********************************************/
+
+      /* --- Header --- */
+      header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-alt);
+        box-shadow: var(--shadow-sm); /* Softer shadow */
+        z-index: 1000;
+        padding: var(--space-sm) 0; /* 8px top/bottom */
+      }
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Allow wrapping on very small screens */
+        gap: var(--space-md);
+      }
+      .header-brand {
+        font-size: 1.5rem; /* Slightly smaller */
+        font-family: var(--font-heading);
+        color: var(--primary); /* Use primary color */
+        font-weight: 700;
+        flex-shrink: 0; /* Prevent shrinking */
+      }
+      .header-socials {
+        display: flex;
+        gap: var(--space-md); /* Increase gap */
+      }
+      .header-socials a {
+        font-size: 1.2rem;
+        color: var(--text-light); /* Lighter icon color */
+        transition: color var(--transition-med);
+      }
+      .header-socials a:hover {
+        color: var(--primary);
+      }
+
+
+      /* --- Bottom Mobile Nav --- */
+      .bottom-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-alt);
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: var(--space-sm) 0 var(--space-xs) 0; /* 8px top, 4px bottom */
+        z-index: 999;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+        transform: translateY(100%); /* Start hidden */
+        opacity: 0;
+        transition: transform var(--transition-med), opacity var(--transition-med);
+        visibility: hidden;
+      }
+       .bottom-bar.visible { /* Class added by JS */
+           transform: translateY(0);
+           opacity: 1;
+           visibility: visible;
+       }
+      .bottom-bar a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font-size: 0.65rem; /* Smaller label */
+        color: var(--text-light);
+        transition: color var(--transition-med), transform var(--transition-fast);
+        padding: 0 var(--space-xs); /* Add slight horizontal padding */
+        flex: 1; /* Distribute space evenly */
+        max-width: 60px; /* Limit width of each item */
+      }
+      .bottom-bar a i {
+        font-size: 1.1rem; /* Smaller icon */
+        margin-bottom: 2px;
+      }
+      .bottom-bar a:hover {
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .bottom-bar a span {
+        font-weight: 500;
+        white-space: nowrap; /* Prevent wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis;
         max-width: 100%;
       }
-    }
-    @media (max-width: 768px) {
-  /* For product-management: hide everything after the 10th pill */
-  #product-management span.skill-pill:nth-child(n+9) {
-    display: none;
-  }
 
-  /* For technical-skills: hide everything after the 8th pill */
-  #technical-skills span.skill-pill:nth-child(n+10) {
-    display: none;
-  }
+      /* --- Footer --- (Removed as it was hidden) */
 
-  /* For tools-platforms: hide everything after the 12th pill */
-  #tools-platforms span.skill-pill:nth-child(n+13) {
-    display: none;
-  }
-}
-#experience li, #experience p {
-  text-align: justify;
-}
+      /***********************************************
+       * SECTIONS STYLING
+       ***********************************************/
 
-/***********************************************
- * SCROLL TO TOP BUTTON
- ***********************************************/
- 
-.scroll-to-top {
-  position: fixed;
-  bottom: 70px; /* Above mobile bottom bar */
-  right: 15px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(100, 100, 100, 0.7); /* Translucent grey */
-  backdrop-filter: blur(2px); /* Frosted glass effect */
-  color: white;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.9rem;
-  z-index: 998; /* Below bottom bar (999) */
-  transition: all 0.3s ease;
-  opacity: 0.8;
-}
+      /* --- Hero Section --- */
+      .hero {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-xl);
+        justify-content: space-between;
+        padding-top: var(--space-xl); /* More padding */
+        padding-bottom: var(--space-xl);
+      }
+      .hero-image img {
+        width: 180px; /* Larger image */
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: var(--shadow-lg); /* Stronger shadow */
+        border: 4px solid var(--bg-alt); /* White border */
+      }
+      .hero-text {
+          flex: 1;
+          min-width: 300px; /* Prevent text becoming too narrow */
+      }
+      .hero-text h1 {
+        margin-bottom: var(--space-sm);
+      }
+      .hero-text p.lead {
+        margin-bottom: var(--space-lg);
+        max-width: 550px; /* Adjust width */
+      }
+      .btn-group {
+        display: flex;
+        gap: var(--space-md);
+        flex-wrap: wrap;
+      }
 
-.scroll-to-top:hover {
-  opacity: 1;
-  background: rgba(80, 80, 80, 0.9);
-  transform: scale(1.05);
-}
+      /* --- Skills Section --- */
+      .skills-categorized {
+          /* Standard section padding */
+      }
+      .skills-categories {
+        display: flex;
+        gap: var(--space-xl);
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center; /* Center content horizontally */
+      }
+      .skills-sidebar {
+        flex: 0 0 200px; /* Fixed width for sidebar */
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+      .skill-toggle {
+        padding: var(--space-sm) var(--space-md);
+        border: 1px solid var(--border-color);
+        background-color: var(--bg-alt);
+        color: var(--text-light);
+        border-radius: var(--radius);
+        cursor: pointer;
+        text-align: left;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all var(--transition-med);
+        width: 100%; /* Make buttons full width of sidebar */
+      }
+      .skill-toggle:hover {
+        background-color: #e9ecef; /* Light hover */
+        border-color: #adb5bd;
+        color: var(--text);
+      }
+      .skill-toggle.active {
+        background-color: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+      }
+      .skills-content {
+        flex: 1; /* Take remaining space */
+        min-width: 300px; /* Ensure content area doesn't get too small */
+      }
+      .skill-category {
+        display: none;
+        flex-wrap: wrap;
+        gap: var(--space-xs); /* Gap between pills */
+        padding: var(--space-md);
+        background-color: var(--bg-alt); /* Background for pills area */
+        border-radius: var(--radius);
+        border: 1px solid var(--border-color);
+        min-height: 100px; /* Ensure it has some height */
+      }
+      .skill-category.active {
+        display: flex;
+        animation: fadeIn 0.4s ease forwards; /* Fade in active category */
+      }
 
-.scroll-to-top.show {
-  display: flex;
-}
 
-/* Adjust for desktop to be closer to corner */
-@media (min-width: 768px) {
-  .scroll-to-top {
-    bottom: 20px;
-    right: 20px;
-  }
-}
-  </style>
+      /* --- Radio Toggle Section --- */
+      .radio-cards {
+        display: flex;
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-color); /* Separator line */
+        padding-bottom: var(--space-xl);
+      }
+      .radio-card {
+        background-color: var(--bg-alt);
+        border: 1px solid var(--border-color);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius);
+        min-width: 180px; /* Ensure decent width */
+        text-align: center;
+        cursor: pointer;
+        transition: all var(--transition-med);
+        color: var(--text-light);
+      }
+      .radio-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .radio-card.active {
+        background-color: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px); /* Keep hover effect */
+      }
+      .radio-card i {
+        font-size: 1.5rem; /* Smaller icon */
+        margin-bottom: var(--space-sm);
+        display: block; /* Ensure icon takes space */
+      }
+       .radio-card h3 {
+           font-size: 0.9rem;
+           font-weight: 600;
+           margin-bottom: 0;
+           color: inherit; /* Inherit color from parent */
+       }
+      .dynamic-content > div {
+        display: none;
+        /* Animation applied via JS adding .active */
+      }
+      .dynamic-content > div.active {
+        display: block;
+        animation: fadeInUp 0.6s ease forwards; /* Smoother animation */
+      }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* What I Offer Cards */
+        .offer-cards {
+          display: grid;
+          gap: var(--space-lg);
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+        }
+        .offer-card { /* Reuse .card styling */
+            text-align: center;
+        }
+        .offer-card i {
+          font-size: 2rem;
+          margin-bottom: var(--space-md);
+          color: var(--accent); /* Use accent color */
+        }
+        .offer-card .offer-btn { /* Specific button styling if needed */
+            margin-top: var(--space-md);
+        }
+
+
+      /* --- Contact Form Section --- */
+      #contact h2 {
+        /* Standard h2 styling */
+      }
+      .contact-form {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: var(--bg-alt);
+        padding: var(--space-xl);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+      }
+      .contact-row {
+        display: flex;
+        gap: var(--space-xl);
+        flex-wrap: wrap;
+      }
+      .contact-col {
+        flex: 1;
+        min-width: 250px; /* Ensure columns don't get too narrow */
+      }
+
+
+      /***********************************************
+       * MEDIA QUERIES
+       ***********************************************/
+
+      /* Hide bottom bar on larger screens */
+      @media (min-width: 768px) {
+        .bottom-bar {
+          display: none;
+        }
+        /* Show scroll-to-top adjustments for desktop */
+         .scroll-to-top {
+             bottom: var(--space-xl);
+             right: var(--space-xl);
+         }
+      }
+
+      /* Tablet and below adjustments */
+      @media (max-width: 767px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          gap: var(--space-lg);
+        }
+        .hero-image img {
+            width: 150px;
+            height: 150px;
+        }
+        .btn-group {
+          justify-content: center;
+        }
+
+        .skills-categories {
+          flex-direction: column;
+          align-items: stretch; /* Full width sidebar/content */
+           gap: var(--space-lg);
+        }
+        .skills-sidebar {
+          flex-basis: auto; /* Allow sidebar to flow */
+           width: 100%;
+           flex-direction: row; /* Horizontal toggles */
+           overflow-x: auto; /* Allow scrolling if needed */
+           padding-bottom: var(--space-sm); /* Space for scrollbar */
+           justify-content: flex-start; /* Align left */
+        }
+        .skill-toggle {
+            flex-shrink: 0; /* Prevent shrinking */
+            text-align: center;
+        }
+        .skills-content {
+          width: 100%;
+        }
+
+         .radio-cards {
+             justify-content: center; /* Center radio cards */
+             gap: var(--space-sm);
+         }
+         .radio-card {
+             min-width: 100px; /* Allow smaller radio cards */
+             padding: var(--space-sm) var(--space-md);
+         }
+         .radio-card i { font-size: 1.2rem; margin-bottom: var(--space-xs); }
+         .radio-card h3 { font-size: 0.8rem; }
+
+         .contact-row {
+             gap: 0; /* Stack columns directly */
+         }
+         .contact-col {
+             min-width: 100%;
+         }
+
+         /* Adjust scroll-to-top to be above mobile nav */
+          .scroll-to-top {
+              bottom: calc(var(--space-unit) * 4.5); /* Adjust based on bottom-bar height */
+              right: var(--space-md);
+          }
+
+          .carousel-wrapper { /* Stack carousels */
+             display: block;
+          }
+      }
+
+      /* Mobile specific adjustments */
+      @media (max-width: 480px) {
+          html { font-size: 15px; } /* Slightly smaller base font */
+          .container { width: 95%; padding-left: var(--space-sm); padding-right: var(--space-sm); }
+          section { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+          h1 { font-size: 1.8rem; }
+          h2 { font-size: 1.4rem; }
+          .btn { padding: var(--space-sm) var(--space-md); font-size: 0.9rem; }
+          .hero-image img { width: 120px; height: 120px; }
+          .timeline { padding-left: var(--space-lg); }
+          .timeline::before { left: 5px; } /* Adjust line position */
+          .timeline-item::before { left: -5px; width: 18px; height: 18px; } /* Adjust dot */
+
+          .carousel-nav button { width: 30px; height: 30px; font-size: 1rem; }
+          .carousel-dots span { width: 8px; height: 8px; }
+      }
+
+    </style>
 </head>
 
-
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="header-brand">Sabyasachi</div>
-      <div class="header-socials">
-        <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://medium.com/@sabyasachimishra648" aria-label="Medium"><i class="fab fa-medium"></i></a>
-      </div>
-    </div>
-  </header>
-
-  <!-- MOBILE BOTTOM BAR -->
-  <div class="bottom-bar">
-    <a href="assets/cv.pdf" title="Download CV">
-      <i class="fas fa-file-download"></i>
-      <span>CV</span>
-    </a>
-    <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies">
-      <i class="fas fa-folder-open"></i>
-      <span>Cases</span>
-    </a>
-    <a href="mailto:sabyasachimishra648@gmail.com" title="Email">
-      <i class="fas fa-envelope"></i>
-      <span>Email</span>
-    </a>
-    <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-      <span>LinkedIn</span>
-    </a>
-    <a href="https://github.com/SABYA648" target="_blank" title="GitHub">
-      <i class="fab fa-github"></i>
-      <span>GitHub</span>
-    </a>
-  </div>
-
-  <!-- HERO -->
-  <section class="container hero" data-aos="fade-up">
-    <img src="assets/Sabya_img_1.png" alt="Profile Photo" />
-    <div class="hero-text">
-      <h1>Sabyasachi Mishra</h1>
-      <p>
-        Product Manager specializing in AI-driven solutions—bridging data insights with user-centric innovation.
-      </p>
-      <div class="btn-group">
-        <!-- Optional hero CTAs; header no longer includes them -->
-        <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="book-call">Book Call</a>
-        <a href="assets/Sabyasachi_CV.pdf" target="_blank" class="resume-skeleton">Download Resume</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section class="container skills-categorized" data-aos="fade-up">
-    <h2>Skills &amp; Tools</h2>
-    <div class="skills-categories">
-      <div class="skills-sidebar">
-        <button class="skill-toggle active" data-target="product-management">Product Management</button>
-        <button class="skill-toggle" data-target="technical-skills">Technical Skills</button>
-        <button class="skill-toggle" data-target="tools-platforms">Tools &amp; Platforms</button>
-      </div>
-      <div class="skills-content">
-        <div id="product-management" class="skill-category active">
-          <span class="skill-pill">Product Strategy & Vision</span>
-          <span class="skill-pill">Product Discovery & Validation</span>
-          <span class="skill-pill">Roadmapping</span>
-          <span class="skill-pill">Feature Prioritization</span>
-          <span class="skill-pill">Agile & Scrum</span>
-          <span class="skill-pill">Stakeholder Management</span>
-          <span class="skill-pill">Data-Driven Decision Making</span>
-          <span class="skill-pill">Competitive Analysis & Market Research</span>
-          <span class="skill-pill">Customer Discovery</span>
-          <span class="skill-pill">Customer Journey Mapping</span>
-          <span class="skill-pill">User Experience (UX) Design Principles</span>
-          <span class="skill-pill">OKRs & KPI Tracking</span>
-          <span class="skill-pill">Go-To-Market (GTM) Strategy</span>
-          <span class="skill-pill">Pricing & Monetization Strategies</span>
-          <span class="skill-pill">Cross-functional Team Leadership</span>
-          <span class="skill-pill">Wireframing & Prototyping</span>
-          <span class="skill-pill">MVP Execution</span>
-          <span class="skill-pill">A/B Testing</span>
-          <span class="skill-pill">Lean Strategy</span>
-        </div>
-        <div id="technical-skills" class="skill-category">
-          <span class="skill-pill">Generative AI & LLM Implementation</span>
-          <span class="skill-pill">Machine Learning & AI Fundamentals</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">SQL & Database Management</span>
-          <span class="skill-pill">API Design & Integration</span>
-          <span class="skill-pill">Prompt Engineering</span>
-          <span class="skill-pill">OpenAI APIs</span>
-          <span class="skill-pill">FastAPI</span>
-          <span class="skill-pill">NLP / LLM Tuning</span>
-          <span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span>
-          <span class="skill-pill">Data Visualization</span>
-          <span class="skill-pill">React</span>
-          <span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span>
-          <span class="skill-pill">Technical Documentation (PRD/BRD)</span>
-          <span class="skill-pill">Agile SDLC</span>
-        </div>
-        <div id="tools-platforms" class="skill-category">
-          <span class="skill-pill">JIRA</span>
-          <span class="skill-pill">Git & GitHub</span>
-          <span class="skill-pill">Amplitude / Mixpanel</span>
-          <span class="skill-pill">Maze / Hotjar</span>
-          <span class="skill-pill">Figma / Adobe XD</span>
-          <span class="skill-pill">Miro / FigJam</span>
-          <span class="skill-pill">Confluence / Notion</span>
-          <span class="skill-pill">Tableau</span>
-          <span class="skill-pill">Power BI</span>
-          <span class="skill-pill">Postman</span>
-          <span class="skill-pill">Slack / Teams</span>
-          <span class="skill-pill">GA4</span>
+    <header>
+      <div class="container header-inner">
+        <div class="header-brand">Sabyasachi</div>
+        <div class="header-socials">
+          <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- PROJECTS & BLOGS CAROUSELS -->
-<section class="container carousel-wrapper" data-aos="fade-up">
-  <!-- Projects -->
-  <div class="carousel-section">
-    <h2>Projects</h2>
-    <div class="carousel-container">
-      <div class="carousel-inner" id="carousel-projects">
-        
-        <!-- Project 1: MoodBite -->
-        <div class="carousel-item">
-          <div class="card">
-            <img src="assets/moodbite.jpg" alt="MoodBite" />
-            <h3>MoodBite</h3>
-            <p>Voice-first food discovery agent that adapts to your mood, cravings, and language.</p>
-            <div class="project-buttons">
-              <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">LIVE DEMO</a>
-              <a href="https://sabyasachimishra.dev/moodbite/" target="_blank">PRD</a>
-              <a href="https://github.com/SABYA648/MoodBite" target="_blank">Source</a>
-              <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
-            </div>
+    <nav class="bottom-bar" id="bottomBar">
+      <a href="assets/cv.pdf" title="Download CV">
+        <i class="fas fa-file-download"></i>
+        <span>CV</span>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies" target="_blank">
+        <i class="fas fa-folder-open"></i>
+        <span>Cases</span>
+      </a>
+      <a href="mailto:sabyasachimishra648@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+      <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat</span>
+      </a>
+      <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      </nav>
+
+    <section class="container hero" data-aos="fade-up">
+      <div class="hero-image">
+        <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" />
+      </div>
+      <div class="hero-text">
+        <h1>Sabyasachi Mishra</h1>
+        <p class="lead">
+          Product Manager specializing in AI-driven solutions—bridging data insights with user-centric innovation to build impactful products.
+        </p>
+        <div class="btn-group">
+          <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="btn btn-accent">Book a Call</a>
+          <a href="assets/Sabyasachi_CV.pdf" target="_blank" class="btn btn-outline-primary">Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
+      <h2>Skills &amp; Tools</h2>
+      <div class="skills-categories">
+        <div class="skills-sidebar">
+          <button class="skill-toggle active" data-target="product-management">Product Management</button>
+          <button class="skill-toggle" data-target="technical-skills">Technical Skills</button>
+          <button class="skill-toggle" data-target="tools-platforms">Tools &amp; Platforms</button>
+        </div>
+        <div class="skills-content">
+          <div id="product-management" class="skill-category active">
+            <span class="skill-pill">Product Strategy & Vision</span><span class="skill-pill">Product Discovery & Validation</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">Feature Prioritization</span><span class="skill-pill">Agile & Scrum</span><span class="skill-pill">Stakeholder Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Competitive Analysis & Market Research</span><span class="skill-pill">Customer Discovery</span><span class="skill-pill">Customer Journey Mapping</span><span class="skill-pill">User Experience (UX) Design Principles</span><span class="skill-pill">OKRs & KPI Tracking</span><span class="skill-pill">Go-To-Market (GTM) Strategy</span><span class="skill-pill">Pricing & Monetization Strategies</span><span class="skill-pill">Cross-functional Team Leadership</span><span class="skill-pill">Wireframing & Prototyping</span><span class="skill-pill">MVP Execution</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">Lean Strategy</span>
+          </div>
+          <div id="technical-skills" class="skill-category">
+            <span class="skill-pill">Generative AI & LLM Implementation</span><span class="skill-pill">Machine Learning & AI Fundamentals</span><span class="skill-pill">Python</span><span class="skill-pill">SQL & Database Management</span><span class="skill-pill">API Design & Integration</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">OpenAI APIs</span><span class="skill-pill">FastAPI</span><span class="skill-pill">NLP / LLM Tuning</span><span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">React</span><span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span><span class="skill-pill">Technical Documentation (PRD/BRD)</span><span class="skill-pill">Agile SDLC</span>
+          </div>
+          <div id="tools-platforms" class="skill-category">
+            <span class="skill-pill">JIRA</span><span class="skill-pill">Git & GitHub</span><span class="skill-pill">Amplitude / Mixpanel</span><span class="skill-pill">Maze / Hotjar</span><span class="skill-pill">Figma / Adobe XD</span><span class="skill-pill">Miro / FigJam</span><span class="skill-pill">Confluence / Notion</span><span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span><span class="skill-pill">Postman</span><span class="skill-pill">Slack / Teams</span><span class="skill-pill">Google Analytics (GA4)</span>
           </div>
         </div>
-
-        <!-- Project 2: FeatureFit -->
-        <div class="carousel-item">
-          <div class="card">
-            <img src="assets/project2img.JPG" alt="FeatureFit" />
-            <h3>FeatureFit</h3>
-            <p>AI-based feature prioritization that reduced planning time by 30%.</p>
-            <div class="project-buttons">
-              <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">LIVE DEMO</a>
-              <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
-              <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
-              <a href="assets/proj2.pdf" target="_blank">Case Study</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: LLM Tuner -->
-        <div class="carousel-item">
-          <div class="card">
-            <img src="assets/project1img.JPG" alt="LLM Tuner" />
-            <h3>LLM Tuner</h3>
-            <p>Interactive prompt tuning that cut iteration time by 50%.</p>
-            <div class="project-buttons">
-              <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">LIVE DEMO</a>
-              <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
-              <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
-              <a href="assets/proj1.pdf" target="_blank">Case Study</a>
-            </div>
-          </div>
-        </div>
-
       </div>
+    </section>
 
-      <div class="carousel-nav">
-        <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Projects">&#10094;</button>
-        <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Projects">&#10095;</button>
-      </div>
-      <div class="carousel-dots" id="dots-projects"></div>
-    </div>
-  </div>
-</section>
-
-    <!-- Blogs -->
-    <div class="carousel-section">
-      <h2>Blogs</h2>
-      <div class="carousel-container">
-        <div class="carousel-inner" id="carousel-blogs">
-          <!-- Slide 1 -->
-          <div class="carousel-item">
-            <div class="card">
-              <img src="assets/Blog1img.JPG" alt="Blog 1" />
-              <h3>LLM-EO: Future of SEO</h3>
-              <p>Exploring how language model optimization transforms search.</p>
-              <div class="project-buttons" style="grid-template-columns:1fr;">
-                <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601" target="_blank">Read</a>
+    <section class="container carousel-wrapper" data-aos="fade-up" data-aos-delay="150">
+      <div class="carousel-section">
+        <h2>Projects Showcase</h2>
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carousel-projects">
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" /></div>
+                <div class="card-content">
+                  <h3>MoodBite</h3>
+                  <p>Voice-first food discovery agent adapting to mood, cravings, and language using AI.</p>
+                </div>
+                 <div class="card-footer project-buttons">
+                   <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
+                   <a href="https://sabyasachimishra.dev/moodbite/" target="_blank">PRD</a>
+                   <a href="https://github.com/SABYA648/MoodBite" target="_blank">Source</a>
+                   <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
+                 </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" /></div>
+                <div class="card-content">
+                  <h3>FeatureFit</h3>
+                  <p>AI-powered feature prioritization tool that reduced strategic planning time by 30%.</p>
+                </div>
+                <div class="card-footer project-buttons">
+                  <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
+                  <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
+                  <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
+                  <a href="assets/proj2.pdf" target="_blank">Case Study</a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" /></div>
+                <div class="card-content">
+                  <h3>LLM Tuner</h3>
+                  <p>Interactive prompt tuning interface that accelerated LLM iteration cycles by 50%.</p>
+                </div>
+                <div class="card-footer project-buttons">
+                  <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
+                  <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
+                  <a href="assets/proj1.pdf" target="_blank">Case Study</a>
+                </div>
               </div>
             </div>
           </div>
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="card">
-              <img src="assets/Blog2img.png" alt="Blog 2" />
-              <h3>LLM-EO Explained</h3>
-              <p>A deep dive into LLM-based ranking and digital strategy.</p>
-              <div class="project-buttons" style="grid-template-columns:1fr;">
-                <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8315bf9d5748" target="_blank">Read</a>
+          <div class="carousel-nav">
+            <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Project">&#10094;</button>
+            <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Project">&#10095;</button>
+          </div>
+          <div class="carousel-dots" id="dots-projects"></div>
+        </div>
+      </div>
+
+        <div class="carousel-section">
+          <h2>Insights &amp; Blogs</h2>
+          <div class="carousel-container">
+            <div class="carousel-inner" id="carousel-blogs">
+              <div class="carousel-item">
+                <div class="card">
+                    <div class="card-image"><img src="assets/Blog1img.JPG" alt="LLM Engine Optimization Blog" /></div>
+                    <div class="card-content">
+                      <h3>LLM-EO: The Future of SEO?</h3>
+                      <p>Exploring how language model optimization (LLM-EO) is transforming the internet search landscape.</p>
+                    </div>
+                    <div class="card-footer project-buttons" style="grid-template-columns:1fr;"> <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601" target="_blank">Read Article</a>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-image"><img src="assets/Blog2img.png" alt="Deep Dive into LLM-EO Blog" /></div>
+                  <div class="card-content">
+                    <h3>LLM-EO Explained</h3>
+                    <p>A detailed analysis of LLM-based ranking algorithms and their impact on digital strategy.</p>
+                  </div>
+                  <div class="card-footer project-buttons" style="grid-template-columns:1fr;">
+                    <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8315bf9d5748" target="_blank">Read Article</a>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="carousel-nav">
+              <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blog">&#10094;</button>
+              <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blog">&#10095;</button>
+            </div>
+            <div class="carousel-dots" id="dots-blogs"></div>
           </div>
         </div>
-        <div class="carousel-nav">
-          <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blogs">&#10094;</button>
-          <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blogs">&#10095;</button>
-        </div>
-        <div class="carousel-dots" id="dots-blogs"></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- RADIO CARDS: TOGGLE SECTION -->
-  <section class="container" data-aos="fade-up">
-    <div class="radio-cards" data-target="sections">
-      <div class="radio-card active" data-id="offer">
-        <i class="fas fa-lightbulb"></i>
-        <h3>What I Offer</h3>
-      </div>
-      <div class="radio-card" data-id="experience">
-        <i class="fas fa-briefcase"></i>
-        <h3>Work Experience</h3>
-      </div>
-      <div class="radio-card" data-id="case-studies">
-        <i class="fas fa-clipboard-list"></i>
-        <h3>Case Studies</h3>
-      </div>
-    </div>
-    <div class="dynamic-content" data-target="sections">
-      <!-- WHAT I OFFER (6 Cards) -->
-      <div id="offer" class="active">
-        <h2 style="text-align:center;">What I Offer</h2>
-        <div class="offer-cards">
-          <div class="offer-card">
-            <i class="fas fa-cogs"></i>
-            <h3>AI-Driven Strategy</h3>
-            <p>Leverage advanced AI to inform product strategy and execution.</p>
-            <a href="#" class="offer-btn">Learn More</a>
-          </div>
-          <div class="offer-card">
-            <i class="fas fa-chart-line"></i>
-            <h3>Data Insights</h3>
-            <p>Transform raw data into actionable insights that drive decisions.</p>
-            <a href="#" class="offer-btn">View Details</a>
-          </div>
-          <div class="offer-card">
-            <i class="fas fa-rocket"></i>
-            <h3>Rapid Prototyping</h3>
-            <p>Quickly validate ideas with agile MVP development and user testing.</p>
-            <a href="#" class="offer-btn">See Process</a>
-          </div>
-          <div class="offer-card">
-            <i class="fas fa-users"></i>
-            <h3>User-Centric Design</h3>
-            <p>Empathize with users and design products that solve real problems.</p>
-            <a href="#" class="offer-btn">Discover More</a>
-          </div>
-          <div class="offer-card">
-            <i class="fas fa-lightbulb"></i>
-            <h3>Innovative Roadmapping</h3>
-            <p>Create clear, ambitious roadmaps that inspire teams and stakeholders.</p>
-            <a href="#" class="offer-btn">Explore Roadmaps</a>
-          </div>
-          <div class="offer-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Continuous Learning</h3>
-            <p>Stay ahead of trends through ongoing research and skill development.</p>
-            <a href="#" class="offer-btn">See My Approach</a>
-          </div>
+    <section class="container" data-aos="fade-up" data-aos-delay="200">
+      <div class="radio-cards" data-target="sections">
+        <div class="radio-card active" data-id="offer">
+          <i class="fas fa-lightbulb"></i>
+          <h3>What I Offer</h3>
+        </div>
+        <div class="radio-card" data-id="experience">
+          <i class="fas fa-briefcase"></i>
+          <h3>Experience</h3>
+        </div>
+        <div class="radio-card" data-id="case-studies">
+          <i class="fas fa-clipboard-list"></i>
+          <h3>Case Studies</h3>
         </div>
       </div>
-      <!-- WORK EXPERIENCE -->
-      <div id="experience">
-        <!-- Work Experience Heading -->
-        <h2 style="text-align:center;">Work Experience</h2>
-        <div class="timeline">
-      
-          <!-- Assistant Manager -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>
-                <strong>Assistant Manager</strong>, <em>Power Finance Corp.</em> (Jun '23 – Present)
-              </h3>
-              <ul>
-                <li>Built financial analytics dashboards for ₹15,000+ Cr infrastructure portfolios,<b>enhancing risk visibility and achieving 12+ hours monthly savings </b>in manual processes.</li>
-                <li>Deployed NLP-driven automated credit scoring models, improving <b>early risk detection and reducing defaults by 20%, positively impacting profitability.</b></li>
-                <li>Orchestrated <b>cross-functional collaboration among Engineering, Data Science, and Finance teams, enabling executive-level strategic decision-making </b>through actionable insights.</li>
-              </ul>
+
+      <div class="dynamic-content" data-target="sections">
+        <div id="offer" class="active">
+          <h2>Core Expertise</h2>
+          <div class="offer-cards">
+            <div class="offer-card card"> <i class="fas fa-brain"></i> <div class="card-content">
+                    <h3>AI Product Strategy</h3>
+                    <p>Defining vision and roadmaps for AI/ML products, leveraging data for market fit and competitive advantage.</p>
+                </div>
+                 <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Strategy</a></div>
+            </div>
+             <div class="offer-card card">
+                 <i class="fas fa-users"></i> <div class="card-content">
+                    <h3>User-Centric Discovery</h3>
+                    <p>Conducting deep user research, validation, and usability testing to ensure products solve real problems.</p>
+                 </div>
+                 <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Talk Users</a></div>
+            </div>
+             <div class="offer-card card">
+                 <i class="fas fa-chart-line"></i> <div class="card-content">
+                    <h3>Data-Driven Decisions</h3>
+                    <p>Utilizing analytics (Mixpanel, Amplitude) and A/B testing to inform prioritization and optimize features.</p>
+                 </div>
+                  <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Analyze Data</a></div>
+            </div>
+             <div class="offer-card card">
+                  <i class="fas fa-rocket"></i> <div class="card-content">
+                     <h3>Agile Execution</h3>
+                     <p>Leading cross-functional teams using Agile/Scrum for rapid prototyping, MVP development, and iterative delivery.</p>
+                  </div>
+                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Plan Execution</a></div>
+             </div>
+              <div class="offer-card card">
+                  <i class="fas fa-comments"></i> <div class="card-content">
+                     <h3>Stakeholder Alignment</h3>
+                     <p>Communicating product vision, progress, and trade-offs effectively across technical and business teams.</p>
+                  </div>
+                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Align Teams</a></div>
+             </div>
+              <div class="offer-card card">
+                  <i class="fas fa-seedling"></i> <div class="card-content">
+                     <h3>Growth & GTM</h3>
+                     <p>Developing Go-To-Market strategies, defining KPIs, and iterating based on market feedback for growth.</p>
+                  </div>
+                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Growth</a></div>
+             </div>
+          </div>
+        </div>
+
+        <div id="experience">
+          <h2>Professional Journey</h2>
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
+                <div class="timeline-content">
+                  <h3>Assistant Manager <em>Power Finance Corp. (Jun '23 – Present)</em></h3>
+                  <ul>
+                    <li>Built financial analytics dashboards for ₹15,000+ Cr infrastructure portfolios, <strong>enhancing risk visibility and achieving 12+ hours monthly savings</strong> in manual processes.</li>
+                    <li>Deployed NLP-driven automated credit scoring models, improving <strong>early risk detection and reducing defaults by 20%, positively impacting profitability.</strong></li>
+                    <li>Orchestrated <strong>cross-functional collaboration</strong> enabling executive-level strategic decision-making through actionable insights.</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
+                <div class="timeline-content">
+                  <h3>Co-Founder & Product Lead <em>Brahmagupta Edu (Jan '21 – Aug '21)</em></h3>
+                  <ul>
+                    <li>Conceptualized and launched an AI-driven adaptive learning platform, <strong>achieving a 40% boost in user engagement</strong> and a 30% reduction in content delivery costs.</li>
+                    <li>Directed an 11-member agile team through ideation, validation, MVP development, and scaling, driving <strong>50% YoY revenue growth.</strong></li>
+                    <li>Integrated <strong>predictive analytics</strong> into digital marketing strategies, <strong>enhancing customer acquisition by 60%.</strong></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
+                <div class="timeline-content">
+                  <h3>Product Associate <em>Pigeon Education (Jan '20 – Dec '20)</em></h3>
+                  <ul>
+                    <li>Led product development of an AI-powered live education platform, <strong>increasing student participation metrics by over 80%.</strong></li>
+                    <li>Implemented ML algorithms to automate grading, <strong>reducing operational overhead by 40%.</strong></li>
+                    <li>Partnered with engineering/design to refine UX/UI, resulting in <strong>successful early-stage investor interest.</strong></li>
+                  </ul>
+                </div>
             </div>
           </div>
-      
-          <!-- Co-Founder -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>
-                <strong>Co-Founder & Product Lead</strong>, <em>Brahmagupta Edu</em> (Jan '21 – Aug '21)
-              </h3>
-              <ul>
-                <li>Conceptualized and launched an AI-driven adaptive learning platform, <b>achieving a 40% boost in user engagement and a 30% reduction in content delivery costs.</b></li>
-                <li>Directed an 11-member agile team through <b>ideation, product-market-fit validation, MVP development, and successful scaling, driving 50% YoY revenue growth.</b></li>
-                <li>Integrated <b>predictive analytics</b> into <b>digital marketing strategies, enhancing customer acquisition by 60%</b> through precise audience targeting.</li>
-              </ul>
-            </div>
-          </div>
-      
-          <!-- Associate -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>
-                <strong>Product Associate</strong>, <em>Pigeon Education</em> (Jan '20 – Dec '20)
-              </h3>
-              <ul>
-                <li>Led product development of an <b>innovative AI-powered live education platform, increasing student participation metrics by over 80%.</b></li>
-                <li>Implemented <b>machine learning algorithms to automate grading and assessments, reducing operational overhead by 40%.</b></li>
-                <li>Partnered closely with engineering and design teams to <b>refine UX/UI iteratively, resulting in successful early-stage investor interest and funding.</b></li>
-              </ul>
-            </div>
-          </div>
-      
+
+           <h2 style="margin-top: var(--space-xxl);">Internships & Achievements</h2>
+           <div class="timeline">
+             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
+                 <div class="timeline-content">
+                   <h3>Product Marketing Intern <em>GSK Pharmaceuticals, Mumbai (Apr '22 – Jun '22)</em></h3>
+                   <ul>
+                     <li>Automated competitor market intelligence with NLP/BI tools, <strong>cutting research time by 30%</strong> and enhancing strategic responsiveness.</li>
+                   </ul>
+                 </div>
+             </div>
+             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
+                 <div class="timeline-content">
+                   <h3>Software Development Intern <em>Amdocs India LLP, Pune (May '19 – Aug '19)</em></h3>
+                   <ul>
+                     <li>Developed an ML-based recruitment platform improving <strong>candidate-job matching accuracy by 45%.</strong></li>
+                     <li>Implemented blockchain and NLP-based resume parsing solutions.</li>
+                   </ul>
+                 </div>
+             </div>
+             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
+                 <div class="timeline-content">
+                   <h3>Achievements & Certifications</h3>
+                   <ul>
+                     <li><strong>NTSE Scholar</strong> – Awarded to top 0.5% students nationwide</li>
+                     <li><strong>PSPO II & Certified ScrumMaster® (CSM)</strong></li>
+                     <li>National Finalist – Tekion PM Case Competition & WITDA Case Challenge (2022)</li>
+                   </ul>
+                 </div>
+             </div>
+           </div>
         </div>
-      
-        <!-- Internships & Achievements Heading -->
-        <h2 style="text-align:center;">Internships & Achievements</h2>
-        <div class="timeline">
-      
-          <!-- GSK Internship -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>
-                <strong>Product Marketing Intern</strong>, <em>GSK Pharmaceuticals, Mumbai</em> (Apr '22 – Jun '22)
-              </h3>
-              <ul>
-                <li>Automated <b>competitor market intelligence with NLP-driven sentiment analysis and BI tools</b>, cutting research time by 30% and enhancing strategic responsiveness.</li>
-              </ul>
-            </div>
-          </div>
-      
-          <!-- Amdocs Internship -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>
-                <strong>Software Development Intern</strong>, <em>Amdocs India LLP, Pune</em> (May '19 – Aug '19)
-              </h3>
-              <ul>
-                <li>Developed a <b>machine learning-based recruitment platform improving candidate-job matching accuracy by 45%</b>, and <b>implemented blockchain and NLP-based resume parsing solutions.</b></li>
-              </ul>
-            </div>
-          </div>
-      
-          <!-- Achievements -->
-<div class="timeline-item">
-  <div class="timeline-content">
-    <h3><strong>Achievements & Certifications</strong></h3>
-    <ul>
-      <li><b>NTSE Scholar</b> – Awarded to top 0.5% students nationwide</li>
-      <li><b>PSPO II & Certified ScrumMaster® (Scrum.org)</b></li>
-      <li>National Finalist – Tekion PM Case Competition & WITDA Case Challenge (2022)</li>
-    </ul>
-  </div>
-</div>
-      
+
+        <div id="case-studies">
+          <h2>Selected Case Studies</h2>
+           <div class="offer-cards"> <div class="offer-card card">
+               <i class="fas fa-bus"></i>
+               <div class="card-content">
+                    <h3>Bus Buddy</h3>
+                    <p>Post-Covid mobility solution for bus ticket booking and rentals.</p>
+               </div>
+               <div class="card-footer"><a href="assets/Bus Buddy.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+             </div>
+              <div class="offer-card card">
+               <i class="fas fa-robot"></i>
+               <div class="card-content">
+                    <h3>AI in Fintech</h3>
+                    <p>Using AI for credit assessments and micro-loan offerings in digital payments.</p>
+               </div>
+               <div class="card-footer"><a href="assets/Incedo - AI in Fintech.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+             </div>
+             <div class="offer-card card">
+               <i class="fas fa-mobile-alt"></i>
+               <div class="card-content">
+                    <h3>Digital Payments Strategy</h3>
+                    <p>Developing a unique USP for PhonePe to enhance engagement.</p>
+               </div>
+               <div class="card-footer"><a href="assets/PhonePe.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+             </div>
+              <div class="offer-card card">
+               <i class="fas fa-utensils"></i>
+               <div class="card-content">
+                    <h3>Restaurant Booking App</h3>
+                    <p>Redefining dine-out with seamless booking and integrated payments.</p>
+                </div>
+               <div class="card-footer"><a href="assets/Restaurant table booking App.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+             </div>
+              <div class="offer-card card">
+               <i class="fas fa-car"></i>
+                <div class="card-content">
+                    <h3>Tekion: EV Strategy</h3>
+                    <p>Frameworks and roadmaps to tackle EV range anxiety and financing.</p>
+                </div>
+                <div class="card-footer"><a href="assets/Tekion_IIM Indore.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+             </div>
+           </div>
         </div>
       </div>
-      
-     
-      <!-- CASE STUDIES (5 Cards) -->
-<div id="case-studies">
-  <h2 style="text-align:center;">Case Studies</h2>
-  <div class="offer-cards">
-    <div class="offer-card">
-      <i class="fas fa-bus"></i>
-      <h3>Bus Buddy</h3>
-      <p>A comprehensive solution for bus ticket booking and rentals, designed for a post-Covid mobility landscape.</p>
-      <a href="assets/Bus Buddy.pdf" class="offer-btn">View Study</a>
-    </div>
-    <div class="offer-card">
-      <i class="fas fa-robot"></i>
-      <h3>AI in Fintech</h3>
-      <p>Leveraged AI for credit assessments and micro-loan offerings to transform digital payments.</p>
-      <a href="assets/Incedo - AI in Fintech.pdf" class="offer-btn">View Study</a>
-    </div>
-    <div class="offer-card">
-      <i class="fas fa-mobile-alt"></i>
-      <h3>Digital Payments Strategy</h3>
-      <p>Developed a unique USP for PhonePe, enhancing customer engagement and retention.</p>
-      <a href="assets/PhonePe.pdf" class="offer-btn">View Study</a>
-    </div>
-    <div class="offer-card">
-      <i class="fas fa-utensils"></i>
-      <h3>Restaurant Table Booking App</h3>
-      <p>Redefined the dine-out experience with seamless table booking and integrated payment solutions.</p>
-      <a href="assets/Restaurant table booking App.pdf" class="offer-btn">View Study</a>
-    </div>
-    <div class="offer-card">
-      <i class="fas fa-car"></i>
-      <h3>Tekion: EV Strategy</h3>
-      <p>Crafted strategic frameworks and product roadmaps to tackle EV range anxiety and financing challenges.</p>
-      <a href="assets/Tekion_IIM Indore.pdf" class="offer-btn">View Study</a>
-    </div>
-  </div>
-</div>
-          <!--<div class="offer-card">
-            <i class="fas fa-cloud"></i>
-            <h3>Cloud Integration</h3>
-            <p>Migrated critical workflows to the cloud for scalability.</p>
-            <a href="#" class="offer-btn">View Study</a>
-          </div>-->
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT FORM -->
-  <section class="container" id="contact" data-aos="fade-up">
-    <h2>Contact Me</h2>
-    <form class="contact-form" action="https://formspree.io/f/mblgzrad" method="POST">
-      <div class="contact-row">
-        <div class="contact-col">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required />
+    <section class="container" id="contact" data-aos="fade-up" data-aos-delay="250">
+      <h2>Get In Touch</h2>
+      <form class="contact-form" action="https://formspree.io/f/mblgzrad" method="POST">
+        <div class="contact-row">
+          <div class="contact-col">
+            <div class="form-group">
+              <label for="name" class="visually-hidden">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <label for="contactNo" class="visually-hidden">Your Contact No</label>
+              <input type="tel" id="contactNo" name="contact" placeholder="Your Contact No" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="visually-hidden">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required />
+            </div>
           </div>
-          <div class="form-group">
-            <input type="tel" name="contact" placeholder="Your Contact No" required />
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required />
+          <div class="contact-col">
+            <div class="form-group">
+              <label for="subject" class="visually-hidden">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message" class="visually-hidden">Message</label>
+              <textarea id="message" name="message" placeholder="Enter your message..." required></textarea>
+            </div>
           </div>
         </div>
-        <div class="contact-col">
-          <div class="form-group">
-            <input type="text" name="subject" placeholder="Subject" required />
-          </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="Enter your message" required style="width:100%; height:150px;"></textarea>
-          </div>
+        <div class="form-button">
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </div>
-      </div>
-      <div class="form-group" style="margin-top:10px;">
-        <button type="submit">Send</button>
-      </div>
-    </form>
-  </section>
+      </form>
+    </section>
 
-  <!-- FOOTER 
-  <footer data-aos="fade-up">
-    &copy; 2025 Sabyasachi Mishra. All rights reserved.
-  </footer> -->
-  <!-- Scroll to Top Button -->
-<button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
-  <!-- AOS Animation Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 700,
-      easing: 'ease-in-out',
-      once: true
-    });
-  </script>
-
-  <!-- Skills Toggle Script -->
-  <script>
-    document.querySelectorAll('.skill-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('.skill-toggle').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        document.querySelectorAll('.skill-category').forEach(cat => cat.classList.remove('active'));
-        const target = button.getAttribute('data-target');
-        document.getElementById(target).classList.add('active');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      AOS.init({
+        duration: 600, // Slightly faster
+        easing: 'ease-in-out-quad', // Smoother easing
+        once: true, // Animate only once
+        offset: 50 // Trigger animations slightly earlier
       });
-    });
-  </script>
-
-  <!-- Carousel Logic -->
-<script>
-  // Helper function to get the current slide index based on transform value
-  function getCurrentSlideIndex(carousel) {
-    const transformValue = carousel.style.transform;
-    if (transformValue && transformValue.includes("translateX(")) {
-      // Extract the number inside translateX(-<number>%)
-      const match = transformValue.match(/translateX\(-?(\d+)%\)/);
-      if (match) {
-        // Convert the number to an index (each slide is 100%)
-        return parseInt(match[1]) / 100;
-      }
-    }
-    return 0; // default index if not set
-  }
-
-  function initCarousel(carouselId, dotsId) {
-    const carousel = document.getElementById(carouselId);
-    const dotsContainer = document.getElementById(dotsId);
-    const slides = carousel.children;
-    dotsContainer.innerHTML = '';
-    // Initialize the transform if not set
-    if (!carousel.style.transform) {
-      carousel.style.transform = "translateX(0%)";
-    }
-    for (let i = 0; i < slides.length; i++) {
-      const dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => setSlide(carousel, dotsContainer, i));
-      dotsContainer.appendChild(dot);
-    }
-  }
-
-  function setSlide(carousel, dotsContainer, index) {
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-    [...dotsContainer.children].forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  function nextSlide(carouselId, dotsId) {
-    const carousel = document.getElementById(carouselId);
-    const dotsContainer = document.getElementById(dotsId);
-    const total = carousel.children.length;
-    let index = getCurrentSlideIndex(carousel);
-    index = (index + 1) % total;
-    setSlide(carousel, dotsContainer, index);
-  }
-
-  function prevSlide(carouselId, dotsId) {
-    const carousel = document.getElementById(carouselId);
-    const dotsContainer = document.getElementById(dotsId);
-    const total = carousel.children.length;
-    let index = getCurrentSlideIndex(carousel);
-    index = (index - 1 + total) % total;
-    setSlide(carousel, dotsContainer, index);
-  }
-
-  window.addEventListener('load', () => {
-    initCarousel('carousel-projects', 'dots-projects');
-    initCarousel('carousel-blogs', 'dots-blogs');
-  });
-</script>
-
-  <!-- Unified Radio Toggle Script + Bottom Bar Scroll Hide -->
-  <script>
-    // Radio toggle code
-    const radioCards = document.querySelectorAll('.radio-cards[data-target="sections"] .radio-card');
-    const radioContent = document.querySelector('.dynamic-content[data-target="sections"]');
-    radioCards.forEach(card => {
-      card.addEventListener('click', () => {
-        radioCards.forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        radioContent.querySelectorAll('div').forEach(div => div.classList.remove('active'));
-        const targetId = card.getAttribute('data-id');
-        const targetDiv = document.getElementById(targetId);
-        if (targetDiv) targetDiv.classList.add('active');
-      });
-    });
-
-    // Auto-hide bottom bar on scroll down, show on scroll up
-    let lastScroll = window.pageYOffset;
-    const bottomBar = document.querySelector('.bottom-bar');
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      // Prevent very small jitter
-      if (Math.abs(currentScroll - lastScroll) < 5) return;
-
-      if (currentScroll < lastScroll) {
-        // Scrolling down - hide bottom nav
-        bottomBar.style.transform = 'translateY(100%)';
-        bottomBar.style.opacity = '0';
-      } else {
-        // Scrolling up - show bottom nav
-        bottomBar.style.transform = 'translateY(0)';
-        bottomBar.style.opacity = '1';
-      }
-      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-    });
-  </script>
-  <script>// Scroll to top button
-    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) { // Show button after scrolling 300px
-        scrollToTopBtn.classList.add('show');
-      } else {
-        scrollToTopBtn.classList.remove('show');
-      }
-    });
-    
-    scrollToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
     </script>
-  
+
+    <script>
+      const skillToggles = document.querySelectorAll('.skill-toggle');
+      const skillCategories = document.querySelectorAll('.skill-category');
+
+      skillToggles.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active button state
+          skillToggles.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          // Update active category display
+          const targetId = button.getAttribute('data-target');
+          skillCategories.forEach(cat => {
+            cat.classList.toggle('active', cat.id === targetId);
+            // Re-trigger fade-in animation for pills in the active category
+             if (cat.id === targetId) {
+                 cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
+                     pill.style.animation = 'none'; // Reset animation
+                     pill.offsetHeight; /* Trigger reflow */
+                     pill.style.animation = `fadeIn 0.5s ease forwards ${index * 0.03}s`; // Staggered fade-in
+                 });
+             }
+          });
+        });
+      });
+        // Initialize the first category pills animation
+        document.querySelector('.skill-category.active').querySelectorAll('.skill-pill').forEach((pill, index) => {
+             pill.style.animation = `fadeIn 0.5s ease forwards ${index * 0.03}s`;
+         });
+    </script>
+
+    <script>
+       // Helper function to get the current slide index based on transform value
+       function getCurrentSlideIndex(carousel) {
+         const transformValue = carousel.style.transform;
+         if (transformValue && transformValue.includes("translateX(")) {
+           const match = transformValue.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
+           if (match) {
+               // Ensure division by 100 doesn't cause floating point issues for index
+               return Math.round(parseFloat(match[1]) / 100);
+           }
+         }
+         return 0;
+       }
+
+       function initCarousel(carouselId, dotsId) {
+         const carousel = document.getElementById(carouselId);
+         if (!carousel) return; // Exit if carousel not found
+         const dotsContainer = document.getElementById(dotsId);
+         const slides = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')); // Ensure we only count items
+         const totalSlides = slides.length;
+
+         if (totalSlides <= 1) { // Hide nav/dots if only one slide
+             const nav = carousel.parentElement.querySelector('.carousel-nav');
+             if (nav) nav.style.display = 'none';
+             if (dotsContainer) dotsContainer.style.display = 'none';
+             return;
+         }
+
+         if (dotsContainer) {
+            dotsContainer.innerHTML = ''; // Clear existing dots
+            for (let i = 0; i < totalSlides; i++) {
+              const dot = document.createElement('span');
+              dot.addEventListener('click', () => setSlide(carouselId, dotsId, i));
+              dotsContainer.appendChild(dot);
+            }
+         }
+
+         // Initialize the transform if not set
+         if (!carousel.style.transform) {
+           carousel.style.transform = "translateX(0%)";
+         }
+         updateDots(dotsId, 0); // Activate first dot initially
+       }
+
+       function updateDots(dotsId, index) {
+           const dotsContainer = document.getElementById(dotsId);
+           if (!dotsContainer) return;
+           [...dotsContainer.children].forEach((dot, i) => {
+             dot.classList.toggle('active', i === index);
+           });
+       }
+
+       function setSlide(carouselId, dotsId, index) {
+         const carousel = document.getElementById(carouselId);
+         if (!carousel) return;
+         carousel.style.transform = `translateX(-${index * 100}%)`;
+         updateDots(dotsId, index);
+       }
+
+       function nextSlide(carouselId, dotsId) {
+         const carousel = document.getElementById(carouselId);
+         if (!carousel) return;
+         const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
+         let index = getCurrentSlideIndex(carousel);
+         index = (index + 1) % total;
+         setSlide(carouselId, dotsId, index);
+       }
+
+       function prevSlide(carouselId, dotsId) {
+         const carousel = document.getElementById(carouselId);
+          if (!carousel) return;
+         const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
+         let index = getCurrentSlideIndex(carousel);
+         index = (index - 1 + total) % total;
+         setSlide(carouselId, dotsId, index);
+       }
+
+       // Initialize all carousels on load
+       window.addEventListener('load', () => {
+         initCarousel('carousel-projects', 'dots-projects');
+         initCarousel('carousel-blogs', 'dots-blogs');
+       });
+    </script>
+
+    <script>
+      // --- Radio toggle code ---
+      const radioCardContainer = document.querySelector('.radio-cards[data-target="sections"]');
+      const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
+
+      if (radioCardContainer && radioContentContainer) {
+          const radioCards = radioCardContainer.querySelectorAll('.radio-card');
+          radioCards.forEach(card => {
+            card.addEventListener('click', () => {
+              radioCards.forEach(c => c.classList.remove('active'));
+              card.classList.add('active');
+              radioContentContainer.querySelectorAll(':scope > div').forEach(div => div.classList.remove('active'));
+              const targetId = card.getAttribute('data-id');
+              const targetDiv = document.getElementById(targetId);
+              if (targetDiv) targetDiv.classList.add('active');
+              // Optional: Re-initialize AOS for newly revealed content if needed
+              // AOS.refresh();
+            });
+          });
+      }
+
+      // --- Auto-hide/show bottom bar on scroll ---
+      let lastScrollY = window.pageYOffset;
+      const bottomBar = document.getElementById('bottomBar');
+      const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
+
+      window.addEventListener('scroll', () => {
+          if (!bottomBar) return; // Exit if bottom bar doesn't exist
+
+          const currentScrollY = window.pageYOffset;
+          const scrollDifference = currentScrollY - lastScrollY;
+
+          // Hide on scroll down
+          if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+             bottomBar.classList.remove('visible');
+          }
+          // Show on scroll up or near top
+          else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
+             bottomBar.classList.add('visible');
+          }
+
+          lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY; // For Mobile or negative scrolling
+      }, { passive: true }); // Use passive listener for performance
+
+      // Show initially if near top on load
+      if (window.pageYOffset <= 10 && bottomBar) {
+          bottomBar.classList.add('visible');
+      }
+
+    </script>
+
+    <script>
+       const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+       window.addEventListener('scroll', () => {
+         if (window.pageYOffset > 300) { // Show button after scrolling 300px
+           scrollToTopBtn.classList.add('show');
+         } else {
+           scrollToTopBtn.classList.remove('show');
+         }
+       }, { passive: true });
+
+       scrollToTopBtn.addEventListener('click', () => {
+         window.scrollTo({
+           top: 0,
+           behavior: 'smooth'
+         });
+       });
+    </script>
+
 </body>
 </html>
