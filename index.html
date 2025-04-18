@@ -26,13 +26,13 @@
        ***********************************************/
       :root {
         /* Colors */
-        --primary: #007aff;      /* Primary Blue */
-        --accent: #00a99d;       /* Teal Accent */
-        --bg-body: #f8f9fa;      /* Light Grey Background */
-        --bg-card: #ffffff;      /* White for Cards/Header */
+        --primary: #007aff;     /* Primary Blue */
+        --accent: #00a99d;      /* Teal Accent */
+        --bg-body: #f8f9fa;     /* Light Grey Background */
+        --bg-card: #ffffff;     /* White for Cards/Header */
         --text-heading: #212529; /* Darker Heading */
-        --text-body: #495057;    /* Softer Body Text */
-        --text-muted: #6c757d;   /* Lighter Muted Text */
+        --text-body: #495057;   /* Softer Body Text */
+        --text-muted: #6c757d;  /* Lighter Muted Text */
         --border-color: #dee2e6; /* Standard Border */
         --border-light: #e9ecef; /* Lighter Border/Dividers */
         --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -92,20 +92,20 @@
         line-height: 1.3;
         margin-bottom: var(--space-md);
       }
-       h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
-       h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); text-align: center; margin-bottom: var(--space-xl); }
-       h3 { font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 600; }
-       h4 { font-size: 1.05rem; font-weight: 600; }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); text-align: center; margin-bottom: var(--space-xl); }
+        h3 { font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 600; }
+        h4 { font-size: 1.05rem; font-weight: 600; }
 
       p {
         margin-bottom: var(--space-md);
         color: var(--text-body);
         max-width: 68ch; /* Slightly wider max-width */
       }
-       p.lead {
-           font-size: 1.15rem;
-           font-weight: 400;
-           color: var(--text-body); /* Consistent text color */
+        p.lead {
+          font-size: 1.15rem;
+          font-weight: 400;
+          color: var(--text-body); /* Consistent text color */
        }
 
       a {
@@ -123,14 +123,14 @@
           padding-left: var(--space-sm);
           margin-bottom: var(--space-md);
       }
-       li {
-           margin-bottom: var(--space-sm);
-           color: var(--text-muted);
-       }
-       li strong {
-           color: var(--text-body);
-           font-weight: 600;
-       }
+        li {
+          margin-bottom: var(--space-sm);
+          color: var(--text-muted);
+        }
+        li strong {
+          color: var(--text-body);
+          font-weight: 600;
+        }
 
       img {
           max-width: 100%;
@@ -362,71 +362,71 @@
         margin-bottom: var(--space-xs);
         color: var(--text-heading);
       }
-       .timeline-content h3 em { /* Company/Role */
-           font-weight: 500; /* Slightly bolder */
-           color: var(--text-muted);
-           font-size: 0.9em;
-           font-style: normal;
-           display: block;
-           margin-top: 2px; /* Small space */
-       }
+        .timeline-content h3 em { /* Company/Role */
+          font-weight: 500; /* Slightly bolder */
+          color: var(--text-muted);
+          font-size: 0.9em;
+          font-style: normal;
+          display: block;
+          margin-top: 2px; /* Small space */
+        }
       .timeline-content ul {
         padding-left: var(--space-md);
         margin-bottom: 0;
       }
-       .timeline-content li {
-           font-size: 0.92rem; /* Slightly larger */
-           color: var(--text-body); /* Use body text color */
-           text-align: left; /* Prefer left-align over justify */
-           line-height: 1.7;
-       }
-       .timeline-content li strong { /* Highlight numbers/results */
-           color: var(--primary);
-           font-weight: 600;
-       }
+        .timeline-content li {
+          font-size: 0.92rem; /* Slightly larger */
+          color: var(--text-body); /* Use body text color */
+          text-align: left; /* Prefer left-align over justify */
+          line-height: 1.7;
+        }
+        .timeline-content li strong { /* Highlight numbers/results */
+          color: var(--primary);
+          font-weight: 600;
+        }
 
 
       /* --- Carousels --- */
-       .carousel-row { /* New wrapper for side-by-side layout */
-           display: block; /* Default stacking */
-           margin-bottom: var(--space-xxl);
-       }
-       .carousel-section {
-           margin-bottom: var(--space-xxl); /* Spacing when stacked */
-       }
-       .carousel-section h2 {
-           font-size: clamp(1.4rem, 3.5vw, 1.9rem); /* Consistent heading */
-           margin-bottom: var(--space-xl);
-       }
-       .carousel-container {
+        .carousel-row { /* New wrapper for side-by-side layout */
+          display: block; /* Default stacking */
+          margin-bottom: var(--space-xxl);
+        }
+        .carousel-section {
+          margin-bottom: var(--space-xxl); /* Spacing when stacked */
+        }
+        .carousel-section h2 {
+          font-size: clamp(1.4rem, 3.5vw, 1.9rem); /* Consistent heading */
+          margin-bottom: var(--space-xl);
+        }
+        .carousel-container {
          position: relative;
          overflow: hidden;
          border-radius: var(--radius-lg);
          background-color: transparent; /* Let cards define background */
          margin: 0 auto;
          max-width: 100%;
-       }
-       .carousel-inner {
+        }
+        .carousel-inner {
          display: flex;
          transition: transform var(--transition-slow) ease;
-       }
-       .carousel-item {
+        }
+        .carousel-item {
          min-width: 100%;
          padding: var(--space-xs); /* Small padding around card */
          box-sizing: border-box;
          display: flex;
          align-items: stretch; /* Ensure cards stretch to fill height */
          justify-content: center;
-       }
-       .carousel-item > .card {
-           box-shadow: var(--shadow-md);
-           transition: transform var(--transition-main), box-shadow var(--transition-main);
-       }
-       .carousel-item > .card:hover {
-           transform: translateY(-4px); /* Slightly less hover */
-           box-shadow: var(--shadow-lg);
-       }
-       .carousel-nav {
+        }
+        .carousel-item > .card {
+          box-shadow: var(--shadow-md);
+          transition: transform var(--transition-main), box-shadow var(--transition-main);
+        }
+        .carousel-item > .card:hover {
+          transform: translateY(-4px); /* Slightly less hover */
+          box-shadow: var(--shadow-lg);
+        }
+        .carousel-nav {
          position: absolute;
          top: 50%;
          width: 100%;
@@ -436,8 +436,8 @@
          pointer-events: none;
          padding: 0 var(--space-sm);
          z-index: 2;
-       }
-       .carousel-nav button {
+        }
+        .carousel-nav button {
          background-color: rgba(33, 37, 41, 0.6); /* Darker, less transparent */
          backdrop-filter: blur(4px);
          border: none;
@@ -453,19 +453,19 @@
          justify-content: center;
          align-items: center;
          box-shadow: var(--shadow-sm);
-       }
-       .carousel-nav button:hover {
+        }
+        .carousel-nav button:hover {
          background-color: rgba(33, 37, 41, 0.8);
-       }
-       .carousel-dots {
+        }
+        .carousel-dots {
          position: absolute;
          bottom: var(--space-md);
          left: 50%;
          transform: translateX(-50%);
          text-align: center;
          z-index: 2;
-       }
-       .carousel-dots span {
+        }
+        .carousel-dots span {
          display: inline-block;
          width: 9px; /* Slightly smaller dots */
          height: 9px;
@@ -475,47 +475,47 @@
          border-radius: 50%;
          cursor: pointer;
          transition: background-color var(--transition-main), transform var(--transition-main);
-       }
-       .carousel-dots span.active {
+        }
+        .carousel-dots span.active {
          background-color: var(--accent);
          transform: scale(1.15);
-       }
+        }
 
-        /* Project/Blog specific Buttons in Card Footer */
-        .project-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
-            gap: var(--space-sm);
-            margin-top: 0; /* Removed top margin as footer has padding */
-        }
-        .project-buttons a {
-            font-size: 0.8rem;
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--accent);
-            background-color: #e6f6f5;
-            color: var(--accent);
-            font-weight: 600; /* Bolder text */
-            transition: all var(--transition-main);
-            text-align: center;
-            white-space: nowrap;
-        }
-        .project-buttons a:hover {
-            background-color: #cceceb;
-            transform: translateY(-1px);
-            color: var(--accent);
-            border-color: var(--accent); /* Ensure border color consistent */
-        }
-        .project-buttons a.live-demo {
-            background-color: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-        .project-buttons a.live-demo:hover {
-            background-color: #008a7e; /* Darker teal */
-            border-color: #008a7e;
-            color: #fff;
-        }
+         /* Project/Blog specific Buttons in Card Footer */
+         .project-buttons {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+           gap: var(--space-sm);
+           margin-top: 0; /* Removed top margin as footer has padding */
+         }
+         .project-buttons a {
+           font-size: 0.8rem;
+           padding: var(--space-xs) var(--space-sm);
+           border-radius: var(--radius-sm);
+           border: 1px solid var(--accent);
+           background-color: #e6f6f5;
+           color: var(--accent);
+           font-weight: 600; /* Bolder text */
+           transition: all var(--transition-main);
+           text-align: center;
+           white-space: nowrap;
+         }
+         .project-buttons a:hover {
+           background-color: #cceceb;
+           transform: translateY(-1px);
+           color: var(--accent);
+           border-color: var(--accent); /* Ensure border color consistent */
+         }
+         .project-buttons a.live-demo {
+           background-color: var(--accent);
+           color: #fff;
+           border-color: var(--accent);
+         }
+         .project-buttons a.live-demo:hover {
+           background-color: #008a7e; /* Darker teal */
+           border-color: #008a7e;
+           color: #fff;
+         }
 
 
       /* --- Forms --- */
@@ -650,11 +650,11 @@
         transition: transform var(--transition-main), opacity var(--transition-main);
         visibility: hidden;
       }
-       .bottom-bar.visible {
-           transform: translateY(0);
-           opacity: 1;
-           visibility: visible;
-       }
+        .bottom-bar.visible {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
       .bottom-bar a {
         display: flex;
         flex-direction: column;
@@ -784,7 +784,7 @@
         display: flex;
         animation: fadeInContent 0.4s ease forwards;
       }
-       @keyframes fadeInContent { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInContent { from { opacity: 0; } to { opacity: 1; } }
 
 
       /* --- Radio Toggle Section --- */
@@ -821,10 +821,10 @@
         box-shadow: var(--shadow-md);
         transform: translateY(-3px);
       }
-       .radio-card.active:hover {
-           color: #fff; /* Keep white text on hover when active */
-           border-color: var(--primary);
-       }
+        .radio-card.active:hover {
+          color: #fff; /* Keep white text on hover when active */
+          border-color: var(--primary);
+        }
       .radio-card i {
         font-size: 1.6rem; /* Larger icon */
         margin-bottom: var(--space-sm);
@@ -834,12 +834,12 @@
       .radio-card:hover i {
           transform: scale(1.1);
       }
-       .radio-card h3 {
-           font-size: 0.95rem;
-           font-weight: 600;
-           margin-bottom: 0;
-           color: inherit;
-       }
+        .radio-card h3 {
+          font-size: 0.95rem;
+          font-weight: 600;
+          margin-bottom: 0;
+          color: inherit;
+        }
       .dynamic-content > div {
         display: none;
       }
@@ -856,7 +856,7 @@
           grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Slightly wider min */
         }
         .offer-card { /* Reuses .card */
-            text-align: center;
+          text-align: center;
         }
         .offer-card i {
           font-size: 2.2rem;
@@ -864,8 +864,8 @@
           color: var(--accent);
         }
         .offer-card .card-footer { /* Adjust footer for offer cards */
-             border-top: none; /* Remove top border */
-             padding-top: 0; /* Remove padding */
+            border-top: none; /* Remove top border */
+            padding-top: 0; /* Remove padding */
         }
         .offer-card .offer-btn {
             margin-top: var(--space-md);
@@ -900,24 +900,24 @@
        ***********************************************/
 
       /* Large desktops - Side-by-side carousels */
-       @media (min-width: 992px) {
-           .carousel-row {
-               display: flex;
-               gap: var(--space-xl);
-               align-items: stretch; /* Make columns equal height */
-           }
-            .carousel-row > .carousel-section {
-                flex: 1; /* Each takes half width */
-                margin-bottom: 0; /* Remove bottom margin when side-by-side */
-           }
-           .carousel-section h2 {
-               /* Keep heading size consistent or adjust if needed */
-           }
-       }
+        @media (min-width: 992px) {
+          .carousel-row {
+              display: flex;
+              gap: var(--space-xl);
+              align-items: stretch; /* Make columns equal height */
+          }
+           .carousel-row > .carousel-section {
+               flex: 1; /* Each takes half width */
+               margin-bottom: 0; /* Remove bottom margin when side-by-side */
+          }
+          .carousel-section h2 {
+              /* Keep heading size consistent or adjust if needed */
+          }
+        }
 
       /* Tablets and below */
       @media (max-width: 991px) {
-         /* Carousels will stack naturally due to default block display */
+        /* Carousels will stack naturally due to default block display */
       }
 
       /* Hide bottom bar on larger screens */
@@ -925,15 +925,15 @@
         .bottom-bar {
           display: none;
         }
-         .scroll-to-top {
-             bottom: var(--space-xl);
-             right: var(--space-xl);
-         }
+          .scroll-to-top {
+              bottom: var(--space-xl);
+              right: var(--space-xl);
+          }
       }
 
       /* Tablet and below adjustments */
       @media (max-width: 767px) {
-         html { font-size: 15.5px; } /* Slightly adjust base */
+        html { font-size: 15.5px; } /* Slightly adjust base */
 
         .hero {
           flex-direction: column;
@@ -952,25 +952,25 @@
         .skills-categories {
           flex-direction: column;
           align-items: stretch;
-           gap: var(--space-lg);
+          gap: var(--space-lg);
         }
         .skills-sidebar {
           flex-basis: auto;
-           width: 100%;
-           flex-direction: row;
-           overflow-x: auto;
-           padding-bottom: var(--space-md); /* Space for scrollbar if needed */
-           justify-content: flex-start;
-           /* Add scroll snap for better UX */
-           scroll-snap-type: x mandatory;
-           -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+          width: 100%;
+          flex-direction: row;
+          overflow-x: auto;
+          padding-bottom: var(--space-md); /* Space for scrollbar if needed */
+          justify-content: flex-start;
+          /* Add scroll snap for better UX */
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
         .skill-toggle {
             flex-shrink: 0;
             text-align: center;
             scroll-snap-align: start; /* Snap align */
         }
-         /* Hide scrollbar visually but keep functionality */
+          /* Hide scrollbar visually but keep functionality */
         .skills-sidebar::-webkit-scrollbar { display: none; }
         .skills-sidebar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -978,30 +978,30 @@
           width: 100%;
         }
 
-         .radio-cards {
-             justify-content: center;
-             gap: var(--space-sm);
-         }
-         .radio-card {
-             min-width: 120px; /* Adjust size */
-             padding: var(--space-sm) var(--space-md);
-         }
-         .radio-card i { font-size: 1.4rem; margin-bottom: var(--space-xs); }
-         .radio-card h3 { font-size: 0.85rem; }
-
-         .contact-row {
-             gap: 0;
-         }
-         .contact-col {
-             min-width: 100%;
-         }
-
-         /* Adjust scroll-to-top to be above potential mobile nav */
-          .scroll-to-top {
-              /* Calculate roughly based on nav height + desired margin */
-              bottom: calc(var(--space-unit) * 5);
-              right: var(--space-md);
+          .radio-cards {
+              justify-content: center;
+              gap: var(--space-sm);
           }
+          .radio-card {
+              min-width: 120px; /* Adjust size */
+              padding: var(--space-sm) var(--space-md);
+          }
+          .radio-card i { font-size: 1.4rem; margin-bottom: var(--space-xs); }
+          .radio-card h3 { font-size: 0.85rem; }
+
+          .contact-row {
+              gap: 0;
+          }
+          .contact-col {
+              min-width: 100%;
+          }
+
+          /* Adjust scroll-to-top to be above potential mobile nav */
+           .scroll-to-top {
+               /* Calculate roughly based on nav height + desired margin */
+               bottom: calc(var(--space-unit) * 5);
+               right: var(--space-md);
+           }
       }
 
       /* Mobile specific adjustments */
@@ -1073,11 +1073,18 @@
           <a href="assets/Sabyasachi_CV.pdf" target="_blank" class="btn btn-outline-primary">Download Resume</a>
         </div>
       </div>
-       <div class="hero-image" data-aos="fade-left" data-aos-delay="100">
-        <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" />
+        <div class="hero-image" data-aos="fade-left" data-aos-delay="100">
+         <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" />
       </div>
     </section>
-
+    <section id="intro-video" class="container" data-aos="fade-up" data-aos-delay="150" style="padding-top: var(--space-xl); padding-bottom: calc(var(--space-xxl) / 2);">
+        <h2 style="text-align:center; margin-bottom: var(--space-xl);">A Quick Introduction</h2>
+        <div style="max-width: 840px; margin: 0 auto; box-shadow: var(--shadow-lg); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-light);">
+            <div style="position: relative; padding-bottom: 62.5%; height: 0;">
+                <iframe src="https://www.loom.com/embed/fdff5144dd024de1b0d8e7d864d61e30?sid=19911b1a-8133-4331-91b2-f97a97185d1f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius);"></iframe>
+            </div>
+            </div>
+    </section>
     <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
       <h2>Skills &amp; Tools</h2>
       <div class="skills-categories">
@@ -1102,100 +1109,102 @@
 
     <section class="container carousel-row" data-aos="fade-up" data-aos-delay="150">
         <div class="carousel-section">
-            <h2>Projects Showcase</h2>
-            <div class="carousel-container">
-                <div class="carousel-inner" id="carousel-projects">
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" /></div>
-                            <div class="card-content">
-                                <h3>MoodBite</h3>
-                                <p>Voice-first food discovery agent adapting to mood, cravings, and language using AI.</p>
-                            </div>
-                            <div class="card-footer project-buttons">
-                                <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
-                                <a href="https://sabyasachimishra.dev/moodbite/" target="_blank">PRD</a>
-                                <a href="https://github.com/SABYA648/MoodBite" target="_blank">Source</a>
-                                <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" /></div>
-                            <div class="card-content">
-                                <h3>FeatureFit</h3>
-                                <p>AI-powered feature prioritization tool that reduced strategic planning time by 30%.</p>
-                            </div>
-                            <div class="card-footer project-buttons">
-                                <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
-                                <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
-                                <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
-                                <a href="assets/proj2.pdf" target="_blank">Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" /></div>
-                            <div class="card-content">
-                                <h3>LLM Tuner</h3>
-                                <p>Interactive prompt tuning interface that accelerated LLM iteration cycles by 50%.</p>
-                            </div>
-                            <div class="card-footer project-buttons">
-                                <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
-                                <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
-                                <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
-                                <a href="assets/proj1.pdf" target="_blank">Case Study</a>
-                            </div>
-                        </div>
-                    </div>
+          <h2>Projects Showcase</h2>
+          <div class="carousel-container">
+            <div class="carousel-inner" id="carousel-projects">
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" /></div>
+                  <div class="card-content">
+                    <h3>MoodBite</h3>
+                    <p>Voice-first food discovery agent adapting to mood, cravings, and language using AI.</p>
+                  </div>
+                  <div class="card-footer project-buttons">
+                    <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
+                    <a href="https://sabyasachimishra.dev/moodbite/" target="_blank">PRD</a>
+                    <a href="https://github.com/SABYA648/MoodBite" target="_blank">Source</a>
+                    <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
+                  </div>
                 </div>
-                <div class="carousel-nav">
-                    <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Project">&#10094;</button>
-                    <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Project">&#10095;</button>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" /></div>
+                  <div class="card-content">
+                    <h3>FeatureFit</h3>
+                    <p>AI-powered feature prioritization tool that reduced strategic planning time by 30%.</p>
+                  </div>
+                  <div class="card-footer project-buttons">
+                    <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
+                    <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
+                    <a href="assets/proj2.pdf" target="_blank">Case Study</a>
+                  </div>
                 </div>
-                <div class="carousel-dots" id="dots-projects"></div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" /></div>
+                  <div class="card-content">
+                    <h3>LLM Tuner</h3>
+                    <p>Interactive prompt tuning interface that accelerated LLM iteration cycles by 50%.</p>
+                  </div>
+                  <div class="card-footer project-buttons">
+                    <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
+                    <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
+                    <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
+                    <a href="assets/proj1.pdf" target="_blank">Case Study</a>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="carousel-nav">
+              <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Project">&#10094;</button>
+              <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Project">&#10095;</button>
+            </div>
+            <div class="carousel-dots" id="dots-projects"></div>
+          </div>
         </div>
 
         <div class="carousel-section">
-            <h2>Insights &amp; Blogs</h2>
-            <div class="carousel-container">
-                <div class="carousel-inner" id="carousel-blogs">
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="card-image"><img src="assets/Blog1img.JPG" alt="LLM Engine Optimization Blog" /></div>
-                            <div class="card-content">
-                                <h3>LLM-EO: The Future of SEO?</h3>
-                                <p>Exploring how language model optimization (LLM-EO) is transforming the internet search landscape.</p>
-                            </div>
-                            <div class="card-footer project-buttons" style="grid-template-columns:1fr;">
-                                <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601" target="_blank">Read Article</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="card-image"><img src="assets/Blog2img.png" alt="Deep Dive into LLM-EO Blog" /></div>
-                            <div class="card-content">
-                                <h3>LLM-EO Explained</h3>
-                                <p>A detailed analysis of LLM-based ranking algorithms and their impact on digital strategy.</p>
-                            </div>
-                            <div class="card-footer project-buttons" style="grid-template-columns:1fr;">
-                                <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8315bf9d5748" target="_blank">Read Article</a>
-                            </div>
-                        </div>
-                    </div>
+          <h2>Insights &amp; Blogs</h2>
+          <div class="carousel-container">
+            <div class="carousel-inner" id="carousel-blogs">
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-image"><img src="assets/Blog1img.JPG" alt="LLM Engine Optimization Blog" /></div>
+                  <div class="card-content">
+                    <h3>LLM-EO: The Future of SEO?</h3>
+                    <p>Exploring how language model optimization (LLM-EO) is transforming the internet search landscape.</p>
+                  </div>
+                  <div class="card-footer project-buttons" style="grid-template-columns:1fr;">
+                    <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601" target="_blank">Read Article</a>
+                  </div>
                 </div>
-                <div class="carousel-nav">
-                    <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blog">&#10094;</button>
-                    <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blog">&#10095;</button>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-image"><img src="assets/Blog2img.png" alt="Deep Dive into LLM-EO Blog" /></div>
+                  <div class="card-content">
+                    <h3>LLM-EO Explained</h3>
+                    <p>A detailed analysis of LLM-based ranking algorithms and their impact on digital strategy.</p>
+                  </div>
+                  <div class="card-footer project-buttons" style="grid-template-columns:1fr;">
+                    <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8315bf9d5748" target="_blank">Read Article</a>
+                  </div>
                 </div>
-                <div class="carousel-dots" id="dots-blogs"></div>
+              </div>
             </div>
+            <div class="carousel-nav">
+              <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blog">&#10094;</button>
+              <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blog">&#10095;</button>
+            </div>
+            <div class="carousel-dots" id="dots-blogs"></div>
+          </div>
         </div>
-    </section> <section class="container" data-aos="fade-up" data-aos-delay="200">
+    </section>
+
+    <section class="container" data-aos="fade-up" data-aos-delay="200">
       <div class="radio-cards" data-target="sections">
         <div class="radio-card active" data-id="offer">
           <i class="fas fa-lightbulb"></i>
@@ -1213,165 +1222,170 @@
 
       <div class="dynamic-content" data-target="sections">
         <div id="offer" class="active">
-          <h2 style="text-align:left; margin-bottom: var(--space-lg);">Core Expertise</h2> <div class="offer-cards">
+          <h2 style="text-align:left; margin-bottom: var(--space-lg);">Core Expertise</h2>
+          <div class="offer-cards">
             <div class="offer-card card">
-                <i class="fas fa-brain"></i>
-                <div class="card-content">
-                    <h3>AI Product Strategy</h3>
-                    <p>Defining vision and roadmaps for AI/ML products, leveraging data for market fit and competitive advantage.</p>
-                </div>
-                 <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Strategy</a></div>
+              <i class="fas fa-brain"></i>
+              <div class="card-content">
+                <h3>AI Product Strategy</h3>
+                <p>Defining vision and roadmaps for AI/ML products, leveraging data for market fit and competitive advantage.</p>
+              </div>
+              <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Strategy</a></div>
             </div>
-             <div class="offer-card card">
-                 <i class="fas fa-users"></i>
-                 <div class="card-content">
-                    <h3>User-Centric Discovery</h3>
-                    <p>Conducting deep user research, validation, and usability testing to ensure products solve real problems.</p>
-                 </div>
-                 <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Talk Users</a></div>
+            <div class="offer-card card">
+              <i class="fas fa-users"></i>
+              <div class="card-content">
+                <h3>User-Centric Discovery</h3>
+                <p>Conducting deep user research, validation, and usability testing to ensure products solve real problems.</p>
+              </div>
+              <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Talk Users</a></div>
             </div>
-             <div class="offer-card card">
-                 <i class="fas fa-chart-line"></i>
-                 <div class="card-content">
-                    <h3>Data-Driven Decisions</h3>
-                    <p>Utilizing analytics (Mixpanel, Amplitude) and A/B testing to inform prioritization and optimize features.</p>
-                 </div>
-                  <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Analyze Data</a></div>
+            <div class="offer-card card">
+              <i class="fas fa-chart-line"></i>
+              <div class="card-content">
+                <h3>Data-Driven Decisions</h3>
+                <p>Utilizing analytics (Mixpanel, Amplitude) and A/B testing to inform prioritization and optimize features.</p>
+              </div>
+              <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Analyze Data</a></div>
             </div>
-             <div class="offer-card card">
-                  <i class="fas fa-rocket"></i>
-                  <div class="card-content">
-                     <h3>Agile Execution</h3>
-                     <p>Leading cross-functional teams using Agile/Scrum for rapid prototyping, MVP development, and iterative delivery.</p>
-                  </div>
-                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Plan Execution</a></div>
-             </div>
-              <div class="offer-card card">
-                  <i class="fas fa-comments"></i>
-                  <div class="card-content">
-                     <h3>Stakeholder Alignment</h3>
-                     <p>Communicating product vision, progress, and trade-offs effectively across technical and business teams.</p>
-                  </div>
-                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Align Teams</a></div>
-             </div>
-              <div class="offer-card card">
-                  <i class="fas fa-seedling"></i>
-                  <div class="card-content">
-                     <h3>Growth & GTM</h3>
-                     <p>Developing Go-To-Market strategies, defining KPIs, and iterating based on market feedback for growth.</p>
-                  </div>
-                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Growth</a></div>
-             </div>
+            <div class="offer-card card">
+              <i class="fas fa-rocket"></i>
+              <div class="card-content">
+                <h3>Agile Execution</h3>
+                <p>Leading cross-functional teams using Agile/Scrum for rapid prototyping, MVP development, and iterative delivery.</p>
+              </div>
+              <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Plan Execution</a></div>
+            </div>
+            <div class="offer-card card">
+              <i class="fas fa-comments"></i>
+              <div class="card-content">
+                <h3>Stakeholder Alignment</h3>
+                <p>Communicating product vision, progress, and trade-offs effectively across technical and business teams.</p>
+              </div>
+              <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Align Teams</a></div>
+            </div>
+            <div class="offer-card card">
+              <i class="fas fa-seedling"></i>
+              <div class="card-content">
+                <h3>Growth & GTM</h3>
+                <p>Developing Go-To-Market strategies, defining KPIs, and iterating based on market feedback for growth.</p>
+              </div>
+              <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Growth</a></div>
+            </div>
           </div>
         </div>
 
         <div id="experience">
-          <h2 style="text-align:left; margin-bottom: var(--space-lg);">Professional Journey</h2> <div class="timeline">
+          <h2 style="text-align:left; margin-bottom: var(--space-lg);">Professional Journey</h2>
+          <div class="timeline">
             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                <div class="timeline-content">
-                  <h3>Assistant Manager <em>Power Finance Corp. (Jun '23 – Present)</em></h3>
-                  <ul>
-                    <li>Built financial analytics dashboards for ₹15,000+ Cr infrastructure portfolios, <strong>enhancing risk visibility and achieving 12+ hours monthly savings</strong> in manual processes.</li>
-                    <li>Deployed NLP-driven automated credit scoring models, improving <strong>early risk detection and reducing defaults by 20%, positively impacting profitability.</strong></li>
-                    <li>Orchestrated <strong>cross-functional collaboration</strong> enabling executive-level strategic decision-making through actionable insights.</li>
-                  </ul>
-                </div>
+              <div class="timeline-content">
+                <h3>Assistant Manager <em>Power Finance Corp. (Jun '23 – Present)</em></h3>
+                <ul>
+                  <li>Built financial analytics dashboards for ₹15,000+ Cr infrastructure portfolios, <strong>enhancing risk visibility and achieving 12+ hours monthly savings</strong> in manual processes.</li>
+                  <li>Deployed NLP-driven automated credit scoring models, improving <strong>early risk detection and reducing defaults by 20%, positively impacting profitability.</strong></li>
+                  <li>Orchestrated <strong>cross-functional collaboration</strong> enabling executive-level strategic decision-making through actionable insights.</li>
+                </ul>
+              </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                <div class="timeline-content">
-                  <h3>Co-Founder & Product Lead <em>Brahmagupta Edu (Jan '21 – Aug '21)</em></h3>
-                  <ul>
-                    <li>Conceptualized and launched an AI-driven adaptive learning platform, <strong>achieving a 40% boost in user engagement</strong> and a 30% reduction in content delivery costs.</li>
-                    <li>Directed an 11-member agile team through ideation, validation, MVP development, and scaling, driving <strong>50% YoY revenue growth.</strong></li>
-                    <li>Integrated <strong>predictive analytics</strong> into digital marketing strategies, <strong>enhancing customer acquisition by 60%.</strong></li>
-                  </ul>
-                </div>
+              <div class="timeline-content">
+                <h3>Co-Founder & Product Lead <em>Brahmagupta Edu (Jan '21 – Aug '21)</em></h3>
+                <ul>
+                  <li>Conceptualized and launched an AI-driven adaptive learning platform, <strong>achieving a 40% boost in user engagement</strong> and a 30% reduction in content delivery costs.</li>
+                  <li>Directed an 11-member agile team through ideation, validation, MVP development, and scaling, driving <strong>50% YoY revenue growth.</strong></li>
+                  <li>Integrated <strong>predictive analytics</strong> into digital marketing strategies, <strong>enhancing customer acquisition by 60%.</strong></li>
+                </ul>
+              </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                <div class="timeline-content">
-                  <h3>Product Associate <em>Pigeon Education (Jan '20 – Dec '20)</em></h3>
-                  <ul>
-                    <li>Led product development of an AI-powered live education platform, <strong>increasing student participation metrics by over 80%.</strong></li>
-                    <li>Implemented ML algorithms to automate grading, <strong>reducing operational overhead by 40%.</strong></li>
-                    <li>Partnered with engineering/design to refine UX/UI, resulting in <strong>successful early-stage investor interest.</strong></li>
-                  </ul>
-                </div>
+              <div class="timeline-content">
+                <h3>Product Associate <em>Pigeon Education (Jan '20 – Dec '20)</em></h3>
+                <ul>
+                  <li>Led product development of an AI-powered live education platform, <strong>increasing student participation metrics by over 80%.</strong></li>
+                  <li>Implemented ML algorithms to automate grading, <strong>reducing operational overhead by 40%.</strong></li>
+                  <li>Partnered with engineering/design to refine UX/UI, resulting in <strong>successful early-stage investor interest.</strong></li>
+                </ul>
+              </div>
             </div>
           </div>
 
-           <h2 style="text-align:left; margin-top: var(--space-xxl); margin-bottom: var(--space-lg);">Internships & Achievements</h2> <div class="timeline">
+          <h2 style="text-align:left; margin-top: var(--space-xxl); margin-bottom: var(--space-lg);">Internships & Achievements</h2>
+          <div class="timeline">
              <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                 <div class="timeline-content">
-                   <h3>Product Marketing Intern <em>GSK Pharmaceuticals, Mumbai (Apr '22 – Jun '22)</em></h3>
-                   <ul>
-                     <li>Automated competitor market intelligence with NLP/BI tools, <strong>cutting research time by 30%</strong> and enhancing strategic responsiveness.</li>
-                   </ul>
-                 </div>
+               <div class="timeline-content">
+                 <h3>Product Marketing Intern <em>GSK Pharmaceuticals, Mumbai (Apr '22 – Jun '22)</em></h3>
+                 <ul>
+                   <li>Automated competitor market intelligence with NLP/BI tools, <strong>cutting research time by 30%</strong> and enhancing strategic responsiveness.</li>
+                 </ul>
+               </div>
              </div>
              <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                 <div class="timeline-content">
-                   <h3>Software Development Intern <em>Amdocs India LLP, Pune (May '19 – Aug '19)</em></h3>
-                   <ul>
-                     <li>Developed an ML-based recruitment platform improving <strong>candidate-job matching accuracy by 45%.</strong></li>
-                     <li>Implemented blockchain and NLP-based resume parsing solutions.</li>
-                   </ul>
-                 </div>
+               <div class="timeline-content">
+                 <h3>Software Development Intern <em>Amdocs India LLP, Pune (May '19 – Aug '19)</em></h3>
+                 <ul>
+                   <li>Developed an ML-based recruitment platform improving <strong>candidate-job matching accuracy by 45%.</strong></li>
+                   <li>Implemented blockchain and NLP-based resume parsing solutions.</li>
+                 </ul>
+               </div>
              </div>
              <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                 <div class="timeline-content">
-                   <h3>Achievements & Certifications</h3>
-                   <ul>
-                     <li><strong>NTSE Scholar</strong> – Awarded to top 0.5% students nationwide</li>
-                     <li><strong>PSPO II & Certified ScrumMaster® (CSM)</strong></li>
-                     <li>National Finalist – Tekion PM Case Competition & WITDA Case Challenge (2022)</li>
-                   </ul>
-                 </div>
+               <div class="timeline-content">
+                 <h3>Achievements & Certifications</h3>
+                 <ul>
+                   <li><strong>NTSE Scholar</strong> – Awarded to top 0.5% students nationwide</li>
+                   <li><strong>PSPO II & Certified ScrumMaster® (CSM)</strong></li>
+                   <li>National Finalist – Tekion PM Case Competition & WITDA Case Challenge (2022)</li>
+                 </ul>
+               </div>
              </div>
            </div>
         </div>
 
         <div id="case-studies">
-          <h2 style="text-align:left; margin-bottom: var(--space-lg);">Selected Case Studies</h2> <div class="offer-cards"> <div class="offer-card card">
-               <i class="fas fa-bus"></i>
-               <div class="card-content">
-                    <h3>Bus Buddy</h3>
-                    <p>Post-Covid mobility solution for bus ticket booking and rentals.</p>
-               </div>
-               <div class="card-footer"><a href="assets/Bus Buddy.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+          <h2 style="text-align:left; margin-bottom: var(--space-lg);">Selected Case Studies</h2>
+          <div class="offer-cards">
+            <div class="offer-card card">
+             <i class="fas fa-bus"></i>
+             <div class="card-content">
+               <h3>Bus Buddy</h3>
+               <p>Post-Covid mobility solution for bus ticket booking and rentals.</p>
              </div>
-              <div class="offer-card card">
-               <i class="fas fa-robot"></i>
-               <div class="card-content">
-                    <h3>AI in Fintech</h3>
-                    <p>Using AI for credit assessments and micro-loan offerings in digital payments.</p>
-               </div>
-               <div class="card-footer"><a href="assets/Incedo - AI in Fintech.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-             <div class="offer-card card">
-               <i class="fas fa-mobile-alt"></i>
-               <div class="card-content">
-                    <h3>Digital Payments Strategy</h3>
-                    <p>Developing a unique USP for PhonePe to enhance engagement.</p>
-               </div>
-               <div class="card-footer"><a href="assets/PhonePe.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-              <div class="offer-card card">
-               <i class="fas fa-utensils"></i>
-               <div class="card-content">
-                    <h3>Restaurant Booking App</h3>
-                    <p>Redefining dine-out with seamless booking and integrated payments.</p>
-                </div>
-               <div class="card-footer"><a href="assets/Restaurant table booking App.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-              <div class="offer-card card">
-               <i class="fas fa-car"></i>
-                <div class="card-content">
-                    <h3>Tekion: EV Strategy</h3>
-                    <p>Frameworks and roadmaps to tackle EV range anxiety and financing.</p>
-                </div>
-                <div class="card-footer"><a href="assets/Tekion_IIM Indore.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
+             <div class="card-footer"><a href="assets/Bus Buddy.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
+            <div class="offer-card card">
+             <i class="fas fa-robot"></i>
+             <div class="card-content">
+               <h3>AI in Fintech</h3>
+               <p>Using AI for credit assessments and micro-loan offerings in digital payments.</p>
+             </div>
+             <div class="card-footer"><a href="assets/Incedo - AI in Fintech.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+           </div>
+           <div class="offer-card card">
+             <i class="fas fa-mobile-alt"></i>
+             <div class="card-content">
+               <h3>Digital Payments Strategy</h3>
+               <p>Developing a unique USP for PhonePe to enhance engagement.</p>
+             </div>
+             <div class="card-footer"><a href="assets/PhonePe.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+           </div>
+            <div class="offer-card card">
+             <i class="fas fa-utensils"></i>
+             <div class="card-content">
+               <h3>Restaurant Booking App</h3>
+               <p>Redefining dine-out with seamless booking and integrated payments.</p>
+             </div>
+             <div class="card-footer"><a href="assets/Restaurant table booking App.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+           </div>
+            <div class="offer-card card">
+             <i class="fas fa-car"></i>
+             <div class="card-content">
+               <h3>Tekion: EV Strategy</h3>
+               <p>Frameworks and roadmaps to tackle EV range anxiety and financing.</p>
+             </div>
+             <div class="card-footer"><a href="assets/Tekion_IIM Indore.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
+           </div>
+         </div>
         </div>
       </div>
     </section>
@@ -1379,7 +1393,8 @@
     <section class="container" id="contact" data-aos="fade-up" data-aos-delay="250">
       <h2>Get In Touch</h2>
       <form class="contact-form" action="https://formspree.io/f/mblgzrad" method="POST">
-         <p style="text-align: center; color: var(--text-muted); margin-bottom: var(--space-xl);">Have a question or want to work together? Fill out the form below.</p> <div class="contact-row">
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: var(--space-xl);">Have a question or want to work together? Fill out the form below.</p>
+        <div class="contact-row">
           <div class="contact-col">
             <div class="form-group">
               <label for="name" class="visually-hidden">Your Name</label>
@@ -1399,12 +1414,14 @@
               <label for="subject" class="visually-hidden">Subject</label>
               <input type="text" id="subject" name="subject" placeholder="Subject" required />
             </div>
-            <div class="form-group" style="margin-bottom: 0;"> <label for="message" class="visually-hidden">Message</label>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="message" class="visually-hidden">Message</label>
               <textarea id="message" name="message" placeholder="Enter your message..." required></textarea>
             </div>
           </div>
         </div>
-        <div class="form-button" style="margin-top: var(--space-lg); text-align:center;"> <button type="submit" class="btn btn-primary btn-lg">Send Message <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
+        <div class="form-button" style="margin-top: var(--space-lg); text-align:center;">
+          <button type="submit" class="btn btn-primary btn-lg">Send Message <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
         </div>
       </form>
     </section>
@@ -1440,23 +1457,23 @@
             cat.classList.toggle('active', cat.id === targetId);
             // Re-trigger fade-in animation for pills in the newly active category
              if (cat.id === targetId) {
-                 cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                     pill.style.animation = 'none'; // Reset animation
-                     pill.offsetHeight; /* Trigger reflow */
-                     pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`; // Staggered fade-in
-                 });
+               cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
+                 pill.style.animation = 'none'; // Reset animation
+                 pill.offsetHeight; /* Trigger reflow */
+                 pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`; // Staggered fade-in
+               });
              }
           });
         });
       });
         // Initialize the first category pills animation on load
         document.addEventListener('DOMContentLoaded', () => {
-            const activeCategory = document.querySelector('.skill-category.active');
-            if (activeCategory) {
-                activeCategory.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                    pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`;
-                });
-            }
+           const activeCategory = document.querySelector('.skill-category.active');
+           if (activeCategory) {
+               activeCategory.querySelectorAll('.skill-pill').forEach((pill, index) => {
+                 pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`;
+               });
+           }
         });
 
        // --- Carousel Logic ---
@@ -1465,7 +1482,7 @@
          if (transformValue && transformValue.includes("translateX(")) {
            const match = transformValue.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
            if (match) {
-               return Math.round(parseFloat(match[1]) / 100);
+             return Math.round(parseFloat(match[1]) / 100);
            }
          }
          return 0;
@@ -1481,30 +1498,30 @@
          const dotsWrapper = carousel.closest('.carousel-container').querySelector('.carousel-dots');
 
          if (totalSlides <= 1) { // Hide nav/dots if only one slide or none
-             if (navContainer) navContainer.style.display = 'none';
-             if (dotsWrapper) dotsWrapper.style.display = 'none';
-             // Ensure content is still visible if only one slide
-             if (totalSlides === 1) carousel.style.transform = "translateX(0%)";
-             return;
+            if (navContainer) navContainer.style.display = 'none';
+            if (dotsWrapper) dotsWrapper.style.display = 'none';
+            // Ensure content is still visible if only one slide
+            if (totalSlides === 1) carousel.style.transform = "translateX(0%)";
+            return;
          } else {
-             // Ensure nav/dots are visible if more than one slide
-             if (navContainer) navContainer.style.display = 'flex';
-             if (dotsWrapper) dotsWrapper.style.display = 'block'; // or 'flex' if you style it that way
+            // Ensure nav/dots are visible if more than one slide
+            if (navContainer) navContainer.style.display = 'flex';
+            if (dotsWrapper) dotsWrapper.style.display = 'block'; // or 'flex' if you style it that way
          }
 
          if (dotsContainer) {
-            dotsContainer.innerHTML = ''; // Clear existing dots
-            for (let i = 0; i < totalSlides; i++) {
-              const dot = document.createElement('span');
-              dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-              dot.addEventListener('click', () => setSlide(carouselId, dotsId, i));
-              dotsContainer.appendChild(dot);
-            }
+           dotsContainer.innerHTML = ''; // Clear existing dots
+           for (let i = 0; i < totalSlides; i++) {
+             const dot = document.createElement('span');
+             dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+             dot.addEventListener('click', () => setSlide(carouselId, dotsId, i));
+             dotsContainer.appendChild(dot);
+           }
          }
 
          // Initialize the transform if not set, respecting potential existing state
          if (!carousel.style.transform || carousel.style.transform === "none") {
-           carousel.style.transform = "translateX(0%)";
+          carousel.style.transform = "translateX(0%)";
          }
          // Ensure the correct dot is active based on initial transform state
          const initialIndex = getCurrentSlideIndex(carousel);
@@ -1512,11 +1529,11 @@
        }
 
        function updateDots(dotsId, index) {
-           const dotsContainer = document.getElementById(dotsId);
-           if (!dotsContainer) return;
-           [...dotsContainer.children].forEach((dot, i) => {
-             dot.classList.toggle('active', i === index);
-           });
+         const dotsContainer = document.getElementById(dotsId);
+         if (!dotsContainer) return;
+         [...dotsContainer.children].forEach((dot, i) => {
+           dot.classList.toggle('active', i === index);
+         });
        }
 
        function setSlide(carouselId, dotsId, index) {
@@ -1560,68 +1577,68 @@
        const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
 
        if (radioCardContainer && radioContentContainer) {
-          const radioCards = radioCardContainer.querySelectorAll('.radio-card');
-          radioCards.forEach(card => {
-            card.addEventListener('click', () => {
-              const currentActiveCard = radioCardContainer.querySelector('.radio-card.active');
-              const currentActiveContent = radioContentContainer.querySelector(':scope > div.active');
-              const targetId = card.getAttribute('data-id');
-              const targetDiv = document.getElementById(targetId);
+         const radioCards = radioCardContainer.querySelectorAll('.radio-card');
+         radioCards.forEach(card => {
+           card.addEventListener('click', () => {
+             const currentActiveCard = radioCardContainer.querySelector('.radio-card.active');
+             const currentActiveContent = radioContentContainer.querySelector(':scope > div.active');
+             const targetId = card.getAttribute('data-id');
+             const targetDiv = document.getElementById(targetId);
 
-              if (card === currentActiveCard || !targetDiv) return; // Do nothing if clicking the active card or target not found
+             if (card === currentActiveCard || !targetDiv) return; // Do nothing if clicking the active card or target not found
 
-              // Remove active classes
-              if (currentActiveCard) currentActiveCard.classList.remove('active');
-              if (currentActiveContent) currentActiveContent.classList.remove('active');
+             // Remove active classes
+             if (currentActiveCard) currentActiveCard.classList.remove('active');
+             if (currentActiveContent) currentActiveContent.classList.remove('active');
 
-              // Add active classes to the new target
-              card.classList.add('active');
-              targetDiv.classList.add('active');
+             // Add active classes to the new target
+             card.classList.add('active');
+             targetDiv.classList.add('active');
 
-              // Optional: Re-initialize AOS for newly revealed content if animations feel off
-              // AOS.refreshHard(); // Use refreshHard if elements change significantly
-            });
-          });
+             // Optional: Re-initialize AOS for newly revealed content if animations feel off
+             // AOS.refreshHard(); // Use refreshHard if elements change significantly
+           });
+         });
        }
 
-      // --- Auto-hide/show bottom bar on scroll ---
-      let lastScrollY = window.pageYOffset;
-      const bottomBar = document.getElementById('bottomBar');
-      const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
-      let isScrolling; // Timeout tracker
+     // --- Auto-hide/show bottom bar on scroll ---
+     let lastScrollY = window.pageYOffset;
+     const bottomBar = document.getElementById('bottomBar');
+     const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
+     let isScrolling; // Timeout tracker
 
-      window.addEventListener('scroll', () => {
-          if (!bottomBar || window.innerWidth >= 768) return; // Exit if no bar or on desktop
+     window.addEventListener('scroll', () => {
+       if (!bottomBar || window.innerWidth >= 768) return; // Exit if no bar or on desktop
 
-          const currentScrollY = window.pageYOffset;
+       const currentScrollY = window.pageYOffset;
 
-          // Clear previous timeout
-          window.clearTimeout(isScrolling);
+       // Clear previous timeout
+       window.clearTimeout(isScrolling);
 
-           // Determine scroll direction
-          if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-             bottomBar.classList.remove('visible'); // Hide on scroll down
-          } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
-             bottomBar.classList.add('visible'); // Show on scroll up or near top
-          }
+         // Determine scroll direction
+       if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+          bottomBar.classList.remove('visible'); // Hide on scroll down
+       } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
+          bottomBar.classList.add('visible'); // Show on scroll up or near top
+       }
 
-          // Set a timeout to run after scrolling ends
-          isScrolling = setTimeout(() => {
-            // Add logic here if you want the bar to reappear after scrolling stops
-            // For now, it just stays hidden if scrolled down past threshold
-            if (currentScrollY > scrollThreshold) {
-                // Optional: Re-add 'visible' class if you want it to show after scrolling stops
-                // bottomBar.classList.add('visible');
-            }
-          }, 150); // Adjust timeout duration as needed
+       // Set a timeout to run after scrolling ends
+       isScrolling = setTimeout(() => {
+         // Add logic here if you want the bar to reappear after scrolling stops
+         // For now, it just stays hidden if scrolled down past threshold
+         if (currentScrollY > scrollThreshold) {
+            // Optional: Re-add 'visible' class if you want it to show after scrolling stops
+            // bottomBar.classList.add('visible');
+         }
+       }, 150); // Adjust timeout duration as needed
 
-          lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-      }, { passive: true });
+       lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+     }, { passive: true });
 
-      // Show initially if near top on load (only on mobile)
-      if (window.pageYOffset <= 10 && bottomBar && window.innerWidth < 768) {
-          bottomBar.classList.add('visible');
-      }
+     // Show initially if near top on load (only on mobile)
+     if (window.pageYOffset <= 10 && bottomBar && window.innerWidth < 768) {
+         bottomBar.classList.add('visible');
+     }
 
        // --- Scroll to Top Button Logic ---
        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -1637,12 +1654,12 @@
        }, { passive: true });
 
        if (scrollToTopBtn) {
-          scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-          });
+         scrollToTopBtn.addEventListener('click', () => {
+           window.scrollTo({
+             top: 0,
+             behavior: 'smooth'
+           });
+         });
        }
     </script>
 
