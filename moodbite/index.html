@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodBite - AI Food Recommendations Based On Your Vibe</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,1533 +17,878 @@
       gtag('config', 'G-YBR866PTCR');
     </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabyasachi Mishra | Product Manager</title>
-    <meta name="description" content="Product Manager specializing in AI-driven solutions. Explore projects, skills, and experience." />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
-      /***********************************************
-       * THEME & VARIABLES
-       ***********************************************/
-      :root {
-        /* Colors */
-        --primary: #007aff;  /* Updated Primary Blue */
-        --accent: #00a99d;   /* Teal Accent */
-        --bg: #f8f9fa;       /* Light Grey Background */
-        --bg-alt: #ffffff;   /* White for Cards/Header */
-        --text: #343a40;     /* Darker Text */
-        --text-light: #6c757d; /* Lighter Secondary Text */
-        --border-color: #dee2e6;
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
-
-        /* Typography */
-        --font-primary: 'Inter', sans-serif;
-        --font-heading: 'Montserrat', sans-serif; /* Keeping Montserrat for Headings */
-
-        /* Spacing & Radius */
-        --space-unit: 1rem; /* Approx 16px */
-        --space-xs: calc(var(--space-unit) * 0.25); /* 4px */
-        --space-sm: calc(var(--space-unit) * 0.5);  /* 8px */
-        --space-md: var(--space-unit);             /* 16px */
-        --space-lg: calc(var(--space-unit) * 1.5); /* 24px */
-        --space-xl: calc(var(--space-unit) * 2);   /* 32px */
-        --space-xxl: calc(var(--space-unit) * 3);  /* 48px */
-        --radius: 10px;
-        --radius-sm: 6px;
-        --radius-lg: 12px;
-        --radius-pill: 50px; /* For pills */
-
-        /* Transitions */
-        --transition-fast: 0.2s ease;
-        --transition-med: 0.3s ease;
-        --transition-slow: 0.5s ease;
-      }
-
-      /***********************************************
-       * BASE STYLES
-       ***********************************************/
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-        font-size: 16px; /* Base font size */
-      }
-
-      body {
-        font-family: var(--font-primary);
-        background-color: var(--bg);
-        color: var(--text);
-        line-height: 1.7;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-        font-family: var(--font-heading);
-        color: var(--text);
-        font-weight: 700;
-        line-height: 1.3;
-        margin-bottom: var(--space-md);
-      }
-       h1 { font-size: clamp(2rem, 5vw, 2.8rem); } /* Responsive H1 */
-       h2 { font-size: clamp(1.5rem, 4vw, 2rem); text-align: center; margin-bottom: var(--space-xl); }
-       h3 { font-size: clamp(1.1rem, 3vw, 1.25rem); font-weight: 600; /* Heavier H3 */ }
-       h4 { font-size: 1rem; font-weight: 600; }
-
-      p {
-        margin-bottom: var(--space-md);
-        color: var(--text-light);
-        max-width: 65ch; /* Limit line length */
-      }
-       p.lead { /* For hero subtitle */
-           font-size: 1.1rem;
-           font-weight: 400;
-           color: var(--text);
-       }
-
-      a {
-        text-decoration: none;
-        color: var(--primary);
-        transition: color var(--transition-med);
-        cursor: pointer;
-      }
-      a:hover {
-        color: var(--accent);
-      }
-
-      ul, ol {
-          list-style-position: inside;
-          padding-left: var(--space-sm); /* Indent lists slightly */
-          margin-bottom: var(--space-md);
-      }
-       li {
-           margin-bottom: var(--space-sm);
-           color: var(--text-light);
-       }
-       li strong {
-           color: var(--text);
-       }
-
-      img {
-          max-width: 100%;
-          height: auto;
-          display: block;
-      }
-
-      /* AOS animation base */
-      [data-aos] {
-        opacity: 0;
-        transition-property: transform, opacity;
-      }
-
-      /***********************************************
-       * LAYOUT
-       ***********************************************/
-      .container {
-        width: 90%;
-        max-width: 1140px; /* Slightly narrower max-width */
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
-      }
-
-      section {
-          padding-top: var(--space-xxl);
-          padding-bottom: var(--space-xxl);
-      }
-      /* Optional alternating section background */
-      /* section:nth-of-type(even) {
-          background-color: var(--bg-alt);
-      } */
-
-      /***********************************************
-       * COMPONENTS
-       ***********************************************/
-
-      /* --- Buttons --- */
-      .btn {
-        display: inline-block;
-        padding: var(--space-sm) var(--space-lg); /* 12px 24px */
-        border-radius: var(--radius);
-        font-weight: 600;
-        font-size: 0.95rem;
-        text-align: center;
-        cursor: pointer;
-        transition: all var(--transition-med);
-        border: 2px solid transparent;
-        line-height: 1.5; /* Ensure consistent height */
-      }
-      .btn-primary {
-        background-color: var(--primary);
-        border-color: var(--primary);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background-color: #0056b3; /* Darker blue */
-        border-color: #0056b3;
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-      }
-      .btn-accent {
-        background-color: var(--accent);
-        border-color: var(--accent);
-        color: #fff;
-      }
-      .btn-accent:hover {
-        background-color: #008075; /* Darker teal */
-        border-color: #008075;
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-      }
-      .btn-outline-primary {
-        background-color: transparent;
-        border-color: var(--primary);
-        color: var(--primary);
-      }
-      .btn-outline-primary:hover {
-        background-color: var(--primary);
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-      }
-      .btn-outline-accent {
-        background-color: transparent;
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-      .btn-outline-accent:hover {
-        background-color: var(--accent);
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-      }
-
-      /* --- Cards --- */
-      .card {
-        background-color: var(--bg-alt);
-        border-radius: var(--radius-lg); /* Slightly larger radius */
-        box-shadow: var(--shadow-md);
-        padding: var(--space-lg); /* 24px */
-        transition: transform var(--transition-med), box-shadow var(--transition-med);
-        border: 1px solid var(--border-color); /* Subtle border */
-        height: 100%; /* Make cards in grids equal height */
-        display: flex;
-        flex-direction: column;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
-      }
-      .card-image img {
-        width: 100%;
-        height: 180px; /* Consistent image height */
-        object-fit: cover;
-        border-radius: var(--radius); /* Match card radius or be slightly smaller */
-        margin-bottom: var(--space-md);
-      }
-      .card-content {
-        text-align: center;
-        flex-grow: 1; /* Allow content to fill space */
-      }
-      .card-content h3 {
-        font-size: 1.15rem;
-        margin-bottom: var(--space-sm);
-      }
-      .card-content p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: var(--space-md);
-        color: var(--text-light);
-      }
-      .card-footer {
-          margin-top: auto; /* Push footer to bottom */
-          padding-top: var(--space-md);
-      }
-
-
-      /* --- Skill Pills --- */
-      .skill-pill {
-        display: inline-block;
-        padding: var(--space-xs) var(--space-md); /* 4px 16px */
-        border-radius: var(--radius-pill);
-        border: 1px solid var(--border-color);
-        background-color: #e9ecef; /* Light grey background */
-        color: var(--text-light);
-        font-size: 0.85rem;
-        font-weight: 500;
-        margin: var(--space-xs);
-        transition: background-color var(--transition-med), color var(--transition-med);
-        animation: fadeIn 0.5s ease forwards; /* Add fade-in */
-        opacity: 0; /* Start hidden for animation */
-      }
-      @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-      .skill-pill:hover {
-        background-color: var(--primary);
-        color: #fff;
-        border-color: var(--primary);
-      }
-
-
-      /* --- Timeline --- */
-      .timeline {
-        position: relative;
-        margin: var(--space-xl) 0;
-        padding-left: var(--space-xl); /* Space for line and dots */
-      }
-      .timeline::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 10px; /* Center the line relative to the dot */
-        width: 2px;
-        height: 100%;
-        background-color: var(--border-color);
-      }
-      .timeline-item {
-        position: relative;
-        margin-bottom: var(--space-xl);
-      }
-      .timeline-item::before { /* Dot */
-        content: '';
-        position: absolute;
-        left: 0px; /* Position dot */
-        top: 5px; /* Align dot vertically */
-        width: 20px;
-        height: 20px;
-        background-color: var(--primary);
-        border: 3px solid var(--bg); /* Make dot appear "on top" */
-        border-radius: 50%;
-        z-index: 1;
-      }
-      .timeline-content {
-        background-color: var(--bg-alt);
-        padding: var(--space-md) var(--space-lg);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        border: 1px solid var(--border-color);
-      }
-      .timeline-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: var(--space-xs);
-        color: var(--text);
-      }
-       .timeline-content h3 em { /* Company/Role styling */
-           font-weight: 400;
-           color: var(--text-light);
-           font-size: 0.9em;
-           font-style: normal;
-           display: block; /* Put on new line */
-       }
-      .timeline-content ul {
-        padding-left: var(--space-md); /* Indent bullet points */
-         margin-bottom: 0;
-      }
-       .timeline-content li {
-           font-size: 0.9rem;
-           color: var(--text-light);
-           text-align: justify; /* Justify bullet points */
-       }
-
-
-      /* --- Carousels --- */
-       .carousel-section {
-           margin-bottom: var(--space-xxl); /* Space between carousels */
-       }
-       .carousel-section h2 {
-           font-size: clamp(1.4rem, 3.5vw, 1.8rem); /* Slightly smaller carousel heading */
-           margin-bottom: var(--space-xl);
-       }
-       .carousel-container {
-         position: relative;
-         overflow: hidden;
-         border-radius: var(--radius-lg);
-         background-color: var(--bg); /* Match body bg */
-         margin: 0 auto;
-         max-width: 100%; /* Allow full width */
-       }
-       .carousel-inner {
-         display: flex;
-         transition: transform var(--transition-slow) ease; /* Slower transition */
-       }
-       .carousel-item {
-         min-width: 100%;
-         padding: var(--space-sm); /* Padding around the card inside */
-         box-sizing: border-box; /* Include padding in width */
-         display: flex; /* Center card if needed */
-         justify-content: center;
-         align-items: stretch; /* Ensure cards stretch */
-       }
-       .carousel-item > .card { /* Style card inside carousel item */
-           box-shadow: var(--shadow-md); /* Reset shadow if needed */
-           transition: transform var(--transition-med); /* Add hover effect to card inside */
-       }
-       .carousel-item > .card:hover {
-           transform: translateY(-3px);
-       }
-       .carousel-nav {
-         position: absolute;
-         top: 50%;
-         width: 100%;
-         display: flex;
-         justify-content: space-between;
-         transform: translateY(-50%);
-         pointer-events: none;
-         padding: 0 var(--space-sm); /* Space arrows from edge */
-         z-index: 2;
-       }
-       .carousel-nav button {
-         background-color: rgba(52, 58, 64, 0.6); /* Darker semi-transparent */
-         backdrop-filter: blur(3px);
-         border: none;
-         color: #fff;
-         font-size: 1.2rem;
-         width: 36px; /* Fixed size */
-         height: 36px;
-         border-radius: 50%;
-         cursor: pointer;
-         pointer-events: all;
-         transition: background-color var(--transition-med);
-         display: flex;
-         justify-content: center;
-         align-items: center;
-       }
-       .carousel-nav button:hover {
-         background-color: rgba(52, 58, 64, 0.8);
-       }
-       .carousel-dots {
-         position: absolute;
-         bottom: var(--space-md); /* Position dots */
-         left: 50%;
-         transform: translateX(-50%);
-         text-align: center;
-         z-index: 2;
-       }
-       .carousel-dots span {
-         display: inline-block;
-         width: 10px; /* Larger dots */
-         height: 10px;
-         margin: 0 var(--space-xs);
-         background-color: rgba(255, 255, 255, 0.5); /* Light dots on dark buttons */
-         border: 1px solid rgba(0, 0, 0, 0.2);
-         border-radius: 50%;
-         cursor: pointer;
-         transition: background-color var(--transition-med), transform var(--transition-med);
-       }
-       .carousel-dots span.active {
-         background-color: var(--accent);
-         transform: scale(1.2);
-       }
-
-        /* Project/Blog specific Buttons */
-        .project-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive buttons */
-            gap: var(--space-sm);
-            margin-top: var(--space-md);
+        /* --- Core Variables (Repill Inspired) --- */
+        :root {
+            --bg-color: #111319; /* Darker, less saturated background */
+            --bg-color-light: #1a1c23; /* Slightly lighter for cards/sections */
+            --text-color: #adb5bd; /* Softer grey text */
+            --text-color-strong: #e9ecef; /* Near white for headings/highlights */
+            --primary-accent: #8a3ffc; /* Vibrant Purple (Similar to Repill) */
+            --secondary-accent: #33b1ff; /* Bright Blue (Complementary) */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-radius: 10px; /* Slightly less rounded */
+            --transition-speed: 0.3s;
+            --font-main: 'Inter', sans-serif;
+            --container-width: 1100px; /* Wider container for desktop */
         }
-        .project-buttons a {
-            font-size: 0.8rem;
-            padding: var(--space-xs) var(--space-sm); /* 4px 8px */
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--accent);
-            background-color: #e6f6f5; /* Light teal background */
-            color: var(--accent);
+
+        /* --- Basic Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base font size */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+             /* Subtle gradient or pattern */
+             background-image: radial-gradient(circle at top left, rgba(138, 63, 252, 0.08), transparent 40%),
+                              radial-gradient(circle at bottom right, rgba(51, 177, 255, 0.06), transparent 50%);
+        }
+
+        /* --- Container --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden; /* Contain potential overflows from animations/children */
+        }
+        section:nth-child(even) {
+            background-color: var(--bg-color-light); /* Alternate section background */
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4 {
+            color: var(--text-color-strong);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 3rem; letter-spacing: -0.02em;}
+        h2 { font-size: 2.25rem; text-align: center; margin-bottom: 3rem;}
+        h3 { font-size: 1.25rem; font-weight: 500; } /* Slightly lighter H3 */
+        p { margin-bottom: 1.5rem; max-width: 65ch; } /* Limit line length for readability */
+        a { color: var(--secondary-accent); text-decoration: none; transition: color var(--transition-speed) ease;}
+        a:hover { color: var(--primary-accent); }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            color: #fff;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
             font-weight: 500;
-            transition: all var(--transition-med);
             text-align: center;
-            white-space: nowrap;
-        }
-        .project-buttons a:hover {
-            background-color: #cceceb;
-            transform: translateY(-1px);
-            color: var(--accent); /* Keep color on hover */
-        }
-        .project-buttons a.live-demo {
-            background-color: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-        .project-buttons a.live-demo:hover {
-            background-color: #008075; /* Darker teal */
-            border-color: #008075;
-            color: #fff;
+            cursor: pointer;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-
-      /* --- Forms --- */
-      .form-group {
-        margin-bottom: var(--space-lg);
-      }
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: var(--space-sm) var(--space-md); /* 8px 16px */
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--border-color);
-        font-size: 1rem;
-        font-family: var(--font-primary);
-        transition: border-color var(--transition-med), box-shadow var(--transition-med);
-        background-color: var(--bg-alt); /* White input background */
-        color: var(--text);
-      }
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15); /* Focus ring */
-      }
-      .form-group textarea {
-        min-height: 120px;
-        resize: vertical;
-      }
-      .form-button {
-          text-align: left; /* Align button left */
-      }
-
-      /* --- Scroll to Top Button --- */
-      .scroll-to-top {
-        position: fixed;
-        bottom: var(--space-lg); /* Default desktop position */
-        right: var(--space-lg);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(52, 58, 64, 0.7); /* Semi-transparent dark */
-        backdrop-filter: blur(4px);
-        color: white;
-        border: none;
-        cursor: pointer;
-        box-shadow: var(--shadow-md);
-        display: none; /* Hidden by default */
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        z-index: 998;
-        transition: opacity var(--transition-med), background-color var(--transition-med), transform var(--transition-med);
-        opacity: 0; /* Start hidden */
-      }
-      .scroll-to-top.show {
-        display: flex;
-        opacity: 1;
-      }
-      .scroll-to-top:hover {
-        background: rgba(52, 58, 64, 0.9);
-        transform: scale(1.05);
-      }
-
-      /***********************************************
-       * HEADER & FOOTER / NAV
-       ***********************************************/
-
-      /* --- Header --- */
-      header {
-        position: sticky;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: var(--bg-alt);
-        box-shadow: var(--shadow-sm); /* Softer shadow */
-        z-index: 1000;
-        padding: var(--space-sm) 0; /* 8px top/bottom */
-      }
-      .header-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap; /* Allow wrapping on very small screens */
-        gap: var(--space-md);
-      }
-      .header-brand {
-        font-size: 1.5rem; /* Slightly smaller */
-        font-family: var(--font-heading);
-        color: var(--primary); /* Use primary color */
-        font-weight: 700;
-        flex-shrink: 0; /* Prevent shrinking */
-      }
-      .header-socials {
-        display: flex;
-        gap: var(--space-md); /* Increase gap */
-      }
-      .header-socials a {
-        font-size: 1.2rem;
-        color: var(--text-light); /* Lighter icon color */
-        transition: color var(--transition-med);
-      }
-      .header-socials a:hover {
-        color: var(--primary);
-      }
-
-
-      /* --- Bottom Mobile Nav --- */
-      .bottom-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: var(--bg-alt);
-        border-top: 1px solid var(--border-color);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: var(--space-sm) 0 var(--space-xs) 0; /* 8px top, 4px bottom */
-        z-index: 999;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
-        transform: translateY(100%); /* Start hidden */
-        opacity: 0;
-        transition: transform var(--transition-med), opacity var(--transition-med);
-        visibility: hidden;
-      }
-       .bottom-bar.visible { /* Class added by JS */
-           transform: translateY(0);
-           opacity: 1;
-           visibility: visible;
-       }
-      .bottom-bar a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-        font-size: 0.65rem; /* Smaller label */
-        color: var(--text-light);
-        transition: color var(--transition-med), transform var(--transition-fast);
-        padding: 0 var(--space-xs); /* Add slight horizontal padding */
-        flex: 1; /* Distribute space evenly */
-        max-width: 60px; /* Limit width of each item */
-      }
-      .bottom-bar a i {
-        font-size: 1.1rem; /* Smaller icon */
-        margin-bottom: 2px;
-      }
-      .bottom-bar a:hover {
-        color: var(--primary);
-        transform: translateY(-2px);
-      }
-      .bottom-bar a span {
-        font-weight: 500;
-        white-space: nowrap; /* Prevent wrapping */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-      }
-
-      /* --- Footer --- (Removed as it was hidden) */
-
-      /***********************************************
-       * SECTIONS STYLING
-       ***********************************************/
-
-      /* --- Hero Section --- */
-      .hero {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-xl);
-        justify-content: space-between;
-        padding-top: var(--space-xl); /* More padding */
-        padding-bottom: var(--space-xl);
-      }
-      .hero-image img {
-        width: 180px; /* Larger image */
-        height: 180px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: var(--shadow-lg); /* Stronger shadow */
-        border: 4px solid var(--bg-alt); /* White border */
-      }
-      .hero-text {
-          flex: 1;
-          min-width: 300px; /* Prevent text becoming too narrow */
-      }
-      .hero-text h1 {
-        margin-bottom: var(--space-sm);
-      }
-      .hero-text p.lead {
-        margin-bottom: var(--space-lg);
-        max-width: 550px; /* Adjust width */
-      }
-      .btn-group {
-        display: flex;
-        gap: var(--space-md);
-        flex-wrap: wrap;
-      }
-
-      /* --- Skills Section --- */
-      .skills-categorized {
-          /* Standard section padding */
-      }
-      .skills-categories {
-        display: flex;
-        gap: var(--space-xl);
-        align-items: flex-start;
-        flex-wrap: wrap;
-        justify-content: center; /* Center content horizontally */
-      }
-      .skills-sidebar {
-        flex: 0 0 200px; /* Fixed width for sidebar */
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-sm);
-      }
-      .skill-toggle {
-        padding: var(--space-sm) var(--space-md);
-        border: 1px solid var(--border-color);
-        background-color: var(--bg-alt);
-        color: var(--text-light);
-        border-radius: var(--radius);
-        cursor: pointer;
-        text-align: left;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: all var(--transition-med);
-        width: 100%; /* Make buttons full width of sidebar */
-      }
-      .skill-toggle:hover {
-        background-color: #e9ecef; /* Light hover */
-        border-color: #adb5bd;
-        color: var(--text);
-      }
-      .skill-toggle.active {
-        background-color: var(--primary);
-        color: #fff;
-        border-color: var(--primary);
-        font-weight: 600;
-        box-shadow: var(--shadow-sm);
-      }
-      .skills-content {
-        flex: 1; /* Take remaining space */
-        min-width: 300px; /* Ensure content area doesn't get too small */
-      }
-      .skill-category {
-        display: none;
-        flex-wrap: wrap;
-        gap: var(--space-xs); /* Gap between pills */
-        padding: var(--space-md);
-        background-color: var(--bg-alt); /* Background for pills area */
-        border-radius: var(--radius);
-        border: 1px solid var(--border-color);
-        min-height: 100px; /* Ensure it has some height */
-      }
-      .skill-category.active {
-        display: flex;
-        animation: fadeIn 0.4s ease forwards; /* Fade in active category */
-      }
-
-
-      /* --- Radio Toggle Section --- */
-      .radio-cards {
-        display: flex;
-        gap: var(--space-md);
-        margin-bottom: var(--space-xl);
-        flex-wrap: wrap;
-        justify-content: center;
-        border-bottom: 1px solid var(--border-color); /* Separator line */
-        padding-bottom: var(--space-xl);
-      }
-      .radio-card {
-        background-color: var(--bg-alt);
-        border: 1px solid var(--border-color);
-        padding: var(--space-md) var(--space-lg);
-        border-radius: var(--radius);
-        min-width: 180px; /* Ensure decent width */
-        text-align: center;
-        cursor: pointer;
-        transition: all var(--transition-med);
-        color: var(--text-light);
-      }
-      .radio-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary);
-        color: var(--primary);
-      }
-      .radio-card.active {
-        background-color: var(--primary);
-        color: #fff;
-        border-color: var(--primary);
-        box-shadow: var(--shadow-md);
-        transform: translateY(-3px); /* Keep hover effect */
-      }
-      .radio-card i {
-        font-size: 1.5rem; /* Smaller icon */
-        margin-bottom: var(--space-sm);
-        display: block; /* Ensure icon takes space */
-      }
-       .radio-card h3 {
-           font-size: 0.9rem;
-           font-weight: 600;
-           margin-bottom: 0;
-           color: inherit; /* Inherit color from parent */
-       }
-      .dynamic-content > div {
-        display: none;
-        /* Animation applied via JS adding .active */
-      }
-      .dynamic-content > div.active {
-        display: block;
-        animation: fadeInUp 0.6s ease forwards; /* Smoother animation */
-      }
-      @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* What I Offer Cards */
-        .offer-cards {
-          display: grid;
-          gap: var(--space-lg);
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+        .btn:hover, .btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(138, 63, 252, 0.4);
         }
-        .offer-card { /* Reuse .card styling */
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
             text-align: center;
-        }
-        .offer-card i {
-          font-size: 2rem;
-          margin-bottom: var(--space-md);
-          color: var(--accent); /* Use accent color */
-        }
-        .offer-card .offer-btn { /* Specific button styling if needed */
-            margin-top: var(--space-md);
+            padding-top: 120px; /* More space at top */
+            padding-bottom: 100px;
+            background: none; /* Remove previous gradient */
         }
 
-
-      /* --- Contact Form Section --- */
-      #contact h2 {
-        /* Standard h2 styling */
-      }
-      .contact-form {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: var(--bg-alt);
-        padding: var(--space-xl);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--border-color);
-      }
-      .contact-row {
-        display: flex;
-        gap: var(--space-xl);
-        flex-wrap: wrap;
-      }
-      .contact-col {
-        flex: 1;
-        min-width: 250px; /* Ensure columns don't get too narrow */
-      }
-
-       /* --- Visually Hidden Utility --- */
-        .visually-hidden {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          padding: 0;
-          margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border: 0;
+        #hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-
-      /***********************************************
-       * MEDIA QUERIES
-       ***********************************************/
-
-      /* Hide bottom bar on larger screens */
-      @media (min-width: 768px) {
-        .bottom-bar {
-          display: none;
-        }
-        /* Show scroll-to-top adjustments for desktop */
-         .scroll-to-top {
-             bottom: var(--space-xl);
-             right: var(--space-xl);
-         }
-      }
-
-      /* Tablet and below adjustments */
-      @media (max-width: 767px) {
-        .hero {
-          flex-direction: column;
-          text-align: center;
-          gap: var(--space-lg);
-        }
-        .hero-image img {
-            width: 150px;
-            height: 150px;
-        }
-        .btn-group {
-          justify-content: center;
+        #hero h1 {
+            margin-bottom: 1.5rem;
+             max-width: 800px; /* Constrain hero text width */
         }
 
-        .skills-categories {
-          flex-direction: column;
-          align-items: stretch; /* Full width sidebar/content */
-           gap: var(--space-lg);
-        }
-        .skills-sidebar {
-          flex-basis: auto; /* Allow sidebar to flow */
-           width: 100%;
-           flex-direction: row; /* Horizontal toggles */
-           overflow-x: auto; /* Allow scrolling if needed */
-           padding-bottom: var(--space-sm); /* Space for scrollbar */
-           justify-content: flex-start; /* Align left */
-           -ms-overflow-style: none;  /* IE and Edge */
-           scrollbar-width: none;  /* Firefox */
-        }
-         .skills-sidebar::-webkit-scrollbar { /* Hide scrollbar */
-             display: none;
-         }
-        .skill-toggle {
-            flex-shrink: 0; /* Prevent shrinking */
-            text-align: center;
-        }
-        .skills-content {
-          width: 100%;
+        #hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            opacity: 0.9;
         }
 
-         .radio-cards {
-             justify-content: center; /* Center radio cards */
-             gap: var(--space-sm);
-         }
-         .radio-card {
-             min-width: 100px; /* Allow smaller radio cards */
-             padding: var(--space-sm) var(--space-md);
-         }
-         .radio-card i { font-size: 1.2rem; margin-bottom: var(--space-xs); }
-         .radio-card h3 { font-size: 0.8rem; }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 3rem; /* Space before mic */
+        }
 
-         .contact-row {
-             gap: 0; /* Stack columns directly */
-         }
-         .contact-col {
-             min-width: 100%;
+        .mic-button {
+             width: 70px; /* Slightly smaller mic */
+             height: 70px;
+             background: var(--primary-accent);
+             border-radius: 50%;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             font-size: 2rem; /* Mic icon size */
+             border: none;
+             color: #fff;
+             cursor: pointer;
+             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+             box-shadow: 0 0 0 0 rgba(138, 63, 252, 0.7); /* Initial state for pulse */
+             animation: pulse 2.5s infinite ease-out;
+        }
+
+         .mic-button:hover {
+             transform: scale(1.1);
+             box-shadow: 0 0 15px 5px rgba(138, 63, 252, 0.5);
          }
 
-         /* Adjust scroll-to-top to be above mobile nav */
-          .scroll-to-top {
-              bottom: calc(var(--space-unit) * 4.5); /* Adjust based on bottom-bar height */
-              right: var(--space-md);
-          }
+        @keyframes pulse { /* Subtle Pulse */
+            0% { box-shadow: 0 0 0 0 rgba(138, 63, 252, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(138, 63, 252, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(138, 63, 252, 0); }
+        }
 
-          .carousel-wrapper { /* Stack carousels */
-             display: block;
-          }
-          .carousel-section:last-child { /* Remove bottom margin from last carousel on mobile */
+        /* Results Area (Appears Below Hero/Fold) */
+        #results-area {
+             margin-top: 3rem; /* Space after mic button */
+             padding: 2rem;
+             background-color: rgba(0, 0, 0, 0.2);
+             border: 1px solid var(--border-color);
+             border-radius: var(--border-radius);
+             text-align: left;
+             width: 100%;
+             max-width: 700px; /* Constrain results width */
+             min-height: 100px;
+             opacity: 0;
+             transform: translateY(20px); /* Start slightly lower */
+             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+             display: none; /* Hidden initially */
+        }
+
+        #results-area.visible {
+             opacity: 1;
+             transform: translateY(0);
+             display: block; /* Show when visible */
+        }
+
+        #results-area p.transcript {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color-strong);
+            font-style: italic;
+            border-left: 3px solid var(--primary-accent);
+            padding-left: 1rem;
+        }
+
+        #results-area .results-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+             gap: 1.5rem;
+             margin-top: 1rem;
+        }
+
+        /* Style for result cards */
+        .result-card {
+            background-color: var(--bg-color-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed) ease;
+            border: 1px solid var(--border-color);
+        }
+        .result-card:hover {
+             transform: translateY(-5px);
+         }
+
+        .result-card img {
+            display: block;
+            width: 100%;
+            height: 150px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-color); /* Placeholder bg if image fails */
+        }
+         .result-card .card-content {
+             padding: 1rem;
+         }
+         .result-card h4 { /* Food Title */
+             font-size: 1rem;
+             color: var(--text-color-strong);
+             margin-bottom: 0.5rem;
+         }
+         .result-card p { /* Short description/tags */
+             font-size: 0.85rem;
              margin-bottom: 0;
+             line-height: 1.4;
+         }
+
+        /* --- How It Works Section --- */
+        #how-it-works {
+            /* Uses default section padding */
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            text-align: left; /* Align text left within steps */
+        }
+
+        .step {
+            background-color: var(--bg-color-light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+             /* Reveal animation managed by .reveal class */
+             opacity: 0;
+             transform: translateY(30px);
+             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+         .step.active { opacity: 1; transform: translateY(0); } /* Applied by JS */
+
+        .step-icon {
+            font-size: 2rem; /* Smaller icons */
+            margin-bottom: 1rem;
+            display: inline-block; /* Don't take full width */
+            color: var(--primary-accent);
+            background: rgba(138, 63, 252, 0.1);
+            padding: 0.5rem;
+            border-radius: 6px;
+            line-height: 1; /* Fix icon vertical alignment */
+        }
+
+        .step h3 {
+            color: var(--text-color-strong); /* Stronger heading */
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+             font-size: 0.95rem;
+             margin-bottom: 0;
+         }
+
+        /* --- Demo Section (App UI Showcase) --- */
+         #demo {
+             background-color: var(--bg-color); /* Override alternating background if needed */
+         }
+         #demo h2 {
+             margin-bottom: 4rem;
+         }
+
+         .demo-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: start;
+         }
+
+         .demo-card {
+            background-color: var(--bg-color-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, opacity 0.6s ease-out, transform 0.6s ease-out;
+             /* Reveal animation managed by .reveal class */
+             opacity: 0;
+             transform: translateY(30px) scale(0.98);
+         }
+         .demo-card.active { opacity: 1; transform: translateY(0) scale(1); } /* Applied by JS */
+
+         /* Staggered animation delay applied via JS */
+
+         .demo-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 10; /* Adjust aspect ratio for UI */
+            object-fit: cover; /* Or 'contain' if you want to show the whole UI */
+            border-bottom: 1px solid var(--border-color);
+             background-color: var(--bg-color); /* Placeholder bg */
+         }
+         .demo-card .card-caption { /* Optional caption below image */
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-color);
+         }
+
+         .demo-card:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+         }
+
+        /* --- Features Grid Section --- */
+         #features {
+             /* Uses default section padding */
+         }
+         #features h2 {
+              margin-bottom: 4rem;
           }
-      }
 
-      /* Mobile specific adjustments */
-      @media (max-width: 480px) {
-          html { font-size: 15px; } /* Slightly smaller base font */
-          .container { width: 95%; padding-left: var(--space-sm); padding-right: var(--space-sm); }
-          section { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
-          h1 { font-size: 1.8rem; }
-          h2 { font-size: 1.4rem; }
-          .btn { padding: var(--space-sm) var(--space-md); font-size: 0.9rem; }
-          .hero-image img { width: 120px; height: 120px; }
-          .timeline { padding-left: var(--space-lg); }
-          .timeline::before { left: 5px; } /* Adjust line position */
-          .timeline-item::before { left: -5px; width: 18px; height: 18px; } /* Adjust dot */
+         .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 3rem 2rem; /* More row gap */
+            text-align: left;
+         }
 
-          .carousel-nav button { width: 30px; height: 30px; font-size: 1rem; }
-          .carousel-dots span { width: 8px; height: 8px; }
-      }
+         .feature-item {
+            /* Reveal animation managed by .reveal class */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            position: relative;
+            padding-left: 3.5rem; /* Space for icon */
+         }
+          .feature-item.active { opacity: 1; transform: translateY(0); } /* Applied by JS */
+
+
+         .feature-icon {
+            font-size: 1.8rem; /* Adjust icon size */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-accent); /* Use secondary accent */
+            background: rgba(51, 177, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+         }
+
+         .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color-strong);
+         }
+          .feature-item p { /* Added description */
+              font-size: 0.95rem;
+              margin-bottom: 0;
+              line-height: 1.6;
+              color: var(--text-color);
+          }
+
+        /* --- Loom Video Demo Section --- */
+        #loom-demo {
+            /* Uses default section padding and alternating background */
+            text-align: center; /* Center the heading */
+        }
+
+        #loom-demo h2 {
+            margin-bottom: 3rem; /* Space below heading */
+        }
+
+        .loom-embed-container {
+             max-width: 960px; /* Control max width of the video */
+             margin: 0 auto; /* Center the container */
+             /* Animation properties */
+             opacity: 0;
+             transform: translateY(30px);
+             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+         .loom-embed-container.active {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+        .loom-responsive-wrapper {
+             position: relative;
+             padding-bottom: 62.5%; /* Matches the aspect ratio from Loom embed code */
+             height: 0;
+             overflow: hidden;
+             border-radius: var(--border-radius); /* Consistent rounding */
+             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Consistent shadow */
+             border: 1px solid var(--border-color); /* Consistent border */
+        }
+
+        .loom-responsive-wrapper iframe {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+        }
+
+
+        /* --- CTA Section --- */
+         #cta {
+            text-align: center;
+            background-color: var(--bg-color-light); /* Uses alternating bg */
+            padding: 80px 20px;
+            border-radius: 0; /* Remove rounding, make it full width section */
+            margin: 0; /* Remove side margins */
+         }
+
+         #cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color-strong);
+         }
+          #cta p { /* Text below button */
+              margin: 1.5rem auto 0 auto;
+              font-size: 0.9rem;
+              opacity: 0.8;
+              max-width: 500px;
+          }
+          #cta .btn {
+              margin-top: 1rem; /* Space above button */
+          }
+
+
+        /* --- Footer Section --- */
+         #footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 0; /* Remove margin as CTA is now a full section */
+            background-color: var(--bg-color); /* Ensure footer bg */
+         }
+
+         .footer-text {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+         }
+
+         .social-links a {
+            font-size: 1.1rem; /* Smaller text links */
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color var(--transition-speed) ease;
+             opacity: 0.8;
+         }
+          .social-links a:hover {
+              color: var(--text-color-strong);
+              opacity: 1;
+          }
+          .social-links span { /* Optional emoji icons */
+              margin-right: 0.3rem;
+              font-size: 1.3rem;
+              vertical-align: middle;
+          }
+
+
+        /* --- Typewriter Cursor --- */
+        .typewriter-text::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+            opacity: 1;
+            color: var(--text-color-strong);
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; margin-bottom: 2rem;}
+            section { padding: 60px 0; }
+            #hero { padding-top: 100px; padding-bottom: 60px; min-height: 80vh; }
+            .hero-actions { flex-direction: column; }
+            .features-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .feature-item { padding-left: 0; text-align: center; }
+            .feature-icon { position: static; margin: 0 auto 1rem auto; display: flex; /* Center icon properly */ }
+            .steps-container { grid-template-columns: 1fr; }
+            .demo-cards { grid-template-columns: 1fr; }
+            #results-area .results-grid { grid-template-columns: 1fr; } /* Stack results on mobile */
+            .loom-embed-container { padding: 0 1rem; /* Add padding on mobile */}
+        }
+
+         @media (max-width: 480px) {
+              html { font-size: 15px; } /* Slightly smaller base font */
+              h1 { font-size: 2rem; }
+              .container { padding: 0 15px; }
+               .btn { padding: 12px 24px; font-size: 0.95rem; }
+               .mic-button { width: 60px; height: 60px; font-size: 1.8rem; }
+               section { padding: 50px 0; }
+               #hero { padding-top: 80px; }
+               .loom-embed-container { padding: 0; } /* Remove padding if container handles it */
+         }
 
     </style>
 </head>
-
 <body>
-    <header>
-      <div class="container header-inner">
-        <div class="header-brand">Sabyasachi</div>
-        <div class="header-socials">
-          <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
+
+    <header id="hero">
+        <div class="container">
+            <h1>🍽️ Find Food That Matches Your Mood</h1>
+            <p class="subtitle">Tell MoodBite how you feel or what you crave. Our AI finds the perfect dish recommendations just for you.</p>
+
+            <div class="hero-actions">
+                 <a href="https://moodbite.sabyasachimishra.dev/" target="_blank" rel="noopener noreferrer" class="btn" id="heroCtaButton">✨ Launch MoodBite App</a>
+            </div>
+
+            <button class="mic-button" id="micButton" aria-label="Start voice input">
+                🎤
+            </button>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">(Tap to simulate voice input)</p>
+
+
+            <div id="results-area" aria-live="polite">
+                </div>
         </div>
-      </div>
     </header>
 
-    <nav class="bottom-bar" id="bottomBar">
-      <a href="assets/cv.pdf" title="Download CV">
-        <i class="fas fa-file-download"></i>
-        <span>CV</span>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies" target="_blank">
-        <i class="fas fa-folder-open"></i>
-        <span>Cases</span>
-      </a>
-      <a href="mailto:sabyasachimishra648@gmail.com" title="Email">
-        <i class="fas fa-envelope"></i>
-        <span>Email</span>
-      </a>
-      <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span>Chat</span>
-      </a>
-      <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-        <span>LinkedIn</span>
-      </a>
-      </nav>
-
-    <section class="container hero" data-aos="fade-up">
-      <div class="hero-image">
-        <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" />
-      </div>
-      <div class="hero-text">
-        <h1>Sabyasachi Mishra</h1>
-        <p class="lead">
-          Product Manager specializing in AI-driven solutions—bridging data insights with user-centric innovation to build impactful products.
-        </p>
-        <div class="btn-group">
-          <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="btn btn-accent">Book a Call</a>
-          <a href="assets/Sabyasachi_CV.pdf" target="_blank" class="btn btn-outline-primary">Download Resume</a>
+    <section id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-container">
+                <div class="step reveal">
+                    <span class="step-icon">🎤</span>
+                    <h3>1. Speak Your Mind</h3>
+                    <p>Tap the mic and tell us your craving, feeling, or desired cuisine (e.g., "comforting soup," "feeling adventurous," "spicy Thai").</p>
+                </div>
+                <div class="step reveal">
+                    <span class="step-icon">🤖</span>
+                    <h3>2. AI Analysis</h3>
+                    <p>MoodBite's AI analyzes your voice input and sentiment to understand the underlying mood and preferences.</p>
+                </div>
+                <div class="step reveal">
+                    <span class="step-icon">🍛</span>
+                    <h3>3. Get Recommendations</h3>
+                    <p>Receive personalized food suggestions tailored to your current vibe, complete with visuals and details.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="container carousel-wrapper" data-aos="fade-up" data-aos-delay="150">
-        <div class="carousel-section">
-          <h2>Projects Showcase</h2>
-          <div class="carousel-container">
-            <div class="carousel-inner" id="carousel-projects">
-              <div class="carousel-item">
-                <div class="card">
-                  <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" /></div>
-                  <div class="card-content">
-                    <h3>MoodBite</h3>
-                    <p>Voice-first food discovery agent adapting to mood, cravings, and language using AI.</p>
-                  </div>
-                   <div class="card-footer project-buttons">
-                     <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
-                     <a href="https://sabyasachimishra.dev/moodbite/" target="_blank">PRD</a>
-                     <a href="https://github.com/SABYA648/MoodBite" target="_blank">Source</a>
-                     <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
-                   </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="card">
-                  <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" /></div>
-                  <div class="card-content">
-                    <h3>FeatureFit</h3>
-                    <p>AI-powered feature prioritization tool that reduced strategic planning time by 30%.</p>
-                  </div>
-                  <div class="card-footer project-buttons">
-                    <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
-                    <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
-                    <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
-                    <a href="assets/proj2.pdf" target="_blank">Case Study</a>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="card">
-                  <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" /></div>
-                  <div class="card-content">
-                    <h3>LLM Tuner</h3>
-                    <p>Interactive prompt tuning interface that accelerated LLM iteration cycles by 50%.</p>
-                  </div>
-                  <div class="card-footer project-buttons">
-                    <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
-                    <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
-                    <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
-                    <a href="assets/proj1.pdf" target="_blank">Case Study</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-nav">
-              <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Project">&#10094;</button>
-              <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Project">&#10095;</button>
-            </div>
-            <div class="carousel-dots" id="dots-projects"></div>
-          </div>
-        </div>
-
-          <div class="carousel-section">
-            <h2>Insights &amp; Blogs</h2>
-            <div class="carousel-container">
-              <div class="carousel-inner" id="carousel-blogs">
-                <div class="carousel-item">
-                  <div class="card">
-                      <div class="card-image"><img src="assets/Blog1img.JPG" alt="LLM Engine Optimization Blog" /></div>
-                      <div class="card-content">
-                        <h3>LLM-EO: The Future of SEO?</h3>
-                        <p>Exploring how language model optimization (LLM-EO) is transforming the internet search landscape.</p>
-                      </div>
-                      <div class="card-footer project-buttons" style="grid-template-columns:1fr;"> <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8d3e58198601" target="_blank">Read Article</a>
-                      </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="card">
-                    <div class="card-image"><img src="assets/Blog2img.png" alt="Deep Dive into LLM-EO Blog" /></div>
-                    <div class="card-content">
-                      <h3>LLM-EO Explained</h3>
-                      <p>A detailed analysis of LLM-based ranking algorithms and their impact on digital strategy.</p>
+    <section id="demo">
+        <div class="container">
+              <h2>App Preview</h2> <div class="demo-cards">
+                    <div class="demo-card reveal">
+                          <img src="./ui-mood.png" alt="MoodBite app showing mood selection or voice input prompt.">
+                          <div class="card-caption">Input your mood or craving via voice.</div>
                     </div>
-                    <div class="card-footer project-buttons" style="grid-template-columns:1fr;">
-                      <a class="live-demo" href="https://medium.com/@sabyasachimishra648/how-llm-engine-optimization-llm-eo-is-changing-the-landscape-of-internet-search-8315bf9d5748" target="_blank">Read Article</a>
+                    <div class="demo-card reveal">
+                          <img src="./ui-recommendation.png" alt="MoodBite app displaying visual food recommendations cards.">
+                          <div class="card-caption">Get tailored recommendations based on your input.</div>
                     </div>
-                  </div>
-                </div>
+                    <div class="demo-card reveal">
+                          <img src="./ui-details.png" alt="MoodBite app showing details of a recommended dish like ingredients and rationale.">
+                         <div class="card-caption">Explore details, ingredients, and why it fits your mood.</div>
+                    </div>
               </div>
-              <div class="carousel-nav">
-                <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blog">&#10094;</button>
-                <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blog">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+              <h2>Features You'll Love</h2>
+              <div class="features-grid">
+                    <div class="feature-item reveal">
+                         <span class="feature-icon">🎙️</span>
+                         <h3>Voice-First Interface</h3>
+                         <p>Simply speak your cravings naturally. No complex menus to navigate.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                         <span class="feature-icon">🧠</span>
+                         <h3>Emotion-Aware AI</h3>
+                         <p>Goes beyond keywords to understand the sentiment behind your request.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                         <span class="feature-icon">🎯</span>
+                         <h3>Personalized Matches</h3>
+                         <p>Dishes selected specifically to align with your current mood and taste profile.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                         <span class="feature-icon">✨</span>
+                         <h3>Intuitive Design</h3>
+                         <p>Clean, simple interface focused on getting you relevant results quickly.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                         <span class="feature-icon">🛒</span>
+                         <h3>Seamless Integration</h3>
+                         <p>(Future) Connect with delivery services or recipe platforms easily.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                         <span class="feature-icon">🌐</span>
+                         <h3>Multilingual Ready</h3>
+                         <p>Built with the potential to understand and respond in multiple languages.</p>
+                    </div>
               </div>
-              <div class="carousel-dots" id="dots-blogs"></div>
-            </div>
-          </div>
-    </section>
-    <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
-      <h2>Skills &amp; Tools</h2>
-      <div class="skills-categories">
-        <div class="skills-sidebar">
-          <button class="skill-toggle active" data-target="product-management">Product Management</button>
-          <button class="skill-toggle" data-target="technical-skills">Technical Skills</button>
-          <button class="skill-toggle" data-target="tools-platforms">Tools &amp; Platforms</button>
         </div>
-        <div class="skills-content">
-          <div id="product-management" class="skill-category active">
-            <span class="skill-pill">Product Strategy & Vision</span><span class="skill-pill">Product Discovery & Validation</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">Feature Prioritization</span><span class="skill-pill">Agile & Scrum</span><span class="skill-pill">Stakeholder Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Competitive Analysis & Market Research</span><span class="skill-pill">Customer Discovery</span><span class="skill-pill">Customer Journey Mapping</span><span class="skill-pill">User Experience (UX) Design Principles</span><span class="skill-pill">OKRs & KPI Tracking</span><span class="skill-pill">Go-To-Market (GTM) Strategy</span><span class="skill-pill">Pricing & Monetization Strategies</span><span class="skill-pill">Cross-functional Team Leadership</span><span class="skill-pill">Wireframing & Prototyping</span><span class="skill-pill">MVP Execution</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">Lean Strategy</span>
-          </div>
-          <div id="technical-skills" class="skill-category">
-            <span class="skill-pill">Generative AI & LLM Implementation</span><span class="skill-pill">Machine Learning & AI Fundamentals</span><span class="skill-pill">Python</span><span class="skill-pill">SQL & Database Management</span><span class="skill-pill">API Design & Integration</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">OpenAI APIs</span><span class="skill-pill">FastAPI</span><span class="skill-pill">NLP / LLM Tuning</span><span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">React</span><span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span><span class="skill-pill">Technical Documentation (PRD/BRD)</span><span class="skill-pill">Agile SDLC</span>
-          </div>
-          <div id="tools-platforms" class="skill-category">
-            <span class="skill-pill">JIRA</span><span class="skill-pill">Git & GitHub</span><span class="skill-pill">Amplitude / Mixpanel</span><span class="skill-pill">Maze / Hotjar</span><span class="skill-pill">Figma / Adobe XD</span><span class="skill-pill">Miro / FigJam</span><span class="skill-pill">Confluence / Notion</span><span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span><span class="skill-pill">Postman</span><span class="skill-pill">Slack / Teams</span><span class="skill-pill">Google Analytics (GA4)</span>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="container" data-aos="fade-up" data-aos-delay="200">
-      <div class="radio-cards" data-target="sections">
-        <div class="radio-card active" data-id="offer">
-          <i class="fas fa-lightbulb"></i>
-          <h3>What I Offer</h3>
-        </div>
-        <div class="radio-card" data-id="experience">
-          <i class="fas fa-briefcase"></i>
-          <h3>Experience</h3>
-        </div>
-        <div class="radio-card" data-id="case-studies">
-          <i class="fas fa-clipboard-list"></i>
-          <h3>Case Studies</h3>
-        </div>
-      </div>
-
-      <div class="dynamic-content" data-target="sections">
-        <div id="offer" class="active">
-          <h2>Core Expertise</h2>
-          <div class="offer-cards">
-            <div class="offer-card card"> <i class="fas fa-brain"></i> <div class="card-content">
-                    <h3>AI Product Strategy</h3>
-                    <p>Defining vision and roadmaps for AI/ML products, leveraging data for market fit and competitive advantage.</p>
-                </div>
-                 <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Strategy</a></div>
-            </div>
-             <div class="offer-card card">
-                 <i class="fas fa-users"></i> <div class="card-content">
-                    <h3>User-Centric Discovery</h3>
-                    <p>Conducting deep user research, validation, and usability testing to ensure products solve real problems.</p>
-                 </div>
-                 <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Talk Users</a></div>
-            </div>
-             <div class="offer-card card">
-                 <i class="fas fa-chart-line"></i> <div class="card-content">
-                    <h3>Data-Driven Decisions</h3>
-                    <p>Utilizing analytics (Mixpanel, Amplitude) and A/B testing to inform prioritization and optimize features.</p>
-                 </div>
-                  <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Analyze Data</a></div>
-            </div>
-             <div class="offer-card card">
-                  <i class="fas fa-rocket"></i> <div class="card-content">
-                     <h3>Agile Execution</h3>
-                     <p>Leading cross-functional teams using Agile/Scrum for rapid prototyping, MVP development, and iterative delivery.</p>
-                  </div>
-                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Plan Execution</a></div>
-             </div>
-              <div class="offer-card card">
-                  <i class="fas fa-comments"></i> <div class="card-content">
-                     <h3>Stakeholder Alignment</h3>
-                     <p>Communicating product vision, progress, and trade-offs effectively across technical and business teams.</p>
-                  </div>
-                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Align Teams</a></div>
-             </div>
-              <div class="offer-card card">
-                  <i class="fas fa-seedling"></i> <div class="card-content">
-                     <h3>Growth & GTM</h3>
-                     <p>Developing Go-To-Market strategies, defining KPIs, and iterating based on market feedback for growth.</p>
-                  </div>
-                   <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Growth</a></div>
-             </div>
-          </div>
-        </div>
-
-        <div id="experience">
-          <h2>Professional Journey</h2>
-          <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                <div class="timeline-content">
-                  <h3>Assistant Manager <em>Power Finance Corp. (Jun '23 – Present)</em></h3>
-                  <ul>
-                    <li>Built financial analytics dashboards for ₹15,000+ Cr infrastructure portfolios, <strong>enhancing risk visibility and achieving 12+ hours monthly savings</strong> in manual processes.</li>
-                    <li>Deployed NLP-driven automated credit scoring models, improving <strong>early risk detection and reducing defaults by 20%, positively impacting profitability.</strong></li>
-                    <li>Orchestrated <strong>cross-functional collaboration</strong> enabling executive-level strategic decision-making through actionable insights.</li>
-                  </ul>
+    <section id="loom-demo">
+        <div class="container">
+            <h2 class="reveal">🔍 See It in Action</h2>
+            <div class="loom-embed-container reveal"> <div class="loom-responsive-wrapper">
+                    <iframe
+                        src="https://www.loom.com/embed/24f21454ed83463db517da0fc7045a2f?sid=1223df7d-fdb3-4d11-9a33-b38da8bcf922"
+                        frameborder="0"
+                        webkitallowfullscreen
+                        mozallowfullscreen
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                <div class="timeline-content">
-                  <h3>Co-Founder & Product Lead <em>Brahmagupta Edu (Jan '21 – Aug '21)</em></h3>
-                  <ul>
-                    <li>Conceptualized and launched an AI-driven adaptive learning platform, <strong>achieving a 40% boost in user engagement</strong> and a 30% reduction in content delivery costs.</li>
-                    <li>Directed an 11-member agile team through ideation, validation, MVP development, and scaling, driving <strong>50% YoY revenue growth.</strong></li>
-                    <li>Integrated <strong>predictive analytics</strong> into digital marketing strategies, <strong>enhancing customer acquisition by 60%.</strong></li>
-                  </ul>
-                </div>
-            </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                <div class="timeline-content">
-                  <h3>Product Associate <em>Pigeon Education (Jan '20 – Dec '20)</em></h3>
-                  <ul>
-                    <li>Led product development of an AI-powered live education platform, <strong>increasing student participation metrics by over 80%.</strong></li>
-                    <li>Implemented ML algorithms to automate grading, <strong>reducing operational overhead by 40%.</strong></li>
-                    <li>Partnered with engineering/design to refine UX/UI, resulting in <strong>successful early-stage investor interest.</strong></li>
-                  </ul>
-                </div>
-            </div>
-          </div>
-
-           <h2 style="margin-top: var(--space-xxl);">Internships & Achievements</h2>
-           <div class="timeline">
-             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                 <div class="timeline-content">
-                   <h3>Product Marketing Intern <em>GSK Pharmaceuticals, Mumbai (Apr '22 – Jun '22)</em></h3>
-                   <ul>
-                     <li>Automated competitor market intelligence with NLP/BI tools, <strong>cutting research time by 30%</strong> and enhancing strategic responsiveness.</li>
-                   </ul>
-                 </div>
-             </div>
-             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                 <div class="timeline-content">
-                   <h3>Software Development Intern <em>Amdocs India LLP, Pune (May '19 – Aug '19)</em></h3>
-                   <ul>
-                     <li>Developed an ML-based recruitment platform improving <strong>candidate-job matching accuracy by 45%.</strong></li>
-                     <li>Implemented blockchain and NLP-based resume parsing solutions.</li>
-                   </ul>
-                 </div>
-             </div>
-             <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
-                 <div class="timeline-content">
-                   <h3>Achievements & Certifications</h3>
-                   <ul>
-                     <li><strong>NTSE Scholar</strong> – Awarded to top 0.5% students nationwide</li>
-                     <li><strong>PSPO II & Certified ScrumMaster® (CSM)</strong></li>
-                     <li>National Finalist – Tekion PM Case Competition & WITDA Case Challenge (2022)</li>
-                   </ul>
-                 </div>
-             </div>
-           </div>
         </div>
-
-        <div id="case-studies">
-          <h2>Selected Case Studies</h2>
-           <div class="offer-cards"> <div class="offer-card card">
-               <i class="fas fa-bus"></i>
-               <div class="card-content">
-                    <h3>Bus Buddy</h3>
-                    <p>Post-Covid mobility solution for bus ticket booking and rentals.</p>
-               </div>
-               <div class="card-footer"><a href="assets/Bus Buddy.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-              <div class="offer-card card">
-               <i class="fas fa-robot"></i>
-               <div class="card-content">
-                    <h3>AI in Fintech</h3>
-                    <p>Using AI for credit assessments and micro-loan offerings in digital payments.</p>
-               </div>
-               <div class="card-footer"><a href="assets/Incedo - AI in Fintech.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-             <div class="offer-card card">
-               <i class="fas fa-mobile-alt"></i>
-               <div class="card-content">
-                    <h3>Digital Payments Strategy</h3>
-                    <p>Developing a unique USP for PhonePe to enhance engagement.</p>
-               </div>
-               <div class="card-footer"><a href="assets/PhonePe.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-              <div class="offer-card card">
-               <i class="fas fa-utensils"></i>
-               <div class="card-content">
-                    <h3>Restaurant Booking App</h3>
-                    <p>Redefining dine-out with seamless booking and integrated payments.</p>
-                </div>
-               <div class="card-footer"><a href="assets/Restaurant table booking App.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-              <div class="offer-card card">
-               <i class="fas fa-car"></i>
-                <div class="card-content">
-                    <h3>Tekion: EV Strategy</h3>
-                    <p>Frameworks and roadmaps to tackle EV range anxiety and financing.</p>
-                </div>
-                <div class="card-footer"><a href="assets/Tekion_IIM Indore.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
-             </div>
-           </div>
-        </div>
-      </div>
+    </section>
+    <section id="cta">
+        <div class="container">
+            <h2>Ready to Taste the Future of Food Discovery?</h2>
+             <p>Experience how MoodBite connects your feelings with your next favorite meal.</p>
+            <a href="https://moodbite.sabyasachimishra.dev/" target="_blank" rel="noopener noreferrer" class="btn" id="mainCtaButton">Try the Live Demo Now</a>
+            </div>
     </section>
 
-    <section class="container" id="contact" data-aos="fade-up" data-aos-delay="250">
-      <h2>Get In Touch</h2>
-      <form class="contact-form" action="https://formspree.io/f/mblgzrad" method="POST">
-        <div class="contact-row">
-          <div class="contact-col">
-            <div class="form-group">
-              <label for="name" class="visually-hidden">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Your Name" required />
-            </div>
-            <div class="form-group">
-              <label for="contactNo" class="visually-hidden">Your Contact No</label>
-              <input type="tel" id="contactNo" name="contact" placeholder="Your Contact No" />
-            </div>
-            <div class="form-group">
-              <label for="email" class="visually-hidden">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="Your Email" required />
-            </div>
-          </div>
-          <div class="contact-col">
-            <div class="form-group">
-              <label for="subject" class="visually-hidden">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="Subject" required />
-            </div>
-            <div class="form-group">
-              <label for="message" class="visually-hidden">Message</label>
-              <textarea id="message" name="message" placeholder="Enter your message..." required></textarea>
-            </div>
-          </div>
+    <footer id="footer">
+        <div class="container">
+              <p class="footer-text">Developed by Sabyasachi Mishra</p>
+              <div class="social-links">
+                    <a href="https://linkedin.com/in/sabyasachi-mishra" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" id="linkedinLink"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.3rem;"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></span> LinkedIn</a>
+                    <a href="https://github.com/iamsabyasachi" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" id="githubLink"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.3rem;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></span> GitHub</a>
+                    </div>
         </div>
-        <div class="form-button">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
-      </form>
-    </section>
-
-    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      AOS.init({
-        duration: 600, // Slightly faster
-        easing: 'ease-in-out-quad', // Smoother easing
-        once: true, // Animate only once
-        offset: 50 // Trigger animations slightly earlier
-      });
-    </script>
+    </footer>
 
     <script>
-      const skillToggles = document.querySelectorAll('.skill-toggle');
-      const skillCategories = document.querySelectorAll('.skill-category');
-
-      skillToggles.forEach(button => {
-        button.addEventListener('click', () => {
-          // Update active button state
-          skillToggles.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-
-          // Update active category display
-          const targetId = button.getAttribute('data-target');
-          skillCategories.forEach(cat => {
-            cat.classList.toggle('active', cat.id === targetId);
-            // Re-trigger fade-in animation for pills in the active category
-             if (cat.id === targetId) {
-                 cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                     pill.style.animation = 'none'; // Reset animation
-                     pill.offsetHeight; /* Trigger reflow */
-                     pill.style.animation = `fadeIn 0.5s ease forwards ${index * 0.03}s`; // Staggered fade-in
+        // Helper function to send GA events
+        function trackEvent(category, label, action = 'click') {
+             if (typeof gtag === 'function') {
+                 gtag('event', action, {
+                     'event_category': category,
+                     'event_label': label
                  });
+                 // console.log(`Tracked Event: Action=${action}, Category=${category}, Label=${label}`);
+             } else {
+                 console.warn('gtag function not found. Analytics disabled.');
              }
-          });
-        });
-      });
-        // Initialize the first category pills animation
-        document.querySelector('.skill-category.active').querySelectorAll('.skill-pill').forEach((pill, index) => {
-             pill.style.animation = `fadeIn 0.5s ease forwards ${index * 0.03}s`;
-         });
-    </script>
+        }
 
-    <script>
-       // Helper function to get the current slide index based on transform value
-       function getCurrentSlideIndex(carousel) {
-         const transformValue = carousel.style.transform;
-         if (transformValue && transformValue.includes("translateX(")) {
-           const match = transformValue.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
-           if (match) {
-               // Ensure division by 100 doesn't cause floating point issues for index
-               return Math.round(parseFloat(match[1]) / 100);
-           }
-         }
-         return 0;
-       }
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Elements ---
+            const micButton = document.getElementById('micButton');
+            const resultsArea = document.getElementById('results-area');
+            const heroCtaButton = document.getElementById('heroCtaButton');
+            const mainCtaButton = document.getElementById('mainCtaButton');
+            const linkedinLink = document.getElementById('linkedinLink');
+            const githubLink = document.getElementById('githubLink');
 
-       function initCarousel(carouselId, dotsId) {
-         const carousel = document.getElementById(carouselId);
-         if (!carousel) return; // Exit if carousel not found
-         const dotsContainer = document.getElementById(dotsId);
-         const slides = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')); // Ensure we only count items
-         const totalSlides = slides.length;
-
-         if (totalSlides <= 1) { // Hide nav/dots if only one slide
-             const nav = carousel.parentElement.querySelector('.carousel-nav');
-             if (nav) nav.style.display = 'none';
-             if (dotsContainer) dotsContainer.style.display = 'none';
-             return;
-         }
-
-         if (dotsContainer) {
-            dotsContainer.innerHTML = ''; // Clear existing dots
-            for (let i = 0; i < totalSlides; i++) {
-              const dot = document.createElement('span');
-              dot.addEventListener('click', () => setSlide(carouselId, dotsId, i));
-              dotsContainer.appendChild(dot);
+            // --- Typewriter Function ---
+            function typewriter(element, text, speed = 40) { // Slightly faster speed
+                element.innerHTML = ''; // Clear previous text
+                element.classList.add('typewriter-text');
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        element.classList.remove('typewriter-text'); // Remove cursor when done
+                         // Optionally trigger next step after typing finishes
+                    }
+                }
+                type();
             }
-         }
 
-         // Initialize the transform if not set
-         if (!carousel.style.transform) {
-           carousel.style.transform = "translateX(0%)";
-         }
-         updateDots(dotsId, 0); // Activate first dot initially
-       }
+            // --- Simulate Voice Input & Display Results ---
+            // NOTE: This uses a simple 'prompt' for demonstration.
+            // A real implementation would use the Web Speech API (navigator.mediaDevices.getUserMedia and SpeechRecognition).
+             micButton.addEventListener('click', () => {
+                 trackEvent('engagement', 'mic_button_click');
+                 // Simulate voice input with a prompt
+                 const userInput = prompt("What are you craving or how are you feeling?\n(e.g., 'spicy noodles', 'something comforting', 'feeling happy')");
 
-       function updateDots(dotsId, index) {
-           const dotsContainer = document.getElementById(dotsId);
-           if (!dotsContainer) return;
-           [...dotsContainer.children].forEach((dot, i) => {
-             dot.classList.toggle('active', i === index);
-           });
-       }
+                 if (userInput && userInput.trim() !== '') {
+                     trackEvent('engagement', 'mic_input_submitted', 'submit');
 
-       function setSlide(carouselId, dotsId, index) {
-         const carousel = document.getElementById(carouselId);
-         if (!carousel) return;
-         carousel.style.transform = `translateX(-${index * 100}%)`;
-         updateDots(dotsId, index);
-       }
+                     // 1. Clear previous results & make area visible
+                     resultsArea.innerHTML = '';
+                     resultsArea.classList.remove('visible');
+                      void resultsArea.offsetWidth; // Force reflow for transition
+                      resultsArea.classList.add('visible');
 
-       function nextSlide(carouselId, dotsId) {
-         const carousel = document.getElementById(carouselId);
-         if (!carousel) return;
-         const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
-         let index = getCurrentSlideIndex(carousel);
-         index = (index + 1) % total;
-         setSlide(carouselId, dotsId, index);
-       }
+                     // 2. Show transcript message with typewriter
+                     const transcriptElement = document.createElement('p');
+                      transcriptElement.className = 'transcript'; // Style for transcript
+                     resultsArea.appendChild(transcriptElement);
+                     const transcriptText = `You said: "${userInput}"`;
+                     typewriter(transcriptElement, transcriptText, 30); // Use typewriter here
 
-       function prevSlide(carouselId, dotsId) {
-         const carousel = document.getElementById(carouselId);
-          if (!carousel) return;
-         const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
-         let index = getCurrentSlideIndex(carousel);
-         index = (index - 1 + total) % total;
-         setSlide(carouselId, dotsId, index);
-       }
 
-       // Initialize all carousels on load
-       window.addEventListener('load', () => {
-         initCarousel('carousel-projects', 'dots-projects');
-         initCarousel('carousel-blogs', 'dots-blogs');
-       });
-    </script>
+                     // 3. Add loading/searching indicator
+                      const searchingElement = document.createElement('p');
+                      searchingElement.textContent = 'Finding perfect matches...';
+                      searchingElement.style.marginTop = '1rem';
+                      searchingElement.style.fontStyle = 'italic';
+                      searchingElement.style.color = 'var(--text-color)';
+                      resultsArea.appendChild(searchingElement);
 
-    <script>
-      // --- Radio toggle code ---
-      const radioCardContainer = document.querySelector('.radio-cards[data-target="sections"]');
-      const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
 
-      if (radioCardContainer && radioContentContainer) {
-          const radioCards = radioCardContainer.querySelectorAll('.radio-card');
-          radioCards.forEach(card => {
-            card.addEventListener('click', () => {
-              radioCards.forEach(c => c.classList.remove('active'));
-              card.classList.add('active');
-              radioContentContainer.querySelectorAll(':scope > div').forEach(div => div.classList.remove('active'));
-              const targetId = card.getAttribute('data-id');
-              const targetDiv = document.getElementById(targetId);
-              if (targetDiv) targetDiv.classList.add('active');
-              // Optional: Re-initialize AOS for newly revealed content if needed
-              // AOS.refresh();
+                     // 4. Simulate fetching and display results after a delay
+                     // --- IMPORTANT: Replace this section with actual API call and data handling ---
+                     setTimeout(() => {
+                           // Remove searching indicator
+                           if (resultsArea.contains(searchingElement)) {
+                               resultsArea.removeChild(searchingElement);
+                           }
+
+                          const resultsGrid = document.createElement('div');
+                          resultsGrid.className = 'results-grid';
+
+                          // *** Placeholder Data & Images for Results ***
+                          // You'd fetch real data/images based on 'userInput' here
+                           const resultImages = ['foodimg1.jpg', 'foodimg2.jpg', 'foodimg3.jpg']; // Use your actual image paths
+                           const resultTitles = ['Spicy Comfort Noodles', 'Happy Vibe Pizza', 'Relaxing Veggie Bowl']; // Example titles
+                           const resultDescs = ['Perfect for a cold day.', 'Cheese and joy guaranteed.', 'Healthy and calming.'];
+
+                          resultImages.forEach((imgName, index) => {
+                               const card = document.createElement('div');
+                               card.className = 'result-card';
+
+                               const img = document.createElement('img');
+                               // --- Placeholder Image Handling ---
+                               // Ideally, replace `./${imgName}` with actual URLs from your API
+                               img.src = `./${imgName}`; // ASSUMES images are in the same folder
+                               img.alt = `Food suggestion: ${resultTitles[index % resultTitles.length]}`;
+                               // Basic error handling for placeholder images
+                               img.onerror = function() {
+                                    this.alt = `Image not found: ${resultTitles[index % resultTitles.length]}`;
+                                    this.style.display = 'none'; // Hide broken image icon
+                                    // Optionally add text indication in the card content
+                                    const errorText = document.createElement('p');
+                                    errorText.textContent = '[Image unavailable]';
+                                    errorText.style.textAlign = 'center';
+                                    errorText.style.padding = '20px 0';
+                                    card.insertBefore(errorText, content); // Add before content
+                               };
+
+                               const content = document.createElement('div');
+                               content.className = 'card-content';
+                               const title = document.createElement('h4');
+                               title.textContent = resultTitles[index % resultTitles.length]; // Cycle through titles
+                               const desc = document.createElement('p');
+                               desc.textContent = resultDescs[index % resultDescs.length]; // Cycle through descriptions
+
+                               content.appendChild(title);
+                               content.appendChild(desc);
+                               card.appendChild(img);
+                               card.appendChild(content);
+                               resultsGrid.appendChild(card);
+                          });
+
+                          resultsArea.appendChild(resultsGrid);
+
+                          // Scroll results into view smoothly
+                           resultsArea.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll to center of results
+
+                     }, transcriptText.length * 30 + 1500); // Delay based on typing + mock fetch time
+
+                 } else if (userInput !== null) { // User submitted empty string
+                     trackEvent('engagement', 'mic_input_empty', 'submit');
+                     alert("Please tell me what you're craving or feeling!");
+                      resultsArea.classList.remove('visible'); // Hide if empty
+                 } else { // User cancelled the prompt
+                     trackEvent('engagement', 'mic_input_cancelled', 'cancel');
+                     resultsArea.classList.remove('visible'); // Hide if cancelled
+                 }
+             });
+
+
+            // --- CTA Buttons & Links Click Tracking ---
+            heroCtaButton.addEventListener('click', () => {
+                trackEvent('engagement', 'hero_cta_button_click', heroCtaButton.href.includes('#') ? 'scroll_link' : 'outbound_link');
             });
-          });
-      }
 
-      // --- Auto-hide/show bottom bar on scroll ---
-      let lastScrollY = window.pageYOffset;
-      const bottomBar = document.getElementById('bottomBar');
-      const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
+            mainCtaButton.addEventListener('click', () => {
+                trackEvent('engagement', 'main_cta_button_click', mainCtaButton.href.includes('#') ? 'scroll_link' : 'outbound_link');
+            });
 
-      window.addEventListener('scroll', () => {
-          if (!bottomBar) return; // Exit if bottom bar doesn't exist
+            linkedinLink.addEventListener('click', () => {
+                trackEvent('outbound', 'linkedin_link_click');
+            });
 
-          const currentScrollY = window.pageYOffset;
-          const scrollDifference = currentScrollY - lastScrollY;
+            githubLink.addEventListener('click', () => {
+                trackEvent('outbound', 'github_link_click');
+            });
 
-          // Hide on scroll down
-          if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-             bottomBar.classList.remove('visible');
-          }
-          // Show on scroll up or near top
-          else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
-             bottomBar.classList.add('visible');
-          }
 
-          lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY; // For Mobile or negative scrolling
-      }, { passive: true }); // Use passive listener for performance
+            // --- Scroll Reveal Animations using Intersection Observer ---
+            const revealElements = document.querySelectorAll('.reveal');
 
-      // Show initially if near top on load
-      if (window.pageYOffset <= 10 && bottomBar) {
-          bottomBar.classList.add('visible');
-      }
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        let delay = 0;
+                         const target = entry.target;
 
-    </script>
+                        // Calculate staggered delay based on element type and position within its container
+                         if (target.classList.contains('demo-card') || target.classList.contains('step') || target.classList.contains('feature-item')) {
+                            // Find siblings of the same type within the *same parent* for accurate indexing
+                            const parent = target.parentNode;
+                            const siblings = Array.from(parent.children).filter(el => el.classList.contains(target.classList[0])); // Assumes first class is the type identifier
+                            const index = siblings.indexOf(target);
 
-    <script>
-       const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+                            if (target.classList.contains('demo-card')) {
+                                delay = index * 150; // Stagger demo cards
+                            } else if (target.classList.contains('step')) {
+                                delay = index * 100; // Stagger steps
+                            } else if (target.classList.contains('feature-item')) {
+                                // Simple row/column stagger (adjust based on final grid columns)
+                                const itemsPerRow = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3); // Estimate columns based on viewport
+                                delay = (index % itemsPerRow) * 100 + Math.floor(index / itemsPerRow) * 50;
+                            }
+                         }
+                         // No specific stagger delay for the Loom container or H2 title, they use the base transition
 
-       window.addEventListener('scroll', () => {
-         if (window.pageYOffset > 300) { // Show button after scrolling 300px
-           scrollToTopBtn.classList.add('show');
-         } else {
-           scrollToTopBtn.classList.remove('show');
-         }
-       }, { passive: true });
+                        target.style.transitionDelay = `${delay}ms`; // Apply delay dynamically
+                        target.classList.add('active'); // Trigger the animation (CSS handles the transition)
 
-       scrollToTopBtn.addEventListener('click', () => {
-         window.scrollTo({
-           top: 0,
-           behavior: 'smooth'
-         });
-       });
+                        // Optional: Unobserve after reveal to prevent re-animation
+                        // observer.unobserve(target);
+                    }
+                    // Optional: Reset on scroll out (uncomment to re-animate when scrolling back up)
+                    // else {
+                    //     entry.target.classList.remove('active');
+                    //     entry.target.style.transitionDelay = '0ms'; // Reset delay
+                    // }
+                });
+            }, {
+                threshold: 0.1, // Trigger when 10% is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before it's fully in view from the bottom
+            });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+        });
     </script>
 
 </body>

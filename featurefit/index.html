@@ -1,607 +1,1099 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FeatureFit | AI-Powered Feature Prioritization Tool for Product Managers. Make data-driven decisions with RICE scoring, risk analysis, MVP roadmaps, and monetization strategies.">
+    <meta name="keywords" content="feature prioritization, product management, AI, RICE score, roadmap, MVP, SaaS, product strategy">
+    <title>FeatureFit | AI-Powered Feature Prioritization</title>
 
-  gtag('config', 'G-YBR866PTCR');
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI-powered feature prioritization tool for product managers">
-  <title>FeatureFit | AI-Powered Feature Prioritization</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #4F46E5;
-      --primary-dark: #4338CA;
-      --secondary: #10B981;
-      --accent: #F59E0B;
-      --background: #F3F4F6;
-      --text: #1F2937;
-      --text-light: #6B7280;
-      --white: #FFFFFF;
-    }
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    nav {
-      background: var(--white);
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YBR866PTCR');
+    </script>
 
-    .logo {
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    <style>
+      /* ------------------------- */
+      /* ----- CSS Variables ----- */
+      /* ------------------------- */
+      :root {
+        --primary: #4F46E5; /* Indigo */
+        --primary-dark: #4338CA;
+        --primary-light: #6366F1;
+        --secondary: #10B981; /* Emerald */
+        --accent: #F59E0B; /* Amber */
+        --accent-dark: #D97706;
+        --background: #F3F4F6; /* Cool Gray 100 */
+        --background-alt: #FFFFFF; /* White */
+        --text-dark: #1F2937; /* Cool Gray 800 */
+        --text-medium: #4B5563; /* Cool Gray 600 */
+        --text-light: #6B7280; /* Cool Gray 500 */
+        --white: #FFFFFF;
+        --border-color: #E5E7EB; /* Cool Gray 200 */
 
-    .logo i {
-      font-size: 1.8rem;
-    }
+        --header-height: 70px; /* Define header height for scroll padding */
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
+        /* Transitions */
+        --transition-fast: all 0.2s ease-in-out;
+        --transition-medium: all 0.3s ease-in-out;
+        --transition-slow: all 0.5s ease-out;
 
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      text-align: center;
-      padding: 6rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      animation: moveBackground 30s linear infinite;
-      opacity: 0.1;
-    }
-
-    @keyframes moveBackground {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-50%, -50%); }
-    }
-
-    .hero-content {
-      max-width: 800px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 4.5rem;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 1s ease;
-      background: linear-gradient(120deg, #ffffff 0%, #f0f0f0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-      animation: fadeInUp 1s ease 0.2s backwards;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .feature-section {
-      padding: 8rem 2rem;
-      background: var(--white);
-      position: relative;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--text);
-      margin-bottom: 4rem;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-      border-radius: 2px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .feature-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .feature-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .feature-card h3 {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-
-    .feature-card i {
-      font-size: 1.8rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .feature-card p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .testimonials {
-      padding: 8rem 2rem;
-      background: linear-gradient(135deg, var(--background) 0%, #ffffff 100%);
-      position: relative;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: -20px;
-      left: 20px;
-      font-size: 5rem;
-      color: var(--primary);
-      opacity: 0.2;
-      font-family: serif;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .testimonial-card p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-card strong {
-      color: var(--primary);
-      font-size: 1rem;
-    }
-
-    .cta {
-      margin: 6rem auto;
-      text-align: center;
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 24px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-      max-width: 1200px;
-    }
-
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.1;
-    }
-
-    .cta h2 {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-
-    .cta p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: var(--accent);
-      color: var(--white);
-      padding: 1.2rem 2.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-button i {
-      transition: transform 0.3s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      background: #E67E22;
-    }
-
-    .cta-button:hover i {
-      transform: translateX(5px);
-    }
-
-    footer {
-      background: var(--text);
-      color: var(--white);
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .social-links {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .social-links a {
-      color: var(--white);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-      opacity: 0.8;
-      position: relative;
-    }
-
-    .social-links a::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-      bottom: -5px;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links a:hover {
-      opacity: 1;
-      transform: translateY(-3px);
-    }
-
-    .social-links a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .loading {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--white);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      animation: fadeOut 0.5s ease 2s forwards;
-    }
-
-    .loading-spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid var(--background);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
       }
 
-      .hero h1 {
-        font-size: 3rem;
+      /* ------------------------- */
+      /* ----- Base & Reset ------ */
+      /* ------------------------- */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      .hero p {
-        font-size: 1.2rem;
+      html {
+        font-size: 16px; /* Base font size */
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-height); /* Offset for fixed header */
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background);
+        color: var(--text-medium);
+        line-height: 1.7;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ------------------------- */
+      /* --- Utility Classes ----- */
+      /* ------------------------- */
+      .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .section {
+        padding: 6rem 0; /* Consistent vertical padding */
       }
 
       .section-title {
-        font-size: 2rem;
+        font-size: 2.5rem; /* 40px */
+        font-weight: 800;
+        color: var(--text-dark);
+        text-align: center;
+        margin-bottom: 1rem;
+        position: relative;
       }
 
-      .feature-card,
+      .section-subtitle {
+        font-size: 1.125rem; /* 18px */
+        color: var(--text-light);
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 4rem auto;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px; /* Increased spacing */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px; /* Slightly shorter */
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        border-radius: 2px;
+      }
+
+      /* Make embedded images/videos responsive */
+      img, video, iframe {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--text-dark);
+        line-height: 1.3;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition-fast);
+      }
+
+      a:hover {
+        color: var(--primary-dark);
+      }
+
+      /* ------------------------- */
+      /* -------- Header --------- */
+      /* ------------------------- */
+      .header {
+        background-color: var(--white);
+        padding: 0 2rem; /* Use padding instead of height for flexibility */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-medium);
+        height: var(--header-height);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%; /* Ensure navbar fills header height */
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-weight: 800;
+        font-size: 1.5rem; /* 24px */
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .logo i {
+        font-size: 1.8rem; /* 28px */
+        color: var(--secondary); /* Use secondary color for icon */
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem; /* Increased gap */
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-medium);
+        font-weight: 500;
+        position: relative;
+        padding: 0.5rem 0; /* Add padding for larger click area */
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus { /* Added focus state */
+        color: var(--primary);
+        outline: none; /* Remove default focus outline if custom is provided */
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus::after {
+        transform: scaleX(1);
+      }
+
+      /* Mobile Nav - Hidden for now, following original design */
+      .mobile-nav-toggle {
+          display: none; /* Hide hamburger menu on desktop */
+          /* Add styles for hamburger icon if implemented */
+      }
+
+      /* ------------------------- */
+      /* ---------- Hero --------- */
+      /* ------------------------- */
+      .hero {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        min-height: 100vh; /* Full viewport height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-align: center;
+        padding: calc(var(--header-height) + 4rem) 2rem 4rem; /* Adjust padding for fixed header */
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle background pattern */
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0; /* Covers entire section */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 40px 40px; /* Smaller pattern */
+        animation: moveBackground 60s linear infinite; /* Slower animation */
+        opacity: 0.5; /* Slightly more visible */
+        z-index: 0;
+      }
+
+      @keyframes moveBackground {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-50%, -50%); }
+      }
+
+      .hero-content {
+        max-width: 800px;
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease-out forwards; /* Initial animation */
+      }
+
+      .hero h1 {
+        font-size: 4rem; /* Slightly smaller for balance */
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: var(--white); /* Solid white for better contrast */
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+      }
+
+      .hero p {
+        font-size: 1.25rem; /* 20px */
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 600px; /* Constrain line length */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* General animation keyframes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ------------------------- */
+      /* -------- Button --------- */
+      /* ------------------------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 0.9rem 2rem; /* Adjusted padding */
+        border-radius: 8px; /* Standardized border radius */
+        font-weight: 600;
+        font-size: 1.1rem; /* Slightly larger */
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        transition: var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn i {
+        transition: transform 0.3s ease;
+      }
+
+      .btn:hover i {
+         transform: translateX(3px); /* Subtle icon move */
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--white);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .btn-accent {
+        background-color: var(--accent);
+        color: var(--white);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-accent:hover {
+        background-color: var(--accent-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* ------------------------- */
+      /* --- Features Section ---- */
+      /* ------------------------- */
+      #features {
+        background-color: var(--background-alt); /* White background */
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem; /* Increased gap */
+      }
+
+      .feature-card {
+        background-color: var(--white);
+        border-radius: 12px; /* Softer radius */
+        padding: 2.5rem; /* More padding */
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-medium);
+        border: 1px solid var(--border-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle top border highlight on hover */
+       .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+       .feature-card:hover::before {
+         transform: scaleX(1);
+       }
+
+      .feature-card h3 {
+        display: flex;
+        align-items: center;
+        gap: 1rem; /* Increased gap */
+        font-size: 1.375rem; /* 22px */
+        margin-bottom: 1rem;
+        color: var(--text-dark); /* Darker heading */
+      }
+
+      .feature-card i {
+        font-size: 1.8rem; /* 28px */
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        width: 32px; /* Fixed width for alignment */
+        text-align: center;
+      }
+
+      .feature-card p {
+        color: var(--text-light);
+        font-size: 1rem; /* 16px */
+        line-height: 1.6;
+        margin-bottom: 0; /* Remove default bottom margin */
+      }
+
+      /* ------------------------- */
+      /* --- Video Section ------- */
+      /* ------------------------- */
+      #video-demo {
+         background-color: var(--background); /* Alternate background */
+      }
+
+      .video-container {
+        max-width: 960px; /* Max width for the video */
+        margin: 0 auto; /* Center the container */
+      }
+
+      .video-responsive-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 16px; /* Consistent radius */
+        box-shadow: var(--shadow-xl); /* More prominent shadow for focus */
+        margin-top: -1rem; /* Pull up slightly closer to title */
+      }
+
+      .video-responsive-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0; /* Remove iframe border */
+        border-radius: 16px; /* Match container radius */
+      }
+
+      /* ------------------------- */
+      /* -- Testimonials Section - */
+      /* ------------------------- */
+      #testimonials {
+        background-color: var(--background-alt); /* White background */
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle background shapes for visual interest */
+      #testimonials::before {
+          content: '';
+          position: absolute;
+          top: -50px;
+          left: -50px;
+          width: 200px;
+          height: 200px;
+          background: radial-gradient(circle, rgba(79, 70, 229, 0.05), transparent 70%);
+          border-radius: 50%;
+          z-index: 0;
+      }
+       #testimonials::after {
+          content: '';
+          position: absolute;
+          bottom: -80px;
+          right: -80px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.05), transparent 70%);
+          border-radius: 50%;
+          z-index: 0;
+      }
+
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        position: relative; /* Ensure grid is above pseudo-elements */
+        z-index: 1;
+      }
+
       .testimonial-card {
-        padding: 1.5rem;
+        background-color: var(--white);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+        position: relative;
+        transition: var(--transition-medium);
       }
 
-      .cta {
-        padding: 4rem 1.5rem;
-        margin: 4rem 1rem;
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
       }
 
-      .cta h2 {
-        font-size: 2rem;
+      /* Quote icon styling */
+      .testimonial-card::before {
+        content: '\f10d'; /* Font Awesome quote-left icon */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        font-size: 2.5rem; /* Smaller quote icon */
+        color: var(--primary);
+        opacity: 0.15; /* Slightly more visible */
+        z-index: 0;
       }
-    }
-  </style>
+
+      .testimonial-card p:first-of-type { /* Style the quote text */
+        font-size: 1.1rem;
+        font-style: italic;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+        position: relative; /* Ensure text is above quote icon */
+        z-index: 1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .testimonial-author img { /* Placeholder for author image */
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background-color: var(--border-color); /* Placeholder color */
+          object-fit: cover; /* In case you add real images */
+          border: 2px solid var(--white);
+          box-shadow: var(--shadow-sm);
+      }
+
+      .testimonial-author strong {
+        color: var(--text-dark);
+        font-weight: 600;
+        font-size: 1rem;
+        display: block; /* Ensure name and title stack */
+      }
+
+      .testimonial-author span {
+          color: var(--text-light);
+          font-size: 0.9rem;
+      }
+
+      /* ------------------------- */
+      /* ------ CTA Section ------ */
+      /* ------------------------- */
+      .cta-section {
+        padding: 0 2rem; /* Only horizontal padding */
+        margin-bottom: 6rem; /* Space before footer */
+      }
+
+      .cta-container {
+        text-align: center;
+        padding: 5rem 3rem; /* Generous padding */
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        border-radius: 16px; /* Consistent radius */
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        max-width: 1000px; /* Slightly narrower CTA */
+        margin: 0 auto; /* Center container */
+      }
+
+      /* Decorative elements */
+      .cta-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -20%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+        transform: rotate(45deg);
+        opacity: 0.5;
+      }
+       .cta-container::after {
+        content: '';
+        position: absolute;
+        bottom: -60%;
+        right: -30%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+        transform: rotate(-30deg);
+         opacity: 0.7;
+      }
+
+
+      .cta-container h2 {
+        font-size: 2.75rem; /* 44px */
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: var(--white);
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-container p {
+        font-size: 1.125rem; /* 18px */
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-container .btn-accent {
+         padding: 1rem 2.5rem; /* Larger CTA button padding */
+         font-size: 1.2rem; /* Larger font size */
+         position: relative;
+         z-index: 1;
+      }
+
+      /* ------------------------- */
+      /* -------- Footer --------- */
+      /* ------------------------- */
+      .footer {
+        background-color: var(--text-dark);
+        color: var(--background); /* Light text on dark background */
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .footer p {
+        color: var(--text-light); /* Slightly dimmer text for copyright */
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .social-links a {
+        color: var(--background); /* Match footer text color */
+        font-size: 1.5rem; /* Larger icons */
+        transition: var(--transition-medium);
+        opacity: 0.8;
+      }
+
+      .social-links a:hover {
+        opacity: 1;
+        color: var(--accent); /* Highlight with accent color */
+        transform: translateY(-3px);
+      }
+
+      /* ------------------------- */
+      /* ----- Preloader --------- */
+      /* ------------------------- */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      }
+
+      .loading-overlay.hidden {
+          opacity: 0;
+          visibility: hidden;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid var(--border-color); /* Lighter border */
+        border-top-color: var(--primary); /* Primary color spinner */
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* ------------------------- */
+      /* Scroll Animation Setup -- */
+      /* ------------------------- */
+      /* Elements to be animated on scroll */
+      .feature-card,
+      .testimonial-card,
+      .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(30px); /* Start slightly lower */
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      /* Style applied by JS when element is intersecting */
+      .feature-card.is-visible,
+      .testimonial-card.is-visible,
+      .animate-on-scroll.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+
+      /* ------------------------- */
+      /* ---- Media Queries ------ */
+      /* ------------------------- */
+      @media (max-width: 992px) {
+          .hero h1 {
+              font-size: 3.5rem; /* Adjust hero title */
+          }
+          .section-title {
+              font-size: 2.25rem; /* Adjust section title */
+          }
+          .cta-container h2 {
+              font-size: 2.25rem; /* Adjust CTA title */
+          }
+      }
+
+      @media (max-width: 768px) {
+        html {
+            font-size: 15px; /* Slightly smaller base font on smaller screens */
+        }
+
+        .nav-links {
+          display: none; /* Hide desktop nav links (as per original) */
+          /* Consider adding a hamburger menu toggle here */
+        }
+
+         .mobile-nav-toggle {
+            display: block; /* Show hamburger icon placeholder */
+            /* Add actual icon and styles */
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            background: none;
+            border: none;
+            cursor: pointer;
+         }
+
+        .hero {
+            min-height: auto; /* Adjust height */
+            padding-top: calc(var(--header-height) + 2rem);
+            padding-bottom: 3rem;
+        }
+
+        .hero h1 {
+          font-size: 2.75rem; /* Further adjust hero title */
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .section {
+            padding: 4rem 0; /* Reduce section padding */
+        }
+
+        .section-title {
+          font-size: 2rem; /* Further adjust section title */
+        }
+         .section-subtitle {
+            margin-bottom: 3rem;
+         }
+
+        .features-grid,
+        .testimonial-grid {
+          gap: 1.5rem; /* Reduce grid gap */
+        }
+
+        .feature-card,
+        .testimonial-card {
+          padding: 1.5rem; /* Reduce card padding */
+        }
+
+        .cta-container {
+            padding: 4rem 1.5rem; /* Adjust CTA padding */
+        }
+
+        .cta-container h2 {
+          font-size: 2rem; /* Further adjust CTA title */
+        }
+
+        .footer {
+            padding: 3rem 1rem; /* Adjust footer padding */
+        }
+      }
+
+       @media (max-width: 480px) {
+           html {
+               font-size: 14px; /* Even smaller base font */
+           }
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .cta-container h2 {
+                font-size: 1.75rem;
+            }
+            .cta-container p {
+                font-size: 1rem;
+            }
+       }
+
+    </style>
 </head>
 <body>
-  <div class="loading">
+
+  <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
   </div>
 
-  <nav>
-    <a href="#" class="logo">
-      <i class="fas fa-chart-network"></i>
-      FeatureFit
-    </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>FeatureFit</h1>
-      <p>Transform your product roadmap with AI-powered feature prioritization</p>
-      <a href="https://featurefit.sabyasachimishra.dev" target="_blank" class="cta-button">
-        Launch FeatureFit App
-        <i class="fas fa-rocket"></i>
+  <header class="header" id="header">
+    <nav class="navbar container">
+      <a href="#" class="logo" aria-label="FeatureFit Home">
+        <i class="fas fa-chart-line"></i> <span>FeatureFit</span>
       </a>
-    </div>
-  </section>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#video-demo">Demo</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#cta">Get Started</a></li>
+        </ul>
+       <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+           <i class="fas fa-bars"></i>
+       </button>
+    </nav>
+  </header>
 
   <main>
-    <section id="features" class="feature-section">
-      <h2 class="section-title">Powerful Features</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3><i class="fas fa-chart-line"></i> RICE Scoring</h3>
-          <p>Leverage AI to automatically calculate and justify Reach, Impact, Confidence, and Effort scores for your features.</p>
-        </div>
-        <div class="feature-card">
-          <h3><i class="fas fa-shield-alt"></i> Risk & SWOT</h3>
-          <p>Generate comprehensive risk matrices and SWOT analyses to make informed decisions before development.</p>
-        </div>
-        <div class="feature-card">
-          <h3><i class="fas fa-road"></i> MVP Roadmap</h3>
-          <p>Get AI-generated MVP strategies complete with success metrics and realistic timelines.</p>
-        </div>
-        <div class="feature-card">
-          <h3><i class="fas fa-coins"></i> Monetization Strategy</h3>
-          <p>Receive tailored pricing recommendations and monetization models based on your unique product and user base.</p>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Prioritize Features, Effortlessly.</h1>
+        <p>Stop guessing. Start shipping. FeatureFit uses AI to analyze user feedback, market trends, and business goals, giving you a clear, data-driven roadmap.</p>
+        <a href="https://featurefit.sabyasachimishra.dev" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+          Launch FeatureFit App
+          <i class="fas fa-rocket"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Unlock Powerful Insights</h2>
+        <p class="section-subtitle">Go beyond basic prioritization. FeatureFit provides a comprehensive toolkit for strategic product decisions.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3><i class="fas fa-calculator"></i> AI-Powered RICE</h3>
+            <p>Automatically calculate and justify Reach, Impact, Confidence, and Effort scores using AI analysis of your inputs.</p>
+          </div>
+          <div class="feature-card">
+            <h3><i class="fas fa-shield-halved"></i> Risk & SWOT Analysis</h3>
+            <p>Generate comprehensive risk matrices and SWOT analyses to proactively address challenges and opportunities.</p>
+          </div>
+          <div class="feature-card">
+            <h3><i class="fas fa-map-signs"></i> Strategic MVP Roadmap</h3>
+            <p>Get AI-generated MVP strategies, complete with key success metrics, dependencies, and realistic timelines.</p>
+          </div>
+          <div class="feature-card">
+            <h3><i class="fas fa-dollar-sign"></i> Smart Monetization</h3>
+            <p>Receive tailored pricing recommendations and monetization models based on feature value and user segments.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
-      <h2 class="section-title">What Our Users Say</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <p>"FeatureFit has revolutionized how we prioritize features. The AI-powered insights are incredibly accurate."</p>
-          <p><strong>- Sarah Chen, Product Manager</strong></p>
-        </div>
-        <div class="testimonial-card">
-          <p>"The RICE scoring automation alone has saved us countless hours of deliberation and spreadsheet work."</p>
-          <p><strong>- Mike Johnson, Startup Founder</strong></p>
-        </div>
-        <div class="testimonial-card">
-          <p>"Finally, a tool that combines data-driven decisions with practical implementation guidance."</p>
-          <p><strong>- Alex Rodriguez, Tech Lead</strong></p>
+    <section id="video-demo" class="section animate-on-scroll"> <div class="container">
+        <h2 class="section-title">🔍 See It in Action</h2>
+        <p class="section-subtitle">Watch a quick walkthrough to see how FeatureFit transforms your prioritization process in minutes.</p>
+        <div class="video-container">
+          <div class="video-responsive-wrapper">
+            <iframe
+              src="https://www.loom.com/embed/24f21454ed83463db517da0fc7045a2f?sid=1223df7d-fdb3-4d11-9a33-b38da8bcf922"
+              title="FeatureFit Demo Video"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <h2>Ready to Transform Your Product Strategy?</h2>
-      <p>Join thousands of product managers who are already using FeatureFit to build better products.</p>
-      <a href="https://featurefit.sabyasachimishra.dev" target="_blank" class="cta-button">
-        Launch FeatureFit App
-        <i class="fas fa-rocket"></i>
-      </a>
+    <section id="testimonials" class="section">
+      <div class="container">
+        <h2 class="section-title">Trusted by Product Leaders</h2>
+        <p class="section-subtitle">Hear directly from product managers and founders who've streamlined their workflow with FeatureFit.</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p>"FeatureFit has revolutionized how we prioritize. The AI insights for RICE scoring are incredibly accurate and save us hours."</p>
+            <div class="testimonial-author">
+                <img src="https://placehold.co/48x48/E5E7EB/6B7280?text=SC" alt="Sarah Chen"> <div>
+                    <strong>Sarah Chen</strong>
+                    <span>Product Manager @ TechCorp</span>
+                </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>"The automated risk analysis and MVP roadmapping are game-changers. We feel much more confident in our strategic decisions."</p>
+             <div class="testimonial-author">
+                <img src="https://placehold.co/48x48/E5E7EB/6B7280?text=MJ" alt="Mike Johnson"> <div>
+                    <strong>Mike Johnson</strong>
+                    <span>Startup Founder @ Innovate Solutions</span>
+                 </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>"Finally, a tool that connects prioritization directly to actionable strategy like monetization. Highly recommended!"</p>
+             <div class="testimonial-author">
+                 <img src="https://placehold.co/48x48/E5E7EB/6B7280?text=AR" alt="Alex Rodriguez"> <div>
+                    <strong>Alex Rodriguez</strong>
+                    <span>VP of Product @ Growth Inc.</span>
+                 </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <section id="cta" class="cta-section">
+      <div class="cta-container animate-on-scroll"> <h2>Ready to Build Products That Matter?</h2>
+        <p>Stop debating, start delivering. Get clarity on your product roadmap today with FeatureFit's AI-powered prioritization.</p>
+        <a href="https://featurefit.sabyasachimishra.dev" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+          Try FeatureFit Now
+          <i class="fas fa-arrow-right"></i> </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <p>© 2025 Sabyasachi Mishra | Built with Streamlit + HTML</p>
-    <div class="social-links">
-      <a href="#" aria-label="Medium"><i class="fab fa-medium"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> Sabyasachi Mishra. All Rights Reserved. | Built with AI Assistance</p>
+      <ul class="social-links">
+        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fab fa-medium"></i></a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+         <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+      </ul>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Preloader ---
+      const loadingOverlay = document.getElementById('loadingOverlay');
+      // Ensure loader is visible initially, then hide after a short delay or load event
+       window.addEventListener('load', () => {
+           // Add a small delay for visual effect, even if load is fast
+           setTimeout(() => {
+              if(loadingOverlay) {
+                 loadingOverlay.classList.add('hidden');
+              }
+           }, 300); // 300ms delay
+       });
+       // Fallback if load event takes too long
+       setTimeout(() => {
+           if(loadingOverlay && !loadingOverlay.classList.contains('hidden')) {
+              loadingOverlay.classList.add('hidden');
+           }
+       }, 2500); // Force hide after 2.5 seconds
+
+      // --- Smooth Scroll ---
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"], .hero a[href^="#"]');
+      navLinks.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start' // Align to top, considering scroll-padding
+            });
+          }
         });
       });
-    });
 
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
+      // --- Intersection Observer for Scroll Animations ---
+      const animatedElements = document.querySelectorAll('.feature-card, .testimonial-card, .animate-on-scroll');
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              // Optional: Unobserve after animation to improve performance
+              // observerInstance.unobserve(entry.target);
+            }
+            // Optional: Reset animation if element scrolls out of view upwards (add else block)
+            // else {
+            //   entry.target.classList.remove('is-visible');
+            // }
+          });
+        }, {
+          threshold: 0.1 // Trigger when 10% of the element is visible
+          // rootMargin: '0px 0px -50px 0px' // Optional: Adjust trigger point
+        });
+
+        animatedElements.forEach(el => {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        // Simply make elements visible immediately or use a simpler animation method
+        animatedElements.forEach(el => {
+            el.classList.add('is-visible'); // Make visible directly
+        });
+      }
+
+      // --- Dynamic Year in Footer ---
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+       // --- Simple Header Background Change on Scroll --- (Optional)
+       const header = document.getElementById('header');
+       if(header) {
+           window.addEventListener('scroll', () => {
+               if (window.scrollY > 50) { // Add shadow/background after scrolling 50px
+                   header.style.boxShadow = 'var(--shadow-lg)';
+               } else {
+                   header.style.boxShadow = 'var(--shadow-md)'; // Revert to initial shadow
+               }
+           });
+       }
+
+        // --- Mobile Navigation Toggle (Basic Example - Needs CSS for menu display) ---
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        const navMenu = document.querySelector('.nav-links'); // Assuming this is the menu to show/hide
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                // This requires CSS to actually show/hide the menu
+                // e.g., navMenu.classList.toggle('active');
+                alert('Mobile menu toggle clicked! Implement menu display logic.');
+            });
         }
-      });
-    }, { threshold: 0.1 });
 
-    // Observe feature cards
-    document.querySelectorAll('.feature-card').forEach(card => {
-      card.style.opacity = 0;
-      card.style.transform = 'translateY(20px)';
-      observer.observe(card);
-    });
 
-    // Observe testimonial cards
-    document.querySelectorAll('.testimonial-card').forEach(card => {
-      card.style.opacity = 0;
-      card.style.transform = 'translateY(20px)';
-      observer.observe(card);
-    });
+    }); // End DOMContentLoaded
   </script>
+
 </body>
 </html>
