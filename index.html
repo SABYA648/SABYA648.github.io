@@ -8,7 +8,6 @@
       gtag('js', new Date());
       gtag('config', 'G-YBR866PTCR');
     </script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sabyasachi Mishra | Product Manager</title>
@@ -315,7 +314,6 @@
         border-color: var(--primary);
       }
 
-
       /* --- Timeline --- */
       .timeline {
         position: relative;
@@ -384,7 +382,6 @@
           color: var(--primary);
           font-weight: 600;
         }
-
 
       /* --- Carousels --- */
         .carousel-row { /* New wrapper for side-by-side layout */
@@ -480,7 +477,6 @@
          background-color: var(--accent);
          transform: scale(1.15);
         }
-
          /* Project/Blog specific Buttons in Card Footer */
          .project-buttons {
            display: grid;
@@ -516,7 +512,6 @@
            border-color: #008a7e;
            color: #fff;
          }
-
 
       /* --- Forms --- */
       .form-group {
@@ -617,6 +612,7 @@
       }
       .header-socials {
         display: flex;
+        align-items: center; /* Align items vertically */
         gap: var(--space-lg); /* More spacing */
       }
       .header-socials a {
@@ -627,6 +623,11 @@
       .header-socials a:hover {
         color: var(--primary);
         transform: scale(1.1);
+      }
+      /* Add specific style for button within socials */
+      .header-socials .btn {
+          margin-left: 8px; /* Add small space before button */
+          align-self: center; /* Ensure button aligns with icons */
       }
 
 
@@ -786,7 +787,6 @@
       }
         @keyframes fadeInContent { from { opacity: 0; } to { opacity: 1; } }
 
-
       /* --- Radio Toggle Section --- */
       .radio-cards {
         display: flex;
@@ -848,7 +848,6 @@
         animation: fadeInUp 0.5s ease-out forwards; /* Smoother, slightly longer */
       }
       @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-
         /* What I Offer Cards Grid */
         .offer-cards {
           display: grid;
@@ -894,11 +893,9 @@
         min-width: 260px;
       }
 
-
       /***********************************************
        * MEDIA QUERIES
        ***********************************************/
-
       /* Large desktops - Side-by-side carousels */
         @media (min-width: 992px) {
           .carousel-row {
@@ -1035,6 +1032,7 @@
           <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
           <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
           <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
+          <a href="assets/Sabyasachi_CV.pdf" target="_blank" class="btn btn-outline-primary btn-sm" style="padding: 6px 12px; font-size: 0.85rem;">📄 Resume</a>
         </div>
       </div>
     </header>
@@ -1077,6 +1075,16 @@
          <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" />
       </div>
     </section>
+
+    <section class="container" data-aos="fade-up" style="padding-top: var(--space-xl); padding-bottom: var(--space-xl);">
+      <h2 style="text-align:center;">About Me</h2>
+      <p class="lead" style="text-align:center; max-width: 700px; margin: 0 auto;">
+        I’m a product builder who’s launched 3 AI-powered tools solo — combining GPT-4, emotional UX, and full-stack prototyping.
+        I don’t just plan roadmaps — I ship them.
+        Currently seeking PM roles in teams building ambitious, user-loved AI products.
+      </p>
+    </section>
+
     <section id="intro-video" class="container" data-aos="fade-up" data-aos-delay="150" style="padding-top: var(--space-xl); padding-bottom: calc(var(--space-xxl) / 2);">
         <h2 style="text-align:center; margin-bottom: var(--space-xl);">A Quick Introduction</h2>
         <div style="max-width: 840px; margin: 0 auto; box-shadow: var(--shadow-lg); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-light);">
@@ -1085,6 +1093,7 @@
             </div>
             </div>
     </section>
+
     <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
       <h2>Skills &amp; Tools</h2>
       <div class="skills-categories">
@@ -1117,7 +1126,7 @@
                   <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" /></div>
                   <div class="card-content">
                     <h3>MoodBite</h3>
-                    <p>Voice-first food discovery agent adapting to mood, cravings, and language using AI.</p>
+                    <p>Voice-first GPT food agent → 200+ voice queries logged, Product Hunt launch traction.</p>
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
@@ -1132,7 +1141,7 @@
                   <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" /></div>
                   <div class="card-content">
                     <h3>FeatureFit</h3>
-                    <p>AI-powered feature prioritization tool that reduced strategic planning time by 30%.</p>
+                    <p>AI-powered prioritization tool → Cut planning time by 30% in real PM workflows.</p>
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
@@ -1147,7 +1156,7 @@
                   <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" /></div>
                   <div class="card-content">
                     <h3>LLM Tuner</h3>
-                    <p>Interactive prompt tuning interface that accelerated LLM iteration cycles by 50%.</p>
+                    <p>Interactive prompt tuner → Reduced prompt iteration cycles by 50%.</p>
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
@@ -1466,6 +1475,7 @@
           });
         });
       });
+
         // Initialize the first category pills animation on load
         document.addEventListener('DOMContentLoaded', () => {
            const activeCategory = document.querySelector('.skill-category.active');

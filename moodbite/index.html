@@ -20,17 +20,17 @@
     <style>
         /* --- Core Variables (Repill Inspired) --- */
         :root {
-            --bg-color: #111319; /* Darker, less saturated background */
-            --bg-color-light: #1a1c23; /* Slightly lighter for cards/sections */
-            --text-color: #adb5bd; /* Softer grey text */
-            --text-color-strong: #e9ecef; /* Near white for headings/highlights */
-            --primary-accent: #8a3ffc; /* Vibrant Purple (Similar to Repill) */
-            --secondary-accent: #33b1ff; /* Bright Blue (Complementary) */
+            --bg-color: #111319;
+            --bg-color-light: #1a1c23;
+            --text-color: #adb5bd;
+            --text-color-strong: #e9ecef;
+            --primary-accent: #8a3ffc;
+            --secondary-accent: #33b1ff;
             --border-color: rgba(255, 255, 255, 0.1);
-            --border-radius: 10px; /* Slightly less rounded */
+            --border-radius: 10px;
             --transition-speed: 0.3s;
             --font-main: 'Inter', sans-serif;
-            --container-width: 1100px; /* Wider container for desktop */
+            --container-width: 1100px;
         }
 
         /* --- Basic Reset & Base Styles --- */
@@ -69,9 +69,14 @@
             position: relative;
             overflow: hidden; /* Contain potential overflows from animations/children */
         }
-        section:nth-child(even) {
-            background-color: var(--bg-color-light); /* Alternate section background */
+        /* Adjusted nth-child logic due to section reordering */
+        #loom-demo, #demo, #cta, #footer { /* Sections with darker default background */
+             background-color: var(--bg-color);
         }
+        #how-it-works, #features { /* Sections with lighter alternating background */
+             background-color: var(--bg-color-light);
+        }
+
 
         /* --- Typography --- */
         h1, h2, h3, h4 {
@@ -82,14 +87,16 @@
         }
         h1 { font-size: 3rem; letter-spacing: -0.02em;}
         h2 { font-size: 2.25rem; text-align: center; margin-bottom: 3rem;}
-        h3 { font-size: 1.25rem; font-weight: 500; } /* Slightly lighter H3 */
-        p { margin-bottom: 1.5rem; max-width: 65ch; } /* Limit line length for readability */
+        h3 { font-size: 1.25rem; font-weight: 500; }
+        p { margin-bottom: 1.5rem; max-width: 65ch; }
         a { color: var(--secondary-accent); text-decoration: none; transition: color var(--transition-speed) ease;}
         a:hover { color: var(--primary-accent); }
 
         /* --- Buttons --- */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
             padding: 14px 32px;
             background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
             color: #fff;
@@ -103,7 +110,7 @@
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-
+        .btn .emoji-pointer { display: inline-block; }
         .btn:hover, .btn:focus {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(138, 63, 252, 0.4);
@@ -111,13 +118,14 @@
 
         /* --- Hero Section --- */
         #hero {
-            min-height: 90vh;
+            min-height: 90vh; /* Adjusted slightly if needed */
             display: flex;
             align-items: center;
             text-align: center;
-            padding-top: 120px; /* More space at top */
-            padding-bottom: 100px;
-            background: none; /* Remove previous gradient */
+            padding-top: 120px;
+            padding-bottom: 100px; /* Keep space at bottom */
+            background: none;
+            position: relative; /* Needed for potential absolute positioning inside */
         }
 
         #hero .container {
@@ -126,49 +134,16 @@
             align-items: center;
         }
 
-        #hero h1 {
-            margin-bottom: 1.5rem;
-             max-width: 800px; /* Constrain hero text width */
-        }
-
-        #hero .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            opacity: 0.9;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin-bottom: 3rem; /* Space before mic */
-        }
+        #hero h1 { margin-bottom: 1.5rem; max-width: 800px; }
+        #hero .subtitle { font-size: 1.2rem; color: var(--text-color); margin-bottom: 2.5rem; max-width: 600px; opacity: 0.9; }
+        .hero-actions { display: flex; gap: 1rem; align-items: center; margin-bottom: 3rem; }
 
         .mic-button {
-             width: 70px; /* Slightly smaller mic */
-             height: 70px;
-             background: var(--primary-accent);
-             border-radius: 50%;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             font-size: 2rem; /* Mic icon size */
-             border: none;
-             color: #fff;
-             cursor: pointer;
-             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-             box-shadow: 0 0 0 0 rgba(138, 63, 252, 0.7); /* Initial state for pulse */
-             animation: pulse 2.5s infinite ease-out;
+             width: 70px; height: 70px; background: var(--primary-accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2rem; border: none; color: #fff; cursor: pointer; transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; box-shadow: 0 0 0 0 rgba(138, 63, 252, 0.7); animation: pulse 2.5s infinite ease-out;
         }
+         .mic-button:hover { transform: scale(1.1); box-shadow: 0 0 15px 5px rgba(138, 63, 252, 0.5); }
 
-         .mic-button:hover {
-             transform: scale(1.1);
-             box-shadow: 0 0 15px 5px rgba(138, 63, 252, 0.5);
-         }
-
-        @keyframes pulse { /* Subtle Pulse */
+        @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(138, 63, 252, 0.5); }
             70% { box-shadow: 0 0 0 12px rgba(138, 63, 252, 0); }
             100% { box-shadow: 0 0 0 0 rgba(138, 63, 252, 0); }
@@ -176,339 +151,142 @@
 
         /* Results Area (Appears Below Hero/Fold) */
         #results-area {
-             margin-top: 3rem; /* Space after mic button */
-             padding: 2rem;
-             background-color: rgba(0, 0, 0, 0.2);
-             border: 1px solid var(--border-color);
-             border-radius: var(--border-radius);
-             text-align: left;
-             width: 100%;
-             max-width: 700px; /* Constrain results width */
-             min-height: 100px;
-             opacity: 0;
-             transform: translateY(20px); /* Start slightly lower */
-             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-             display: none; /* Hidden initially */
+             margin-top: 3rem; padding: 2rem; background-color: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-color); border-radius: var(--border-radius); text-align: left; width: 100%; max-width: 700px; min-height: 100px; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; display: none;
         }
+        #results-area.visible { opacity: 1; transform: translateY(0); display: block; }
+        #results-area p.transcript { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-color-strong); font-style: italic; border-left: 3px solid var(--primary-accent); padding-left: 1rem; }
+        #results-area .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .result-card { background-color: var(--bg-color-light); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: transform var(--transition-speed) ease; border: 1px solid var(--border-color); }
+        .result-card:hover { transform: translateY(-5px); }
+        .result-card img { display: block; width: 100%; height: 150px; object-fit: cover; border-bottom: 1px solid var(--border-color); background-color: var(--bg-color); }
+         .result-card .card-content { padding: 1rem; }
+         .result-card h4 { font-size: 1rem; color: var(--text-color-strong); margin-bottom: 0.5rem; }
+         .result-card p { font-size: 0.85rem; margin-bottom: 0; line-height: 1.4; }
 
-        #results-area.visible {
-             opacity: 1;
-             transform: translateY(0);
-             display: block; /* Show when visible */
-        }
 
-        #results-area p.transcript {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color-strong);
-            font-style: italic;
-            border-left: 3px solid var(--primary-accent);
-            padding-left: 1rem;
+        /* --- Loom Video Demo Section (Now Earlier) --- */
+        #loom-demo { /* Style remains the same, just position changed */
+            text-align: center;
         }
+        #loom-demo h2 { margin-bottom: 3rem; }
+        .loom-embed-container { max-width: 960px; margin: 0 auto; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+         .loom-embed-container.active { opacity: 1; transform: translateY(0); }
+        .loom-responsive-wrapper { position: relative; padding-bottom: 62.5%; height: 0; overflow: hidden; border-radius: var(--border-radius); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 1px solid var(--border-color); }
+        .loom-responsive-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        #results-area .results-grid {
-             display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
-             gap: 1.5rem;
-             margin-top: 1rem;
-        }
-
-        /* Style for result cards */
-        .result-card {
-            background-color: var(--bg-color-light);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform var(--transition-speed) ease;
-            border: 1px solid var(--border-color);
-        }
-        .result-card:hover {
-             transform: translateY(-5px);
-         }
-
-        .result-card img {
-            display: block;
-            width: 100%;
-            height: 150px; /* Fixed height for consistency */
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-color); /* Placeholder bg if image fails */
-        }
-         .result-card .card-content {
-             padding: 1rem;
-         }
-         .result-card h4 { /* Food Title */
-             font-size: 1rem;
-             color: var(--text-color-strong);
-             margin-bottom: 0.5rem;
-         }
-         .result-card p { /* Short description/tags */
-             font-size: 0.85rem;
-             margin-bottom: 0;
-             line-height: 1.4;
-         }
 
         /* --- How It Works Section --- */
-        #how-it-works {
-            /* Uses default section padding */
-        }
-
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            text-align: left; /* Align text left within steps */
-        }
-
-        .step {
-            background-color: var(--bg-color-light);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-             /* Reveal animation managed by .reveal class */
-             opacity: 0;
-             transform: translateY(30px);
-             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-         .step.active { opacity: 1; transform: translateY(0); } /* Applied by JS */
-
-        .step-icon {
-            font-size: 2rem; /* Smaller icons */
-            margin-bottom: 1rem;
-            display: inline-block; /* Don't take full width */
-            color: var(--primary-accent);
-            background: rgba(138, 63, 252, 0.1);
-            padding: 0.5rem;
-            border-radius: 6px;
-            line-height: 1; /* Fix icon vertical alignment */
-        }
-
-        .step h3 {
-            color: var(--text-color-strong); /* Stronger heading */
-            margin-bottom: 0.5rem;
-        }
-        .step p {
-             font-size: 0.95rem;
-             margin-bottom: 0;
-         }
+        #how-it-works { /* Style remains the same */ }
+        .steps-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; text-align: left; }
+        .step { background-color: var(--bg-color-light); padding: 2rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+         .step.active { opacity: 1; transform: translateY(0); }
+        .step-icon { font-size: 2rem; margin-bottom: 1rem; display: inline-block; color: var(--primary-accent); background: rgba(138, 63, 252, 0.1); padding: 0.5rem; border-radius: 6px; line-height: 1; }
+        .step h3 { color: var(--text-color-strong); margin-bottom: 0.5rem; }
+        .step p { font-size: 0.95rem; margin-bottom: 0; }
 
         /* --- Demo Section (App UI Showcase) --- */
-         #demo {
-             background-color: var(--bg-color); /* Override alternating background if needed */
-         }
-         #demo h2 {
-             margin-bottom: 4rem;
-         }
-
-         .demo-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            align-items: start;
-         }
-
-         .demo-card {
-            background-color: var(--bg-color-light);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border-color);
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, opacity 0.6s ease-out, transform 0.6s ease-out;
-             /* Reveal animation managed by .reveal class */
-             opacity: 0;
-             transform: translateY(30px) scale(0.98);
-         }
-         .demo-card.active { opacity: 1; transform: translateY(0) scale(1); } /* Applied by JS */
-
-         /* Staggered animation delay applied via JS */
-
-         .demo-card img {
-            display: block;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 10; /* Adjust aspect ratio for UI */
-            object-fit: cover; /* Or 'contain' if you want to show the whole UI */
-            border-bottom: 1px solid var(--border-color);
-             background-color: var(--bg-color); /* Placeholder bg */
-         }
-         .demo-card .card-caption { /* Optional caption below image */
-            padding: 1rem 1.5rem;
-            font-size: 0.9rem;
-            text-align: center;
-            color: var(--text-color);
-         }
-
-         .demo-card:hover {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-         }
+         #demo { /* Style remains the same */ }
+         #demo h2 { margin-bottom: 4rem; }
+         .demo-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: start; }
+         .demo-card { background-color: var(--bg-color-light); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 1px solid var(--border-color); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, opacity 0.6s ease-out, transform 0.6s ease-out; opacity: 0; transform: translateY(30px) scale(0.98); }
+         .demo-card.active { opacity: 1; transform: translateY(0) scale(1); }
+         .demo-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-bottom: 1px solid var(--border-color); background-color: var(--bg-color); }
+         .demo-card .card-caption { padding: 1rem 1.5rem; font-size: 0.9rem; text-align: center; color: var(--text-color); }
+         .demo-card:hover { transform: scale(1.03) translateY(-5px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); }
 
         /* --- Features Grid Section --- */
-         #features {
-             /* Uses default section padding */
-         }
-         #features h2 {
-              margin-bottom: 4rem;
-          }
-
-         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-            gap: 3rem 2rem; /* More row gap */
-            text-align: left;
-         }
-
-         .feature-item {
-            /* Reveal animation managed by .reveal class */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            position: relative;
-            padding-left: 3.5rem; /* Space for icon */
-         }
-          .feature-item.active { opacity: 1; transform: translateY(0); } /* Applied by JS */
-
-
-         .feature-icon {
-            font-size: 1.8rem; /* Adjust icon size */
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--secondary-accent); /* Use secondary accent */
-            background: rgba(51, 177, 255, 0.1);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-         }
-
-         .feature-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color-strong);
-         }
-          .feature-item p { /* Added description */
-              font-size: 0.95rem;
-              margin-bottom: 0;
-              line-height: 1.6;
-              color: var(--text-color);
-          }
-
-        /* --- Loom Video Demo Section --- */
-        #loom-demo {
-            /* Uses default section padding and alternating background */
-            text-align: center; /* Center the heading */
-        }
-
-        #loom-demo h2 {
-            margin-bottom: 3rem; /* Space below heading */
-        }
-
-        .loom-embed-container {
-             max-width: 960px; /* Control max width of the video */
-             margin: 0 auto; /* Center the container */
-             /* Animation properties */
-             opacity: 0;
-             transform: translateY(30px);
-             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-         .loom-embed-container.active {
-             opacity: 1;
-             transform: translateY(0);
-         }
-
-        .loom-responsive-wrapper {
-             position: relative;
-             padding-bottom: 62.5%; /* Matches the aspect ratio from Loom embed code */
-             height: 0;
-             overflow: hidden;
-             border-radius: var(--border-radius); /* Consistent rounding */
-             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Consistent shadow */
-             border: 1px solid var(--border-color); /* Consistent border */
-        }
-
-        .loom-responsive-wrapper iframe {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-        }
-
+         #features { /* Style remains the same */ }
+         #features h2 { margin-bottom: 4rem; }
+         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem 2rem; text-align: left; }
+         .feature-item { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; position: relative; padding-left: 3.5rem; }
+          .feature-item.active { opacity: 1; transform: translateY(0); }
+         .feature-icon { font-size: 1.8rem; position: absolute; left: 0; top: 0; color: var(--secondary-accent); background: rgba(51, 177, 255, 0.1); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+         .feature-item h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-color-strong); }
+          .feature-item p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; color: var(--text-color); }
 
         /* --- CTA Section --- */
-         #cta {
-            text-align: center;
-            background-color: var(--bg-color-light); /* Uses alternating bg */
-            padding: 80px 20px;
-            border-radius: 0; /* Remove rounding, make it full width section */
-            margin: 0; /* Remove side margins */
-         }
-
-         #cta h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color-strong);
-         }
-          #cta p { /* Text below button */
-              margin: 1.5rem auto 0 auto;
-              font-size: 0.9rem;
-              opacity: 0.8;
-              max-width: 500px;
-          }
-          #cta .btn {
-              margin-top: 1rem; /* Space above button */
-          }
-
+         #cta { /* Style remains the same */ text-align: center; padding: 80px 20px; border-radius: 0; margin: 0; }
+         #cta h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--text-color-strong); }
+          #cta p { margin: 1.5rem auto 0 auto; font-size: 0.9rem; opacity: 0.8; max-width: 500px; }
+          #cta .btn { margin-top: 1rem; }
 
         /* --- Footer Section --- */
-         #footer {
-            text-align: center;
-            padding: 50px 20px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 0; /* Remove margin as CTA is now a full section */
-            background-color: var(--bg-color); /* Ensure footer bg */
-         }
-
-         .footer-text {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-         }
-
-         .social-links a {
-            font-size: 1.1rem; /* Smaller text links */
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color var(--transition-speed) ease;
-             opacity: 0.8;
-         }
-          .social-links a:hover {
-              color: var(--text-color-strong);
-              opacity: 1;
-          }
-          .social-links span { /* Optional emoji icons */
-              margin-right: 0.3rem;
-              font-size: 1.3rem;
-              vertical-align: middle;
-          }
-
+         #footer { /* Style remains the same */ text-align: center; padding: 50px 20px; border-top: 1px solid var(--border-color); margin-top: 0; }
+         .footer-text { margin-bottom: 1rem; font-size: 0.9rem; }
+         .social-links a { font-size: 1.1rem; color: var(--text-color); text-decoration: none; margin: 0 1rem; transition: color var(--transition-speed) ease; opacity: 0.8; }
+          .social-links a:hover { color: var(--text-color-strong); opacity: 1; }
+          .social-links span { margin-right: 0.3rem; font-size: 1.3rem; vertical-align: middle; }
 
         /* --- Typewriter Cursor --- */
-        .typewriter-text::after {
-            content: '|';
-            animation: blink 1s step-end infinite;
-            margin-left: 2px;
-            opacity: 1;
+        .typewriter-text::after { content: '|'; animation: blink 1s step-end infinite; margin-left: 2px; opacity: 1; color: var(--text-color-strong); }
+        @keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
+
+        /* --- NEW: Scroll Down Indicator --- */
+        .scroll-down-indicator {
+            position: fixed;
+            bottom: 25px; /* Slightly higher */
+            left: 50%;
+            transform: translateX(-50%) translateY(20px); /* Start lower for fade-in */
+            z-index: 1000; /* High z-index */
+            background-color: rgba(26, 28, 35, 0.7); /* Slightly transparent dark bg */
             color: var(--text-color-strong);
+            padding: 8px 15px;
+            border-radius: 20px; /* Pill shape */
+            border: 1px solid var(--border-color);
+            font-size: 0.8rem; /* Smaller text */
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            pointer-events: none; /* Initially not clickable */
+            backdrop-filter: blur(6px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(6px);
         }
 
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
+        .scroll-down-indicator.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0); /* Move to final position */
+            pointer-events: auto; /* Make clickable */
+            animation: bounce 2.5s infinite ease-in-out 0.5s; /* Start bounce after fade-in */
+        }
+
+        .scroll-down-indicator.hidden {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px); /* Move down on hide */
+            pointer-events: none;
+            animation-play-state: paused; /* Stop animation when hidden */
+        }
+
+        .scroll-down-indicator a { /* Style the link inside */
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px; /* Same gap as parent */
+        }
+
+        .scroll-down-indicator .arrow-down {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            display: inline-block; /* Ensure it aligns well */
+        }
+
+        /* Simple bounce animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                 transform: translateX(-50%) translateY(-6px);
+            }
+            60% {
+                 transform: translateX(-50%) translateY(-3px);
+            }
         }
 
 
@@ -517,26 +295,28 @@
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; margin-bottom: 2rem;}
             section { padding: 60px 0; }
-            #hero { padding-top: 100px; padding-bottom: 60px; min-height: 80vh; }
+            #hero { padding-top: 100px; padding-bottom: 80px; min-height: auto; } /* Adjust hero padding */
             .hero-actions { flex-direction: column; }
             .features-grid { grid-template-columns: 1fr; gap: 2rem; }
             .feature-item { padding-left: 0; text-align: center; }
-            .feature-icon { position: static; margin: 0 auto 1rem auto; display: flex; /* Center icon properly */ }
+            .feature-icon { position: static; margin: 0 auto 1rem auto; display: flex; }
             .steps-container { grid-template-columns: 1fr; }
             .demo-cards { grid-template-columns: 1fr; }
-            #results-area .results-grid { grid-template-columns: 1fr; } /* Stack results on mobile */
-            .loom-embed-container { padding: 0 1rem; /* Add padding on mobile */}
+            #results-area .results-grid { grid-template-columns: 1fr; }
+            .loom-embed-container { padding: 0 1rem; }
+             /* Adjust indicator position slightly on mobile */
+            .scroll-down-indicator { bottom: 15px; padding: 6px 12px; font-size: 0.75rem; }
         }
 
          @media (max-width: 480px) {
-              html { font-size: 15px; } /* Slightly smaller base font */
+              html { font-size: 15px; }
               h1 { font-size: 2rem; }
               .container { padding: 0 15px; }
                .btn { padding: 12px 24px; font-size: 0.95rem; }
                .mic-button { width: 60px; height: 60px; font-size: 1.8rem; }
                section { padding: 50px 0; }
-               #hero { padding-top: 80px; }
-               .loom-embed-container { padding: 0; } /* Remove padding if container handles it */
+               #hero { padding-top: 80px; padding-bottom: 50px;}
+               .loom-embed-container { padding: 0; }
          }
 
     </style>
@@ -549,19 +329,51 @@
             <p class="subtitle">Tell MoodBite how you feel or what you crave. Our AI finds the perfect dish recommendations just for you.</p>
 
             <div class="hero-actions">
-                 <a href="https://moodbite.sabyasachimishra.dev/" target="_blank" rel="noopener noreferrer" class="btn" id="heroCtaButton">✨ Launch MoodBite App</a>
+                 <a href="https://moodbite.sabyasachimishra.dev/" target="_blank" rel="noopener noreferrer" class="btn" id="heroCtaButton">
+                    <span class="emoji-pointer" role="img" aria-hidden="true">👉</span> Launch MoodBite App
+                 </a>
             </div>
 
             <button class="mic-button" id="micButton" aria-label="Start voice input">
                 🎤
             </button>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">(Tap to simulate voice input)</p>
-
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">(Tap to simulate voice input on *this* page)</p>
 
             <div id="results-area" aria-live="polite">
                 </div>
+
         </div>
-    </header>
+         </header>
+
+    <div class="scroll-down-indicator" id="scrollIndicator">
+         <a href="#loom-demo" aria-label="Scroll down to video demo">
+             <span>Scroll for Video Demo</span>
+             <svg class="arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+               <path fill-rule="evenodd" d="M7.21 11.77a.75.75 0 0 1 1.06 0l3.5 3.5a.75.75 0 0 1-1.06 1.06L8 12.81l-2.72 2.72a.75.75 0 0 1-1.06-1.06l3.5-3.5Z" clip-rule="evenodd" />
+               <path fill-rule="evenodd" d="M7.21 7.77a.75.75 0 0 1 1.06 0l3.5 3.5a.75.75 0 1 1-1.06 1.06L8 8.81l-2.72 2.72a.75.75 0 0 1-1.06-1.06l3.5-3.5Z" clip-rule="evenodd" />
+               <path fill-rule="evenodd" d="M7.21 3.77a.75.75 0 0 1 1.06 0l3.5 3.5a.75.75 0 0 1-1.06 1.06L8 4.81 5.28 7.53a.75.75 0 0 1-1.06-1.06l3.5-3.5Z" clip-rule="evenodd" />
+             </svg>
+         </a>
+    </div>
+
+
+    <section id="loom-demo">
+        <div class="container">
+            <h2 class="reveal">🔍 See It in Action (Video Demo)</h2>
+            <div class="loom-embed-container reveal">
+                <div class="loom-responsive-wrapper">
+                     <iframe
+                         src="https://www.loom.com/embed/24f21454ed83463db517da0fc7045a2f?sid=12d3a491-5396-45d9-a010-57bfa56c2df3"
+                         frameborder="0"
+                         webkitallowfullscreen
+                         mozallowfullscreen
+                         allowfullscreen>
+                     </iframe>
+                </div>
+            </div>
+             <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;" class="reveal">(Watch this video to see how the actual MoodBite app works!)</p>
+        </div>
+    </section>
 
     <section id="how-it-works">
         <div class="container">
@@ -588,7 +400,8 @@
 
     <section id="demo">
         <div class="container">
-              <h2>App Preview</h2> <div class="demo-cards">
+              <h2>App Preview</h2>
+              <div class="demo-cards">
                     <div class="demo-card reveal">
                           <img src="./foodimg1.jpg" alt="MoodBite app showing mood selection or voice input prompt.">
                           <div class="card-caption">Input your mood or craving via voice.</div>
@@ -643,27 +456,14 @@
         </div>
     </section>
 
-    <section id="loom-demo">
-        <div class="container">
-            <h2 class="reveal">🔍 See It in Action</h2>
-            <div class="loom-embed-container reveal"> <div class="loom-responsive-wrapper">
-                    <iframe
-                        src="https://www.loom.com/embed/24f21454ed83463db517da0fc7045a2f?sid=1223df7d-fdb3-4d11-9a33-b38da8bcf922"
-                        frameborder="0"
-                        webkitallowfullscreen
-                        mozallowfullscreen
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="cta">
         <div class="container">
             <h2>Ready to Taste the Future of Food Discovery?</h2>
-             <p>Experience how MoodBite connects your feelings with your next favorite meal.</p>
-            <a href="https://moodbite.sabyasachimishra.dev/" target="_blank" rel="noopener noreferrer" class="btn" id="mainCtaButton">Try the Live Demo Now</a>
-            </div>
+             <p>Experience how MoodBite connects your feelings with your next favorite meal. Click below to go to the app!</p>
+            <a href="https://moodbite.sabyasachimishra.dev/" target="_blank" rel="noopener noreferrer" class="btn" id="mainCtaButton">
+                <span class="emoji-pointer" role="img" aria-hidden="true">👉</span> Try the Live Demo Now
+            </a>
+        </div>
     </section>
 
     <footer id="footer">
@@ -672,7 +472,7 @@
               <div class="social-links">
                     <a href="https://linkedin.com/in/sabyasachi-mishra" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" id="linkedinLink"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.3rem;"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></span> LinkedIn</a>
                     <a href="https://github.com/iamsabyasachi" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" id="githubLink"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.3rem;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></span> GitHub</a>
-                    </div>
+              </div>
         </div>
     </footer>
 
@@ -684,7 +484,6 @@
                      'event_category': category,
                      'event_label': label
                  });
-                 // console.log(`Tracked Event: Action=${action}, Category=${category}, Label=${label}`);
              } else {
                  console.warn('gtag function not found. Analytics disabled.');
              }
@@ -698,195 +497,121 @@
             const mainCtaButton = document.getElementById('mainCtaButton');
             const linkedinLink = document.getElementById('linkedinLink');
             const githubLink = document.getElementById('githubLink');
+            const scrollIndicator = document.getElementById('scrollIndicator'); // NEW: Scroll indicator element
+            const loomSection = document.getElementById('loom-demo'); // NEW: Target for scroll hiding logic
 
             // --- Typewriter Function ---
-            function typewriter(element, text, speed = 40) { // Slightly faster speed
-                element.innerHTML = ''; // Clear previous text
-                element.classList.add('typewriter-text');
-                let i = 0;
-                function type() {
-                    if (i < text.length) {
-                        element.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(type, speed);
-                    } else {
-                        element.classList.remove('typewriter-text'); // Remove cursor when done
-                         // Optionally trigger next step after typing finishes
-                    }
-                }
-                type();
+            function typewriter(element, text, speed = 40) {
+                element.innerHTML = ''; element.classList.add('typewriter-text'); let i = 0; function type() { if (i < text.length) { element.innerHTML += text.charAt(i); i++; setTimeout(type, speed); } else { element.classList.remove('typewriter-text'); } } type();
             }
 
             // --- Simulate Voice Input & Display Results ---
-            // NOTE: This uses a simple 'prompt' for demonstration.
-            // A real implementation would use the Web Speech API (navigator.mediaDevices.getUserMedia and SpeechRecognition).
-             micButton.addEventListener('click', () => {
-                 trackEvent('engagement', 'mic_button_click');
-                 // Simulate voice input with a prompt
-                 const userInput = prompt("What are you craving or how are you feeling?\n(e.g., 'spicy noodles', 'something comforting', 'feeling happy')");
-
-                 if (userInput && userInput.trim() !== '') {
-                     trackEvent('engagement', 'mic_input_submitted', 'submit');
-
-                     // 1. Clear previous results & make area visible
-                     resultsArea.innerHTML = '';
-                     resultsArea.classList.remove('visible');
-                      void resultsArea.offsetWidth; // Force reflow for transition
-                      resultsArea.classList.add('visible');
-
-                     // 2. Show transcript message with typewriter
-                     const transcriptElement = document.createElement('p');
-                      transcriptElement.className = 'transcript'; // Style for transcript
-                     resultsArea.appendChild(transcriptElement);
-                     const transcriptText = `You said: "${userInput}"`;
-                     typewriter(transcriptElement, transcriptText, 30); // Use typewriter here
-
-
-                     // 3. Add loading/searching indicator
-                      const searchingElement = document.createElement('p');
-                      searchingElement.textContent = 'Finding perfect matches...';
-                      searchingElement.style.marginTop = '1rem';
-                      searchingElement.style.fontStyle = 'italic';
-                      searchingElement.style.color = 'var(--text-color)';
-                      resultsArea.appendChild(searchingElement);
-
-
-                     // 4. Simulate fetching and display results after a delay
-                     // --- IMPORTANT: Replace this section with actual API call and data handling ---
-                     setTimeout(() => {
-                           // Remove searching indicator
-                           if (resultsArea.contains(searchingElement)) {
-                               resultsArea.removeChild(searchingElement);
-                           }
-
-                          const resultsGrid = document.createElement('div');
-                          resultsGrid.className = 'results-grid';
-
-                          // *** Placeholder Data & Images for Results ***
-                          // You'd fetch real data/images based on 'userInput' here
-                           const resultImages = ['foodimg1.jpg', 'foodimg2.jpg', 'foodimg3.jpg']; // Use your actual image paths
-                           const resultTitles = ['Spicy Comfort Noodles', 'Happy Vibe Pizza', 'Relaxing Veggie Bowl']; // Example titles
-                           const resultDescs = ['Perfect for a cold day.', 'Cheese and joy guaranteed.', 'Healthy and calming.'];
-
-                          resultImages.forEach((imgName, index) => {
-                               const card = document.createElement('div');
-                               card.className = 'result-card';
-
-                               const img = document.createElement('img');
-                               // --- Placeholder Image Handling ---
-                               // Ideally, replace `./${imgName}` with actual URLs from your API
-                               img.src = `./${imgName}`; // ASSUMES images are in the same folder
-                               img.alt = `Food suggestion: ${resultTitles[index % resultTitles.length]}`;
-                               // Basic error handling for placeholder images
-                               img.onerror = function() {
-                                    this.alt = `Image not found: ${resultTitles[index % resultTitles.length]}`;
-                                    this.style.display = 'none'; // Hide broken image icon
-                                    // Optionally add text indication in the card content
-                                    const errorText = document.createElement('p');
-                                    errorText.textContent = '[Image unavailable]';
-                                    errorText.style.textAlign = 'center';
-                                    errorText.style.padding = '20px 0';
-                                    card.insertBefore(errorText, content); // Add before content
-                               };
-
-                               const content = document.createElement('div');
-                               content.className = 'card-content';
-                               const title = document.createElement('h4');
-                               title.textContent = resultTitles[index % resultTitles.length]; // Cycle through titles
-                               const desc = document.createElement('p');
-                               desc.textContent = resultDescs[index % resultDescs.length]; // Cycle through descriptions
-
-                               content.appendChild(title);
-                               content.appendChild(desc);
-                               card.appendChild(img);
-                               card.appendChild(content);
-                               resultsGrid.appendChild(card);
-                          });
-
-                          resultsArea.appendChild(resultsGrid);
-
-                          // Scroll results into view smoothly
-                           resultsArea.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll to center of results
-
-                     }, transcriptText.length * 30 + 1500); // Delay based on typing + mock fetch time
-
-                 } else if (userInput !== null) { // User submitted empty string
-                     trackEvent('engagement', 'mic_input_empty', 'submit');
-                     alert("Please tell me what you're craving or feeling!");
-                      resultsArea.classList.remove('visible'); // Hide if empty
-                 } else { // User cancelled the prompt
-                     trackEvent('engagement', 'mic_input_cancelled', 'cancel');
-                     resultsArea.classList.remove('visible'); // Hide if cancelled
-                 }
-             });
-
+            micButton.addEventListener('click', () => {
+                trackEvent('engagement', 'mic_button_click');
+                const userInput = prompt("What are you craving or how are you feeling?\n(e.g., 'spicy noodles', 'something comforting', 'feeling happy')\n\n(This is a simulation on the landing page)");
+                if (userInput && userInput.trim() !== '') {
+                    trackEvent('engagement', 'mic_input_submitted', 'submit');
+                    resultsArea.innerHTML = ''; resultsArea.classList.remove('visible'); void resultsArea.offsetWidth; resultsArea.classList.add('visible');
+                    const transcriptElement = document.createElement('p'); transcriptElement.className = 'transcript'; resultsArea.appendChild(transcriptElement); const transcriptText = `You said: "${userInput}"`; typewriter(transcriptElement, transcriptText, 30);
+                    const searchingElement = document.createElement('p'); searchingElement.textContent = 'Simulating AI match search...'; searchingElement.style.marginTop = '1rem'; searchingElement.style.fontStyle = 'italic'; searchingElement.style.color = 'var(--text-color)'; resultsArea.appendChild(searchingElement);
+                    setTimeout(() => {
+                        if (resultsArea.contains(searchingElement)) { resultsArea.removeChild(searchingElement); }
+                        const resultsGrid = document.createElement('div'); resultsGrid.className = 'results-grid';
+                        const resultImages = ['./foodimg1.jpg', './foodimg2.jpg', './foodimg3.jpg']; const resultTitles = ['Spicy Comfort Noodles', 'Happy Vibe Pizza', 'Relaxing Veggie Bowl']; const resultDescs = ['Simulated result: Perfect for a cold day.', 'Simulated result: Cheese and joy guaranteed.', 'Simulated result: Healthy and calming.'];
+                        resultImages.forEach((imgName, index) => {
+                            const card = document.createElement('div'); card.className = 'result-card'; const img = document.createElement('img'); img.src = imgName; img.alt = `Simulated suggestion: ${resultTitles[index % resultTitles.length]}`;
+                            const content = document.createElement('div'); content.className = 'card-content'; const title = document.createElement('h4'); title.textContent = resultTitles[index % resultTitles.length]; const desc = document.createElement('p'); desc.textContent = resultDescs[index % resultDescs.length];
+                            img.onerror = function() { this.alt = `Image not found: ${resultTitles[index % resultTitles.length]}`; this.style.display = 'none'; const errorText = document.createElement('p'); errorText.textContent = '[Image unavailable]'; errorText.style.textAlign = 'center'; errorText.style.padding = '20px 0'; card.insertBefore(errorText, content); };
+                            content.appendChild(title); content.appendChild(desc); card.appendChild(img); card.appendChild(content); resultsGrid.appendChild(card);
+                        });
+                        const exampleNote = document.createElement('p'); exampleNote.textContent = 'Note: These are example results shown on the landing page. Try the actual app for real recommendations!'; exampleNote.style.marginTop = '1.5rem'; exampleNote.style.fontSize = '0.9rem'; exampleNote.style.textAlign = 'center'; exampleNote.style.color = 'var(--secondary-accent)';
+                        resultsArea.appendChild(resultsGrid); resultsArea.appendChild(exampleNote);
+                        resultsArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, transcriptText.length * 30 + 1500);
+                } else if (userInput !== null) { trackEvent('engagement', 'mic_input_empty', 'submit'); alert("Please tell me what you're craving or feeling!"); resultsArea.classList.remove('visible'); } else { trackEvent('engagement', 'mic_input_cancelled', 'cancel'); resultsArea.classList.remove('visible'); }
+            });
 
             // --- CTA Buttons & Links Click Tracking ---
-            heroCtaButton.addEventListener('click', () => {
-                trackEvent('engagement', 'hero_cta_button_click', heroCtaButton.href.includes('#') ? 'scroll_link' : 'outbound_link');
-            });
+            heroCtaButton.addEventListener('click', () => trackEvent('engagement', 'hero_cta_button_click', 'outbound_link'));
+            mainCtaButton.addEventListener('click', () => trackEvent('engagement', 'main_cta_button_click', 'outbound_link'));
+            linkedinLink.addEventListener('click', () => trackEvent('outbound', 'linkedin_link_click'));
+            githubLink.addEventListener('click', () => trackEvent('outbound', 'github_link_click'));
 
-            mainCtaButton.addEventListener('click', () => {
-                trackEvent('engagement', 'main_cta_button_click', mainCtaButton.href.includes('#') ? 'scroll_link' : 'outbound_link');
-            });
+             // --- NEW: Scroll Indicator Logic ---
+             let indicatorVisible = false;
+             let indicatorHidden = false;
 
-            linkedinLink.addEventListener('click', () => {
-                trackEvent('outbound', 'linkedin_link_click');
-            });
+             // Function to show the indicator after a delay
+             const showIndicator = () => {
+                 if (scrollIndicator && !indicatorVisible) {
+                     scrollIndicator.classList.add('visible');
+                     indicatorVisible = true;
+                     // Track appearance
+                     trackEvent('ux_interaction', 'scroll_indicator_shown');
+                 }
+             };
 
-            githubLink.addEventListener('click', () => {
-                trackEvent('outbound', 'github_link_click');
-            });
+             // Function to hide indicator based on scroll position
+             const handleScrollIndicator = () => {
+                 if (scrollIndicator && indicatorVisible && !indicatorHidden) {
+                     // Hide when user scrolls down a bit (e.g., 150px) OR when video section is somewhat visible
+                     const loomTop = loomSection ? loomSection.getBoundingClientRect().top : window.innerHeight;
+                     const scrollThreshold = 150; // Pixels scrolled down
+                     const visibilityThreshold = window.innerHeight * 0.8; // When top of loom section is 80% up the viewport
+
+                     if (window.scrollY > scrollThreshold || loomTop < visibilityThreshold) {
+                         scrollIndicator.classList.add('hidden');
+                         indicatorHidden = true;
+                         // Track hiding (optional)
+                         // trackEvent('ux_interaction', 'scroll_indicator_hidden');
+                     }
+                 }
+                 // Optional: Show again if scrolled back to top? For now, let's keep it hidden once scrolled.
+             };
+
+             // Show indicator after a short delay (allows hero content to load/be seen)
+             setTimeout(showIndicator, 1800); // 1.8 second delay
+
+             // Add scroll listener to hide indicator
+             window.addEventListener('scroll', handleScrollIndicator, { passive: true }); // Use passive listener for performance
+
+             // Also track clicks on the indicator itself
+             if (scrollIndicator) {
+                 scrollIndicator.addEventListener('click', () => {
+                     trackEvent('engagement', 'scroll_indicator_click', 'scroll_link');
+                     // Optional: Hide immediately on click
+                     // scrollIndicator.classList.add('hidden');
+                     // indicatorHidden = true;
+                 });
+             }
 
 
             // --- Scroll Reveal Animations using Intersection Observer ---
             const revealElements = document.querySelectorAll('.reveal');
-
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        let delay = 0;
-                         const target = entry.target;
-
-                        // Calculate staggered delay based on element type and position within its container
-                         if (target.classList.contains('demo-card') || target.classList.contains('step') || target.classList.contains('feature-item')) {
-                            // Find siblings of the same type within the *same parent* for accurate indexing
-                            const parent = target.parentNode;
-                            const siblings = Array.from(parent.children).filter(el => el.classList.contains(target.classList[0])); // Assumes first class is the type identifier
-                            const index = siblings.indexOf(target);
-
-                            if (target.classList.contains('demo-card')) {
-                                delay = index * 150; // Stagger demo cards
-                            } else if (target.classList.contains('step')) {
-                                delay = index * 100; // Stagger steps
-                            } else if (target.classList.contains('feature-item')) {
-                                // Simple row/column stagger (adjust based on final grid columns)
-                                const itemsPerRow = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3); // Estimate columns based on viewport
-                                delay = (index % itemsPerRow) * 100 + Math.floor(index / itemsPerRow) * 50;
-                            }
-                         }
-                         // No specific stagger delay for the Loom container or H2 title, they use the base transition
-
-                        target.style.transitionDelay = `${delay}ms`; // Apply delay dynamically
-                        target.classList.add('active'); // Trigger the animation (CSS handles the transition)
-
-                        // Optional: Unobserve after reveal to prevent re-animation
-                        // observer.unobserve(target);
+                        let delay = 0; const target = entry.target;
+                        if (target.classList.contains('demo-card') || target.classList.contains('step') || target.classList.contains('feature-item')) {
+                            const parent = target.parentNode; const siblings = Array.from(parent.children).filter(el => el.classList.contains(target.classList[0])); const index = siblings.indexOf(target);
+                            if (target.classList.contains('demo-card')) { delay = index * 150; }
+                            else if (target.classList.contains('step')) { delay = index * 100; }
+                            else if (target.classList.contains('feature-item')) { const itemsPerRow = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3); delay = (index % itemsPerRow) * 100 + Math.floor(index / itemsPerRow) * 50; }
+                        }
+                        target.style.transitionDelay = `${delay}ms`; target.classList.add('active');
+                        // observer.unobserve(target); // Optional: Keep observing for potential re-reveal if desired
                     }
-                    // Optional: Reset on scroll out (uncomment to re-animate when scrolling back up)
-                    // else {
-                    //     entry.target.classList.remove('active');
-                    //     entry.target.style.transitionDelay = '0ms'; // Reset delay
-                    // }
+                     // Optional: Reset on scroll out (uncomment if needed)
+                     // else {
+                     //     // Only reset if it was previously active to avoid initial flicker
+                     //     if (entry.target.classList.contains('active')) {
+                     //        entry.target.classList.remove('active');
+                     //        entry.target.style.transitionDelay = '0ms';
+                     //     }
+                     // }
                 });
-            }, {
-                threshold: 0.1, // Trigger when 10% is visible
-                rootMargin: '0px 0px -50px 0px' // Trigger slightly before it's fully in view from the bottom
-            });
-
-            revealElements.forEach(el => {
-                revealObserver.observe(el);
-            });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            revealElements.forEach(el => { revealObserver.observe(el); });
 
         });
     </script>
