@@ -11,8 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sabyasachi Mishra | Product Manager</title>
-    <meta name="description" content="Product Manager specializing in AI-driven solutions. Explore projects, skills, and experience." />
-
+    <meta name="description" content="AI-native Product Manager. Explore projects, skills, and experience." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -613,12 +612,15 @@
       .header-socials {
         display: flex;
         align-items: center; /* Align items vertically */
-        gap: var(--space-lg); /* More spacing */
+        gap: var(--space-sm); /* Slightly reduced gap for more buttons */
+        flex-wrap: wrap; /* Allow buttons to wrap */
       }
       .header-socials a {
         font-size: 1.25rem;
         color: var(--text-muted);
         transition: color var(--transition-main), transform var(--transition-fast);
+        display: inline-flex; /* Ensure icons align well */
+        align-items: center;
       }
       .header-socials a:hover {
         color: var(--primary);
@@ -628,6 +630,10 @@
       .header-socials .btn {
           margin-left: 8px; /* Add small space before button */
           align-self: center; /* Ensure button aligns with icons */
+          padding: 6px 10px; /* Adjust padding for smaller button */
+          font-size: 0.8rem; /* Adjust font size */
+          line-height: 1.4; /* Adjust line height */
+          white-space: nowrap; /* Prevent wrapping */
       }
 
 
@@ -848,6 +854,7 @@
         animation: fadeInUp 0.5s ease-out forwards; /* Smoother, slightly longer */
       }
       @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+
         /* What I Offer Cards Grid */
         .offer-cards {
           display: grid;
@@ -906,7 +913,7 @@
            .carousel-row > .carousel-section {
                flex: 1; /* Each takes half width */
                margin-bottom: 0; /* Remove bottom margin when side-by-side */
-          }
+           }
           .carousel-section h2 {
               /* Keep heading size consistent or adjust if needed */
           }
@@ -993,12 +1000,12 @@
               min-width: 100%;
           }
 
-          /* Adjust scroll-to-top to be above potential mobile nav */
-           .scroll-to-top {
-               /* Calculate roughly based on nav height + desired margin */
-               bottom: calc(var(--space-unit) * 5);
-               right: var(--space-md);
-           }
+           /* Adjust scroll-to-top to be above potential mobile nav */
+            .scroll-to-top {
+                /* Calculate roughly based on nav height + desired margin */
+                bottom: calc(var(--space-unit) * 5);
+                right: var(--space-md);
+            }
       }
 
       /* Mobile specific adjustments */
@@ -1032,7 +1039,8 @@
           <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
           <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
           <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
-          <a href="assets/Resumes/India/India2US/Sabyasachi_Mishra_Resume_India.pdf" target="_blank" class="btn btn-outline-primary btn-sm" style="padding: 6px 12px; font-size: 0.85rem;">📄 Resume</a>
+          <a href="assets/Resumes/India/India2US/Sabyasachi_Mishra_Resume_India.pdf" target="_blank" class="btn btn-outline-primary btn-sm">📄 India Resume</a>
+          <a href="assets/Resumes/US/Sabyasachi_Mishra_Resume_US.pdf" target="_blank" class="btn btn-outline-accent btn-sm">🌎 US Resume</a>
         </div>
       </div>
     </header>
@@ -1064,11 +1072,12 @@
       <div class="hero-text">
         <h1>Sabyasachi Mishra</h1>
         <p class="lead">
-          Product Manager specializing in AI-driven solutions—bridging data insights with user-centric innovation to build impactful products.
+          AI-native Product Manager — shipping emotion-first UX and decision-making tools that feel human, not robotic.
         </p>
         <div class="btn-group">
           <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="btn btn-accent">Book a Call</a>
-          <a href="assets/Resumes/India/Sabyasachi_Mishra_Resume_IND.pdf" target="_blank" class="btn btn-outline-primary">Download Resume</a>
+          <a href="assets/Resumes/India/Sabyasachi_Mishra_Resume_IND.pdf" target="_blank" class="btn btn-outline-primary">Download India Resume</a>
+          <a href="assets/Resumes/US/Sabyasachi_Mishra_Resume_US.pdf" target="_blank" class="btn btn-outline-accent">Download US Resume</a>
         </div>
       </div>
         <div class="hero-image" data-aos="fade-left" data-aos-delay="100">
@@ -1087,11 +1096,11 @@
 
     <section id="intro-video" class="container" data-aos="fade-up" data-aos-delay="150" style="padding-top: var(--space-xl); padding-bottom: calc(var(--space-xxl) / 2);">
         <h2 style="text-align:center; margin-bottom: var(--space-xl);">A Quick Introduction</h2>
-        <div style="max-width: 840px; margin: 0 auto; box-shadow: var(--shadow-lg); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-light);">
+        <div id="loom-embed-container" style="max-width: 840px; margin: 0 auto; box-shadow: var(--shadow-lg); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-light);">
             <div style="position: relative; padding-bottom: 62.5%; height: 0;">
                 <iframe src="https://www.loom.com/embed/fdff5144dd024de1b0d8e7d864d61e30?sid=19911b1a-8133-4331-91b2-f97a97185d1f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius);"></iframe>
             </div>
-            </div>
+          </div>
     </section>
 
     <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
@@ -1129,9 +1138,8 @@
                     <p>Voice-first GPT food agent → 200+ voice queries logged, Product Hunt launch traction.</p>
                   </div>
                   <div class="card-footer project-buttons">
-                    <a class="live-demo" href="https://sabyasachimishra.dev" target="_blank">Live Demo</a>
-                    <a href="https://sabyasachimishra.dev/moodbite/" target="_blank">Loom Demo</a>
-                    <a href="https://github.com/SABYA648/MoodBite" target="_blank">Source</a>
+                    <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
+                    <a href="https://www.loom.com/share/24f21454ed83463db517da0fc7045a2f?sid=8b838ba1-0d1d-41f0-9550-53581e0ef7ea&utm_source=Portfolio&utm_medium=portfolio&utm_campaign=MoodBite&utm_id=MoodBite" target="_blank">Loom Demo</a>
                     <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
                   </div>
                 </div>
@@ -1145,10 +1153,9 @@
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
-                    <a href="https://github.com/SABYA648/FeatureFit/blob/main/README.md" target="_blank">PRD</a>
+                    <a href="https://www.loom.com/embed/YOUR_FEATUREFIT_VIDEO_ID?utm_source=website&utm_medium=project-carousel&utm_campaign=featurefit" target="_blank">Loom Demo</a>
                     <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
-                    <a href="assets/proj2.pdf" target="_blank">Case Study</a>
-                  </div>
+                    </div>
                 </div>
               </div>
               <div class="carousel-item">
@@ -1160,8 +1167,7 @@
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
-                    <a href="https://github.com/SABYA648/LLM_TUNER_frontend/blob/main/readme.md" target="_blank">PRD</a>
-                    <a href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Source</a>
+                    <a href="https://www.loom.com/embed/LLM_" target="_blank">Loom Demo</a>
                     <a href="assets/proj1.pdf" target="_blank">Case Study</a>
                   </div>
                 </div>
@@ -1348,7 +1354,7 @@
                  </ul>
                </div>
              </div>
-           </div>
+            </div>
         </div>
 
         <div id="case-studies">
@@ -1394,7 +1400,7 @@
              </div>
              <div class="card-footer"><a href="assets/Tekion_IIM Indore.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
-         </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1478,16 +1484,26 @@
 
         // Initialize the first category pills animation on load
         document.addEventListener('DOMContentLoaded', () => {
-           const activeCategory = document.querySelector('.skill-category.active');
-           if (activeCategory) {
-               activeCategory.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                 pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`;
-               });
-           }
+            const activeCategory = document.querySelector('.skill-category.active');
+            if (activeCategory) {
+                activeCategory.querySelectorAll('.skill-pill').forEach((pill, index) => {
+                  pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`;
+                });
+            }
+
+            // --- Initialize Carousels ---
+            initCarousel('carousel-projects', 'dots-projects');
+            initCarousel('carousel-blogs', 'dots-blogs');
+
+            // --- (Optional) Auto-Open Calendly ---
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('book') === 'true') {
+                window.open('https://calendly.com/sabyasachimishra648/15min', '_blank');
+            }
         });
 
-       // --- Carousel Logic ---
-       function getCurrentSlideIndex(carousel) {
+        // --- Carousel Logic ---
+        function getCurrentSlideIndex(carousel) {
          const transformValue = carousel.style.transform;
          if (transformValue && transformValue.includes("translateX(")) {
            const match = transformValue.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
@@ -1496,9 +1512,9 @@
            }
          }
          return 0;
-       }
+        }
 
-       function initCarousel(carouselId, dotsId) {
+        function initCarousel(carouselId, dotsId) {
          const carousel = document.getElementById(carouselId);
          if (!carousel) return;
          const dotsContainer = document.getElementById(dotsId);
@@ -1536,17 +1552,17 @@
          // Ensure the correct dot is active based on initial transform state
          const initialIndex = getCurrentSlideIndex(carousel);
          updateDots(dotsId, initialIndex);
-       }
+        }
 
-       function updateDots(dotsId, index) {
+        function updateDots(dotsId, index) {
          const dotsContainer = document.getElementById(dotsId);
          if (!dotsContainer) return;
          [...dotsContainer.children].forEach((dot, i) => {
            dot.classList.toggle('active', i === index);
          });
-       }
+        }
 
-       function setSlide(carouselId, dotsId, index) {
+        function setSlide(carouselId, dotsId, index) {
          const carousel = document.getElementById(carouselId);
          if (!carousel) return;
          const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
@@ -1554,9 +1570,9 @@
          if (index < 0 || index >= total) return;
          carousel.style.transform = `translateX(-${index * 100}%)`;
          updateDots(dotsId, index);
-       }
+        }
 
-       function nextSlide(carouselId, dotsId) {
+        function nextSlide(carouselId, dotsId) {
          const carousel = document.getElementById(carouselId);
          if (!carousel) return;
          const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
@@ -1564,9 +1580,9 @@
          let index = getCurrentSlideIndex(carousel);
          index = (index + 1) % total;
          setSlide(carouselId, dotsId, index);
-       }
+        }
 
-       function prevSlide(carouselId, dotsId) {
+        function prevSlide(carouselId, dotsId) {
          const carousel = document.getElementById(carouselId);
           if (!carousel) return;
          const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
@@ -1574,104 +1590,212 @@
          let index = getCurrentSlideIndex(carousel);
          index = (index - 1 + total) % total;
          setSlide(carouselId, dotsId, index);
-       }
+        }
 
-       // Initialize all carousels on DOMContentLoaded for reliability
-       document.addEventListener('DOMContentLoaded', () => {
-         initCarousel('carousel-projects', 'dots-projects');
-         initCarousel('carousel-blogs', 'dots-blogs');
-       });
+        // --- Radio toggle code ---
+        const radioCardContainer = document.querySelector('.radio-cards[data-target="sections"]');
+        const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
 
-       // --- Radio toggle code ---
-       const radioCardContainer = document.querySelector('.radio-cards[data-target="sections"]');
-       const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
+        if (radioCardContainer && radioContentContainer) {
+          const radioCards = radioCardContainer.querySelectorAll('.radio-card');
+          radioCards.forEach(card => {
+            card.addEventListener('click', () => {
+              const currentActiveCard = radioCardContainer.querySelector('.radio-card.active');
+              const currentActiveContent = radioContentContainer.querySelector(':scope > div.active');
+              const targetId = card.getAttribute('data-id');
+              const targetDiv = document.getElementById(targetId);
 
-       if (radioCardContainer && radioContentContainer) {
-         const radioCards = radioCardContainer.querySelectorAll('.radio-card');
-         radioCards.forEach(card => {
-           card.addEventListener('click', () => {
-             const currentActiveCard = radioCardContainer.querySelector('.radio-card.active');
-             const currentActiveContent = radioContentContainer.querySelector(':scope > div.active');
-             const targetId = card.getAttribute('data-id');
-             const targetDiv = document.getElementById(targetId);
+              if (card === currentActiveCard || !targetDiv) return; // Do nothing if clicking the active card or target not found
 
-             if (card === currentActiveCard || !targetDiv) return; // Do nothing if clicking the active card or target not found
+              // Remove active classes
+              if (currentActiveCard) currentActiveCard.classList.remove('active');
+              if (currentActiveContent) currentActiveContent.classList.remove('active');
 
-             // Remove active classes
-             if (currentActiveCard) currentActiveCard.classList.remove('active');
-             if (currentActiveContent) currentActiveContent.classList.remove('active');
+              // Add active classes to the new target
+              card.classList.add('active');
+              targetDiv.classList.add('active');
 
-             // Add active classes to the new target
-             card.classList.add('active');
-             targetDiv.classList.add('active');
+              // Optional: Re-initialize AOS for newly revealed content if animations feel off
+              // AOS.refreshHard(); // Use refreshHard if elements change significantly
+            });
+          });
+        }
 
-             // Optional: Re-initialize AOS for newly revealed content if animations feel off
-             // AOS.refreshHard(); // Use refreshHard if elements change significantly
-           });
-         });
-       }
+      // --- Auto-hide/show bottom bar on scroll ---
+      let lastScrollY = window.pageYOffset;
+      const bottomBar = document.getElementById('bottomBar');
+      const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
+      let isScrolling; // Timeout tracker
 
-     // --- Auto-hide/show bottom bar on scroll ---
-     let lastScrollY = window.pageYOffset;
-     const bottomBar = document.getElementById('bottomBar');
-     const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
-     let isScrolling; // Timeout tracker
+      window.addEventListener('scroll', () => {
+        if (!bottomBar || window.innerWidth >= 768) return; // Exit if no bar or on desktop
 
-     window.addEventListener('scroll', () => {
-       if (!bottomBar || window.innerWidth >= 768) return; // Exit if no bar or on desktop
+        const currentScrollY = window.pageYOffset;
 
-       const currentScrollY = window.pageYOffset;
-
-       // Clear previous timeout
-       window.clearTimeout(isScrolling);
+        // Clear previous timeout
+        window.clearTimeout(isScrolling);
 
          // Determine scroll direction
-       if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
           bottomBar.classList.remove('visible'); // Hide on scroll down
-       } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
+        } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
           bottomBar.classList.add('visible'); // Show on scroll up or near top
-       }
+        }
 
-       // Set a timeout to run after scrolling ends
-       isScrolling = setTimeout(() => {
-         // Add logic here if you want the bar to reappear after scrolling stops
-         // For now, it just stays hidden if scrolled down past threshold
-         if (currentScrollY > scrollThreshold) {
+        // Set a timeout to run after scrolling ends
+        isScrolling = setTimeout(() => {
+          // Add logic here if you want the bar to reappear after scrolling stops
+          // For now, it just stays hidden if scrolled down past threshold
+          if (currentScrollY > scrollThreshold) {
             // Optional: Re-add 'visible' class if you want it to show after scrolling stops
             // bottomBar.classList.add('visible');
-         }
-       }, 150); // Adjust timeout duration as needed
+          }
+        }, 150); // Adjust timeout duration as needed
 
-       lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-     }, { passive: true });
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+      }, { passive: true });
 
-     // Show initially if near top on load (only on mobile)
-     if (window.pageYOffset <= 10 && bottomBar && window.innerWidth < 768) {
+      // Show initially if near top on load (only on mobile)
+      if (window.pageYOffset <= 10 && bottomBar && window.innerWidth < 768) {
          bottomBar.classList.add('visible');
-     }
+      }
 
-       // --- Scroll to Top Button Logic ---
-       const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        // --- Scroll to Top Button Logic ---
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-       window.addEventListener('scroll', () => {
-         if (scrollToTopBtn) { // Check if button exists
-            if (window.pageYOffset > 350) { // Show button after scrolling 350px
-              scrollToTopBtn.classList.add('show');
-            } else {
-              scrollToTopBtn.classList.remove('show');
-            }
-         }
-       }, { passive: true });
+        window.addEventListener('scroll', () => {
+          if (scrollToTopBtn) { // Check if button exists
+             if (window.pageYOffset > 350) { // Show button after scrolling 350px
+               scrollToTopBtn.classList.add('show');
+             } else {
+               scrollToTopBtn.classList.remove('show');
+             }
+          }
+        }, { passive: true });
 
-       if (scrollToTopBtn) {
-         scrollToTopBtn.addEventListener('click', () => {
-           window.scrollTo({
-             top: 0,
-             behavior: 'smooth'
-           });
-         });
-       }
+        if (scrollToTopBtn) {
+          scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
     </script>
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Helper function to get file name from URL ---
+            function getFileName(url) {
+                try {
+                    const path = new URL(url).pathname;
+                    return path.substring(path.lastIndexOf('/') + 1);
+                } catch (e) {
+                    // Fallback for relative paths or malformed URLs
+                    const parts = url.split('/');
+                    return parts.length > 0 ? parts[parts.length - 1] : url;
+                }
+            }
+
+            // --- 1. PDF Download Tracking ---
+            const pdfLinks = document.querySelectorAll('a[href$=".pdf"]');
+            pdfLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const pdfUrl = link.href;
+                    const fileName = getFileName(pdfUrl);
+                    let downloadType = 'unknown'; // Default type
+
+                    // Determine type based on URL path or link text/context
+                    if (pdfUrl.toLowerCase().includes('/resumes/') || pdfUrl.toLowerCase().includes('cv.pdf') || link.textContent.toLowerCase().includes('resume')) {
+                        downloadType = 'resume';
+                    } else if (link.closest('.card') && link.textContent.toLowerCase().includes('case study')) {
+                        downloadType = 'case_study';
+                    } else if (link.closest('#case-studies')) {
+                         downloadType = 'case_study';
+                    }
+
+                    console.log(`Tracking PDF download: ${fileName}, Type: ${downloadType}`); // For debugging
+
+                    gtag('event', 'download_file', {
+                        'event_category': 'file_download',
+                        'event_label': fileName, // Use filename as label
+                        'file_extension': 'pdf',
+                        'file_name': fileName,
+                        'link_url': pdfUrl,
+                        'link_text': link.textContent.trim() || link.title || 'link_text_not_found',
+                        'download_type': downloadType // Custom parameter for categorization
+                    });
+                });
+            });
+
+            // --- 2. Loom Link Click Tracking ---
+            const loomLinks = document.querySelectorAll('a[href*="loom.com"]');
+            loomLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const loomUrl = link.href;
+                    let loomId = 'unknown';
+                    let contentType = 'loom_link';
+                    let eventLabel = 'loom_link_click';
+
+                    // Try to extract Loom ID or context
+                    try {
+                       const urlParts = loomUrl.split('/');
+                       const potentialId = urlParts[urlParts.length - 1].split('?')[0]; // Get last path segment before query params
+                       if (potentialId && potentialId.length > 10) { // Basic check if it looks like an ID
+                           loomId = potentialId;
+                       }
+                    } catch(e){}
+
+                    // Try to get context from parent card
+                    const card = link.closest('.card');
+                    if (card) {
+                        const cardTitle = card.querySelector('h3');
+                        if (cardTitle) {
+                            eventLabel = cardTitle.textContent.trim() + ' - Loom Link';
+                        }
+                    }
+
+                    console.log(`Tracking Loom link click: ${loomUrl}, ID: ${loomId}`); // For debugging
+
+                    gtag('event', 'select_content', {
+                        'event_category': 'engagement',
+                        'event_label': eventLabel,
+                        'content_type': contentType,
+                        'item_id': loomId, // Use Loom ID if found, otherwise 'unknown'
+                        'link_url': loomUrl
+                    });
+                });
+            });
+
+            // --- 3. Embedded Loom Interaction Tracking (Proxy via Click on Container) ---
+            // Note: This tracks clicks on the container, not actual video plays.
+            const loomEmbedContainer = document.getElementById('loom-embed-container');
+            if (loomEmbedContainer) {
+                loomEmbedContainer.addEventListener('click', () => {
+                    console.log('Tracking interaction with embedded Loom container'); // For debugging
+
+                    // Using a custom event name as it's not a standard GA4 event
+                    gtag('event', 'interact_loom_embed', {
+                        'event_category': 'engagement',
+                        'event_label': 'intro_video_embed_click', // Label clearly indicates it's a container click
+                        'interaction_type': 'click'
+                    });
+                }, true); // Use capture phase to catch clicks on the iframe potentially stopping propagation
+            }
+
+            // --- Explanation regarding (not set) Landing Page ---
+            /*
+             IMPORTANT NOTE ON '(not set)' LANDING PAGES:
+             This tracking captures clicks *from* your website *to* PDFs or Loom links.
+             It helps attribute these actions within a user's session *if they started on your HTML page*.
+             However, if a user lands *directly* on a PDF file (e.g., from a search result or a direct link shared elsewhere),
+             the GA4 tracking code on *this* page (index.html) will not run for that initial hit.
+             Therefore, GA4 will likely still report these direct PDF entries as sessions with a '(not set)' landing page.
+             Completely solving the '(not set)' issue for direct asset landings usually requires server-side logging/tracking
+             or proxying asset downloads, which is beyond the scope of this client-side script.
+             This script focuses on tracking user engagement *originating from* your portfolio page.
+            */
+        });
+    </script>
+    </body>
 </html>
