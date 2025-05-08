@@ -20,17 +20,17 @@
 
     <style>
       /***********************************************
-       * THEME & VARIABLES
-       ***********************************************/
+      * THEME & VARIABLES
+      ***********************************************/
       :root {
         /* Colors */
-        --primary: #007aff;     /* Primary Blue */
-        --accent: #00a99d;      /* Teal Accent */
-        --bg-body: #f8f9fa;     /* Light Grey Background */
-        --bg-card: #ffffff;     /* White for Cards/Header */
+        --primary: #007aff;      /* Primary Blue */
+        --accent: #00a99d;       /* Teal Accent */
+        --bg-body: #f8f9fa;      /* Light Grey Background */
+        --bg-card: #ffffff;      /* White for Cards/Header */
         --text-heading: #212529; /* Darker Heading */
-        --text-body: #495057;   /* Softer Body Text */
-        --text-muted: #6c757d;  /* Lighter Muted Text */
+        --text-body: #495057;    /* Softer Body Text */
+        --text-muted: #6c757d;   /* Lighter Muted Text */
         --border-color: #dee2e6; /* Standard Border */
         --border-light: #e9ecef; /* Lighter Border/Dividers */
         --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -45,11 +45,11 @@
         --space-unit: 1rem; /* Approx 16px */
         --space-xs: calc(var(--space-unit) * 0.25); /* 4px */
         --space-sm: calc(var(--space-unit) * 0.5);  /* 8px */
-        --space-md: var(--space-unit);             /* 16px */
+        --space-md: var(--space-unit);              /* 16px */
         --space-lg: calc(var(--space-unit) * 1.5); /* 24px */
         --space-xl: calc(var(--space-unit) * 2);   /* 32px */
         --space-xxl: calc(var(--space-unit) * 3);  /* 48px */
-        --radius: 8px;                             /* Slightly reduced radius */
+        --radius: 8px;                              /* Slightly reduced radius */
         --radius-sm: 5px;
         --radius-lg: 12px;
         --radius-pill: 50px;
@@ -61,8 +61,8 @@
       }
 
       /***********************************************
-       * BASE STYLES
-       ***********************************************/
+      * BASE STYLES
+      ***********************************************/
       * {
         margin: 0;
         padding: 0;
@@ -157,8 +157,8 @@
       }
 
       /***********************************************
-       * LAYOUT
-       ***********************************************/
+      * LAYOUT
+      ***********************************************/
       .container {
         width: 90%;
         max-width: 1160px; /* Slightly wider max-width */
@@ -175,8 +175,8 @@
       }
 
       /***********************************************
-       * COMPONENTS
-       ***********************************************/
+      * COMPONENTS
+      ***********************************************/
 
       /* --- Buttons --- */
       .btn {
@@ -476,41 +476,41 @@
          background-color: var(--accent);
          transform: scale(1.15);
         }
-         /* Project/Blog specific Buttons in Card Footer */
-         .project-buttons {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
-           gap: var(--space-sm);
-           margin-top: 0; /* Removed top margin as footer has padding */
-         }
-         .project-buttons a {
-           font-size: 0.8rem;
-           padding: var(--space-xs) var(--space-sm);
-           border-radius: var(--radius-sm);
-           border: 1px solid var(--accent);
-           background-color: #e6f6f5;
-           color: var(--accent);
-           font-weight: 600; /* Bolder text */
-           transition: all var(--transition-main);
-           text-align: center;
-           white-space: nowrap;
-         }
-         .project-buttons a:hover {
-           background-color: #cceceb;
-           transform: translateY(-1px);
-           color: var(--accent);
-           border-color: var(--accent); /* Ensure border color consistent */
-         }
-         .project-buttons a.live-demo {
-           background-color: var(--accent);
-           color: #fff;
-           border-color: var(--accent);
-         }
-         .project-buttons a.live-demo:hover {
-           background-color: #008a7e; /* Darker teal */
-           border-color: #008a7e;
-           color: #fff;
-         }
+          /* Project/Blog specific Buttons in Card Footer */
+          .project-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+            gap: var(--space-sm);
+            margin-top: 0; /* Removed top margin as footer has padding */
+          }
+          .project-buttons a {
+            font-size: 0.8rem;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--accent);
+            background-color: #e6f6f5;
+            color: var(--accent);
+            font-weight: 600; /* Bolder text */
+            transition: all var(--transition-main);
+            text-align: center;
+            white-space: nowrap;
+          }
+          .project-buttons a:hover {
+            background-color: #cceceb;
+            transform: translateY(-1px);
+            color: var(--accent);
+            border-color: var(--accent); /* Ensure border color consistent */
+          }
+          .project-buttons a.live-demo {
+            background-color: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+          }
+          .project-buttons a.live-demo:hover {
+            background-color: #008a7e; /* Darker teal */
+            border-color: #008a7e;
+            color: #fff;
+          }
 
       /* --- Forms --- */
       .form-group {
@@ -579,8 +579,8 @@
       }
 
       /***********************************************
-       * HEADER & FOOTER / NAV
-       ***********************************************/
+      * HEADER & FOOTER / NAV
+      ***********************************************/
 
       /* --- Header --- */
       header {
@@ -691,8 +691,8 @@
       }
 
       /***********************************************
-       * SECTIONS STYLING
-       ***********************************************/
+      * SECTIONS STYLING
+      ***********************************************/
 
       /* --- Hero Section --- */
       .hero {
@@ -901,8 +901,8 @@
       }
 
       /***********************************************
-       * MEDIA QUERIES
-       ***********************************************/
+      * MEDIA QUERIES
+      ***********************************************/
       /* Large desktops - Side-by-side carousels */
         @media (min-width: 992px) {
           .carousel-row {
@@ -910,10 +910,10 @@
               gap: var(--space-xl);
               align-items: stretch; /* Make columns equal height */
           }
-           .carousel-row > .carousel-section {
-               flex: 1; /* Each takes half width */
-               margin-bottom: 0; /* Remove bottom margin when side-by-side */
-           }
+            .carousel-row > .carousel-section {
+                flex: 1; /* Each takes half width */
+                margin-bottom: 0; /* Remove bottom margin when side-by-side */
+            }
           .carousel-section h2 {
               /* Keep heading size consistent or adjust if needed */
           }
@@ -1000,7 +1000,7 @@
               min-width: 100%;
           }
 
-           /* Adjust scroll-to-top to be above potential mobile nav */
+            /* Adjust scroll-to-top to be above potential mobile nav */
             .scroll-to-top {
                 /* Calculate roughly based on nav height + desired margin */
                 bottom: calc(var(--space-unit) * 5);
@@ -1039,8 +1039,7 @@
           <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
           <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
           <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
-          <a href="assets/Resumes/India/India2US/Sabyasachi_Mishra_Resume_India.pdf" target="_blank" class="btn btn-outline-primary btn-sm">📄 India Resume</a>
-          <a href="assets/Resumes/US/Sabyasachi_Mishra_Resume_US.pdf" target="_blank" class="btn btn-outline-accent btn-sm">🌎 US Resume</a>
+          <a href="assets/Resumes/Sabyasachi_Mishra_Resume.pdf" target="_blank" class="btn btn-outline-primary btn-sm">📄 Download Resume</a>
         </div>
       </div>
     </header>
@@ -1076,8 +1075,7 @@
         </p>
         <div class="btn-group">
           <a href="https://calendly.com/sabyasachimishra648/15min" target="_blank" class="btn btn-accent">Book a Call</a>
-          <a href="assets/Resumes/India/Sabyasachi_Mishra_Resume_IND.pdf" target="_blank" class="btn btn-outline-primary">Download India Resume</a>
-          <a href="assets/Resumes/US/Sabyasachi_Mishra_Resume_US.pdf" target="_blank" class="btn btn-outline-accent">Download US Resume</a>
+          <a href="assets/Resumes/Sabyasachi_Mishra_Resume.pdf" target="_blank" class="btn btn-outline-primary">📄 Download Resume</a>
         </div>
       </div>
         <div class="hero-image" data-aos="fade-left" data-aos-delay="100">
@@ -1138,7 +1136,7 @@
                     <p>Voice-first GPT food agent → 200+ voice queries logged, Product Hunt launch traction.</p>
                   </div>
                   <div class="card-footer project-buttons">
-                    <a class="live-demo" href="https://moodbite.sabyasachimishra.dev" target="_blank">Live Demo</a>
+                    <a class="live-demo" href="https://sabyasachimishra.dev/moodbite" target="_blank">Live Demo</a>
                     <a href="https://www.loom.com/share/24f21454ed83463db517da0fc7045a2f?sid=8b838ba1-0d1d-41f0-9550-53581e0ef7ea&utm_source=Portfolio&utm_medium=portfolio&utm_campaign=MoodBite&utm_id=MoodBite" target="_blank">Loom Demo</a>
                     <a href="assets/moodbite_case.pdf" target="_blank">Case Study</a>
                   </div>
@@ -1153,7 +1151,7 @@
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://sabyasachimishra.dev/featurefit/" target="_blank">Live Demo</a>
-                    <a href="https://www.loom.com/embed/YOUR_FEATUREFIT_VIDEO_ID?utm_source=website&utm_medium=project-carousel&utm_campaign=featurefit" target="_blank">Loom Demo</a>
+                    <a href="https://www.loom.com/share/24f21454ed83463db517da0fc7045a2f?sid=8b838ba1-0d1d-41f0-9550-53581e0ef7ea&utm_source=Portfolio&utm_medium=portfolio&utm_campaign=MoodBite&utm_id=MoodBite" target="_blank">Loom Demo</a>
                     <a href="https://github.com/SABYA648/FeatureFit" target="_blank">Source</a>
                     </div>
                 </div>
@@ -1167,8 +1165,7 @@
                   </div>
                   <div class="card-footer project-buttons">
                     <a class="live-demo" href="https://github.com/SABYA648/LLM_TUNER_frontend" target="_blank">Live Demo</a>
-                    <a href="https://www.loom.com/embed/LLM_" target="_blank">Loom Demo</a>
-                    <a href="assets/proj1.pdf" target="_blank">Case Study</a>
+                    <a href="assets/proj1.pdf" target="_blank">Source</a>
                   </div>
                 </div>
               </div>
@@ -1376,7 +1373,7 @@
              </div>
              <div class="card-footer"><a href="assets/Incedo - AI in Fintech.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
-           <div class="offer-card card">
+          <div class="offer-card card">
              <i class="fas fa-mobile-alt"></i>
              <div class="card-content">
                <h3>Digital Payments Strategy</h3>
@@ -1471,13 +1468,13 @@
           skillCategories.forEach(cat => {
             cat.classList.toggle('active', cat.id === targetId);
             // Re-trigger fade-in animation for pills in the newly active category
-             if (cat.id === targetId) {
-               cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                 pill.style.animation = 'none'; // Reset animation
-                 pill.offsetHeight; /* Trigger reflow */
-                 pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`; // Staggered fade-in
-               });
-             }
+              if (cat.id === targetId) {
+                cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
+                  pill.style.animation = 'none'; // Reset animation
+                  pill.offsetHeight; /* Trigger reflow */
+                  pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`; // Staggered fade-in
+                });
+              }
           });
         });
       });
@@ -1503,6 +1500,8 @@
         });
 
         // --- Carousel Logic ---
+        const carouselAutoplayIntervals = {}; // Store autoplay interval IDs
+
         function getCurrentSlideIndex(carousel) {
          const transformValue = carousel.style.transform;
          if (transformValue && transformValue.includes("translateX(")) {
@@ -1512,6 +1511,21 @@
            }
          }
          return 0;
+        }
+
+        function setupCarouselAutoplay(carouselId, dotsId, intervalTime) {
+            if (carouselAutoplayIntervals[carouselId]) {
+                clearInterval(carouselAutoplayIntervals[carouselId]);
+            }
+
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+            const slides = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item'));
+            if (slides.length <= 1) return; // No autoplay if only one slide or none
+
+            carouselAutoplayIntervals[carouselId] = setInterval(() => {
+                nextSlide(carouselId, dotsId);
+            }, intervalTime);
         }
 
         function initCarousel(carouselId, dotsId) {
@@ -1536,13 +1550,13 @@
          }
 
          if (dotsContainer) {
-           dotsContainer.innerHTML = ''; // Clear existing dots
-           for (let i = 0; i < totalSlides; i++) {
-             const dot = document.createElement('span');
-             dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-             dot.addEventListener('click', () => setSlide(carouselId, dotsId, i));
-             dotsContainer.appendChild(dot);
-           }
+            dotsContainer.innerHTML = ''; // Clear existing dots
+            for (let i = 0; i < totalSlides; i++) {
+              const dot = document.createElement('span');
+              dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+              dot.addEventListener('click', () => setSlide(carouselId, dotsId, i));
+              dotsContainer.appendChild(dot);
+            }
          }
 
          // Initialize the transform if not set, respecting potential existing state
@@ -1552,6 +1566,11 @@
          // Ensure the correct dot is active based on initial transform state
          const initialIndex = getCurrentSlideIndex(carousel);
          updateDots(dotsId, initialIndex);
+
+         // Setup autoplay for the projects carousel
+         if (carouselId === 'carousel-projects' && totalSlides > 1) {
+            setupCarouselAutoplay(carouselId, dotsId, 9000); // 9 seconds
+         }
         }
 
         function updateDots(dotsId, index) {
@@ -1570,6 +1589,14 @@
          if (index < 0 || index >= total) return;
          carousel.style.transform = `translateX(-${index * 100}%)`;
          updateDots(dotsId, index);
+
+         // If this is the projects carousel, reset its autoplay timer after manual interaction
+         if (carouselId === 'carousel-projects') {
+            const totalSlides = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
+            if (totalSlides > 1) {
+                setupCarouselAutoplay(carouselId, dotsId, 9000);
+            }
+         }
         }
 
         function nextSlide(carouselId, dotsId) {
@@ -1665,11 +1692,11 @@
 
         window.addEventListener('scroll', () => {
           if (scrollToTopBtn) { // Check if button exists
-             if (window.pageYOffset > 350) { // Show button after scrolling 350px
-               scrollToTopBtn.classList.add('show');
-             } else {
-               scrollToTopBtn.classList.remove('show');
-             }
+              if (window.pageYOffset > 350) { // Show button after scrolling 350px
+                scrollToTopBtn.classList.add('show');
+              } else {
+                scrollToTopBtn.classList.remove('show');
+              }
           }
         }, { passive: true });
 
@@ -1711,7 +1738,7 @@
                     } else if (link.closest('.card') && link.textContent.toLowerCase().includes('case study')) {
                         downloadType = 'case_study';
                     } else if (link.closest('#case-studies')) {
-                         downloadType = 'case_study';
+                          downloadType = 'case_study';
                     }
 
                     console.log(`Tracking PDF download: ${fileName}, Type: ${downloadType}`); // For debugging
@@ -1739,11 +1766,11 @@
 
                     // Try to extract Loom ID or context
                     try {
-                       const urlParts = loomUrl.split('/');
-                       const potentialId = urlParts[urlParts.length - 1].split('?')[0]; // Get last path segment before query params
-                       if (potentialId && potentialId.length > 10) { // Basic check if it looks like an ID
-                           loomId = potentialId;
-                       }
+                        const urlParts = loomUrl.split('/');
+                        const potentialId = urlParts[urlParts.length - 1].split('?')[0]; // Get last path segment before query params
+                        if (potentialId && potentialId.length > 10) { // Basic check if it looks like an ID
+                            loomId = potentialId;
+                        }
                     } catch(e){}
 
                     // Try to get context from parent card
@@ -1785,15 +1812,15 @@
 
             // --- Explanation regarding (not set) Landing Page ---
             /*
-             IMPORTANT NOTE ON '(not set)' LANDING PAGES:
-             This tracking captures clicks *from* your website *to* PDFs or Loom links.
-             It helps attribute these actions within a user's session *if they started on your HTML page*.
-             However, if a user lands *directly* on a PDF file (e.g., from a search result or a direct link shared elsewhere),
-             the GA4 tracking code on *this* page (index.html) will not run for that initial hit.
-             Therefore, GA4 will likely still report these direct PDF entries as sessions with a '(not set)' landing page.
-             Completely solving the '(not set)' issue for direct asset landings usually requires server-side logging/tracking
-             or proxying asset downloads, which is beyond the scope of this client-side script.
-             This script focuses on tracking user engagement *originating from* your portfolio page.
+              IMPORTANT NOTE ON '(not set)' LANDING PAGES:
+              This tracking captures clicks *from* your website *to* PDFs or Loom links.
+              It helps attribute these actions within a user's session *if they started on your HTML page*.
+              However, if a user lands *directly* on a PDF file (e.g., from a search result or a direct link shared elsewhere),
+              the GA4 tracking code on *this* page (index.html) will not run for that initial hit.
+              Therefore, GA4 will likely still report these direct PDF entries as sessions with a '(not set)' landing page.
+              Completely solving the '(not set)' issue for direct asset landings usually requires server-side logging/tracking
+              or proxying asset downloads, which is beyond the scope of this client-side script.
+              This script focuses on tracking user engagement *originating from* your portfolio page.
             */
         });
     </script>
