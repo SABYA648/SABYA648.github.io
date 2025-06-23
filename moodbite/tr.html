@@ -308,11 +308,20 @@
         font-size: 0.88rem;
         font-weight: 500;
         margin: calc(var(--space-xs) / 2) var(--space-xs); /* Tighter spacing */
-        transition: background-color var(--transition-main), color var(--transition-main), border-color var(--transition-main);
+        transition: all var(--transition-main);
         animation: fadeInPill 0.5s ease forwards;
         opacity: 0; /* Start hidden for animation */
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+        -webkit-tap-highlight-color: transparent; /* Remove touch highlight on mobile */
       }
       @keyframes fadeInPill { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+      
+      /* Pill animations for mobile interaction */
+      @keyframes pulsePill { 
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
 
       .skill-pill:hover {
         background-color: var(--primary);
@@ -402,24 +411,84 @@
           margin-bottom: var(--space-xl);
         }
         .carousel-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .carousel-inner {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+        will-change: transform;
+      }
+
+      .carousel-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+      }
+
+      .carousel-nav.prev {
+        left: 10px;
+      }
+
+      .carousel-nav.next {
+        right: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .skills-categorized {
+          padding: var(--space-md);
+        }
+
+        .carousel-nav {
+          display: block;
+        }
+      }
+        .carousel-container {
          position: relative;
          overflow: hidden;
          border-radius: var(--radius-lg);
          background-color: transparent; /* Let cards define background */
          margin: 0 auto;
          max-width: 100%;
+         touch-action: pan-y; /* Allow vertical scrolling but capture horizontal swipes */
+         -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
         .carousel-inner {
          display: flex;
          transition: transform var(--transition-slow) ease;
+         will-change: transform; /* Optimize for animations */
+         width: 100%;
+         cursor: grab;
+        }
+        .carousel-inner:active {
+         cursor: grabbing;
         }
         .carousel-item {
          min-width: 100%;
+         flex: 0 0 100%;
          padding: var(--space-xs); /* Small padding around card */
          box-sizing: border-box;
          display: flex;
          align-items: stretch; /* Ensure cards stretch to fill height */
          justify-content: center;
+         user-select: none; /* Prevent text selection during swipe */
         }
         .carousel-item > .card {
           box-shadow: var(--shadow-md);
@@ -742,298 +811,152 @@
       .skills-categorized {
           /* Standard section padding */
       }
+      .skills-categorized h2 {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+        color: var(--text-heading); /* Ensure contrast */
+      }
+
       .skills-categories {
         display: flex;
-        gap: var(--space-xl);
+        gap: var(--space-xl); /* Gap between sidebar and content */
         align-items: flex-start;
-        flex-wrap: wrap;
-        justify-content: center;
       }
       .skills-sidebar {
-        flex: 0 0 220px; /* Slightly wider sidebar */
+        flex: 0 0 250px; /* Fixed width for the sidebar */
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
+        position: sticky; /* Make sidebar sticky */
+        top: 100px; /* Adjust as needed based on header height */
+        align-self: flex-start; /* Important for sticky positioning */
+        background-color: var(--bg-body); /* Ensure it has a background */
+        padding: var(--space-sm);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
       }
+
       .skill-toggle {
-        padding: var(--space-sm) var(--space-md);
+        padding: var(--space-md) var(--space-lg);
         border: 1px solid var(--border-light);
         background-color: var(--bg-card);
-        color: var(--text-body); /* Use body text color */
+        color: var(--text-body);
         border-radius: var(--radius);
         cursor: pointer;
         text-align: left;
         font-weight: 500;
-        font-size: 0.98rem; /* Slightly larger */
-        transition: all var(--transition-main);
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
         width: 100%;
       }
-      .skill-toggle:hover {
-        background-color: #f1f3f5; /* Lighter hover */
-        border-color: var(--border-color);
-        color: var(--text-heading);
+
+      .skill-toggle:hover, .skill-toggle:focus {
+        background-color: var(--primary-light);
+        color: var(--primary);
+        transform: translateY(-2px);
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
       }
+
       .skill-toggle.active {
         background-color: var(--primary);
-        color: #fff;
-        border-color: var(--primary);
+        color: #ffffff; /* Ensure high contrast for active state */
         font-weight: 600;
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-md);
       }
+
       .skills-content {
         flex: 1;
-        min-width: 300px;
+        min-width: 0; /* Allow content to shrink */
+        padding-left: var(--space-lg); /* Space from sidebar */
       }
+
       .skill-category {
-        display: none;
-        flex-wrap: wrap;
-        gap: var(--space-xs) var(--space-sm); /* Adjust gap */
-        padding: var(--space-lg); /* More padding inside */
-        background-color: var(--bg-card);
-        border-radius: var(--radius);
-        border: 1px solid var(--border-light);
-        min-height: 120px; /* Ensure height */
-      }
-      .skill-category.active {
-        display: flex;
-        animation: fadeInContent 0.4s ease forwards;
-      }
-        @keyframes fadeInContent { from { opacity: 0; } to { opacity: 1; } }
-
-      /* --- Radio Toggle Section --- */
-      .radio-cards {
-        display: flex;
+        display: none; /* Hidden by default, shown by JS */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Default for larger screens */
         gap: var(--space-md);
-        margin-bottom: var(--space-xl);
-        flex-wrap: wrap;
-        justify-content: center;
-        border-bottom: 1px solid var(--border-light);
-        padding-bottom: var(--space-xl);
+        animation: fadeInCategory 0.5s ease forwards;
       }
-      .radio-card {
+
+      .skill-category.active {
+        display: grid; /* Use grid for 3-column layout */
+      }
+
+      .skill-pill {
         background-color: var(--bg-card);
+        color: var(--text-body);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-pill);
         border: 1px solid var(--border-light);
-        padding: var(--space-md) var(--space-lg);
-        border-radius: var(--radius);
-        min-width: 170px; /* Adjusted width */
+        font-size: 0.9rem;
+        font-weight: 500;
         text-align: center;
-        cursor: pointer;
-        transition: all var(--transition-main);
-        color: var(--text-muted);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: var(--shadow-sm);
       }
-      .radio-card:hover {
-        transform: translateY(-3px);
+
+      .skill-pill:hover {
+        transform: translateY(-2px);
         box-shadow: var(--shadow-md);
-        border-color: var(--accent); /* Use accent for hover border */
-        color: var(--accent);
-      }
-      .radio-card.active {
-        background-color: var(--primary);
-        color: #fff;
-        border-color: var(--primary);
-        box-shadow: var(--shadow-md);
-        transform: translateY(-3px);
-      }
-        .radio-card.active:hover {
-          color: #fff; /* Keep white text on hover when active */
-          border-color: var(--primary);
-        }
-      .radio-card i {
-        font-size: 1.6rem; /* Larger icon */
-        margin-bottom: var(--space-sm);
-        display: block;
-        transition: transform 0.2s ease; /* Add subtle icon transition */
-      }
-      .radio-card:hover i {
-          transform: scale(1.1);
-      }
-        .radio-card h3 {
-          font-size: 0.95rem;
-          font-weight: 600;
-          margin-bottom: 0;
-          color: inherit;
-        }
-      .dynamic-content > div {
-        display: none;
-      }
-      .dynamic-content > div.active {
-        display: block;
-        animation: fadeInUp 0.5s ease-out forwards; /* Smoother, slightly longer */
-      }
-      @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* What I Offer Cards Grid */
-        .offer-cards {
-          display: grid;
-          gap: var(--space-lg);
-          grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Slightly wider min */
-        }
-        .offer-card { /* Reuses .card */
-          text-align: center;
-        }
-        .offer-card i {
-          font-size: 2.2rem;
-          margin-bottom: var(--space-md);
-          color: var(--accent);
-        }
-        .offer-card .card-footer { /* Adjust footer for offer cards */
-            border-top: none; /* Remove top border */
-            padding-top: 0; /* Remove padding */
-        }
-        .offer-card .offer-btn {
-            margin-top: var(--space-md);
-        }
-
-      /* --- Contact Form Section --- */
-      #contact h2 {
-        /* Standard h2 styling */
-      }
-      .contact-form {
-        max-width: 850px; /* Slightly wider form */
-        margin: 0 auto;
-        background-color: var(--bg-card);
-        padding: var(--space-xl);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--border-light);
-      }
-      .contact-row {
-        display: flex;
-        gap: var(--space-xl);
-        flex-wrap: wrap;
-      }
-      .contact-col {
-        flex: 1;
-        min-width: 260px;
+        background-color: var(--accent-light);
+        color: var(--accent-dark); /* Ensure contrast */
       }
 
-      /***********************************************
-      * MEDIA QUERIES
-      ***********************************************/
-      /* Large desktops - Side-by-side carousels */
-        @media (min-width: 992px) {
-          .carousel-row {
-              display: flex;
-              gap: var(--space-xl);
-              align-items: stretch; /* Make columns equal height */
-          }
-            .carousel-row > .carousel-section {
-                flex: 1; /* Each takes half width */
-                margin-bottom: 0; /* Remove bottom margin when side-by-side */
-            }
-          .carousel-section h2 {
-              /* Keep heading size consistent or adjust if needed */
-          }
-        }
-
-      /* Tablets and below */
-      @media (max-width: 991px) {
-        /* Carousels will stack naturally due to default block display */
+      @keyframes fadeInCategory {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      /* Hide bottom bar on larger screens */
-      @media (min-width: 768px) {
-        .bottom-bar {
-          display: none;
-        }
-          .scroll-to-top {
-              bottom: var(--space-xl);
-              right: var(--space-xl);
-          }
-      }
-
-      /* Tablet and below adjustments */
-      @media (max-width: 767px) {
-        html { font-size: 15.5px; } /* Slightly adjust base */
-
-        .hero {
-          flex-direction: column;
-          text-align: center;
-          gap: var(--space-lg);
-          min-height: auto; /* Reset min-height */
-        }
-        .hero-image img {
-            width: 160px; /* Adjust size */
-            height: 160px;
-        }
-        .btn-group {
-          justify-content: center;
-        }
-
+      /* Mobile Responsive Adjustments */
+      @media (max-width: 768px) {
         .skills-categories {
           flex-direction: column;
-          align-items: stretch;
           gap: var(--space-lg);
         }
+
         .skills-sidebar {
-          flex-basis: auto;
+          flex-direction: row; /* Horizontal toggles on mobile */
+          overflow-x: auto; /* Allow horizontal scrolling for toggles */
+          white-space: nowrap;
+          position: static; /* Remove sticky for mobile */
           width: 100%;
-          flex-direction: row;
-          overflow-x: auto;
-          padding-bottom: var(--space-md); /* Space for scrollbar if needed */
-          justify-content: flex-start;
-          /* Add scroll snap for better UX */
-          scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+          padding: var(--space-sm) 0;
+          box-shadow: none;
+          border-bottom: 1px solid var(--border-light);
         }
+
         .skill-toggle {
-            flex-shrink: 0;
-            text-align: center;
-            scroll-snap-align: start; /* Snap align */
+          flex: 0 0 auto; /* Allow toggles to take their content width */
+          padding: var(--space-sm) var(--space-md);
+          margin-right: var(--space-sm);
         }
-          /* Hide scrollbar visually but keep functionality */
-        .skills-sidebar::-webkit-scrollbar { display: none; }
-        .skills-sidebar { -ms-overflow-style: none; scrollbar-width: none; }
+        .skill-toggle:last-child {
+          margin-right: 0;
+        }
 
         .skills-content {
-          width: 100%;
+          padding-left: 0; /* Remove padding for mobile */
         }
 
-          .radio-cards {
-              justify-content: center;
-              gap: var(--space-sm);
-          }
-          .radio-card {
-              min-width: 120px; /* Adjust size */
-              padding: var(--space-sm) var(--space-md);
-          }
-          .radio-card i { font-size: 1.4rem; margin-bottom: var(--space-xs); }
-          .radio-card h3 { font-size: 0.85rem; }
-
-          .contact-row {
-              gap: 0;
-          }
-          .contact-col {
-              min-width: 100%;
-          }
-
-            /* Adjust scroll-to-top to be above potential mobile nav */
-            .scroll-to-top {
-                /* Calculate roughly based on nav height + desired margin */
-                bottom: calc(var(--space-unit) * 5);
-                right: var(--space-md);
-            }
+        .skill-category.active {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller tablets */
+          gap: var(--space-sm);
+        }
       }
 
-      /* Mobile specific adjustments */
       @media (max-width: 480px) {
-          html { font-size: 15px; }
-          .container { width: 95%; padding-left: var(--space-sm); padding-right: var(--space-sm); }
-          section { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
-          h1 { font-size: 1.9rem; }
-          h2 { font-size: 1.5rem; }
-          .btn { padding: var(--space-sm) var(--space-md); font-size: 0.9rem; }
-          .hero-image img { width: 130px; height: 130px; }
-
-          .timeline { padding-left: var(--space-lg); }
-          .timeline::before { left: 6px; } /* Align line with dot center */
-          .timeline-item::before { left: -2px; width: 16px; height: 16px; } /* Adjust dot */
-
-          .carousel-nav button { width: 34px; height: 34px; font-size: 1rem; }
-          .carousel-dots span { width: 8px; height: 8px; }
-          .offer-cards { grid-template-columns: 1fr; } /* Stack offer cards */
+        .skill-category.active {
+          grid-template-columns: 1fr; /* 1 column on very small screens */
+        }
       }
 
+      /* Scroll hint for mobile sidebar */
+      .skills-sidebar.scrollable .scroll-hint {
+        display: block; /* Show hint when scrollable */
+      }
+      .scroll-hint {
+        /* ... existing scroll-hint styles ... */
+        color: var(--primary); /* Ensure contrast */
+      }
     </style>
 </head>
 
@@ -1110,20 +1033,21 @@
 
     <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
       <h2>Skills &amp; Tools</h2>
-      <div class="skills-categories">
-        <div class="skills-sidebar">
-          <button class="skill-toggle active" data-target="product-management">Product Management</button>
-          <button class="skill-toggle" data-target="technical-skills">Technical Skills</button>
-          <button class="skill-toggle" data-target="tools-platforms">Tools &amp; Platforms</button>
+      <div class="skills-categories"> <!-- Renamed from skills-layout-container for consistency -->
+        <div class="skills-sidebar" role="tablist" aria-label="Skill Categories">
+          <button class="skill-toggle active" role="tab" aria-selected="true" aria-controls="product-management-content" id="product-management-tab">Product Management</button>
+          <button class="skill-toggle" role="tab" aria-selected="false" aria-controls="technical-skills-content" id="technical-skills-tab">Technical Skills</button>
+          <button class="skill-toggle" role="tab" aria-selected="false" aria-controls="tools-platforms-content" id="tools-platforms-tab">Tools &amp; Platforms</button>
+          <span class="scroll-hint" aria-hidden="true">→</span>
         </div>
         <div class="skills-content">
-          <div id="product-management" class="skill-category active">
+          <div id="product-management-content" class="skill-category active" role="tabpanel" aria-labelledby="product-management-tab" tabindex="0">
             <span class="skill-pill">Product Strategy & Vision</span><span class="skill-pill">Product Discovery & Validation</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">Feature Prioritization</span><span class="skill-pill">Agile & Scrum</span><span class="skill-pill">Stakeholder Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Competitive Analysis & Market Research</span><span class="skill-pill">Customer Discovery</span><span class="skill-pill">Customer Journey Mapping</span><span class="skill-pill">User Experience (UX) Design Principles</span><span class="skill-pill">OKRs & KPI Tracking</span><span class="skill-pill">Go-To-Market (GTM) Strategy</span><span class="skill-pill">Pricing & Monetization Strategies</span><span class="skill-pill">Cross-functional Team Leadership</span><span class="skill-pill">Wireframing & Prototyping</span><span class="skill-pill">MVP Execution</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">Lean Strategy</span>
           </div>
-          <div id="technical-skills" class="skill-category">
+          <div id="technical-skills-content" class="skill-category" role="tabpanel" aria-labelledby="technical-skills-tab" tabindex="0">
             <span class="skill-pill">Generative AI & LLM Implementation</span><span class="skill-pill">Machine Learning & AI Fundamentals</span><span class="skill-pill">Python</span><span class="skill-pill">SQL & Database Management</span><span class="skill-pill">API Design & Integration</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">OpenAI APIs</span><span class="skill-pill">FastAPI</span><span class="skill-pill">NLP / LLM Tuning</span><span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">React</span><span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span><span class="skill-pill">Technical Documentation (PRD/BRD)</span><span class="skill-pill">Agile SDLC</span>
           </div>
-          <div id="tools-platforms" class="skill-category">
+          <div id="tools-platforms-content" class="skill-category" role="tabpanel" aria-labelledby="tools-platforms-tab" tabindex="0">
             <span class="skill-pill">JIRA</span><span class="skill-pill">Git & GitHub</span><span class="skill-pill">Amplitude / Mixpanel</span><span class="skill-pill">Maze / Hotjar</span><span class="skill-pill">Figma / Adobe XD</span><span class="skill-pill">Miro / FigJam</span><span class="skill-pill">Confluence / Notion</span><span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span><span class="skill-pill">Postman</span><span class="skill-pill">Slack / Teams</span><span class="skill-pill">Google Analytics (GA4)</span>
           </div>
         </div>
@@ -1337,8 +1261,7 @@
                  <ul>
                    <li>Automated competitor market intelligence with NLP/BI tools, <strong>cutting research time by 30%</strong> and enhancing strategic responsiveness.</li>
                  </ul>
-               </div>
-             </div>
+               </div             </div>
              <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
                <div class="timeline-content">
                  <h3>Software Development Intern <em>Amdocs India LLP, Pune (May '19 – Aug '19)</em></h3>
@@ -1460,9 +1383,104 @@
     </script>
 
     <script>
+      // --- Utility Functions ---
+      // Debounce function to limit how often a function can be called
+      function debounce(func, wait = 100) {
+        let timeout;
+        return function(...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            func.apply(this, args);
+          }, wait);
+        }
+      }
+      
       // --- Skill Toggles ---
       const skillToggles = document.querySelectorAll('.skill-toggle');
       const skillCategories = document.querySelectorAll('.skill-category');
+      const skillsSidebar = document.querySelector('.skills-sidebar');
+      const skillsContent = document.querySelector('.skills-content');
+
+      // Check for scrollability of skills sidebar
+      function updateScrollIndicator() {
+        if (skillsSidebar) {
+          const isScrollable = skillsSidebar.scrollWidth > skillsSidebar.clientWidth;
+          skillsSidebar.classList.toggle('scrollable', isScrollable);
+          
+          // Manage scroll hint visibility
+          updateScrollHint();
+          
+          // Center active toggle in scroll view on mobile
+          const activeToggle = skillsSidebar.querySelector('.skill-toggle.active');
+          if (activeToggle && window.innerWidth < 768) {
+            const sidebarRect = skillsSidebar.getBoundingClientRect();
+            const toggleRect = activeToggle.getBoundingClientRect();
+            const centerPosition = toggleRect.left + (toggleRect.width / 2) - sidebarRect.left - (skillsSidebar.clientWidth / 2);
+            
+            skillsSidebar.scrollTo({
+              left: skillsSidebar.scrollLeft + centerPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+
+      // Manage scroll hint visibility and behavior
+      function updateScrollHint() {
+        const scrollHint = document.querySelector('.scroll-hint');
+        if (!scrollHint || !skillsSidebar) return;
+
+        const isMobile = window.innerWidth < 768;
+        const isScrollable = skillsSidebar.scrollWidth > skillsSidebar.clientWidth;
+        const hasScrolled = sessionStorage.getItem('skillsSidebarScrolled') === 'true';
+        
+        // Show hint only on mobile when scrollable and user hasn't scrolled yet
+        if (isMobile && isScrollable && !hasScrolled) {
+          scrollHint.classList.add('show');
+          scrollHint.classList.remove('fade-out');
+          
+          // Auto-hide hint after 8 seconds if user doesn't interact
+          setTimeout(() => {
+            if (scrollHint.classList.contains('show')) {
+              hideScrollHint();
+            }
+          }, 8000);
+        } else {
+          scrollHint.classList.remove('show');
+        }
+      }
+
+      // Hide scroll hint after user interacts
+      function hideScrollHint() {
+        const scrollHint = document.querySelector('.scroll-hint');
+        if (scrollHint) {
+          scrollHint.classList.add('fade-out');
+          setTimeout(() => {
+            scrollHint.classList.remove('show');
+          }, 500);
+          sessionStorage.setItem('skillsSidebarScrolled', 'true');
+        }
+      }
+
+      // Add scroll listener to skills sidebar for mobile
+      if (skillsSidebar) {
+        skillsSidebar.addEventListener('scroll', () => {
+          const scrollPercent = skillsSidebar.scrollLeft / (skillsSidebar.scrollWidth - skillsSidebar.clientWidth);
+          // Update visual indicator or feedback based on scroll position
+          if (scrollPercent > 0.9) {
+            skillsSidebar.classList.add('scrolled-end');
+          } else {
+            skillsSidebar.classList.remove('scrolled-end');
+          }
+          
+          // Hide scroll hint after user scrolls
+          hideScrollHint();
+        });
+
+        // Hide scroll hint on touch/interaction
+        skillsSidebar.addEventListener('touchstart', hideScrollHint);
+        skillsSidebar.addEventListener('mousedown', hideScrollHint);
+      }
 
       skillToggles.forEach(button => {
         button.addEventListener('click', () => {
@@ -1470,34 +1488,141 @@
           skillToggles.forEach(btn => btn.classList.remove('active'));
           button.classList.add('active');
 
-          // Update active category display
-          const targetId = button.getAttribute('data-target');
-          skillCategories.forEach(cat => {
-            cat.classList.toggle('active', cat.id === targetId);
-            // Re-trigger fade-in animation for pills in the newly active category
+          // Add loading state (for visual feedback especially on mobile)
+          if (skillsContent) skillsContent.classList.add('loading');
+
+          // Scroll the active toggle into view on mobile
+          if (window.innerWidth < 768) {
+            const sidebarRect = skillsSidebar.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+            const centerPosition = buttonRect.left + (buttonRect.width / 2) - sidebarRect.left - (skillsSidebar.clientWidth / 2);
+            
+            skillsSidebar.scrollTo({
+              left: skillsSidebar.scrollLeft + centerPosition,
+              behavior: 'smooth'
+            });
+          }
+
+          // Update active category display with a slight delay for visual feedback
+          setTimeout(() => {
+            const targetId = button.getAttribute('data-target');
+            skillCategories.forEach(cat => {
+              cat.classList.toggle('active', cat.id === targetId);
+              // Re-trigger fade-in animation for pills in the newly active category
               if (cat.id === targetId) {
                 cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
                   pill.style.animation = 'none'; // Reset animation
                   pill.offsetHeight; /* Trigger reflow */
-                  pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`; // Staggered fade-in
+                  
+                  // More staggered timing on mobile for better performance
+                  const delay = window.innerWidth < 480 ? index * 0.06 : index * 0.04;
+                  pill.style.animation = `fadeInPill 0.5s ease forwards ${delay}s`; // Staggered fade-in
                 });
               }
-          });
+            });
+            
+            // Remove loading state
+            if (skillsContent) {
+              setTimeout(() => {
+                skillsContent.classList.remove('loading');
+              }, 300);
+            }
+            
+            // Update scroll hint after category change
+            updateScrollHint();
+          }, 100);
         });
       });
+      
+      // Initialize scroll indicator on load and resize
+      window.addEventListener('load', updateScrollIndicator);
+      window.addEventListener('resize', debounce(updateScrollIndicator, 200));
 
         // Initialize the first category pills animation on load
         document.addEventListener('DOMContentLoaded', () => {
             const activeCategory = document.querySelector('.skill-category.active');
             if (activeCategory) {
+                // More gradual animation on mobile to avoid jank
+                const isMobile = window.innerWidth < 768;
+                const animationDuration = isMobile ? '0.6s' : '0.5s';
+                
                 activeCategory.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                  pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`;
+                  // For mobile: more staggered timing and optimized delay
+                  const delay = isMobile ? Math.min(index * 0.06, 1.2) : index * 0.04;
+                  pill.style.animation = `fadeInPill ${animationDuration} ease forwards ${delay}s`;
+                  
+                  // Add touch feedback for mobile
+                  if (isMobile) {
+                    pill.addEventListener('touchstart', () => {
+                      pill.style.transform = 'scale(0.95)';
+                    }, {passive: true});
+                    
+                    pill.addEventListener('touchend', () => {
+                      pill.style.transform = 'scale(1)';
+                    }, {passive: true});
+                  }
                 });
+                
+                // Initialize scroll indicator for the skills sidebar
+                updateScrollIndicator();
+                
+                // Show scroll hint after a delay on mobile
+                setTimeout(() => {
+                  updateScrollHint();
+                }, 2000); // Show hint after 2 seconds
             }
 
             // --- Initialize Carousels ---
             initCarousel('carousel-projects', 'dots-projects');
             initCarousel('carousel-blogs', 'dots-blogs');
+            
+            // --- Enhance Carousels with Touch Support ---
+            enhanceCarouselsWithTouchSupport();
+            
+            // --- Handle Responsive Carousel Resizing ---
+            window.addEventListener('resize', debounce(() => {
+                // Adjust carousels on window resize for better mobile responsiveness
+                document.querySelectorAll('.carousel-inner').forEach(carousel => {
+                    const carouselId = carousel.id;
+                    if (!carouselId) return;
+                    
+                    // Get current active slide index
+                    const transform = carousel.style.transform;
+                    let currentIndex = 0;
+                    
+                    if (transform && transform.includes('translateX(')) {
+                        const match = transform.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
+                        if (match) {
+                            currentIndex = Math.round(parseFloat(match[1]) / 100);
+                        }
+                    }
+                    
+                    // Update carousel layout without animation
+                    carousel.style.transition = 'none';
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    // Re-enable transition after a brief delay
+                    setTimeout(() => {
+                        carousel.style.transition = 'transform 0.3s ease-out';
+                    }, 50);
+                });
+            }, 200));
+            
+            // --- Make Carousels Responsive on Window Resize ---
+            window.addEventListener('resize', () => {
+                // Ensure current slide is properly positioned after resize
+                document.querySelectorAll('.carousel-inner').forEach(carousel => {
+                    const currentIndex = getCurrentSlideIndex(carousel);
+                    if (currentIndex !== undefined) {
+                        carousel.style.transition = 'none'; // Disable transition during resize
+                        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        // Re-enable transition after a short delay
+                        setTimeout(() => {
+                            carousel.style.transition = 'transform 0.3s ease-out';
+                        }, 50);
+                    }
+                });
+            });
 
             // --- (Optional) Auto-Open Calendly ---
             const urlParams = new URLSearchParams(window.location.search);
@@ -1594,8 +1719,28 @@
          const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
          // Basic boundary check (though modulo handles wrapping)
          if (index < 0 || index >= total) return;
+         
+         // Find carousel container for additional interaction feedback
+         const container = carousel.closest('.carousel-container');
+         
+         // Ensure transition is enabled for smooth sliding
+         carousel.style.transition = 'transform 0.3s ease-out';
          carousel.style.transform = `translateX(-${index * 100}%)`;
          updateDots(dotsId, index);
+
+         // Track interaction for swipe hint management
+         if (container) {
+             container.classList.add('interacted');
+             
+             // Optional - add subtle transition effect on navigation controls
+             const navButtons = container.querySelectorAll('.carousel-nav button');
+             navButtons.forEach(button => {
+                 button.style.transform = 'scale(1.05)';
+                 setTimeout(() => {
+                     button.style.transform = '';
+                 }, 200);
+             });
+         }
 
          // If this is the projects carousel, reset its autoplay timer after manual interaction
          if (carouselId === 'carousel-projects') {
@@ -1604,6 +1749,12 @@
                 setupCarouselAutoplay(carouselId, dotsId, 9000);
             }
          }
+         
+         // Broadcast custom event for potential listeners
+         const event = new CustomEvent('carouselSlideChange', { 
+             detail: { carouselId, index, total }
+         });
+         document.dispatchEvent(event);
         }
 
         function nextSlide(carouselId, dotsId) {
@@ -1626,95 +1777,57 @@
          setSlide(carouselId, dotsId, index);
         }
 
-        // --- Radio toggle code ---
-        const radioCardContainer = document.querySelector('.radio-cards[data-target="sections"]');
-        const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
+        // --- Skills Carousel Functionality ---
+      const skillsCarousel = document.querySelector('.skills-carousel');
+      const prevButton = document.querySelector('.carousel-nav.prev');
+      const nextButton = document.querySelector('.carousel-nav.next');
 
-        if (radioCardContainer && radioContentContainer) {
-          const radioCards = radioCardContainer.querySelectorAll('.radio-card');
-          radioCards.forEach(card => {
-            card.addEventListener('click', () => {
-              const currentActiveCard = radioCardContainer.querySelector('.radio-card.active');
-              const currentActiveContent = radioContentContainer.querySelector(':scope > div.active');
-              const targetId = card.getAttribute('data-id');
-              const targetDiv = document.getElementById(targetId);
+      let currentSlide = 0;
 
-              if (card === currentActiveCard || !targetDiv) return; // Do nothing if clicking the active card or target not found
-
-              // Remove active classes
-              if (currentActiveCard) currentActiveCard.classList.remove('active');
-              if (currentActiveContent) currentActiveContent.classList.remove('active');
-
-              // Add active classes to the new target
-              card.classList.add('active');
-              targetDiv.classList.add('active');
-
-              // Optional: Re-initialize AOS for newly revealed content if animations feel off
-              // AOS.refreshHard(); // Use refreshHard if elements change significantly
-            });
-          });
+      function updateCarousel() {
+        if (skillsCarousel) {
+          skillsCarousel.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
-
-      // --- Auto-hide/show bottom bar on scroll ---
-      let lastScrollY = window.pageYOffset;
-      const bottomBar = document.getElementById('bottomBar');
-      const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
-      let isScrolling; // Timeout tracker
-
-      window.addEventListener('scroll', () => {
-        if (!bottomBar || window.innerWidth >= 768) return; // Exit if no bar or on desktop
-
-        const currentScrollY = window.pageYOffset;
-
-        // Clear previous timeout
-        window.clearTimeout(isScrolling);
-
-         // Determine scroll direction
-        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
-          bottomBar.classList.remove('visible'); // Hide on scroll down
-        } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
-          bottomBar.classList.add('visible'); // Show on scroll up or near top
-        }
-
-        // Set a timeout to run after scrolling ends
-        isScrolling = setTimeout(() => {
-          // Add logic here if you want the bar to reappear after scrolling stops
-          // For now, it just stays hidden if scrolled down past threshold
-          if (currentScrollY > scrollThreshold) {
-            // Optional: Re-add 'visible' class if you want it to show after scrolling stops
-            // bottomBar.classList.add('visible');
-          }
-        }, 150); // Adjust timeout duration as needed
-
-        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-      }, { passive: true });
-
-      // Show initially if near top on load (only on mobile)
-      if (window.pageYOffset <= 10 && bottomBar && window.innerWidth < 768) {
-         bottomBar.classList.add('visible');
       }
 
-        // --- Scroll to Top Button Logic ---
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-        window.addEventListener('scroll', () => {
-          if (scrollToTopBtn) { // Check if button exists
-              if (window.pageYOffset > 350) { // Show button after scrolling 350px
-                scrollToTopBtn.classList.add('show');
-              } else {
-                scrollToTopBtn.classList.remove('show');
-              }
-          }
-        }, { passive: true });
-
-        if (scrollToTopBtn) {
-          scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-          });
+      function showPrevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateCarousel();
         }
+      }
+
+      function showNextSlide() {
+        if (skillsCarousel && currentSlide < skillsCarousel.children.length - 1) {
+          currentSlide++;
+          updateCarousel();
+        }
+      }
+
+      if (prevButton) prevButton.addEventListener('click', showPrevSlide);
+      if (nextButton) nextButton.addEventListener('click', showNextSlide);
+
+      // Add touch/swipe support
+      let startX = 0;
+      let endX = 0;
+
+      if (skillsCarousel) {
+        skillsCarousel.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        skillsCarousel.addEventListener('touchmove', (e) => {
+          endX = e.touches[0].clientX;
+        });
+
+        skillsCarousel.addEventListener('touchend', () => {
+          if (startX - endX > 50) {
+            showNextSlide();
+          } else if (endX - startX > 50) {
+            showPrevSlide();
+          }
+        });
+      }
     </script>
 
     <script>
@@ -1817,6 +1930,165 @@
                 }, true); // Use capture phase to catch clicks on the iframe potentially stopping propagation
             }
 
+            // --- Enhanced Carousel with Touch Support ---
+            function enhanceCarouselsWithTouchSupport() {
+                // Check if we're on a mobile or touch device
+                const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 0);
+                
+                document.querySelectorAll('.carousel-container').forEach(container => {
+                    const carousel = container.querySelector('.carousel-inner');
+                    if (!carousel) return;
+                    
+                    // Set a data attribute for mobile-specific styling if needed
+                    if (isMobileDevice) {
+                        container.setAttribute('data-mobile', 'true');
+                    }
+                    
+                    const carouselId = carousel.id;
+                    const dotsId = container.querySelector('.carousel-dots')?.id;
+                    
+                    // Touch tracking variables
+                    let startX = 0;
+                    let currentX = 0;
+                    let isDragging = false;
+                    let startTranslateX = 0;
+                    let currentTransform = 0;
+                    const minSwipeDistance = 50; // Minimum distance to trigger a swipe
+                    const slides = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item'));
+                    const totalSlides = slides.length;
+                    
+                    if (totalSlides <= 1) return; // Don't add touch support if only one slide
+                    
+                    // Get current transform as percentage
+                    function getCurrentTransform() {
+                        const transform = carousel.style.transform;
+                        if (transform && transform.includes('translateX(')) {
+                            const match = transform.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
+                            return match ? parseFloat(match[1]) : 0;
+                        }
+                        return 0;
+                    }
+                    
+                    // Touch event handlers
+                    function handleTouchStart(e) {
+                        startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                        isDragging = true;
+                        startTranslateX = getCurrentTransform();
+                        
+                        // Mark container as interacted to hide swipe hint
+                        container.classList.add('interacted');
+                        
+                        // Pause autoplay during manual interaction
+                        if (carouselAutoplayIntervals[carouselId]) {
+                            clearInterval(carouselAutoplayIntervals[carouselId]);
+                        }
+                        
+                        // Remove transition during drag for responsive feel
+                        carousel.style.transition = 'none';
+                        
+                        // Prevent default only for mouse to avoid page scroll interference
+                        if (e.type.includes('mouse')) {
+                            e.preventDefault();
+                        }
+                    }
+                    
+                    function handleTouchMove(e) {
+                        if (!isDragging) return;
+                        
+                        currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                        const diffX = currentX - startX;
+                        const slideWidth = carousel.offsetWidth;
+                        
+                        // Calculate how much to move (percentage of width)
+                        const movePercent = (diffX / slideWidth) * 100;
+                        let newTranslate = startTranslateX - movePercent;
+                        
+                        // Add resistance when trying to drag past first or last slide
+                        if (newTranslate < 0) {
+                            newTranslate = newTranslate * 0.3; // Add resistance at beginning
+                        } else if (newTranslate > (totalSlides - 1) * 100) {
+                            newTranslate = ((totalSlides - 1) * 100) + ((newTranslate - ((totalSlides - 1) * 100)) * 0.3); // Add resistance at end
+                        }
+                        
+                        carousel.style.transform = `translateX(-${newTranslate}%)`;
+                        currentTransform = newTranslate;
+                        
+                        // Prevent default to avoid page scrolling while swiping
+                        e.preventDefault();
+                    }
+                    
+                    function handleTouchEnd(e) {
+                        if (!isDragging) return;
+                        isDragging = false;
+                        
+                        // Restore transition for smooth snap
+                        carousel.style.transition = 'transform 0.3s ease-out';
+                        
+                        const diffX = currentX - startX;
+                        
+                        // Determine direction and if swipe was sufficient
+                        if (Math.abs(diffX) >= minSwipeDistance) {
+                            let targetSlide;
+                            
+                            if (diffX > 0) {
+                                // Swiped right (previous)
+                                targetSlide = Math.floor(currentTransform / 100);
+                            } else {
+                                // Swiped left (next)
+                                targetSlide = Math.ceil(currentTransform / 100);
+                            }
+                            
+                            // Ensure target is within bounds
+                            targetSlide = Math.max(0, Math.min(totalSlides - 1, targetSlide));
+                            setSlide(carouselId, dotsId, targetSlide);
+                        } else {
+                            // Not enough movement, snap back to closest slide
+                            const currentSlide = Math.round(currentTransform / 100);
+                            setSlide(carouselId, dotsId, currentSlide);
+                        }
+                        
+                        // Restart autoplay for projects carousel
+                        if (carouselId === 'carousel-projects') {
+                            setupCarouselAutoplay(carouselId, dotsId, 9000);
+                        }
+                    }
+                    
+                    // Add mouse and touch events
+                    carousel.addEventListener('mousedown', handleTouchStart);
+                    carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+                    
+                    window.addEventListener('mousemove', handleTouchMove);
+                    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+                    
+                    window.addEventListener('mouseup', handleTouchEnd);
+                    window.addEventListener('touchend', handleTouchEnd);
+                    
+                    // Improve accessibility with keyboard navigation
+                    carousel.setAttribute('tabindex', '0');
+                    carousel.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowLeft') {
+                            prevSlide(carouselId, dotsId);
+                            e.preventDefault();
+                        } else if (e.key === 'ArrowRight') {
+                            nextSlide(carouselId, dotsId);
+                            e.preventDefault();
+                        }
+                    });
+                    
+                    // Ensure the carousel has a transition property for smooth sliding
+                    carousel.style.transition = 'transform 0.3s ease-out';
+                    
+                    // Add cursor styles
+                    carousel.style.cursor = 'grab';
+                    carousel.addEventListener('mousedown', () => {
+                        carousel.style.cursor = 'grabbing';
+                    });
+                    carousel.addEventListener('mouseup', () => {
+                        carousel.style.cursor = 'grab';
+                    });
+                });
+            }
+
             // --- Explanation regarding (not set) Landing Page ---
             /*
               IMPORTANT NOTE ON '(not set)' LANDING PAGES:
@@ -1831,5 +2103,5 @@
             */
         });
     </script>
-    </body>
+</body>
 </html>
