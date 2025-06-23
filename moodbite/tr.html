@@ -19,27 +19,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sabyasachi Mishra | Product Manager</title>
     <meta name="description" content="AI-native Product Manager. Explore projects, skills, and experience." />
+    
+    <!-- Favicon and theme -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <meta name="theme-color" content="#0056b3">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sabyasachimishra.com/">
+    <meta property="og:title" content="Sabyasachi Mishra | Product Manager">
+    <meta property="og:description" content="AI-native Product Manager with expertise in AI/ML products, user experience, and growth strategies. Explore my projects and experience.">
+    <meta property="og:image" content="https://sabyasachimishra.com/assets/og-image.jpg">
+    <meta property="og:site_name" content="Sabyasachi Mishra Portfolio">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sabyasachimishra.com/">
+    <meta property="twitter:title" content="Sabyasachi Mishra | Product Manager">
+    <meta property="twitter:description" content="AI-native Product Manager with expertise in AI/ML products, user experience, and growth strategies.">
+    <meta property="twitter:image" content="https://sabyasachimishra.com/assets/og-image.jpg">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://us.i.posthog.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://us.i.posthog.com; frame-src 'self' https://www.loom.com;">
+    
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//us.i.posthog.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.loom.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+      /* purgecss start ignore */
       /***********************************************
       * THEME & VARIABLES
       ***********************************************/
       :root {
-        /* Colors */
-        --primary: #007aff;      /* Primary Blue */
-        --accent: #00a99d;       /* Teal Accent */
+        /* Colors - Enhanced for WCAG AA compliance (4.5:1 contrast) */
+        --primary: #0056b3;      /* Darker blue for better contrast */
+        --primary-light: #e3f2fd; /* Light variant for backgrounds */
+        --accent: #007d72;       /* Darker teal for better contrast */
+        --accent-light: #e0f7f5; /* Light variant for backgrounds */
         --bg-body: #f8f9fa;      /* Light Grey Background */
         --bg-card: #ffffff;      /* White for Cards/Header */
-        --text-heading: #212529; /* Darker Heading */
-        --text-body: #495057;    /* Softer Body Text */
-        --text-muted: #6c757d;   /* Lighter Muted Text */
+        --text-heading: #1a1a1a; /* Darker heading for better contrast */
+        --text-body: #333333;    /* Darker body text for 4.5:1 contrast */
+        --text-muted: #5a5a5a;   /* Darker muted text for better contrast */
         --border-color: #dee2e6; /* Standard Border */
         --border-light: #e9ecef; /* Lighter Border/Dividers */
+        --focus-color: #0066cc;  /* High contrast focus indicator */
+        /* Optimized shadows - consolidated variables */
         --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
         --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.06);
         --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -297,36 +332,157 @@
           border-top: 1px solid var(--border-light); /* Subtle separator */
       }
 
-      /* --- Skill Pills --- */
+      /* --- Skill Pills - Enhanced for accessibility --- */
       .skill-pill {
         display: inline-block;
-        padding: var(--space-xs) var(--space-md);
+        padding: var(--space-sm) var(--space-md);
         border-radius: var(--radius-pill);
-        border: 1px solid var(--border-light);
-        background-color: #eef0f2; /* Slightly adjusted grey */
+        border: 2px solid var(--border-light);
+        background-color: var(--bg-card);
         color: var(--text-body);
-        font-size: 0.88rem;
+        font-size: 0.9rem;
         font-weight: 500;
-        margin: calc(var(--space-xs) / 2) var(--space-xs); /* Tighter spacing */
+        margin: var(--space-xs);
         transition: all var(--transition-main);
         animation: fadeInPill 0.5s ease forwards;
         opacity: 0; /* Start hidden for animation */
-        box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Subtle shadow for depth */
-        -webkit-tap-highlight-color: transparent; /* Remove touch highlight on mobile */
+        /* Enhanced readability */
+        line-height: 1.4;
+        text-align: center;
+        /* Better mobile touch targets */
+        min-height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
       }
-      @keyframes fadeInPill { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
       
-      /* Pill animations for mobile interaction */
-      @keyframes pulsePill { 
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
+      @keyframes fadeInPill { 
+        from { opacity: 0; transform: translateY(6px); } 
+        to { opacity: 1; transform: translateY(0); } 
       }
 
-      .skill-pill:hover {
-        background-color: var(--primary);
-        color: #fff;
-        border-color: var(--primary);
+      .skill-pill:hover, .skill-pill:focus {
+        background-color: var(--accent-light);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+        outline: none; /* Remove default outline since we have custom focus style */
+      }
+      
+      /* Mobile-specific improvements for skills layout */
+      .skill-category {
+        display: none;
+        /* Use CSS Grid for better responsive layout */
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: var(--space-sm);
+        padding: var(--space-lg);
+        background-color: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid var(--border-light);
+        min-height: 120px;
+        position: relative;
+      }
+      
+      /* Show More/Less functionality */
+      .skills-container {
+        position: relative;
+      }
+      
+      .skills-overflow {
+        max-height: 300px;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      
+      .skills-overflow.expanded {
+        max-height: none;
+      }
+      
+      .skills-toggle-btn {
+        display: none;
+        margin-top: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+        color: white;
+        border: none;
+        border-radius: var(--radius-pill);
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-main);
+        min-height: 36px;
+        touch-action: manipulation;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .skills-toggle-btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.6s;
+      }
+      
+      .skills-toggle-btn:hover:before {
+        left: 100%;
+      }
+      
+      .skills-toggle-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 125, 114, 0.3);
+      }
+      
+      .skills-toggle-btn:focus {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+      }
+      
+      /* Category progress indicator */
+      .skills-progress {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-md);
+        padding: var(--space-sm);
+        background: var(--primary-light);
+        border-radius: var(--radius);
+        border: 1px solid var(--border-light);
+      }
+      
+      .progress-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border-color);
+        transition: all var(--transition-main);
+        cursor: pointer;
+      }
+      
+      .progress-dot.active {
+        background: var(--primary);
+        transform: scale(1.3);
+        box-shadow: 0 0 8px rgba(0, 86, 179, 0.4);
+      }
+      
+      /* Skill count badges */
+      .skill-count {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 2px 6px;
+        border-radius: var(--radius-pill);
+        margin-left: var(--space-xs);
+        min-width: 18px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
       }
 
       /* --- Timeline --- */
@@ -411,84 +567,24 @@
           margin-bottom: var(--space-xl);
         }
         .carousel-container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-      }
-
-      .carousel-inner {
-        display: flex;
-        transition: transform 0.3s ease-in-out;
-        will-change: transform;
-      }
-
-      .carousel-item {
-        flex: 0 0 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-
-      .carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        z-index: 10;
-        border-radius: 50%;
-      }
-
-      .carousel-nav.prev {
-        left: 10px;
-      }
-
-      .carousel-nav.next {
-        right: 10px;
-      }
-
-      @media (max-width: 768px) {
-        .skills-categorized {
-          padding: var(--space-md);
-        }
-
-        .carousel-nav {
-          display: block;
-        }
-      }
-        .carousel-container {
          position: relative;
          overflow: hidden;
          border-radius: var(--radius-lg);
          background-color: transparent; /* Let cards define background */
          margin: 0 auto;
          max-width: 100%;
-         touch-action: pan-y; /* Allow vertical scrolling but capture horizontal swipes */
-         -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
         .carousel-inner {
          display: flex;
          transition: transform var(--transition-slow) ease;
-         will-change: transform; /* Optimize for animations */
-         width: 100%;
-         cursor: grab;
-        }
-        .carousel-inner:active {
-         cursor: grabbing;
         }
         .carousel-item {
          min-width: 100%;
-         flex: 0 0 100%;
          padding: var(--space-xs); /* Small padding around card */
          box-sizing: border-box;
          display: flex;
          align-items: stretch; /* Ensure cards stretch to fill height */
          justify-content: center;
-         user-select: none; /* Prevent text selection during swipe */
         }
         .carousel-item > .card {
           box-shadow: var(--shadow-md);
@@ -510,24 +606,43 @@
          z-index: 2;
         }
         .carousel-nav button {
-         background-color: rgba(33, 37, 41, 0.6); /* Darker, less transparent */
+         /* Enhanced accessibility and touch targets */
+         background-color: rgba(0, 86, 179, 0.8); /* Use primary color with transparency */
          backdrop-filter: blur(4px);
-         border: none;
-         color: #fff;
+         border: 2px solid transparent;
+         color: #ffffff;
          font-size: 1.2rem;
-         width: 40px; /* Slightly larger */
-         height: 40px;
+         min-width: 48px; /* Minimum 48px for touch accessibility */
+         min-height: 48px;
+         width: 48px;
+         height: 48px;
          border-radius: 50%;
          cursor: pointer;
          pointer-events: all;
-         transition: background-color var(--transition-main);
+         transition: all var(--transition-main);
          display: flex;
          justify-content: center;
          align-items: center;
-         box-shadow: var(--shadow-sm);
+         box-shadow: var(--shadow-md);
+         touch-action: manipulation;
+         -webkit-tap-highlight-color: transparent;
         }
+        
         .carousel-nav button:hover {
-         background-color: rgba(33, 37, 41, 0.8);
+         background-color: var(--primary);
+         transform: scale(1.1);
+         box-shadow: var(--shadow-lg);
+        }
+        
+        .carousel-nav button:focus {
+         outline: 3px solid var(--focus-color);
+         outline-offset: 2px;
+         background-color: var(--primary);
+         border-color: #ffffff;
+        }
+        
+        .carousel-nav button:active {
+         transform: scale(0.95);
         }
         .carousel-dots {
          position: absolute;
@@ -811,152 +926,369 @@
       .skills-categorized {
           /* Standard section padding */
       }
-      .skills-categorized h2 {
-        text-align: center;
-        margin-bottom: var(--space-xl);
-        color: var(--text-heading); /* Ensure contrast */
-      }
-
       .skills-categories {
         display: flex;
-        gap: var(--space-xl); /* Gap between sidebar and content */
+        gap: var(--space-xl);
         align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       .skills-sidebar {
-        flex: 0 0 250px; /* Fixed width for the sidebar */
+        flex: 0 0 220px; /* Slightly wider sidebar */
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
-        position: sticky; /* Make sidebar sticky */
-        top: 100px; /* Adjust as needed based on header height */
-        align-self: flex-start; /* Important for sticky positioning */
-        background-color: var(--bg-body); /* Ensure it has a background */
-        padding: var(--space-sm);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
       }
-
       .skill-toggle {
+        /* Enhanced touch targets - minimum 44px height for mobile accessibility */
+        min-height: 44px;
         padding: var(--space-md) var(--space-lg);
-        border: 1px solid var(--border-light);
+        border: 2px solid var(--border-light);
         background-color: var(--bg-card);
         color: var(--text-body);
         border-radius: var(--radius);
         cursor: pointer;
         text-align: left;
         font-weight: 500;
-        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        font-size: 1rem;
+        transition: all var(--transition-main);
         width: 100%;
+        display: flex;
+        align-items: center;
+        touch-action: manipulation; /* Improves touch responsiveness */
+        -webkit-tap-highlight-color: transparent; /* Remove iOS tap highlight */
       }
-
-      .skill-toggle:hover, .skill-toggle:focus {
+      
+      .skill-toggle:hover {
         background-color: var(--primary-light);
+        border-color: var(--primary);
         color: var(--primary);
-        transform: translateY(-2px);
-        outline: 2px solid var(--primary);
-        outline-offset: 2px;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
       }
-
+      
+      .skill-toggle:focus {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+        background-color: var(--primary-light);
+        border-color: var(--focus-color);
+      }
+      
       .skill-toggle.active {
         background-color: var(--primary);
-        color: #ffffff; /* Ensure high contrast for active state */
+        color: #ffffff; /* High contrast white text */
+        border-color: var(--primary);
         font-weight: 600;
         box-shadow: var(--shadow-md);
       }
-
+      
+      .skill-toggle.active:focus {
+        outline: 3px solid #ffffff;
+        outline-offset: 2px;
+      }
       .skills-content {
         flex: 1;
-        min-width: 0; /* Allow content to shrink */
-        padding-left: var(--space-lg); /* Space from sidebar */
+        min-width: 300px;
       }
-
       .skill-category {
-        display: none; /* Hidden by default, shown by JS */
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Default for larger screens */
-        gap: var(--space-md);
-        animation: fadeInCategory 0.5s ease forwards;
-      }
-
-      .skill-category.active {
-        display: grid; /* Use grid for 3-column layout */
-      }
-
-      .skill-pill {
+        display: none;
+        flex-wrap: wrap;
+        gap: var(--space-xs) var(--space-sm); /* Adjust gap */
+        padding: var(--space-lg); /* More padding inside */
         background-color: var(--bg-card);
-        color: var(--text-body);
-        padding: var(--space-sm) var(--space-md);
-        border-radius: var(--radius-pill);
+        border-radius: var(--radius);
         border: 1px solid var(--border-light);
-        font-size: 0.9rem;
-        font-weight: 500;
+        min-height: 120px; /* Ensure height */
+      }
+      .skill-category.active {
+        display: flex;
+        animation: fadeInContent 0.4s ease forwards;
+      }
+        @keyframes fadeInContent { from { opacity: 0; } to { opacity: 1; } }
+
+      /* --- Radio Toggle Section --- */
+      .radio-cards {
+        display: flex;
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: var(--space-xl);
+      }
+      .radio-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-light);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius);
+        min-width: 170px; /* Adjusted width */
         text-align: center;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: var(--shadow-sm);
+        cursor: pointer;
+        transition: all var(--transition-main);
+        color: var(--text-muted);
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
       }
-
-      .skill-pill:hover {
-        transform: translateY(-2px);
+      .radio-card:hover {
+        transform: translateY(-3px);
         box-shadow: var(--shadow-md);
-        background-color: var(--accent-light);
-        color: var(--accent-dark); /* Ensure contrast */
+        border-color: var(--accent); /* Use accent for hover border */
+        color: var(--accent);
+      }
+      .radio-card.active {
+        background-color: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+        .radio-card.active:hover {
+          color: #fff; /* Keep white text on hover when active */
+          border-color: var(--primary);
+        }
+      .radio-card i {
+        font-size: 1.6rem; /* Larger icon */
+        margin-bottom: var(--space-sm);
+        display: block;
+        transition: transform 0.2s ease; /* Add subtle icon transition */
+      }
+      .radio-card:hover i {
+          transform: scale(1.1);
+      }
+        .radio-card h3 {
+          font-size: 0.95rem;
+          font-weight: 600;
+          margin-bottom: 0;
+          color: inherit;
+        }
+      .dynamic-content > div {
+        display: none;
+      }
+      .dynamic-content > div.active {
+        display: block;
+        animation: fadeInUp 0.5s ease-out forwards; /* Smoother, slightly longer */
+      }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* What I Offer Cards Grid */
+        .offer-cards {
+          display: grid;
+          gap: var(--space-lg);
+          grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Slightly wider min */
+        }
+        .offer-card { /* Reuses .card */
+          text-align: center;
+        }
+        .offer-card i {
+          font-size: 2.2rem;
+          margin-bottom: var(--space-md);
+          color: var(--accent);
+        }
+        .offer-card .card-footer { /* Adjust footer for offer cards */
+            border-top: none; /* Remove top border */
+            padding-top: 0; /* Remove padding */
+        }
+        .offer-card .offer-btn {
+            margin-top: var(--space-md);
+        }
+
+      /* --- Contact Form Section --- */
+      #contact h2 {
+        /* Standard h2 styling */
+      }
+      .contact-form {
+        max-width: 850px; /* Slightly wider form */
+        margin: 0 auto;
+        background-color: var(--bg-card);
+        padding: var(--space-xl);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-light);
+      }
+      .contact-row {
+        display: flex;
+        gap: var(--space-xl);
+        flex-wrap: wrap;
+      }
+      .contact-col {
+        flex: 1;
+        min-width: 260px;
       }
 
-      @keyframes fadeInCategory {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+      /***********************************************
+      * MEDIA QUERIES
+      ***********************************************/
+      /* Large desktops - Side-by-side carousels */
+        @media (min-width: 992px) {
+          .carousel-row {
+              display: flex;
+              gap: var(--space-xl);
+              align-items: stretch; /* Make columns equal height */
+          }
+            .carousel-row > .carousel-section {
+                flex: 1; /* Each takes half width */
+                margin-bottom: 0; /* Remove bottom margin when side
+            }
+          .carousel-section h2 {
+              /* Keep heading size consistent or adjust if needed */
+          }
+        }
+
+      /* Tablets and below */
+      @media (max-width: 991px) {
+        /* Carousels will stack naturally due to default block display */
       }
 
-      /* Mobile Responsive Adjustments */
-      @media (max-width: 768px) {
+      /* Hide bottom bar on larger screens */
+      @media (min-width: 768px) {
+        .bottom-bar {
+          display: none;
+        }
+          .scroll-to-top {
+              bottom: var(--space-xl);
+              right: var(--space-xl);
+          }
+      }
+
+      /* Tablet and below adjustments */
+      @media (max-width: 767px) {
+        html { font-size: 15.5px; } /* Slightly adjust base */
+
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          gap: var(--space-lg);
+          min-height: auto; /* Reset min-height */
+        }
+        .hero-image img {
+            width: 160px; /* Adjust size */
+            height: 160px;
+        }
+        .btn-group {
+          justify-content: center;
+        }
+
         .skills-categories {
           flex-direction: column;
+          align-items: stretch;
           gap: var(--space-lg);
         }
-
         .skills-sidebar {
-          flex-direction: row; /* Horizontal toggles on mobile */
-          overflow-x: auto; /* Allow horizontal scrolling for toggles */
-          white-space: nowrap;
-          position: static; /* Remove sticky for mobile */
+          flex-basis: auto;
           width: 100%;
-          padding: var(--space-sm) 0;
-          box-shadow: none;
-          border-bottom: 1px solid var(--border-light);
+          flex-direction: row;
+          overflow-x: auto;
+          padding-bottom: var(--space-md); /* Space for scrollbar if needed */
+          justify-content: flex-start;
+          /* Add scroll snap for better UX */
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+          /* Enhanced mobile styling */
+          background: var(--primary-light);
+          border-radius: var(--radius);
+          padding: var(--space-sm);
+          margin-bottom: var(--space-md);
+          position: sticky;
+          top: 80px; /* Stick below header */
+          z-index: 10;
         }
-
         .skill-toggle {
-          flex: 0 0 auto; /* Allow toggles to take their content width */
-          padding: var(--space-sm) var(--space-md);
-          margin-right: var(--space-sm);
+            flex-shrink: 0;
+            text-align: center;
+            scroll-snap-align: start; /* Snap align */
+            /* Enhanced mobile touch targets */
+            min-width: 140px;
+            font-size: 0.85rem;
+            padding: var(--space-sm) var(--space-md);
+            margin: 0 var(--space-xs);
+            border-radius: var(--radius-pill);
+            position: relative;
+            overflow: hidden;
         }
-        .skill-toggle:last-child {
-          margin-right: 0;
+        
+        /* Add touch feedback */
+        .skill-toggle:active {
+          transform: scale(0.95);
         }
+        
+        /* Show more button for mobile */
+        .skills-toggle-btn {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+        
+        /* Progress indicator for mobile */
+        .skills-progress {
+          display: flex;
+        }
+          /* Hide scrollbar visually but keep functionality */
+        .skills-sidebar::-webkit-scrollbar { display: none; }
+        .skills-sidebar { -ms-overflow-style: none; scrollbar-width: none; }
 
         .skills-content {
-          padding-left: 0; /* Remove padding for mobile */
+          width: 100%;
+          /* Enhanced mobile experience */
+          position: relative;
+        }
+        
+        /* Hide progress indicator on larger screens */
+        .skills-progress {
+          display: none;
+        }
+        
+        /* Hide show more button on larger screens */
+        .skills-toggle-btn {
+          display: none;
         }
 
-        .skill-category.active {
-          grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller tablets */
-          gap: var(--space-sm);
-        }
+          .radio-cards {
+              justify-content: center;
+              gap: var(--space-sm);
+          }
+          .radio-card {
+              min-width: 120px; /* Adjust size */
+              padding: var(--space-sm) var(--space-md);
+          }
+          .radio-card i { font-size: 1.4rem; margin-bottom: var(--space-xs); }
+          .radio-card h3 { font-size: 0.85rem; }
+
+          .contact-row {
+              gap: 0;
+          }
+          .contact-col {
+              min-width: 100%;
+          }
+
+            /* Adjust scroll-to-top to be above potential mobile nav */
+            .scroll-to-top {
+                /* Calculate roughly based on nav height + desired margin */
+                bottom: calc(var(--space-unit) * 5);
+                right: var(--space-md);
+            }
       }
 
+      /* Mobile specific adjustments */
       @media (max-width: 480px) {
-        .skill-category.active {
-          grid-template-columns: 1fr; /* 1 column on very small screens */
-        }
+          html { font-size: 15px; }
+          .container { width: 95%; padding-left: var(--space-sm); padding-right: var(--space-sm); }
+          section { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+          h1 { font-size: 1.9rem; }
+          h2 { font-size: 1.5rem; }
+          .btn { padding: var(--space-sm) var(--space-md); font-size: 0.9rem; }
+          .hero-image img { width: 130px; height: 130px; }
+
+          .timeline { padding-left: var(--space-lg); }
+          .timeline::before { left: 6px; } /* Align line with dot center */
+          .timeline-item::before { left: -2px; width: 16px; height: 16px; } /* Adjust dot */
+
+          .carousel-nav button { width: 34px; height: 34px; font-size: 1rem; }
+          .carousel-dots span { width: 8px; height: 8px; }
+          .offer-cards { grid-template-columns: 1fr; } /* Stack offer cards */
       }
 
-      /* Scroll hint for mobile sidebar */
-      .skills-sidebar.scrollable .scroll-hint {
-        display: block; /* Show hint when scrollable */
-      }
-      .scroll-hint {
-        /* ... existing scroll-hint styles ... */
-        color: var(--primary); /* Ensure contrast */
-      }
+      /* purgecss end ignore */
     </style>
 </head>
 
@@ -965,10 +1297,26 @@
       <div class="container header-inner">
         <div class="header-brand">Sabyasachi</div>
         <div class="header-socials">
-          <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
+          <a href="https://linkedin.com/in/sabyasachimishra007" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/SABYA648" target="_blank" aria-label="GitHub" title="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="mailto:sabyasachimishra648@gmail.com" aria-label="Email" title="Email">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h20.728c.904 0 1.636.732 1.636 1.636zM1.636 4.91L12 12.727l10.364-7.817H1.636z"/>
+            </svg>
+          </a>
+          <a href="https://medium.com/@sabyasachimishra648" target="_blank" aria-label="Medium" title="Medium">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+            </svg>
+          </a>
           <a href="assets/Resumes/New Resume/Final1/Sabyasachi-Mishra-CV.pdf" target="_blank" class="btn btn-outline-primary btn-sm">📄 Download Resume</a>
         </div>
       </div>
@@ -976,23 +1324,33 @@
 
     <nav class="bottom-bar" id="bottomBar">
       <a href="assets/Resumes/New Resume/Final1/Sabyasachi-Mishra-CV.pdf" title="Download CV">
-        <i class="fas fa-file-download"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+        </svg>
         <span>CV</span>
       </a>
       <a href="https://drive.google.com/drive/folders/1w3ATDKc6kuwPlqpRTOGVzqLGMAj6C-GO" title="Case Studies" target="_blank">
-        <i class="fas fa-folder-open"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"/>
+        </svg>
         <span>Cases</span>
       </a>
       <a href="mailto:me@sabyasachimishra.dev" title="Email">
-        <i class="fas fa-envelope"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h20.728c.904 0 1.636.732 1.636 1.636zM1.636 4.91L12 12.727l10.364-7.817H1.636z"/>
+        </svg>
         <span>Email</span>
       </a>
       <a href="https://wa.me/917779884260" target="_blank" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.531 3.488"/>
+        </svg>
         <span>Chat</span>
       </a>
       <a href="https://www.linkedin.com/in/sabyasachimishra007/" target="_blank" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
         <span>LinkedIn</span>
       </a>
     </nav>
@@ -1009,7 +1367,7 @@
         </div>
       </div>
         <div class="hero-image" data-aos="fade-left" data-aos-delay="100">
-         <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" />
+         <img src="assets/Sabya_img_1.png" alt="Sabyasachi Mishra Profile Photo" loading="lazy" />
       </div>
     </section>
 
@@ -1026,29 +1384,86 @@
         <h2 style="text-align:center; margin-bottom: var(--space-xl);">A Quick Introduction</h2>
         <div id="loom-embed-container" style="max-width: 840px; margin: 0 auto; box-shadow: var(--shadow-lg); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-light);">
             <div style="position: relative; padding-bottom: 62.5%; height: 0;">
-                <iframe src="https://www.loom.com/embed/fdff5144dd024de1b0d8e7d864d61e30?sid=19911b1a-8133-4331-91b2-f97a97185d1f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius);"></iframe>
+                <iframe src="https://www.loom.com/embed/fdff5144dd024de1b0d8e7d864d61e30?sid=19911b1a-8133-4331-91b2-f97a97185d1f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius);"></iframe>
             </div>
           </div>
     </section>
 
     <section class="container skills-categorized" data-aos="fade-up" data-aos-delay="100">
-      <h2>Skills &amp; Tools</h2>
-      <div class="skills-categories"> <!-- Renamed from skills-layout-container for consistency -->
-        <div class="skills-sidebar" role="tablist" aria-label="Skill Categories">
-          <button class="skill-toggle active" role="tab" aria-selected="true" aria-controls="product-management-content" id="product-management-tab">Product Management</button>
-          <button class="skill-toggle" role="tab" aria-selected="false" aria-controls="technical-skills-content" id="technical-skills-tab">Technical Skills</button>
-          <button class="skill-toggle" role="tab" aria-selected="false" aria-controls="tools-platforms-content" id="tools-platforms-tab">Tools &amp; Platforms</button>
-          <span class="scroll-hint" aria-hidden="true">→</span>
+      <h2 id="skills-heading">Skills &amp; Tools</h2>
+      
+      <!-- Progress indicator for mobile -->
+      <div class="skills-progress" id="skillsProgress">
+        <div class="progress-dot active" data-target="product-management" title="Product Management"></div>
+        <div class="progress-dot" data-target="technical-skills" title="Technical Skills"></div>
+        <div class="progress-dot" data-target="tools-platforms" title="Tools & Platforms"></div>
+      </div>
+      
+      <div class="skills-categories">
+        <div class="skills-sidebar" role="tablist" aria-labelledby="skills-heading">
+          <button class="skill-toggle active" 
+                  role="tab" 
+                  aria-selected="true" 
+                  aria-controls="product-management" 
+                  id="product-management-tab"
+                  tabindex="0">
+            Product Management<span class="skill-count">19</span>
+          </button>
+          <button class="skill-toggle" 
+                  role="tab" 
+                  aria-selected="false" 
+                  aria-controls="technical-skills" 
+                  id="technical-skills-tab"
+                  tabindex="-1">
+            Technical Skills<span class="skill-count">15</span>
+          </button>
+          <button class="skill-toggle" 
+                  role="tab" 
+                  aria-selected="false" 
+                  aria-controls="tools-platforms" 
+                  id="tools-platforms-tab"
+                  tabindex="-1">
+            Tools &amp; Platforms<span class="skill-count">12</span>
+          </button>
         </div>
         <div class="skills-content">
-          <div id="product-management-content" class="skill-category active" role="tabpanel" aria-labelledby="product-management-tab" tabindex="0">
-            <span class="skill-pill">Product Strategy & Vision</span><span class="skill-pill">Product Discovery & Validation</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">Feature Prioritization</span><span class="skill-pill">Agile & Scrum</span><span class="skill-pill">Stakeholder Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Competitive Analysis & Market Research</span><span class="skill-pill">Customer Discovery</span><span class="skill-pill">Customer Journey Mapping</span><span class="skill-pill">User Experience (UX) Design Principles</span><span class="skill-pill">OKRs & KPI Tracking</span><span class="skill-pill">Go-To-Market (GTM) Strategy</span><span class="skill-pill">Pricing & Monetization Strategies</span><span class="skill-pill">Cross-functional Team Leadership</span><span class="skill-pill">Wireframing & Prototyping</span><span class="skill-pill">MVP Execution</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">Lean Strategy</span>
-          </div>
-          <div id="technical-skills-content" class="skill-category" role="tabpanel" aria-labelledby="technical-skills-tab" tabindex="0">
-            <span class="skill-pill">Generative AI & LLM Implementation</span><span class="skill-pill">Machine Learning & AI Fundamentals</span><span class="skill-pill">Python</span><span class="skill-pill">SQL & Database Management</span><span class="skill-pill">API Design & Integration</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">OpenAI APIs</span><span class="skill-pill">FastAPI</span><span class="skill-pill">NLP / LLM Tuning</span><span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">React</span><span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span><span class="skill-pill">Technical Documentation (PRD/BRD)</span><span class="skill-pill">Agile SDLC</span>
-          </div>
-          <div id="tools-platforms-content" class="skill-category" role="tabpanel" aria-labelledby="tools-platforms-tab" tabindex="0">
-            <span class="skill-pill">JIRA</span><span class="skill-pill">Git & GitHub</span><span class="skill-pill">Amplitude / Mixpanel</span><span class="skill-pill">Maze / Hotjar</span><span class="skill-pill">Figma / Adobe XD</span><span class="skill-pill">Miro / FigJam</span><span class="skill-pill">Confluence / Notion</span><span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span><span class="skill-pill">Postman</span><span class="skill-pill">Slack / Teams</span><span class="skill-pill">Google Analytics (GA4)</span>
+          <div class="skills-container">
+            <div id="product-management" 
+                 class="skill-category active" 
+                 role="tabpanel" 
+                 aria-labelledby="product-management-tab"
+                 tabindex="0">
+              <div class="skills-overflow" id="skills-overflow-product-management">
+                <span class="skill-pill">Product Strategy & Vision</span><span class="skill-pill">Product Discovery & Validation</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">Feature Prioritization</span><span class="skill-pill">Agile & Scrum</span><span class="skill-pill">Stakeholder Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Competitive Analysis & Market Research</span><span class="skill-pill">Customer Discovery</span><span class="skill-pill">Customer Journey Mapping</span><span class="skill-pill">User Experience (UX) Design Principles</span><span class="skill-pill">OKRs & KPI Tracking</span><span class="skill-pill">Go-To-Market (GTM) Strategy</span><span class="skill-pill">Pricing & Monetization Strategies</span><span class="skill-pill">Cross-functional Team Leadership</span><span class="skill-pill">Wireframing & Prototyping</span><span class="skill-pill">MVP Execution</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">Lean Strategy</span>
+              </div>
+              <button class="skills-toggle-btn" id="toggle-product-management" onclick="toggleSkills('product-management')">
+                <span class="toggle-text">Show All Skills</span>
+              </button>
+            </div>
+            <div id="technical-skills" 
+                 class="skill-category" 
+                 role="tabpanel" 
+                 aria-labelledby="technical-skills-tab"
+                 tabindex="0">
+              <div class="skills-overflow" id="skills-overflow-technical-skills">
+                <span class="skill-pill">Generative AI & LLM Implementation</span><span class="skill-pill">Machine Learning & AI Fundamentals</span><span class="skill-pill">Python</span><span class="skill-pill">SQL & Database Management</span><span class="skill-pill">API Design & Integration</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">OpenAI APIs</span><span class="skill-pill">FastAPI</span><span class="skill-pill">NLP / LLM Tuning</span><span class="skill-pill">Product Analytics (Mixpanel, Amplitude)</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">React</span><span class="skill-pill">Cloud Infrastructure (AWS/Azure/GCP)</span><span class="skill-pill">Technical Documentation (PRD/BRD)</span><span class="skill-pill">Agile SDLC</span>
+              </div>
+              <button class="skills-toggle-btn" id="toggle-technical-skills" onclick="toggleSkills('technical-skills')">
+                <span class="toggle-text">Show All Skills</span>
+              </button>
+            </div>
+            <div id="tools-platforms" 
+                 class="skill-category" 
+                 role="tabpanel" 
+                 aria-labelledby="tools-platforms-tab"
+                 tabindex="0">
+              <div class="skills-overflow" id="skills-overflow-tools-platforms">
+                <span class="skill-pill">JIRA</span><span class="skill-pill">Git & GitHub</span><span class="skill-pill">Amplitude / Mixpanel</span><span class="skill-pill">Maze / Hotjar</span><span class="skill-pill">Figma / Adobe XD</span><span class="skill-pill">Miro / FigJam</span><span class="skill-pill">Confluence / Notion</span><span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span><span class="skill-pill">Postman</span><span class="skill-pill">Slack / Teams</span><span class="skill-pill">Google Analytics (GA4)</span>
+              </div>
+              <button class="skills-toggle-btn" id="toggle-tools-platforms" onclick="toggleSkills('tools-platforms')">
+                <span class="toggle-text">Show All Skills</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1057,11 +1472,11 @@
     <section class="container carousel-row" data-aos="fade-up" data-aos-delay="150">
         <div class="carousel-section">
           <h2>Projects Showcase</h2>
-          <div class="carousel-container">
-            <div class="carousel-inner" id="carousel-projects">
-              <div class="carousel-item">
+          <div class="carousel-container" role="region" aria-label="Project portfolio carousel">
+            <div class="carousel-inner" id="carousel-projects" role="group" aria-live="polite" aria-atomic="false">
+              <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="1 of 3">
                 <div class="card">
-                  <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" /></div>
+                  <div class="card-image"><img src="assets/moodbite.jpg" alt="MoodBite Project Screenshot" loading="lazy" /></div>
                   <div class="card-content">
                     <h3>MoodBite</h3>
                     <p>Voice-first GPT food agent → 200+ voice queries logged, Product Hunt launch traction.</p>
@@ -1073,9 +1488,9 @@
                   </div>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="2 of 3">
                 <div class="card">
-                  <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" /></div>
+                  <div class="card-image"><img src="assets/project2img.JPG" alt="FeatureFit Project Screenshot" loading="lazy" /></div>
                   <div class="card-content">
                     <h3>FeatureFit</h3>
                     <p>AI-powered prioritization tool → Cut planning time by 30% in real PM workflows.</p>
@@ -1087,9 +1502,9 @@
                     </div>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="3 of 3">
                 <div class="card">
-                  <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" /></div>
+                  <div class="card-image"><img src="assets/project1img.JPG" alt="LLM Tuner Project Screenshot" loading="lazy" /></div>
                   <div class="card-content">
                     <h3>LLM Tuner</h3>
                     <p>Interactive prompt tuner → Reduced prompt iteration cycles by 50%.</p>
@@ -1101,21 +1516,21 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-nav">
-              <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="Previous Project">&#10094;</button>
-              <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="Next Project">&#10095;</button>
+            <div class="carousel-nav" role="group" aria-label="Carousel navigation">
+              <button onclick="prevSlide('carousel-projects','dots-projects')" aria-label="View previous project" aria-controls="carousel-projects">&#10094;</button>
+              <button onclick="nextSlide('carousel-projects','dots-projects')" aria-label="View next project" aria-controls="carousel-projects">&#10095;</button>
             </div>
-            <div class="carousel-dots" id="dots-projects"></div>
+            <div class="carousel-dots" id="dots-projects" role="tablist" aria-label="Choose slide to display"></div>
           </div>
         </div>
 
         <div class="carousel-section">
           <h2>Insights &amp; Blogs</h2>
-          <div class="carousel-container">
-            <div class="carousel-inner" id="carousel-blogs">
+          <div class="carousel-container" role="region" aria-label="Blog posts carousel">
+            <div class="carousel-inner" id="carousel-blogs" role="group" aria-live="polite" aria-atomic="false">
               <div class="carousel-item">
                 <div class="card">
-                  <div class="card-image"><img src="assets/Blog1img.JPG" alt="LLM Engine Optimization Blog" /></div>
+                  <div class="card-image"><img src="assets/Blog1img.JPG" alt="LLM Engine Optimization Blog" loading="lazy" /></div>
                   <div class="card-content">
                     <h3>LLM-EO: The Future of SEO?</h3>
                     <p>Exploring how language model optimization (LLM-EO) is transforming the internet search landscape.</p>
@@ -1127,7 +1542,7 @@
               </div>
               <div class="carousel-item">
                 <div class="card">
-                  <div class="card-image"><img src="assets/Blog2img.png" alt="Deep Dive into LLM-EO Blog" /></div>
+                  <div class="card-image"><img src="assets/Blog2img.png" alt="Deep Dive into LLM-EO Blog" loading="lazy" /></div>
                   <div class="card-content">
                     <h3>LLM-EO Explained</h3>
                     <p>A detailed analysis of LLM-based ranking algorithms and their impact on digital strategy.</p>
@@ -1138,29 +1553,35 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-nav">
-              <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="Previous Blog">&#10094;</button>
-              <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="Next Blog">&#10095;</button>
+            <div class="carousel-nav" role="group" aria-label="Carousel navigation">
+              <button onclick="prevSlide('carousel-blogs','dots-blogs')" aria-label="View previous blog post" aria-controls="carousel-blogs">&#10094;</button>
+              <button onclick="nextSlide('carousel-blogs','dots-blogs')" aria-label="View next blog post" aria-controls="carousel-blogs">&#10095;</button>
             </div>
-            <div class="carousel-dots" id="dots-blogs"></div>
+            <div class="carousel-dots" id="dots-blogs" role="tablist" aria-label="Choose slide to display"></div>
           </div>
         </div>
     </section>
 
     <section class="container" data-aos="fade-up" data-aos-delay="200">
-      <div class="radio-cards" data-target="sections">
-        <div class="radio-card active" data-id="offer">
-          <i class="fas fa-lightbulb"></i>
+      <div class="radio-cards" data-target="sections" role="tablist">
+        <button class="radio-card active" data-id="offer" role="tab" aria-selected="true" aria-controls="offer-panel" id="offer-tab">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21M12,4A5,5 0 0,1 17,9C17,10.64 16.05,12.08 14.46,12.73L14,12.9V16H10V12.9L9.54,12.73C7.95,12.08 7,10.64 7,9A5,5 0 0,1 12,4Z"/>
+          </svg>
           <h3>What I Offer</h3>
-        </div>
-        <div class="radio-card" data-id="experience">
-          <i class="fas fa-briefcase"></i>
+        </button>
+        <button class="radio-card" data-id="experience" role="tab" aria-selected="false" aria-controls="experience-panel" id="experience-tab">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4A2,2 0 0,1 2,19V8A2,2 0 0,1 4,6H8V4A2,2 0 0,1 10,2M14,6V4H10V6H14Z"/>
+          </svg>
           <h3>Experience</h3>
-        </div>
-        <div class="radio-card" data-id="case-studies">
-          <i class="fas fa-clipboard-list"></i>
+        </button>
+        <button class="radio-card" data-id="case-studies" role="tab" aria-selected="false" aria-controls="case-studies-panel" id="case-studies-tab">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M19,19H5V5H19V19M17,12H7V14H17V12M17,9H7V11H17V9M14,6H7V8H14V6Z"/>
+          </svg>
           <h3>Case Studies</h3>
-        </div>
+        </button>
       </div>
 
       <div class="dynamic-content" data-target="sections">
@@ -1168,7 +1589,9 @@
           <h2 style="text-align:left; margin-bottom: var(--space-lg);">Core Expertise</h2>
           <div class="offer-cards">
             <div class="offer-card card">
-              <i class="fas fa-brain"></i>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21M12,4A5,5 0 0,1 17,9C17,10.64 16.05,12.08 14.46,12.73L14,12.9V16H10V12.9L9.54,12.73C7.95,12.08 7,10.64 7,9A5,5 0 0,1 12,4Z"/>
+              </svg>
               <div class="card-content">
                 <h3>AI Product Strategy</h3>
                 <p>Defining vision and roadmaps for AI/ML products, leveraging data for market fit and competitive advantage.</p>
@@ -1176,7 +1599,9 @@
               <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Discuss Strategy</a></div>
             </div>
             <div class="offer-card card">
-              <i class="fas fa-users"></i>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 4C18.2 4 20 5.8 20 8S18.2 12 16 12 12 10.2 12 8 13.8 4 16 4M16 5.9A2.1 2.1 0 1 0 16 10.1 2.1 2.1 0 0 0 16 5.9M8 4C10.2 4 12 5.8 12 8S10.2 12 8 12 4 10.2 4 8 5.8 4 8 4M8 5.9A2.1 2.1 0 1 0 8 10.1 2.1 2.1 0 0 0 8 5.9M16 13.9C18.97 13.9 22 15.14 22 16.9V19H10V16.9C10 15.14 13.03 13.9 16 13.9M8 13.9C11 13.9 14 15.14 14 16.9V19H2V16.9C2 15.14 5 13.9 8 13.9Z"/>
+              </svg>
               <div class="card-content">
                 <h3>User-Centric Discovery</h3>
                 <p>Conducting deep user research, validation, and usability testing to ensure products solve real problems.</p>
@@ -1184,7 +1609,9 @@
               <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Talk Users</a></div>
             </div>
             <div class="offer-card card">
-              <i class="fas fa-chart-line"></i>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/>
+              </svg>
               <div class="card-content">
                 <h3>Data-Driven Decisions</h3>
                 <p>Utilizing analytics (Mixpanel, Amplitude) and A/B testing to inform prioritization and optimize features.</p>
@@ -1192,7 +1619,9 @@
               <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Analyze Data</a></div>
             </div>
             <div class="offer-card card">
-              <i class="fas fa-rocket"></i>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.81,14.12L5.64,11.29L8.17,10.79C11.39,6.41 17.55,4.22 19.78,4.22C19.78,6.45 17.59,12.61 13.21,15.83L12.71,18.36L9.88,21.19L9.17,17.66C7.76,17.66 7.76,17.66 7.05,16.95C6.34,16.24 6.34,16.24 6.34,14.83L2.81,14.12M5.64,16.95L7.05,18.36L4.39,21.03H2.97V19.61L5.64,16.95M4.22,2.81L11,9.88L9.17,11.71L2.81,5.64L4.22,2.81Z"/>
+              </svg>
               <div class="card-content">
                 <h3>Agile Execution</h3>
                 <p>Leading cross-functional teams using Agile/Scrum for rapid prototyping, MVP development, and iterative delivery.</p>
@@ -1200,7 +1629,9 @@
               <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Plan Execution</a></div>
             </div>
             <div class="offer-card card">
-              <i class="fas fa-comments"></i>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12,2A2,2 0 0,1 14,4A2,2 0 0,1 12,6A2,2 0 0,1 10,4A2,2 0 0,1 12,2M21,9V7L15,1H5A2,2 0 0,0 3,3V21A2,2 0 0,0 5,23H19A2,2 0 0,0 21,21V9H21M19,19H5V21H19V19M19,17H5V19H19V17M12,16L18,10H15V8H12V16Z"/>
+              </svg>
               <div class="card-content">
                 <h3>Stakeholder Alignment</h3>
                 <p>Communicating product vision, progress, and trade-offs effectively across technical and business teams.</p>
@@ -1208,7 +1639,9 @@
               <div class="card-footer"><a href="#contact" class="btn btn-sm btn-outline-primary offer-btn">Align Teams</a></div>
             </div>
             <div class="offer-card card">
-              <i class="fas fa-seedling"></i>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6,3A1,1 0 0,1 7,4V7H9V4A3,3 0 0,0 6,1A3,3 0 0,0 3,4V7H5V4A1,1 0 0,1 6,3M11,7H21V9H19V20A1,1 0 0,1 18,21H8A1,1 0 0,1 7,20V9H5V7H7A1,1 0 0,1 8,8V20H18V8A1,1 0 0,1 19,9V7H11Z"/>
+              </svg>
               <div class="card-content">
                 <h3>Growth & GTM</h3>
                 <p>Developing Go-To-Market strategies, defining KPIs, and iterating based on market feedback for growth.</p>
@@ -1261,7 +1694,8 @@
                  <ul>
                    <li>Automated competitor market intelligence with NLP/BI tools, <strong>cutting research time by 30%</strong> and enhancing strategic responsiveness.</li>
                  </ul>
-               </div             </div>
+               </div>
+             </div>
              <div class="timeline-item" data-aos="fade-up" data-aos-anchor=".timeline">
                <div class="timeline-content">
                  <h3>Software Development Intern <em>Amdocs India LLP, Pune (May '19 – Aug '19)</em></h3>
@@ -1288,7 +1722,9 @@
           <h2 style="text-align:left; margin-bottom: var(--space-lg);">Selected Case Studies</h2>
           <div class="offer-cards">
             <div class="offer-card card">
-             <i class="fas fa-bus"></i>
+             <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+               <path d="M18,10H16V8H18M18,13H16V11H18M14,10H12V8H14M14,13H12V11H14M10,10H8V8H10M10,13H8V11H10M6,10H4V8H6M6,13H4V11H6M18,7H6V5H18M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H10V19H5V5H19V10H21V5A2,2 0 0,0 19,3M21,12H20V15H23V12H21M19,12V15H22V16H18V15H19V12H18V11H22V12H19Z"/>
+             </svg>
              <div class="card-content">
                <h3>Bus Buddy</h3>
                <p>Post-Covid mobility solution for bus ticket booking and rentals.</p>
@@ -1296,7 +1732,9 @@
              <div class="card-footer"><a href="assets/Bus Buddy.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
             <div class="offer-card card">
-             <i class="fas fa-robot"></i>
+             <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+               <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H16A2,2 0 0,1 14,20V19H10V20A2,2 0 0,1 8,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z"/>
+             </svg>
              <div class="card-content">
                <h3>AI in Fintech</h3>
                <p>Using AI for credit assessments and micro-loan offerings in digital payments.</p>
@@ -1304,7 +1742,9 @@
              <div class="card-footer"><a href="assets/Incedo - AI in Fintech.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
           <div class="offer-card card">
-             <i class="fas fa-mobile-alt"></i>
+             <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+               <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/>
+             </svg>
              <div class="card-content">
                <h3>Digital Payments Strategy</h3>
                <p>Developing a unique USP for PhonePe to enhance engagement.</p>
@@ -1312,7 +1752,9 @@
              <div class="card-footer"><a href="assets/PhonePe.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
             <div class="offer-card card">
-             <i class="fas fa-utensils"></i>
+             <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+               <path d="M8.1,13.34L3.91,9.16C2.35,7.59 2.35,5.06 3.91,3.5L10.93,10.5L8.1,13.34M14.88,11.53C16.9,12.27 18.24,13.38 18.24,15.5C18.24,17.13 16.94,18.5 15.25,18.5C13.56,18.5 12.25,17.13 12.25,15.5C12.25,14.25 13.09,13.22 14.25,12.74L14.88,11.53M7.37,12.78L8.1,13.34L12.25,9.19L7.37,4.31L6.63,5.05L10.93,9.35L7.37,12.78Z"/>
+             </svg>
              <div class="card-content">
                <h3>Restaurant Booking App</h3>
                <p>Redefining dine-out with seamless booking and integrated payments.</p>
@@ -1320,7 +1762,9 @@
              <div class="card-footer"><a href="assets/Restaurant table booking App.pdf" target="_blank" class="btn btn-sm btn-outline-primary offer-btn">View Study</a></div>
            </div>
             <div class="offer-card card">
-             <i class="fas fa-car"></i>
+             <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+               <path d="M5,11L6.5,6.5H17.5L19,11M17.5,16A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1 17.5,13A1.5,1.5 0 0,1 19,14.5A1.5,1.5 0 0,1 17.5,16M6.5,16A1.5,1.5 0 0,1 5,14.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 8,14.5A1.5,1.5 0 0,1 6.5,16M18.92,6C18.72,5.42 18.16,5 17.5,5H6.5C5.84,5 5.28,5.42 5.08,6L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6Z"/>
+             </svg>
              <div class="card-content">
                <h3>Tekion: EV Strategy</h3>
                <p>Frameworks and roadmaps to tackle EV range anxiety and financing.</p>
@@ -1363,13 +1807,19 @@
           </div>
         </div>
         <div class="form-button" style="margin-top: var(--space-lg); text-align:center;">
-          <button type="submit" class="btn btn-primary btn-lg">Send Message <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
+          <button type="submit" class="btn btn-primary btn-lg">Send Message 
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-left: 5px;">
+              <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+            </svg>
+          </button>
         </div>
       </form>
     </section>
 
     <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
-      <i class="fas fa-arrow-up"></i>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"/>
+      </svg>
     </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -1383,104 +1833,9 @@
     </script>
 
     <script>
-      // --- Utility Functions ---
-      // Debounce function to limit how often a function can be called
-      function debounce(func, wait = 100) {
-        let timeout;
-        return function(...args) {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            func.apply(this, args);
-          }, wait);
-        }
-      }
-      
       // --- Skill Toggles ---
       const skillToggles = document.querySelectorAll('.skill-toggle');
       const skillCategories = document.querySelectorAll('.skill-category');
-      const skillsSidebar = document.querySelector('.skills-sidebar');
-      const skillsContent = document.querySelector('.skills-content');
-
-      // Check for scrollability of skills sidebar
-      function updateScrollIndicator() {
-        if (skillsSidebar) {
-          const isScrollable = skillsSidebar.scrollWidth > skillsSidebar.clientWidth;
-          skillsSidebar.classList.toggle('scrollable', isScrollable);
-          
-          // Manage scroll hint visibility
-          updateScrollHint();
-          
-          // Center active toggle in scroll view on mobile
-          const activeToggle = skillsSidebar.querySelector('.skill-toggle.active');
-          if (activeToggle && window.innerWidth < 768) {
-            const sidebarRect = skillsSidebar.getBoundingClientRect();
-            const toggleRect = activeToggle.getBoundingClientRect();
-            const centerPosition = toggleRect.left + (toggleRect.width / 2) - sidebarRect.left - (skillsSidebar.clientWidth / 2);
-            
-            skillsSidebar.scrollTo({
-              left: skillsSidebar.scrollLeft + centerPosition,
-              behavior: 'smooth'
-            });
-          }
-        }
-      }
-
-      // Manage scroll hint visibility and behavior
-      function updateScrollHint() {
-        const scrollHint = document.querySelector('.scroll-hint');
-        if (!scrollHint || !skillsSidebar) return;
-
-        const isMobile = window.innerWidth < 768;
-        const isScrollable = skillsSidebar.scrollWidth > skillsSidebar.clientWidth;
-        const hasScrolled = sessionStorage.getItem('skillsSidebarScrolled') === 'true';
-        
-        // Show hint only on mobile when scrollable and user hasn't scrolled yet
-        if (isMobile && isScrollable && !hasScrolled) {
-          scrollHint.classList.add('show');
-          scrollHint.classList.remove('fade-out');
-          
-          // Auto-hide hint after 8 seconds if user doesn't interact
-          setTimeout(() => {
-            if (scrollHint.classList.contains('show')) {
-              hideScrollHint();
-            }
-          }, 8000);
-        } else {
-          scrollHint.classList.remove('show');
-        }
-      }
-
-      // Hide scroll hint after user interacts
-      function hideScrollHint() {
-        const scrollHint = document.querySelector('.scroll-hint');
-        if (scrollHint) {
-          scrollHint.classList.add('fade-out');
-          setTimeout(() => {
-            scrollHint.classList.remove('show');
-          }, 500);
-          sessionStorage.setItem('skillsSidebarScrolled', 'true');
-        }
-      }
-
-      // Add scroll listener to skills sidebar for mobile
-      if (skillsSidebar) {
-        skillsSidebar.addEventListener('scroll', () => {
-          const scrollPercent = skillsSidebar.scrollLeft / (skillsSidebar.scrollWidth - skillsSidebar.clientWidth);
-          // Update visual indicator or feedback based on scroll position
-          if (scrollPercent > 0.9) {
-            skillsSidebar.classList.add('scrolled-end');
-          } else {
-            skillsSidebar.classList.remove('scrolled-end');
-          }
-          
-          // Hide scroll hint after user scrolls
-          hideScrollHint();
-        });
-
-        // Hide scroll hint on touch/interaction
-        skillsSidebar.addEventListener('touchstart', hideScrollHint);
-        skillsSidebar.addEventListener('mousedown', hideScrollHint);
-      }
 
       skillToggles.forEach(button => {
         button.addEventListener('click', () => {
@@ -1488,147 +1843,56 @@
           skillToggles.forEach(btn => btn.classList.remove('active'));
           button.classList.add('active');
 
-          // Add loading state (for visual feedback especially on mobile)
-          if (skillsContent) skillsContent.classList.add('loading');
-
-          // Scroll the active toggle into view on mobile
-          if (window.innerWidth < 768) {
-            const sidebarRect = skillsSidebar.getBoundingClientRect();
-            const buttonRect = button.getBoundingClientRect();
-            const centerPosition = buttonRect.left + (buttonRect.width / 2) - sidebarRect.left - (skillsSidebar.clientWidth / 2);
-            
-            skillsSidebar.scrollTo({
-              left: skillsSidebar.scrollLeft + centerPosition,
-              behavior: 'smooth'
-            });
-          }
-
-          // Update active category display with a slight delay for visual feedback
-          setTimeout(() => {
-            const targetId = button.getAttribute('data-target');
-            skillCategories.forEach(cat => {
-              cat.classList.toggle('active', cat.id === targetId);
-              // Re-trigger fade-in animation for pills in the newly active category
+          // Update active category display
+          const targetId = button.getAttribute('data-target');
+          skillCategories.forEach(cat => {
+            cat.classList.toggle('active', cat.id === targetId);
+            // Re-trigger fade-in animation for pills in the newly active category
               if (cat.id === targetId) {
                 cat.querySelectorAll('.skill-pill').forEach((pill, index) => {
                   pill.style.animation = 'none'; // Reset animation
                   pill.offsetHeight; /* Trigger reflow */
-                  
-                  // More staggered timing on mobile for better performance
-                  const delay = window.innerWidth < 480 ? index * 0.06 : index * 0.04;
-                  pill.style.animation = `fadeInPill 0.5s ease forwards ${delay}s`; // Staggered fade-in
+                  pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`; // Staggered fade-in
                 });
               }
-            });
-            
-            // Remove loading state
-            if (skillsContent) {
-              setTimeout(() => {
-                skillsContent.classList.remove('loading');
-              }, 300);
-            }
-            
-            // Update scroll hint after category change
-            updateScrollHint();
-          }, 100);
+          });
         });
       });
-      
-      // Initialize scroll indicator on load and resize
-      window.addEventListener('load', updateScrollIndicator);
-      window.addEventListener('resize', debounce(updateScrollIndicator, 200));
 
         // Initialize the first category pills animation on load
         document.addEventListener('DOMContentLoaded', () => {
+            // Setup enhanced skills functionality
+            setupSkillToggles();
+            setupSwipeSupport();
+            
             const activeCategory = document.querySelector('.skill-category.active');
             if (activeCategory) {
-                // More gradual animation on mobile to avoid jank
-                const isMobile = window.innerWidth < 768;
-                const animationDuration = isMobile ? '0.6s' : '0.5s';
-                
                 activeCategory.querySelectorAll('.skill-pill').forEach((pill, index) => {
-                  // For mobile: more staggered timing and optimized delay
-                  const delay = isMobile ? Math.min(index * 0.06, 1.2) : index * 0.04;
-                  pill.style.animation = `fadeInPill ${animationDuration} ease forwards ${delay}s`;
-                  
-                  // Add touch feedback for mobile
-                  if (isMobile) {
-                    pill.addEventListener('touchstart', () => {
-                      pill.style.transform = 'scale(0.95)';
-                    }, {passive: true});
-                    
-                    pill.addEventListener('touchend', () => {
-                      pill.style.transform = 'scale(1)';
-                    }, {passive: true});
-                  }
+                  pill.style.animation = `fadeInPill 0.5s ease forwards ${index * 0.04}s`;
                 });
-                
-                // Initialize scroll indicator for the skills sidebar
-                updateScrollIndicator();
-                
-                // Show scroll hint after a delay on mobile
-                setTimeout(() => {
-                  updateScrollHint();
-                }, 2000); // Show hint after 2 seconds
             }
+
+            // Check which categories need show more buttons
+            ['product-management', 'technical-skills', 'tools-platforms'].forEach(categoryId => {
+              checkShowMoreNeeded(categoryId);
+            });
 
             // --- Initialize Carousels ---
             initCarousel('carousel-projects', 'dots-projects');
             initCarousel('carousel-blogs', 'dots-blogs');
-            
-            // --- Enhance Carousels with Touch Support ---
-            enhanceCarouselsWithTouchSupport();
-            
-            // --- Handle Responsive Carousel Resizing ---
-            window.addEventListener('resize', debounce(() => {
-                // Adjust carousels on window resize for better mobile responsiveness
-                document.querySelectorAll('.carousel-inner').forEach(carousel => {
-                    const carouselId = carousel.id;
-                    if (!carouselId) return;
-                    
-                    // Get current active slide index
-                    const transform = carousel.style.transform;
-                    let currentIndex = 0;
-                    
-                    if (transform && transform.includes('translateX(')) {
-                        const match = transform.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
-                        if (match) {
-                            currentIndex = Math.round(parseFloat(match[1]) / 100);
-                        }
-                    }
-                    
-                    // Update carousel layout without animation
-                    carousel.style.transition = 'none';
-                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    
-                    // Re-enable transition after a brief delay
-                    setTimeout(() => {
-                        carousel.style.transition = 'transform 0.3s ease-out';
-                    }, 50);
-                });
-            }, 200));
-            
-            // --- Make Carousels Responsive on Window Resize ---
-            window.addEventListener('resize', () => {
-                // Ensure current slide is properly positioned after resize
-                document.querySelectorAll('.carousel-inner').forEach(carousel => {
-                    const currentIndex = getCurrentSlideIndex(carousel);
-                    if (currentIndex !== undefined) {
-                        carousel.style.transition = 'none'; // Disable transition during resize
-                        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                        // Re-enable transition after a short delay
-                        setTimeout(() => {
-                            carousel.style.transition = 'transform 0.3s ease-out';
-                        }, 50);
-                    }
-                });
-            });
 
             // --- (Optional) Auto-Open Calendly ---
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('book') === 'true') {
                 window.open('https://calendly.com/sabyasachimishra648/15min', '_blank');
             }
+        });
+
+        // --- Resize handler to re-check show more buttons ---
+        window.addEventListener('resize', () => {
+          ['product-management', 'technical-skills', 'tools-platforms'].forEach(categoryId => {
+            checkShowMoreNeeded(categoryId);
+          });
         });
 
         // --- Carousel Logic ---
@@ -1719,28 +1983,8 @@
          const total = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item')).length;
          // Basic boundary check (though modulo handles wrapping)
          if (index < 0 || index >= total) return;
-         
-         // Find carousel container for additional interaction feedback
-         const container = carousel.closest('.carousel-container');
-         
-         // Ensure transition is enabled for smooth sliding
-         carousel.style.transition = 'transform 0.3s ease-out';
          carousel.style.transform = `translateX(-${index * 100}%)`;
          updateDots(dotsId, index);
-
-         // Track interaction for swipe hint management
-         if (container) {
-             container.classList.add('interacted');
-             
-             // Optional - add subtle transition effect on navigation controls
-             const navButtons = container.querySelectorAll('.carousel-nav button');
-             navButtons.forEach(button => {
-                 button.style.transform = 'scale(1.05)';
-                 setTimeout(() => {
-                     button.style.transform = '';
-                 }, 200);
-             });
-         }
 
          // If this is the projects carousel, reset its autoplay timer after manual interaction
          if (carouselId === 'carousel-projects') {
@@ -1749,12 +1993,6 @@
                 setupCarouselAutoplay(carouselId, dotsId, 9000);
             }
          }
-         
-         // Broadcast custom event for potential listeners
-         const event = new CustomEvent('carouselSlideChange', { 
-             detail: { carouselId, index, total }
-         });
-         document.dispatchEvent(event);
         }
 
         function nextSlide(carouselId, dotsId) {
@@ -1777,57 +2015,241 @@
          setSlide(carouselId, dotsId, index);
         }
 
-        // --- Skills Carousel Functionality ---
-      const skillsCarousel = document.querySelector('.skills-carousel');
-      const prevButton = document.querySelector('.carousel-nav.prev');
-      const nextButton = document.querySelector('.carousel-nav.next');
+        // --- Radio toggle code ---
+        const radioCardContainer = document.querySelector('.radio-cards[data-target="sections"]');
+        const radioContentContainer = document.querySelector('.dynamic-content[data-target="sections"]');
 
-      let currentSlide = 0;
+        if (radioCardContainer && radioContentContainer) {
+          const radioCards = radioCardContainer.querySelectorAll('.radio-card');
+          radioCards.forEach(card => {
+            card.addEventListener('click', () => {
+              const currentActiveCard = radioCardContainer.querySelector('.radio-card.active');
+              const currentActiveContent = radioContentContainer.querySelector(':scope > div.active');
+              const targetId = card.getAttribute('data-id');
+              const targetDiv = document.getElementById(targetId);
 
-      function updateCarousel() {
-        if (skillsCarousel) {
-          skillsCarousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+              if (card === currentActiveCard || !targetDiv) return; // Do nothing if clicking the active card or target not found
+
+              // Remove active classes
+              if (currentActiveCard) currentActiveCard.classList.remove('active');
+              if (currentActiveContent) currentActiveContent.classList.remove('active');
+
+              // Add active classes to the new target
+              card.classList.add('active');
+              targetDiv.classList.add('active');
+
+              // Optional: Re-initialize AOS for newly revealed content if animations feel off
+              // AOS.refreshHard(); // Use refreshHard if elements change significantly
+            });
+          });
         }
+
+      // --- Auto-hide/show bottom bar on scroll ---
+      let lastScrollY = window.pageYOffset;
+      const bottomBar = document.getElementById('bottomBar');
+      const scrollThreshold = 50; // Pixels to scroll before triggering hide/show
+      let isScrolling; // Timeout tracker
+
+      window.addEventListener('scroll', () => {
+        if (!bottomBar || window.innerWidth >= 768) return; // Exit if no bar or on desktop
+
+        const currentScrollY = window.pageYOffset;
+
+        // Clear previous timeout
+        window.clearTimeout(isScrolling);
+
+         // Determine scroll direction
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+          bottomBar.classList.remove('visible'); // Hide on scroll down
+        } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
+          bottomBar.classList.add('visible'); // Show on scroll up or near top
+        }
+
+        // Set a timeout to run after scrolling ends
+        isScrolling = setTimeout(() => {
+          // Add logic here if you want the bar to reappear after scrolling stops
+          // For now, it just stays hidden if scrolled down past threshold
+          if (currentScrollY > scrollThreshold) {
+            // Optional: Re-add 'visible' class if you want it to show after scrolling stops
+            // bottomBar.classList.add('visible');
+          }
+        }, 150); // Adjust timeout duration as needed
+
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+      }, { passive: true });
+
+      // Show initially if near top on load (only on mobile)
+      if (window.pageYOffset <= 10 && bottomBar && window.innerWidth < 768) {
+         bottomBar.classList.add('visible');
       }
 
-      function showPrevSlide() {
-        if (currentSlide > 0) {
-          currentSlide--;
-          updateCarousel();
+        // --- Scroll to Top Button Logic ---
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+          if (scrollToTopBtn) { // Check if button exists
+              if (window.pageYOffset > 350) { // Show button after scrolling 350px
+                scrollToTopBtn.classList.add('show');
+              } else {
+                scrollToTopBtn.classList.remove('show');
+              }
+          }
+        }, { passive: true });
+
+        if (scrollToTopBtn) {
+          scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
         }
-      }
 
-      function showNextSlide() {
-        if (skillsCarousel && currentSlide < skillsCarousel.children.length - 1) {
-          currentSlide++;
-          updateCarousel();
+        // --- Global function for Show More/Less functionality ---
+    function toggleSkills(categoryId) {
+      const overflow = document.getElementById(`skills-overflow-${categoryId}`);
+      const toggleBtn = document.getElementById(`toggle-${categoryId}`);
+      const toggleText = toggleBtn.querySelector('.toggle-text');
+      
+      overflow.classList.toggle('expanded');
+      
+      if (overflow.classList.contains('expanded')) {
+        toggleText.textContent = 'Show Less';
+        // Add haptic feedback for mobile (if supported)
+        if (navigator.vibrate) {
+          navigator.vibrate(50);
         }
+      } else {
+        toggleText.textContent = 'Show All Skills';
+        // Scroll back to top of skills section
+        overflow.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    }
 
-      if (prevButton) prevButton.addEventListener('click', showPrevSlide);
-      if (nextButton) nextButton.addEventListener('click', showNextSlide);
+    // --- Enhanced Skill Toggle Functions ---
+    function setupSkillToggles() {
+      const skillToggles = document.querySelectorAll('.skill-toggle');
+      const skillCategories = document.querySelectorAll('.skill-category');
+      const progressDots = document.querySelectorAll('.progress-dot');
 
-      // Add touch/swipe support
-      let startX = 0;
-      let endX = 0;
+      // Enhanced tab functionality with ARIA support
+      skillToggles.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          // Update active button state and ARIA attributes
+          skillToggles.forEach((btn, btnIndex) => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+            btn.setAttribute('tabindex', '-1');
+          });
+          button.classList.add('active');
+          button.setAttribute('aria-selected', 'true');
+          button.setAttribute('tabindex', '0');
 
-      if (skillsCarousel) {
-        skillsCarousel.addEventListener('touchstart', (e) => {
-          startX = e.touches[0].clientX;
+          // Update progress dots
+          progressDots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('active', dotIndex === index);
+          });
+
+          // Update active category display
+          const targetId = button.getAttribute('aria-controls');
+          skillCategories.forEach(cat => {
+            cat.classList.toggle('active', cat.id === targetId);
+            // Re-trigger fade-in animation for pills in the newly active category
+            if (cat.id === targetId) {
+              cat.querySelectorAll('.skill-pill').forEach((pill, pillIndex) => {
+                pill.style.animation = 'none'; // Reset animation
+                pill.offsetHeight; /* Trigger reflow */
+                pill.style.animation = `fadeInPill 0.5s ease forwards ${pillIndex * 0.04}s`; // Staggered fade-in
+              });
+              
+              // Reset expanded state when switching categories
+              const overflow = cat.querySelector('.skills-overflow');
+              const toggleBtn = cat.querySelector('.skills-toggle-btn');
+              if (overflow && toggleBtn) {
+                overflow.classList.remove('expanded');
+                toggleBtn.querySelector('.toggle-text').textContent = 'Show All Skills';
+                checkShowMoreNeeded(cat.id);
+              }
+            }
+          });
         });
 
-        skillsCarousel.addEventListener('touchmove', (e) => {
-          endX = e.touches[0].clientX;
-        });
-
-        skillsCarousel.addEventListener('touchend', () => {
-          if (startX - endX > 50) {
-            showNextSlide();
-          } else if (endX - startX > 50) {
-            showPrevSlide();
+        // Add keyboard navigation
+        button.addEventListener('keydown', (e) => {
+          let targetIndex = index;
+          
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            targetIndex = (index + 1) % skillToggles.length;
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            targetIndex = (index - 1 + skillToggles.length) % skillToggles.length;
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            targetIndex = 0;
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            targetIndex = skillToggles.length - 1;
+          }
+          
+          if (targetIndex !== index) {
+            skillToggles[targetIndex].click();
+            skillToggles[targetIndex].focus();
           }
         });
+      });
+
+      // Progress dots functionality
+      progressDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          skillToggles[index].click();
+        });
+      });
+    }
+
+    // --- Check if Show More button is needed ---
+    function checkShowMoreNeeded(categoryId) {
+      const container = document.getElementById(`skills-overflow-${categoryId}`);
+      const toggleBtn = document.getElementById(`toggle-${categoryId}`);
+      
+      if (container && toggleBtn) {
+        // Check if content height exceeds container max-height
+        const isOverflowing = container.scrollHeight > 300; // 300px is our max-height
+        toggleBtn.style.display = isOverflowing ? 'block' : 'none';
       }
+    }
+
+    // --- Touch/swipe support for category switching ---
+    function setupSwipeSupport() {
+      let startX = 0;
+      let endX = 0;
+      const skillToggles = document.querySelectorAll('.skill-toggle');
+      
+      const skillsSidebar = document.querySelector('.skills-sidebar');
+      if (!skillsSidebar) return;
+      
+      skillsSidebar.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].screenX;
+      });
+      
+      skillsSidebar.addEventListener('touchend', e => {
+        endX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        const activeIndex = Array.from(skillToggles).findIndex(btn => btn.classList.contains('active'));
+        const swipeThreshold = 50;
+        
+        if (startX - endX > swipeThreshold && activeIndex < skillToggles.length - 1) {
+          // Swipe left - next category
+          skillToggles[activeIndex + 1].click();
+        } else if (endX - startX > swipeThreshold && activeIndex > 0) {
+          // Swipe right - previous category
+          skillToggles[activeIndex - 1].click();
+        }
+      }
+    }
     </script>
 
     <script>
@@ -1863,7 +2285,7 @@
 
                     console.log(`Tracking PDF download: ${fileName}, Type: ${downloadType}`); // For debugging
 
-                    gtag('event', 'download_file', {
+                    gtag('event', 'portfolio_download_file', {
                         'event_category': 'file_download',
                         'event_label': fileName, // Use filename as label
                         'file_extension': 'pdf',
@@ -1904,7 +2326,7 @@
 
                     console.log(`Tracking Loom link click: ${loomUrl}, ID: ${loomId}`); // For debugging
 
-                    gtag('event', 'select_content', {
+                    gtag('event', 'portfolio_select_content', {
                         'event_category': 'engagement',
                         'event_label': eventLabel,
                         'content_type': contentType,
@@ -1922,171 +2344,12 @@
                     console.log('Tracking interaction with embedded Loom container'); // For debugging
 
                     // Using a custom event name as it's not a standard GA4 event
-                    gtag('event', 'interact_loom_embed', {
+                    gtag('event', 'portfolio_interact_loom_embed', {
                         'event_category': 'engagement',
                         'event_label': 'intro_video_embed_click', // Label clearly indicates it's a container click
                         'interaction_type': 'click'
                     });
                 }, true); // Use capture phase to catch clicks on the iframe potentially stopping propagation
-            }
-
-            // --- Enhanced Carousel with Touch Support ---
-            function enhanceCarouselsWithTouchSupport() {
-                // Check if we're on a mobile or touch device
-                const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 0);
-                
-                document.querySelectorAll('.carousel-container').forEach(container => {
-                    const carousel = container.querySelector('.carousel-inner');
-                    if (!carousel) return;
-                    
-                    // Set a data attribute for mobile-specific styling if needed
-                    if (isMobileDevice) {
-                        container.setAttribute('data-mobile', 'true');
-                    }
-                    
-                    const carouselId = carousel.id;
-                    const dotsId = container.querySelector('.carousel-dots')?.id;
-                    
-                    // Touch tracking variables
-                    let startX = 0;
-                    let currentX = 0;
-                    let isDragging = false;
-                    let startTranslateX = 0;
-                    let currentTransform = 0;
-                    const minSwipeDistance = 50; // Minimum distance to trigger a swipe
-                    const slides = Array.from(carousel.children).filter(el => el.classList.contains('carousel-item'));
-                    const totalSlides = slides.length;
-                    
-                    if (totalSlides <= 1) return; // Don't add touch support if only one slide
-                    
-                    // Get current transform as percentage
-                    function getCurrentTransform() {
-                        const transform = carousel.style.transform;
-                        if (transform && transform.includes('translateX(')) {
-                            const match = transform.match(/translateX\(-?(\d+(?:\.\d+)?)%\)/);
-                            return match ? parseFloat(match[1]) : 0;
-                        }
-                        return 0;
-                    }
-                    
-                    // Touch event handlers
-                    function handleTouchStart(e) {
-                        startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                        isDragging = true;
-                        startTranslateX = getCurrentTransform();
-                        
-                        // Mark container as interacted to hide swipe hint
-                        container.classList.add('interacted');
-                        
-                        // Pause autoplay during manual interaction
-                        if (carouselAutoplayIntervals[carouselId]) {
-                            clearInterval(carouselAutoplayIntervals[carouselId]);
-                        }
-                        
-                        // Remove transition during drag for responsive feel
-                        carousel.style.transition = 'none';
-                        
-                        // Prevent default only for mouse to avoid page scroll interference
-                        if (e.type.includes('mouse')) {
-                            e.preventDefault();
-                        }
-                    }
-                    
-                    function handleTouchMove(e) {
-                        if (!isDragging) return;
-                        
-                        currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                        const diffX = currentX - startX;
-                        const slideWidth = carousel.offsetWidth;
-                        
-                        // Calculate how much to move (percentage of width)
-                        const movePercent = (diffX / slideWidth) * 100;
-                        let newTranslate = startTranslateX - movePercent;
-                        
-                        // Add resistance when trying to drag past first or last slide
-                        if (newTranslate < 0) {
-                            newTranslate = newTranslate * 0.3; // Add resistance at beginning
-                        } else if (newTranslate > (totalSlides - 1) * 100) {
-                            newTranslate = ((totalSlides - 1) * 100) + ((newTranslate - ((totalSlides - 1) * 100)) * 0.3); // Add resistance at end
-                        }
-                        
-                        carousel.style.transform = `translateX(-${newTranslate}%)`;
-                        currentTransform = newTranslate;
-                        
-                        // Prevent default to avoid page scrolling while swiping
-                        e.preventDefault();
-                    }
-                    
-                    function handleTouchEnd(e) {
-                        if (!isDragging) return;
-                        isDragging = false;
-                        
-                        // Restore transition for smooth snap
-                        carousel.style.transition = 'transform 0.3s ease-out';
-                        
-                        const diffX = currentX - startX;
-                        
-                        // Determine direction and if swipe was sufficient
-                        if (Math.abs(diffX) >= minSwipeDistance) {
-                            let targetSlide;
-                            
-                            if (diffX > 0) {
-                                // Swiped right (previous)
-                                targetSlide = Math.floor(currentTransform / 100);
-                            } else {
-                                // Swiped left (next)
-                                targetSlide = Math.ceil(currentTransform / 100);
-                            }
-                            
-                            // Ensure target is within bounds
-                            targetSlide = Math.max(0, Math.min(totalSlides - 1, targetSlide));
-                            setSlide(carouselId, dotsId, targetSlide);
-                        } else {
-                            // Not enough movement, snap back to closest slide
-                            const currentSlide = Math.round(currentTransform / 100);
-                            setSlide(carouselId, dotsId, currentSlide);
-                        }
-                        
-                        // Restart autoplay for projects carousel
-                        if (carouselId === 'carousel-projects') {
-                            setupCarouselAutoplay(carouselId, dotsId, 9000);
-                        }
-                    }
-                    
-                    // Add mouse and touch events
-                    carousel.addEventListener('mousedown', handleTouchStart);
-                    carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
-                    
-                    window.addEventListener('mousemove', handleTouchMove);
-                    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                    
-                    window.addEventListener('mouseup', handleTouchEnd);
-                    window.addEventListener('touchend', handleTouchEnd);
-                    
-                    // Improve accessibility with keyboard navigation
-                    carousel.setAttribute('tabindex', '0');
-                    carousel.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') {
-                            prevSlide(carouselId, dotsId);
-                            e.preventDefault();
-                        } else if (e.key === 'ArrowRight') {
-                            nextSlide(carouselId, dotsId);
-                            e.preventDefault();
-                        }
-                    });
-                    
-                    // Ensure the carousel has a transition property for smooth sliding
-                    carousel.style.transition = 'transform 0.3s ease-out';
-                    
-                    // Add cursor styles
-                    carousel.style.cursor = 'grab';
-                    carousel.addEventListener('mousedown', () => {
-                        carousel.style.cursor = 'grabbing';
-                    });
-                    carousel.addEventListener('mouseup', () => {
-                        carousel.style.cursor = 'grab';
-                    });
-                });
             }
 
             // --- Explanation regarding (not set) Landing Page ---
@@ -2103,5 +2366,9 @@
             */
         });
     </script>
+    
+    <!-- External Scripts - Moved to bottom with defer for performance -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBR866PTCR" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 </body>
 </html>
