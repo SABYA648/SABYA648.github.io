@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shiproom · LinkedIn Post Wall</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary:'#2563eb', secondary:'#1e40af', accent:'#f59e0b' }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    /* Make LinkedIn iframes play nicer in a grid */
+    .li-frame { width: 100% !important; border: 0; }
+    .card-shadow { box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.06); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <a href="./index.html" class="text-xl font-bold text-primary">Shiproom</a>
+      <nav class="hidden sm:flex items-center gap-6">
+        <a href="./index.html#podcasts" class="hover:text-primary">Podcasts</a>
+        <a href="./index.html#ai-content" class="hover:text-primary">AI Content</a>
+        <a href="./index.html#newsletter" class="hover:text-primary">Newsletter</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="darkToggle" class="px-3 py-1.5 rounded border border-gray-300 dark:border-gray-700 text-sm hover:bg-gray-100 dark:hover:bg-gray-900">Theme</button>
+        <a href="#wall" class="bg-primary text-white px-3 py-1.5 rounded hover:bg-secondary text-sm">Jump to Wall</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-10 pb-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">LinkedIn Post Wall</h1>
+      <p class="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl">
+        A living wall of the sharpest LinkedIn posts I find. Like, unlike, and drop comments right here. No fluff.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <section class="pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-4 flex flex-wrap items-center gap-4">
+        <div class="text-sm text-gray-600 dark:text-gray-300">
+          <span id="statPosts" class="font-semibold">0</span> posts
+        </div>
+        <div class="text-sm text-gray-600 dark:text-gray-300">
+          <span id="statLikes" class="font-semibold">0</span> total likes
+        </div>
+        <div class="text-sm text-gray-600 dark:text-gray-300">
+          <span id="statComments" class="font-semibold">0</span> total comments
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wall -->
+  <main id="wall" class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6" id="postGrid">
+
+        <!-- Post Card Template (cloned via JS) -->
+        <template id="postTpl">
+          <article class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 card-shadow overflow-hidden flex flex-col">
+            <header class="px-4 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-primary/15 grid place-items-center text-primary font-bold text-sm">LI</div>
+                <div class="text-sm">
+                  <div class="font-medium">Featured LinkedIn Post</div>
+                  <div class="text-gray-500 dark:text-gray-400 text-xs" data-post-id></div>
+                </div>
+              </div>
+              <a class="text-xs text-primary hover:underline" target="_blank" rel="noopener noreferrer">Open on LinkedIn</a>
+            </header>
+
+            <div class="bg-gray-50 dark:bg-gray-950 px-0">
+              <!-- iframe injected here -->
+              <div class="p-3">
+                <div class="rounded-lg overflow-hidden">
+                  <!-- iframe goes here -->
+                </div>
+              </div>
+            </div>
+
+            <footer class="px-4 pt-2 pb-4 mt-auto">
+              <div class="flex items-center gap-3">
+                <button data-like class="px-3 py-1.5 rounded border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm">Like</button>
+                <button data-unlike class="px-3 py-1.5 rounded border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm">Unlike</button>
+                <span class="ml-auto text-xs text-gray-600 dark:text-gray-400">
+                  <span data-like-count>0</span> likes · <span data-comment-count>0</span> comments
+                </span>
+              </div>
+
+              <div class="mt-3">
+                <form data-comment-form class="flex gap-2">
+                  <input data-comment-input type="text" placeholder="Add a comment" class="flex-1 px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-primary text-sm" />
+                  <button class="px-3 py-2 rounded bg-primary text-white hover:bg-secondary text-sm">Post</button>
+                </form>
+                <ul data-comments class="mt-3 space-y-2"></ul>
+              </div>
+            </footer>
+          </article>
+        </template>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-500 dark:text-gray-400">
+      &copy; 2024 Shiproom. Curated with taste and a ruthless filter.
+    </div>
+  </footer>
+
+  <script>
+    // ---------- Dark mode ----------
+    const root = document.documentElement;
+    const DM_KEY = 'shiproom_theme';
+    if (localStorage.getItem(DM_KEY) === 'dark') root.classList.add('dark');
+    document.getElementById('darkToggle')?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem(DM_KEY, root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // ---------- Sample posts data ----------
+    // Use stable IDs so likes/comments persist per post
+    const posts = [
+      {
+        id: 'li_7363973016294240256',
+        href: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7363973016294240256',
+        iframe: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7363973016294240256" height="971" width="504" frameborder="0" allowfullscreen="" title="Embedded post" class="li-frame"></iframe>'
+      },
+      {
+        id: 'li_7359370991912796161',
+        href: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7359370991912796161',
+        iframe: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7359370991912796161" height="1194" width="504" frameborder="0" allowfullscreen="" title="Embedded post" class="li-frame"></iframe>'
+      },
+      {
+        id: 'li_7364308140902805507',
+        href: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7364308140902805507',
+        iframe: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364308140902805507" height="915" width="504" frameborder="0" allowfullscreen="" title="Embedded post" class="li-frame"></iframe>'
+      },
+      {
+        id: 'li_7365023958863167488',
+        href: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7365023958863167488?collapsed=1',
+        iframe: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7365023958863167488?collapsed=1" height="264" width="504" frameborder="0" allowfullscreen="" title="Embedded post" class="li-frame"></iframe>'
+      },
+      {
+        id: 'li_7364320059046965248',
+        href: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7364320059046965248?collapsed=1',
+        iframe: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364320059046965248?collapsed=1" height="593" width="504" frameborder="0" allowfullscreen="" title="Embedded post" class="li-frame"></iframe>'
+      },
+    ];
+
+    // ---------- Persistence (localStorage for v0) ----------
+    const LS_LIKES = 'sr_li_likes';
+    const LS_COMMENTS = 'sr_li_comments';
+
+    function readLikes() {
+      try { return JSON.parse(localStorage.getItem(LS_LIKES) || '{}'); } catch { return {}; }
+    }
+    function writeLikes(map) {
+      localStorage.setItem(LS_LIKES, JSON.stringify(map));
+    }
+    function readComments() {
+      try { return JSON.parse(localStorage.getItem(LS_COMMENTS) || '{}'); } catch { return {}; }
+    }
+    function writeComments(map) {
+      localStorage.setItem(LS_COMMENTS, JSON.stringify(map));
+    }
+
+    // ---------- Render ----------
+    const grid = document.getElementById('postGrid');
+    const tpl = document.getElementById('postTpl');
+    const likesMap = readLikes();
+    const commentsMap = readComments();
+
+    posts.forEach(p => {
+      const node = tpl.content.cloneNode(true);
+      // header small id text
+      node.querySelector('[data-post-id]').textContent = p.id;
+      // open on LinkedIn
+      node.querySelector('a[target="_blank"]').href = p.href;
+      // iframe
+      const iframeWrap = node.querySelector('.rounded-lg.overflow-hidden');
+      iframeWrap.innerHTML = p.iframe;
+
+      // counts
+      const likeCountEl = node.querySelector('[data-like-count]');
+      const commentCountEl = node.querySelector('[data-comment-count]');
+      likeCountEl.textContent = likesMap[p.id]?.count || 0;
+      const existingComments = commentsMap[p.id] || [];
+      commentCountEl.textContent = existingComments.length;
+
+      // buttons
+      node.querySelector('[data-like]').addEventListener('click', () => {
+        const val = (likesMap[p.id]?.count || 0) + 1;
+        likesMap[p.id] = { count: val, ts: Date.now() };
+        likeCountEl.textContent = val;
+        writeLikes(likesMap);
+        refreshTotals();
+      });
+
+      node.querySelector('[data-unlike]').addEventListener('click', () => {
+        const current = (likesMap[p.id]?.count || 0);
+        const val = Math.max(0, current - 1);
+        likesMap[p.id] = { count: val, ts: Date.now() };
+        likeCountEl.textContent = val;
+        writeLikes(likesMap);
+        refreshTotals();
+      });
+
+      // comments list
+      const ul = node.querySelector('[data-comments]');
+      for (const c of existingComments) {
+        const li = document.createElement('li');
+        li.className = "text-sm bg-gray-100 dark:bg-gray-800 rounded px-3 py-2";
+        li.textContent = c.text;
+        ul.appendChild(li);
+      }
+
+      // comment form
+      const form = node.querySelector('[data-comment-form]');
+      const input = node.querySelector('[data-comment-input]');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+        const list = commentsMap[p.id] || [];
+        list.push({ text, ts: Date.now() });
+        commentsMap[p.id] = list;
+        writeComments(commentsMap);
+
+        const li = document.createElement('li');
+        li.className = "text-sm bg-gray-100 dark:bg-gray-800 rounded px-3 py-2";
+        li.textContent = text;
+        ul.prepend(li);
+
+        input.value = '';
+        commentCountEl.textContent = list.length;
+        refreshTotals();
+      });
+
+      grid.appendChild(node);
+    });
+
+    // ---------- Stats ----------
+    function refreshTotals() {
+      const statPosts = document.getElementById('statPosts');
+      const statLikes = document.getElementById('statLikes');
+      const statComments = document.getElementById('statComments');
+      statPosts.textContent = posts.length.toString();
+
+      const likes = Object.values(readLikes()).reduce((sum, v) => sum + (v.count || 0), 0);
+      statLikes.textContent = likes.toString();
+
+      const comments = Object.values(readComments()).reduce((sum, arr) => sum + (arr?.length || 0), 0);
+      statComments.textContent = comments.toString();
+    }
+    refreshTotals();
+  </script>
+</body>
+</html>
